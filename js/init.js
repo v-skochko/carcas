@@ -741,6 +741,7 @@ $(window).bind('orientationchange resize', function () {
 function footer() {
     $('.footix').height($('footer').height());
 }
+
 function valid_wpcf7_fix() {
     $('body').on('click', '.wpcf7-not-valid-tip', function () {
         $(this).prev().trigger('focus');
