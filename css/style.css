@@ -54,24 +54,6 @@ hr {
 strong {
     font-weight: 700;
 }
-/* fullframe video */
-.fullframe {
-    height: 0;
-    margin: 0;
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    padding-top: 30px;
-    position: relative;
-    z-index: 0;
-}
-.fullframe > iframe, .fullframe > object, .fullframe > embed {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-}
 
 body {
     position:relative;
@@ -92,10 +74,7 @@ input, textarea, button, a {
     position: relative;
     width: 960px;
 }
-/* RGBa Filter using PHP
-    * url('rgba-filter.php?name=black&a=50');
-    * url('rgba-filter.php?r=255&g=255&b=255&a=50');
-*/
+
 /* End Custom Reset */
 footer {
     position: absolute;
