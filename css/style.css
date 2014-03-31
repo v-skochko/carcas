@@ -3,9 +3,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
     display: block
 }
 
-mark {
-    background: none
-}
 
 html, body {
     height: 100%;
@@ -91,12 +88,12 @@ html[xmlns] .cfx {
 /* Selection */
 ::-moz-selection {
     color: #fff;
-    background: #00aeef
+    background: #ef7608
 }
 
 ::selection {
     color: #fff;
-    background: #00aeef
+    background: #ef7608
 }
 
 /* Wordpress classes */
