@@ -23,13 +23,14 @@ add_filter( 'show_admin_bar', '__return_false' );
 
 //register menus
 register_nav_menus(array(
-    'head_menu' => 'Main navigation',
-    'foot_menu' => 'Footer navigation'
+    'top_menu' => 'Top navigation',
+    'footer_menu' => 'Footer navigation'
 ));
 
 /* BEGIN: Theme config section*/
     define ('HOME_PAGE_ID', get_option('page_on_front'));
     define ('BLOG_ID', get_option('page_for_posts'));
+    define ('POSTS_PER_PAGE', get_option('posts_per_page'));
 /* END: Theme config section*/
 
 //Thumbnails theme support
@@ -50,7 +51,10 @@ function new_body_classes( $classes ){
             $tn= str_replace(".php", "", $tmp);
             $classes[] = $tn;
         }
+        global $post;
+        $classes[] = 'page-'.get_post($post)->post_name;;
     }
+    if(is_page() && !is_front_page()) {$classes[] = 'static-page';}
     global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
     if($is_lynx) $classes[] = 'lynx';
     elseif($is_gecko) $classes[] = 'gecko';
@@ -61,12 +65,11 @@ function new_body_classes( $classes ){
     elseif($is_IE) $classes[] = 'ie';
     else $classes[] = 'unknown';
     if($is_iphone) $classes[] = 'iphone';
-
     return $classes;
 }
 add_filter( 'body_class', 'new_body_classes' );
 
-//excerpt custom
+//Custom excerpt
 function gebid($post_id, $num){
     $the_post = get_post($post_id); //Gets post ID
     $the_excerpt = $the_post->post_content; //Gets post_content to be used as a basis for the excerpt
@@ -170,3 +173,9 @@ function wp_http_compression() {
 if(!ob_start("ob_gzhandler")) ob_start();
 }
 add_action('init', 'wp_http_compression');
+
+function remove_footer_admin () {
+    echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Theme by <a href="http://crystalstudio.me/" target="_blank">Crystal Web Studio</a> | Developer <a href="http://twitter.com/TuskoTrush" target="_blank">Tusko Trush</a></p>';
+}
+
+add_filter('admin_footer_text', 'remove_footer_admin');
