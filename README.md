@@ -45,6 +45,6 @@ Added html compression
 
 
 
-<a target="_blank" href="http://crystalstudio.me/">Made with love, coffee and rock n' roll.</a>
+Made with love, coffee and rock n' roll.
 
 Lviv, Ukraine
