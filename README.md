@@ -17,7 +17,7 @@ Custom theme url - theme();
 
 Modify <?php body_class(); ?> function.
 
-Custom excerpt gebid(POST_ID, NUMBER_OF_WORDS) (clear tags, wrapped in P tag).
+Custom excerpt *gebid(POST_ID, NUMBER_OF_WORDS)* (clear tags, wrapped in P tag).
 
 Removed ID's in menu list, Added classes for First & Last menu item.
 
