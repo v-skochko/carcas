@@ -11,7 +11,6 @@ function get_subpages($parent_id) {
     $img = get_field('icon', $sub->ID, true);
         $sp .= '<div class="'.(($aa++%2==0)?'alignleft':'alignright').'" onClick="window.location=\''. get_permalink($sub->ID).'\'">';
         $sp .= '<h3 class="cfx"><img src="'. $img .'" class="alignleft" alt="'. $sub->post_title.'" />'. $sub->post_title.'</h3>';
-        //$sp .= get_field('short_description', $sub->ID, true);
         $sp .= '</div>';
     }
     $sp .= '</div>';

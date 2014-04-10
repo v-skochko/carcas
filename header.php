@@ -5,7 +5,8 @@ header('X-UA-Compatible: IE=Edge,chrome=1');
 function ob_html_compress($buf){
     return preg_replace(array('/<!--(?>(?!\[).)(.*)(?>(?!\]).)-->/Uis','/[[:blank:]]+/'),array('',' '),str_replace(array("\n","\r","\t"),'',$buf));
 }
-ob_start('ob_html_compress'); ?>
+ob_start('ob_html_compress');
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,6 +21,7 @@ ob_start('ob_html_compress'); ?>
 <meta name="HandheldFriendly" content="True"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" /> -->
 <?php wp_head(); ?>
+<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 </head>
 <body <?php body_class(); ?>>
 <div id="wrap">
