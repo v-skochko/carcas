@@ -25,7 +25,7 @@ function my_remove_recent_comments_style() {
     remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
 }
 update_option('image_default_link_type','none');
-add_filter( 'show_admin_bar', '__return_false' );
+
 
 // remove wp version param from any enqueued scripts
 function vc_remove_wp_ver_css_js( $src ) {
@@ -193,7 +193,7 @@ if(!ob_start("ob_gzhandler")) ob_start();
 add_action('init', 'wp_http_compression');
 
 function remove_footer_admin () {
-    echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Theme Developer <a href="http://frontend.im" target="_blank">Tusko Trush</a>';
+    echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Theme Developer <a href="http://Skochko.org.ua" target="_blank">@Skochko</a>';
 }
 add_filter('admin_footer_text', 'remove_footer_admin');
 
