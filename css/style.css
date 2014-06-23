@@ -1,178 +1,203 @@
-/* Custom Reset */
+/*
+sass --watch sass:css --style compressed
+sass --watch sass:css --style compact
+*/
+/* Using @include declare-font-face('FontName', 'font-filename', 400); */
+/*@media screen and (-webkit-min-device-pixel-ratio:0) {
+//Using @include svg-font-face('FontName', 'font-filename', 400);
+}*/
+/* @include box-shadow(1px, 1px, 1px, 0, #fff, true); */
+/* custom reset */
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
-    display: block
-}
+  display: block; }
 
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+mark {
+  background: none; }
 
 html, body {
-    height: 100%;
-    margin: 0
-}
-
-html > body {
-    height: auto;
-    min-height: 100%
-}
+  height: 100%;
+  margin: 0; }
 
 html {
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
-    -webkit-text-size-adjust: none;
-}
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none; }
+  html > body {
+    height: auto;
+    min-height: 100%; }
 
 a {
-    color: #ef7608
-}
-
-a, a:hover, input, textarea, select {
+  color: #00aeef;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: 0 none; }
+  a:hover {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    outline: 0 none
-}
+    outline: 0 none; }
+
+input, textarea, select {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: 0 none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
 
 * {
-    margin: 0;
-    padding: 0;
-    border-collapse: collapse
-}
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse; }
 
 img {
-    max-width: 100%;
-    height: auto
-}
+  max-width: 100%;
+  height: auto; }
 
 a > img {
-    border: 0
-}
-
-input, select, textarea {
-    -webkit-appearance: none;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box
-}
+  border: 0; }
 
 p {
-    padding-bottom: 20px
-}
+  padding-bottom: 20px; }
 
 ul, ol {
-    list-style: none
-}
+  list-style: none; }
 
-#wrap {
-    min-height: 100%
-}
+main {
+  min-height: 100%; }
 
-/* Clearfix */
+/* clearfix */
 .clear {
-    clear: both
-}
+  clear: both; }
 
 .cfx:after {
-    content: ".";
-    display: block;
-    clear: both;
-    visibility: hidden;
-    line-height: 0;
-    height: 0
-}
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0; }
 
 html[xmlns] .cfx {
-    display: block
-}
+  display: block; }
 
 * html .cfx {
-    height: 1%
-}
+  height: 1%; }
 
-/* Selection */
-::-moz-selection {
-    color: #fff;
-    background: #ef7608
-}
+/* selection */
+::-moz-selection, ::selection {
+  color: #fff;
+  background: #92d400; }
 
-::selection {
-    color: #fff;
-    background: #ef7608
-}
+/* Vertical align inside DIV
+<span class="valign">Some content</span>
+<span class="vfix"></span>
+*/
+.valign {
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 98%; }
+
+.vfix {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  width: 0; }
+
+/*Parent of .valign must have fixed height*/
+.valign2 {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%); }
 
 /* Wordpress classes */
 .alignleft {
-    float: left
-}
+  float: left; }
 
 .alignright {
-    float: right
-}
+  float: right; }
 
 .aligncenter {
-    margin-left: auto;
-    margin-right: auto
-}
+  margin-left: auto;
+  margin-right: auto; }
+
+img.aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
 
 hr {
-    background: #e1e1e1;
-    height: 1px;
-    border: 0 none;
-    display: block;
-    clear: both;
-    margin: 20px 0
-}
+  background: #e1e1e1;
+  height: 1px;
+  border: 0 none;
+  display: block;
+  clear: both;
+  margin: 20px 0; }
 
 strong {
-    font-weight: 700;
-}
+  font-weight: 700; }
 
-body {
-    position: relative;
-    font: 400 13px/20px 'Arial', sans-serif;
-    color: #707070
-}
+/*fullframe video*/
+.fullframe {
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  position: relative;
+  z-index: 0; }
+  .fullframe > iframe, .fullframe > object, .fullframe > embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1; }
 
 input[type="submit"] {
-    cursor: pointer
-}
+  cursor: pointer; }
 
-input, textarea, button, a {
-    -webkit-transition: all 0.5s ease 0s;
-    -moz-transition: all 0.5s ease 0s;
-    -ms-transition: all 0.5s ease 0s;
-    -o-transition: all 0.5s ease 0s;
-    transition: all 0.5s ease 0s
-}
+textarea, button, a, input {
+  -webkit-transition: all 0.5s ease 0s;
+  -moz-transition: all 0.5s ease 0s;
+  -ms-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s; }
+
+body {
+  position: relative;
+  font: 400 14px/20px "Arial", sans-serif;
+  color: #707070; }
 
 .row {
-    margin: 0 auto;
-    max-width: 96%;
-    position: relative;
-    width: 960px;
-}
+  margin: 0 auto;
+  max-width: 96%;
+  position: relative;
+  width: 960px; }
 
-/* End Custom Reset */
 footer {
-    position: absolute;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    overflow: hidden
-}
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden; }
 
-@media screen and (min-width: 319px) and (max-width: 1024px) {
+@media screen and (max-width: 1024px) { }
 
-}
+@media screen and (max-width: 960px) { }
 
-@media screen and (min-width: 319px) and (max-width: 960px) {
+@media screen and (max-width: 768px) { }
 
-}
+@media screen and (max-width: 640px) { }
 
-@media screen and (min-width: 319px) and (max-width: 767px) {
+@media screen and (max-width: 480px) { }
 
-}
-
-@media screen and (min-width: 319px) and (max-width: 640px) {
-
-}
-
-@media screen and (min-width: 319px) and (max-width: 481px) {
-
-}
+@media screen and (max-width: 320px) { }
