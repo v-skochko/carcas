@@ -45,6 +45,7 @@
 
 ###### Add custom post type
     
-> Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">Blank wordpress template</a>
 
-> Львів 2014
+
+> ##### Львів 2014
+> ###### Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">Blank wordpress template</a>
