@@ -1,6 +1,6 @@
-#Blank wordpress template for writing themes
+# Blank wordpress template for writing themes
 
-## Recommended plugins installer
+### Recommended plugins installer
 ## Shortcodes functions
 
 ## Uncomit for add custom post type
