@@ -1,11 +1,5 @@
 ## Blank wordpress template for writing themes
 
-#### Recommended plugins installer
-## Shortcodes functions
-
-## Uncomit for add custom post type
-
-
 #### Speed & security boost
     - Custom optimizations
     - Remove wp version param from any enqueued scripts
@@ -37,4 +31,17 @@
         * Add link to all settings menu
     - For users except sysadmin
         * Remove the wordpress update notification for all users except sysadmin
+
+#### Add automated plugin installer
+    - Contact Form 7
+    - WP Migrate DB
+    - WP Smush.it
+    - WP-DB-Backup
+    - WP-SCSS
+    - WP No Category Base
+    - Better WordPress Minify
+    - Advanced Custom Fields
+##### Shortcodes functions
+
+#### Add custom post type
     
