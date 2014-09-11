@@ -1,12 +1,12 @@
-# Blank wordpress template for writing themes
+## Blank wordpress template for writing themes
 
-### Recommended plugins installer
+#### Recommended plugins installer
 ## Shortcodes functions
 
 ## Uncomit for add custom post type
 
 
-## SPEED & SECURITY BOOST
+#### SPEED & SECURITY BOOST
 
     ###Custom optimizations
    
@@ -14,7 +14,7 @@
     ###Remove wp version param from any enqueued scripts
    
 
-##THEME SETINGS
+#### THEME SETINGS
     ### Registered jQuery,  css and js file
   
 
@@ -53,7 +53,7 @@
     ### Activate ACF option page
 
 
-## WORDPRESS ADMIN PANEL SETINGS
+#### WORDPRESS ADMIN PANEL SETINGS
     ### Remove dashboard wigets
 
     
