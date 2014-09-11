@@ -7,11 +7,8 @@
 
 
 #### SPEED & SECURITY BOOST
-
-    ###Custom optimizations
-   
-
-    ###Remove wp version param from any enqueued scripts
+    - Custom optimizations
+    - Remove wp version param from any enqueued scripts
    
 
 #### THEME SETINGS
