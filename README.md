@@ -1,11 +1,11 @@
 ## Blank wordpress template for writing themes
 
-#### Speed & security boost
+##### Speed & security boost
     - Custom optimizations
     - Remove wp version param from any enqueued scripts
    
 
-#### Theme setings
+##### Theme setings
     - Registered jQuery,  css and js file
     - Set permalink settings
     - Add wiget area
@@ -20,7 +20,7 @@
     - Deregister Contact Form 7 default styles
     - Activate ACF option page
 
-#### Wordpress admin panel setings
+##### Wordpress admin panel setings
     - Remove dashboard wigets
     - Add custom logo to login page
     - Changing the logo link from wordpress.org to your site
@@ -32,7 +32,7 @@
     - For users except sysadmin
         * Remove the wordpress update notification for all users except sysadmin
 
-#### Add automated plugin installer
+##### Add automated plugin installer
     - Contact Form 7
     - WP Migrate DB
     - WP Smush.it
@@ -41,9 +41,9 @@
     - WP No Category Base
     - Better WordPress Minify
     - Advanced Custom Fields
-##### Shortcodes functions
+###### Shortcodes functions
 
-#### Add custom post type
+###### Add custom post type
     
 
 > Львів 2014
