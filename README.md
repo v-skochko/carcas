@@ -46,7 +46,7 @@
     - WP-SCSS
     - WP No Category Base
     - Better WordPress Minify
-    - Advanced Custom Fields
+    - Advanced Custom Fields (PRO version, password protection)
 
 ##### Shortcodes
     - Google map [gmap coordinates="xx.xxxxxx, -yy.yyyyyy"]
