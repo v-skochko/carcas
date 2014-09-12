@@ -3,7 +3,6 @@
 ##### Speed & security boost
     - Custom optimizations
     - Remove wp version param from any enqueued scripts
-   
 
 ##### Theme setings
     - Registered jQuery,  css and js file
@@ -41,7 +40,10 @@
     - WP No Category Base
     - Better WordPress Minify
     - Advanced Custom Fields
-###### Shortcodes functions
+
+##### Shortcodes
+    - Google map shortcode [add_shortcode('googlemap', 'gmap');]
+
 
 ###### Add custom post type
     

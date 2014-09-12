@@ -1,8 +1,8 @@
 <?php
 
 // Google map shortcode
-// add_shortcode('googlemap', 'customgooglemap');
-function customgooglemap($atts) {
+// add_shortcode('googlemap', 'gmap');
+function gmap($atts) {
      extract(shortcode_atts(array(
      "coordinates" => '41.871836, -87.617486'
      ), $atts));
