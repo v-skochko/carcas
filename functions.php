@@ -4,9 +4,6 @@
 ## Shortcodes functions
     require_once('shortcodes.php');
 
-## Uncomit for add custom post type
-//require_once('custom-cpt.php');
-
 ## SPEED & SECURITY BOOST
     ###Custom optimizations
     remove_action('wp_head', 'feed_links_extra', 3);
@@ -37,6 +34,9 @@
     add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 
 ##THEME SETINGS
+    ### Uncomit for add custom post type
+    // require_once('custom-cpt.php');
+
     ### Registered jQuery,  css and js file
     function tt_add_scripts() {
     if (!is_admin()) {

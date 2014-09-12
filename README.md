@@ -5,6 +5,7 @@
     - Remove wp version param from any enqueued scripts
 
 ##### Theme setings
+    - Custom post type supports
     - Registered jQuery,  css and js file
     - Permalink settings srt to %postname%!!!
     - Add wiget area
@@ -44,9 +45,6 @@
 
 ##### Shortcodes
     - Google map [gmap coordinates="xx.xxxxxx, -yy.yyyyyy"]
-
-
-###### Add custom post type
     
 
 
