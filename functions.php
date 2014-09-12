@@ -199,7 +199,7 @@
 
     ### Add custom info to admin footer area
     function remove_footer_admin () {
-        echo 'Powered by <a href="http:##www.wordpress.org" target="_blank">WordPress</a> | Theme Developer <a href="https:##www.facebook.com/skochko" target="_blank">@skochko</a>';
+        echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress </a>  | Theme Developer <a href="https://www.facebook.com/skochko" target="_blank">@skochko</a>';
     }
     add_filter('admin_footer_text', 'remove_footer_admin');
 
