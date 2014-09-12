@@ -42,7 +42,7 @@
     - Advanced Custom Fields
 
 ##### Shortcodes
-    - Google map shortcode [add_shortcode('googlemap', 'gmap');]
+    - Google map [gmap coordinates="xx.xxxxxx, -yy.yyyyyy"]
 
 
 ###### Add custom post type

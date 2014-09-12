@@ -2,9 +2,7 @@
 global $post; ?>
     <section class="content row cfx">
         <article>
-            <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-                the_content();
-            endwhile; endif; ?>
+<?php echo do_shortcode('[youtube value="http://www.youtube.com/watch?v=1aBSPn2P9bg"]'); ?>
         </article>
     </section>
 <?php get_footer(); ?>
