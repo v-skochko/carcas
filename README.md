@@ -1,15 +1,17 @@
 ## Blank wordpress template for writing themes
 
 ##### Speed & security boost
-    - Custom optimizations
+    - Clean up wp_head()
     - Remove wp version param from any enqueued scripts
 
 ##### Theme setings
     - Custom post type supports
     - Registered jQuery,  css and js file
     - On theme activation permalink settings set to %postname% !!!!
+    - Uploads organize into month- and year-based folders
+    - Image default link type set to "none"
     - Add wiget area
-    - In menu list removed ID 
+    - In menu list removed ID
     - Classes for First & Last menu items
     - Add ie conditional html5 shim to header (only for old IE)
     - To BODY add "browser versions" class
@@ -46,7 +48,7 @@
 
 ##### Shortcodes
     - Google map [gmap coordinates="xx.xxxxxx, -yy.yyyyyy"]
-    
+
 
 
 

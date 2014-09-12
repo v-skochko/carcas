@@ -5,7 +5,7 @@
     require_once('shortcodes.php');
 
 ## SPEED & SECURITY BOOST
-    ###Custom optimizations
+    ### Clean up wp_head()
     remove_action('wp_head', 'feed_links_extra', 3);
     remove_action('wp_head', 'rsd_link');
     remove_action('wp_head', 'wlwmanifest_link');
@@ -14,15 +14,13 @@
     remove_action('wp_head', 'start_post_rel_link', 10, 0);
     remove_action('wp_head', 'wp_shortlink_wp_head' );
     remove_action('wp_head', 'adjacent_posts_rel_link_wp_head' );
-    remove_action('wp_head', 'wp_generator');
+    remove_action('wp_head', 'wp_generator'); //Remove WP Generator Meta Tag
     remove_action('wp_head', 'rel_canonical');
     add_action('widgets_init', 'my_remove_recent_comments_style');
     function my_remove_recent_comments_style() {
         global $wp_widget_factory;
         remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
     }
-    update_option('image_default_link_type','none');
-    update_option('uploads_use_yearmonth_folders', 0);
 
     ###Remove wp version param from any enqueued scripts
     function vc_remove_wp_ver_css_js( $src ) {
@@ -57,6 +55,12 @@
           $wp_rewrite->set_permalink_structure('%postname%');
     }
     add_action('after_switch_theme', 'set_permalink');
+
+    ### Uploads organize into month- and year-based folders
+    update_option('uploads_use_yearmonth_folders', 1);
+
+    ### Image default link type
+    update_option('image_default_link_type','none');
 
     ### Add wiget area
     $bar = array(
@@ -132,7 +136,7 @@
         'head_menu' => 'Main navigation',
         'foot_menu' => 'Footer navigation'
     ));
-    
+
     ###Thumbnails theme support
     add_theme_support( 'post-thumbnails' );
 
@@ -141,7 +145,7 @@
     return ($_SERVER['REMOTE_ADDR']=='127.0.0.1'?site_url():'') . str_replace(site_url(), '', get_stylesheet_directory_uri());
     }
 
-    ###Disables Kses 
+    ###Disables Kses
     foreach (array('term_description', 'link_description', 'link_notes', 'user_description') as $filter) {
         remove_filter($filter, 'wp_kses_data');
     }
@@ -168,7 +172,7 @@
         remove_meta_box('dashboard_primary', 'dashboard', 'normal');
         remove_meta_box('dashboard_secondary', 'dashboard', 'normal'); }
     add_action('admin_init', 'rem_dash_widgets');
-    
+
     ### Add custom logo to login page
     add_action( 'login_head', 'namespace_login_style' );
     function namespace_login_style() {
@@ -211,7 +215,7 @@
             }
              return $color_scheme;
         }, 5 );
-    
+
         #### Add link to all settings menu
         function all_settings_link() {
          add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
@@ -222,6 +226,6 @@
         #### Remove the wordpress update notification for all users except sysadmin
         global $user_login;
         get_currentuserinfo();
-        if (!current_user_can('update_plugins')) { ## checks to see if current user can update plugins 
+        if (!current_user_can('update_plugins')) { ## checks to see if current user can update plugins
          add_action( 'init', create_function( '$a', "remove_action( 'init', 'wp_version_check' );" ), 2 );
          add_filter( 'pre_option_update_core', create_function( '$a', "return null;" ) ); }

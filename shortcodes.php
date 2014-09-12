@@ -36,3 +36,5 @@ function cgmap($atts) {
 add_shortcode('gmap', 'cgmap');
 
 
+
+
