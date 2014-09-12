@@ -7,10 +7,11 @@
 ##### Theme setings
     - Custom post type supports
     - Registered jQuery,  css and js file
-    - On theme activation permalink settings set to %postname% !!!!
-    - Uploads organize into month- and year-based folders
-    - Image default link type set to "none"
-    - For coments remove Email & Url fields
+    - Option Update
+        * On theme activation permalink settings set to %postname% !!!!
+        * Uploads organize into month- and year-based folders
+        * Image default link type set to "none"
+        * For coments remove Email & Url fields
     - Add wiget area
     - In menu list removed ID
     - Classes for First & Last menu items

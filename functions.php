@@ -49,25 +49,27 @@
     }
     add_action('wp_enqueue_scripts', 'tt_add_scripts');
 
-    ### Set permalink settings
-    function set_permalink(){
-          global $wp_rewrite;
-          $wp_rewrite->set_permalink_structure('%postname%');
-    }
-    add_action('after_switch_theme', 'set_permalink');
+    ### Option Update
+        ### Set permalink settings
+        function set_permalink(){
+              global $wp_rewrite;
+              $wp_rewrite->set_permalink_structure('%postname%');
+        }
+        add_action('after_switch_theme', 'set_permalink');
 
-    ### Uploads organize into month- and year-based folders
-    update_option('uploads_use_yearmonth_folders', 1);
+        ### Uploads organize into month- and year-based folders
+        update_option('uploads_use_yearmonth_folders', 1);
 
-    ### Image default link type
-    update_option('image_default_link_type','none');
+        ### Image default link type
+        update_option('image_default_link_type','none');
 
-    ### For coments remove Email & Url fields
-    function rem_form_fields($fields) {
-        unset($fields['email']);
-        unset($fields['url']);
-        return $fields; }
-    add_filter('comment_form_default_fields', 'rem_form_fields');
+        ### For coments remove Email & Url fields
+        update_option('require_name_email', 0);
+        function rem_form_fields($fields) {
+            unset($fields['email']);
+            unset($fields['url']);
+            return $fields; }
+        add_filter('comment_form_default_fields', 'rem_form_fields');
 
     ### Add wiget area
     $bar = array(
