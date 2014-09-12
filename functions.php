@@ -181,6 +181,20 @@
     }
     add_filter('admin_footer_text', 'remove_footer_admin');
 
+    ###Change admin post/page color by status – draft, pending, published, future, private
+    add_action('admin_footer','posts_status_color');
+    function posts_status_color(){
+    ?>
+    <style>
+    .status-draft{background: #FCE3F2 !important;}
+    .status-pending{background: #87C5D6 !important;}
+    .status-publish{/* no background keep wp alternating colors */}
+    .status-future{background: #C6EBF5 !important;}
+    .status-private{background:#F2D46F;}
+    </style>
+    <?php
+    }
+
     ### FOR ADMIN ONLY
     #### Color scheme "Midnight" set as default
     add_filter( 'get_user_option_admin_color', function( $color_scheme ) {

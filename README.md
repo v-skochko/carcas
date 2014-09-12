@@ -25,6 +25,7 @@
     - Changing the logo link from wordpress.org to your site
     - Changing the alt text on the logo to show your site name
     - Add custom info to admin footer area
+    - Change admin post/page color by status – draft, pending, published, future, private
     - For admin only
         * Color scheme "Midnight" set as default
         * Add link to all settings menu
