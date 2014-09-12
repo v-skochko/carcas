@@ -7,9 +7,10 @@
 ##### Theme setings
     - Custom post type supports
     - Registered jQuery,  css and js file
-    - Permalink settings srt to %postname%!!!
+    - On theme activation permalink settings set to %postname% !!!!
     - Add wiget area
-    - In menu list removed ID
+    - In menu list removed ID 
+    - Classes for First & Last menu items
     - Add ie conditional html5 shim to header (only for old IE)
     - To BODY add "browser versions" class
     - Custom SEO title

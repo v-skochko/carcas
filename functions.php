@@ -75,6 +75,13 @@
     function clear_nav_menu_item_id($id, $item, $args) {
         return "";
     }
+    ### Classes for First & Last menu items
+    function wpb_first_and_last_menu_class($items) {
+    $items[1]->classes[] = 'first';
+    $items[count($items)]->classes[] = 'last';
+    return $items;
+    }
+    add_filter('wp_nav_menu_objects', 'wpb_first_and_last_menu_class');
 
     ### Add ie conditional html5 shim to header (only for old IE)
     function wp_IEhtml5_js () {
