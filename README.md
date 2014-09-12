@@ -7,7 +7,7 @@
 ##### Theme setings
     - Custom post type supports
     - Registered jQuery,  css and js file
-    - Some options update on theme activation
+    - Some options update after theme activation
         * Permalink settings set to %postname% !!!!
         * Uploads organize into month- and year-based folders
         * Image default link type set to "none"
