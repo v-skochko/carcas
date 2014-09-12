@@ -60,8 +60,8 @@
 
     ### Add wiget area
     $bar = array(
-        'name'          => 'Blog Sidebar',
-        'id'            => 'blogbar',
+        'name'          => 'Sidebar',
+        'id'            => 'sbar',
         'description'   => 'Sidebar section',
         'before_widget' => '<div class="widget cfx %2$s">',
         'after_widget'  => '</div>',
@@ -181,13 +181,13 @@
     }
     add_filter('admin_footer_text', 'remove_footer_admin');
 
-    ###Change admin post/page color by status – draft, pending, published, future, private
+    ###Change admin post/page color by status – draft, pending, future, private
     add_action('admin_footer','posts_status_color');
     function posts_status_color(){
     ?>
     <style>
-    .status-draft{background: #FCE3F2 !important;}
-    .status-pending{background: #87C5D6 !important;}
+    .status-draft{background: #E6E6E6 !important;}
+    .status-pending{background: #E2F0FF !important;}
     .status-publish{/* no background keep wp alternating colors */}
     .status-future{background: #C6EBF5 !important;}
     .status-private{background:#F2D46F;}
@@ -195,26 +195,26 @@
     <?php
     }
 
-    ### FOR ADMIN ONLY
-    #### Color scheme "Midnight" set as default
-    add_filter( 'get_user_option_admin_color', function( $color_scheme ) {
-         global $_wp_admin_css_colors;
-         if ( 'classic' == $color_scheme || 'fresh' == $color_scheme ) {
-            $color_scheme = 'midnight';
+    ### FOR ADMIN ONLY:
+        #### Color scheme "Midnight" set as default
+        add_filter( 'get_user_option_admin_color', function( $color_scheme ) {
+             global $_wp_admin_css_colors;
+             if ( 'classic' == $color_scheme || 'fresh' == $color_scheme ) {
+                $color_scheme = 'midnight';
+            }
+             return $color_scheme;
+        }, 5 );
+    
+        #### Add link to all settings menu
+        function all_settings_link() {
+         add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
         }
-         return $color_scheme;
-    }, 5 );
+        add_action('admin_menu', 'all_settings_link');
 
-    #### Add link to all settings menu
-    function all_settings_link() {
-     add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
-    }
-    add_action('admin_menu', 'all_settings_link');
-
-    ### FOR USERS EXCEPT SYSADMIN
-    #### Remove the wordpress update notification for all users except sysadmin
-    global $user_login;
-    get_currentuserinfo();
-    if (!current_user_can('update_plugins')) { ## checks to see if current user can update plugins 
-     add_action( 'init', create_function( '$a', "remove_action( 'init', 'wp_version_check' );" ), 2 );
-     add_filter( 'pre_option_update_core', create_function( '$a', "return null;" ) ); }
+    ### FOR USERS EXCEPT SYSADMIN:
+        #### Remove the wordpress update notification for all users except sysadmin
+        global $user_login;
+        get_currentuserinfo();
+        if (!current_user_can('update_plugins')) { ## checks to see if current user can update plugins 
+         add_action( 'init', create_function( '$a', "remove_action( 'init', 'wp_version_check' );" ), 2 );
+         add_filter( 'pre_option_update_core', create_function( '$a', "return null;" ) ); }
