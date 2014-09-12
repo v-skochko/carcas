@@ -53,18 +53,23 @@
         ### Set permalink settings
         function set_permalink(){
               global $wp_rewrite;
-              $wp_rewrite->set_permalink_structure('%postname%');
-        }
+              $wp_rewrite->set_permalink_structure('%postname%'); }
         add_action('after_switch_theme', 'set_permalink');
 
         ### Uploads organize into month- and year-based folders
-        update_option('uploads_use_yearmonth_folders', 1);
+        function uploads_folder_update(){
+              update_option('uploads_use_yearmonth_folders', 1); }
+        add_action('after_switch_theme', 'uploads_folder_update');
 
         ### Image default link type
-        update_option('image_default_link_type','none');
+        function image_link_t(){
+               update_option('image_default_link_type','none'); }
+        add_action('after_switch_theme', 'image_link_t');
 
-        ### For coments remove Email & Url fields
-        update_option('require_name_email', 0);
+        ### For coments: remove Email & Url fields
+         function require_name(){
+              update_option('require_name_email', 0); }
+        add_action('after_switch_theme', 'require_name');
         function rem_form_fields($fields) {
             unset($fields['email']);
             unset($fields['url']);
