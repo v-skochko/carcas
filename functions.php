@@ -62,6 +62,13 @@
     ### Image default link type
     update_option('image_default_link_type','none');
 
+    ### For coments remove Email & Url fields
+    function rem_form_fields($fields) {
+        unset($fields['email']);
+        unset($fields['url']);
+        return $fields; }
+    add_filter('comment_form_default_fields', 'rem_form_fields');
+
     ### Add wiget area
     $bar = array(
         'name'          => 'Sidebar',
