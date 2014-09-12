@@ -16,11 +16,7 @@
     remove_action('wp_head', 'adjacent_posts_rel_link_wp_head' );
     remove_action('wp_head', 'wp_generator'); //Remove WP Generator Meta Tag
     remove_action('wp_head', 'rel_canonical');
-    add_action('widgets_init', 'my_remove_recent_comments_style');
-    function my_remove_recent_comments_style() {
-        global $wp_widget_factory;
-        remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
-    }
+
 
     ###Remove wp version param from any enqueued scripts
     function vc_remove_wp_ver_css_js( $src ) {
@@ -93,6 +89,7 @@
     function clear_nav_menu_item_id($id, $item, $args) {
         return "";
     }
+
     ### Classes for First & Last menu items
     function wpb_first_and_last_menu_class($items) {
     $items[1]->classes[] = 'first';
