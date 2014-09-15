@@ -36,7 +36,7 @@
         * Color scheme "Midnight" set as default
         * Add link to all settings menu
     - For users except sysadmin:
-        * Remove the wordpress update notification for all users except sysadmin
+        * Remove the wordpress update notification
 
 ##### Add automated plugin installer
     - Contact Form 7
