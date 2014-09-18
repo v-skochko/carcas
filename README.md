@@ -41,13 +41,14 @@
 ##### Add automated plugin installer
     - Contact Form 7
     - WP Migrate DB
-    - WP Smush.it
     - WP-DB-Backup
     - WP-SCSS
     - WP No Category Base
     - Better WordPress Minify
     - Advanced Custom Fields (PRO version, password protection)
 
+##### Integreted plugin
+    - <a href="http://wordpress.org/plugins/cyr3lat/">Cyr to Lat</a>
 ##### Shortcodes
     - Google map [gmap coordinates="xx.xxxxxx, -yy.yyyyyy"]
 
