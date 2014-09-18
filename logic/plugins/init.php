@@ -48,7 +48,7 @@ function ctl_sanitize_title($title) {
     switch ( $locale ) {
         case 'bg_BG':
             $iso9_table['Щ'] = 'SHT';
-            $iso9_table['щ'] = 'sht'; 
+            $iso9_table['щ'] = 'sht';
             $iso9_table['Ъ'] = 'A';
             $iso9_table['ъ'] = 'a';
             break;
@@ -147,11 +147,7 @@ function my_theme_register_required_plugins() {
             'slug'      => 'wp-migrate-db',
             'required'  => false,
         ),
-            array(
-            'name'      => 'WP Smush.it',
-            'slug'      => 'wp-smushit',
-            'required'  => false,
-        ),
+
             array(
             'name'      => 'WP-DB-Backup',
             'slug'      => 'wp-db-backup',
