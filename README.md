@@ -48,7 +48,8 @@
     - Advanced Custom Fields (PRO version, password protection)
 
 ##### Integreted plugin
-    - <a href="http://wordpress.org/plugins/cyr3lat/">Cyr to Lat</a>
+    - Cyr to Lat
+
 ##### Shortcodes
     - Google map [gmap coordinates="xx.xxxxxx, -yy.yyyyyy"]
 
