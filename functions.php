@@ -1,6 +1,6 @@
 <?php
 ## Recommended plugins installer
-    require_once('/logic/plugins/init.php');
+    require_once('logic/plugins/init.php');
 ## Shortcodes functions
     require_once('shortcodes.php');
 
@@ -35,7 +35,7 @@
     function tt_add_scripts() {
     if (!is_admin()) {
         wp_deregister_script( 'jquery' );
-        wp_register_script( 'jquery', '##ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+        wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
         wp_enqueue_script( 'jquery' );
     }
     wp_enqueue_script('lib_min', theme().'/logic/lib.js', array('jquery'), '', true );
