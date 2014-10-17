@@ -9,7 +9,6 @@ var mob = false;
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Windows Phone|ZuneWP7|Nokia|Opera Mini/i.test(navigator.userAgent)) { var mob = true; }
 var supportsTouch = false;
 if (window.hasOwnProperty('ontouchstart') || window.navigator.msPointerEnabled) { supportsTouch = true; }
-var TouchClickEvent = supportsTouch ? 'touchstart' : 'click';
 function footer(e){
     "use strict";
     $('.footix').height($('footer').outerHeight());
@@ -22,14 +21,9 @@ $(document).ready(function () {
             $(this).remove();
         });
     });
-    // FastClick.attach(document.body);
 });
 
 $(window).load(function(){
     "use strict";
-    footer();
 });
-$(window).bind('orientationchange resize', function(){
-    "use strict";
-    footer();
-});
+
