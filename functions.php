@@ -171,9 +171,29 @@
     }
 
     ### Activate ACF option page
-    if( function_exists('acf_add_options_page') ) {
-        acf_add_options_page('Options');
-    }
+   if( function_exists('acf_add_options_page') ) {
+
+    acf_add_options_page(array(
+        'page_title'    => 'Theme General Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Theme Header Settings',
+        'menu_title'    => 'Header',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Theme Footer Settings',
+        'menu_title'    => 'Footer',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+
+}
 
 ## WORDPRESS ADMIN PANEL SETINGS
     ### Remove dashboard wigets
@@ -240,3 +260,10 @@
         if (!current_user_can('update_plugins')) { ## checks to see if current user can update plugins
          add_action( 'init', create_function( '$a', "remove_action( 'init', 'wp_version_check' );" ), 2 );
          add_filter( 'pre_option_update_core', create_function( '$a', "return null;" ) ); }
+
+
+
+    function adm_separator() {
+        echo '<style type="text/css">#adminmenu li.wp-menu-separator {margin: 0; height: 2px; background: #26292C;}</style>';
+    }
+    add_action( 'admin_head', 'adm_separator' );
