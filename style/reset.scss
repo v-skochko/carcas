@@ -31,11 +31,12 @@
     -moz-box-shadow: $shadow;
     box-shadow: $shadow;
 }
-@mixin transition($property: all, $duration: 0.5s, $easing: ease) {
-    -webkit-transition: $property $duration $easing;
-    -moz-transition: $property $duration $easing;
-    -ms-transition: $property $duration $easing;
-    transition: $property $duration $easing;
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
 }
 @mixin position($position: relative, $top: 0, $right: 0, $bottom: 0, $left: 0) {
     position: $position;
@@ -122,7 +123,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 input, textarea, button, a {
-    @include transition(0.4s);
+    @include transition(all, 0.2s, ease-in-out);
 }
 * {
     margin: 0;
@@ -233,7 +234,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 textarea, button, a, input {
-    @include transition(0.5s);
+    @include transition(all, 0.2s, ease-in-out);
 }
 body {
     position: relative;
