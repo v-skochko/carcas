@@ -51,7 +51,7 @@
     - Cyr to Lat
 
 ##### Shortcodes
-    - Google map [gmap coordinates="xx.xxxxxx, -yy.yyyyyy"]
+    - Google map [googlemap id="somemapid" coordinates="1 ,1" zoom="17" height="500px" infobox="<p>Some Infobox Content</p>"]
 
 
 
