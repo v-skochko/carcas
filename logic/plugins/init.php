@@ -11,7 +11,6 @@
         else if($textlat) return str_replace($lat, $cyr, $textlat);
             else return null;
     }
-
 // Cyr to Lat for URL; Plugin URI: http://wordpress.org/plugins/cyr3lat/
 function ctl_sanitize_title($title) {
     global $wpdb;
@@ -108,15 +107,9 @@ function ctl_schedule_conversion() {
     add_action('shutdown', 'ctl_convert_existing_slugs');
 }
 register_activation_hook(__FILE__, 'ctl_schedule_conversion');
-
-
-
 //Plugin installer;  Plugin URI: https://github.com/thomasgriffin/TGM-Plugin-Activation
-
-
 require_once('auto-install.php');
 add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
-
 function my_theme_register_required_plugins() {
     $plugins = array(
 //        array(
@@ -136,7 +129,6 @@ function my_theme_register_required_plugins() {
 //            'required'           => true, // If false, the plugin is only 'recommended' instead of required.
 //            'external_url'       => 'https://github.com/thomasgriffin/New-Media-Image-Uploader', // If set, overrides default API URL and points to an external URL.
 //        ),
-
         array(
             'name'      => 'Contact Form 7',
             'slug'      => 'contact-form-7',
@@ -147,15 +139,9 @@ function my_theme_register_required_plugins() {
             'slug'      => 'wp-migrate-db',
             'required'  => false,
         ),
-
             array(
-            'name'      => 'WP-DB-Backup',
-            'slug'      => 'wp-db-backup',
-            'required'  => false,
-        ),
-            array(
-            'name'      => 'WP-DB-Backup',
-            'slug'      => 'wp-db-backup',
+            'name'      => 'BackWPup Free',
+            'slug'      => 'backwpup',
             'required'  => false,
         ),
         array(
@@ -214,7 +200,5 @@ function my_theme_register_required_plugins() {
             'nag_type'                        => 'updated' // Determines admin notice type - can only be 'updated', 'update-nag' or 'error'.
         )
     );
-
     tgmpa( $plugins, $config );
-
 }

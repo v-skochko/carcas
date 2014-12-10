@@ -41,7 +41,7 @@
 ##### Add automated plugin installer
     - Contact Form 7
     - WP Migrate DB
-    - WP-DB-Backup
+    - BackWPup Free
     - WP-SCSS
     - WP No Category Base
     - Better WordPress Minify
