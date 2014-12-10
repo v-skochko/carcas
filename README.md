@@ -1,14 +1,12 @@
 ## Blank wordpress template for writing themes
-
 ##### Speed & security boost
     - Clean up wp_head()
     - Remove wp version param from any enqueued scripts
-
 ##### Theme setings
     - Custom post type supports
     - Registered jQuery,  css and js file
     - Some options update after theme activation
-        * Permalink settings set to %postname% !!!!
+        * Permalink settings set to %postname% :exclamation:!!!!
         * Uploads organize into month- and year-based folders
         * Image default link type set to "none"
         * For coments remove Email & Url fields
@@ -24,7 +22,6 @@
     - Kses Disabled
     - For Contact Form 7 deregister default css
     - For ACF activated option page
-
 ##### Wordpress admin panel setings
     - On dashboard remove some widgets
     - To add custom login logo put "login-logo.png" in img folder
@@ -37,7 +34,6 @@
         * Add link to all settings menu
     - For users except sysadmin:
         * Remove the wordpress update notification
-
 ##### Add automated plugin installer
     - Contact Form 7
     - WP Migrate DB
@@ -46,16 +42,9 @@
     - WP No Category Base
     - Better WordPress Minify
     - Advanced Custom Fields (PRO version, password protection)
-
 ##### Integreted plugin
     - Cyr to Lat
-
 ##### Shortcodes
     - Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
-
-
-
-
 >  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">Blank wordpress template</a>
-
 >  Львів 2014
