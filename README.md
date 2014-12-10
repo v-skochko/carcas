@@ -7,6 +7,7 @@
     - Registered jQuery,  css and js file
     - Some options update after theme activation
         * Permalink settings set to %postname% :exclamation: !!!!
+
         * Uploads organize into month- and year-based folders
         * Image default link type set to "none"
         * For coments remove Email & Url fields
