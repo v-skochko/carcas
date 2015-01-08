@@ -8,12 +8,7 @@
     }
 }
 //Using @include declare-font-face('FontName', 'font-filename', 400);
-@mixin border-radius($radius) {
-    -webkit-border-radius: $radius;
-    -moz-border-radius: $radius;
-    -ms-border-radius: $radius;
-    border-radius: $radius;
-}
+
 @mixin box-sizing($s) {
     -webkit-box-sizing: $s;
     -moz-box-sizing: $s;
@@ -139,7 +134,7 @@ a > img {
     border: 0;
 }
 h1, h2, h3, h4, h5, h6 {
-    font: 400 14px / 11px "Arial", sans-serif;
+    font: 400 14px / 1 "Arial", sans-serif;
     color: #707070;
     margin: 0;
     padding: 0;
