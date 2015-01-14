@@ -46,5 +46,5 @@
     - Cyr to Lat
 ##### Shortcodes
     - Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
->  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">Blank wordpress template</a>
+>  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">wp-theme-blank</a>
 >  Львів 2014
