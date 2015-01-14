@@ -155,6 +155,11 @@ function my_theme_register_required_plugins() {
             'required'  => false,
         ),
           array(
+            'name'      => 'TinyMCE Advanced',
+            'slug'      => 'tinymce-advanced',
+            'required'  => false,
+        ),
+          array(
             'name'      => 'Better WordPress Minify',
             'slug'      => 'bwp-minify',
             'required'  => false,
