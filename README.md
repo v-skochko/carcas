@@ -43,8 +43,8 @@
     - Better WordPress Minify
     - Advanced Custom Fields (PRO version, password protection)
 ### Integreted library
+     [Angular’s dependency injection annotation process](http://toddmotto.com/angular-js-dependency-injection-annotation-process/)
     - Cyr to Lat plugin
-    * [Angular’s dependency injection annotation process](http://toddmotto.com/angular-js-dependency-injection-annotation-process/)
     - Add custom minimalistic fonts with web interface element<a target="_blank" href="http://vskochko.github.io/custom_icons/">link</a>
 ##### Shortcodes
     - Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
