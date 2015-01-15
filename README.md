@@ -47,6 +47,6 @@
 ##### Integreted library
 * Add <a target="_blank" href="http://vskochko.github.io/custom_icons/">custom minimalistic fonts</a>  with web interface element
 * <a target="_blank" href="http://wordpress.org/plugins/cyr3lat/">Cyr to Lat for URL</a>
-<br><br><br><br>
+
 >  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">wp-theme-blank</a> <br>
 >  Львів 2015
