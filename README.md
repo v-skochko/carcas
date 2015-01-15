@@ -42,8 +42,9 @@
     - WP No Category Base
     - Better WordPress Minify
     - Advanced Custom Fields (PRO version, password protection)
-##### Integreted plugin
-    - Cyr to Lat
+##### Integreted library
+    - Cyr to Lat plugin
+    - Add custom <a href="http://vskochko.github.io/custom_icons/">minimalistic fonts</a>  with web interface element
 ##### Shortcodes
     - Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
 >  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">wp-theme-blank</a>
