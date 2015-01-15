@@ -6,7 +6,7 @@
     - Custom post type supports
     - Registered jQuery,  css and js file
     - Some options update after theme activation
-        * Permalink settings set to %postname% !!!!
+        * **Permalink settings set to %postname% !!!!**
         * Uploads organize into month- and year-based folders
         * Image default link type set to "none"
         * For coments remove Email & Url fields
@@ -44,6 +44,7 @@
     - Advanced Custom Fields (PRO version, password protection)
 ##### Integreted library
     - Cyr to Lat plugin
+    - [Visit GitHub!](www.github.com)
     - Add custom <a href="http://vskochko.github.io/custom_icons/">minimalistic fonts</a>  with web interface element
 ##### Shortcodes
     - Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
