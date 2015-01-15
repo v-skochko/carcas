@@ -44,8 +44,7 @@
     - Advanced Custom Fields (PRO version, password protection)
 ##### Integreted library
     - Cyr to Lat plugin
-<a target="_blank" href="http://crystalstudio.me/">Made with love, coffee and rock n' roll.</a>
-    - Add custom minimalistic fonts with web interface element http://vskochko.github.io/custom_icons/
+    - Add custom minimalistic fonts with web interface element<a target="_blank" href="http://vskochko.github.io/custom_icons/">link</a>
 ##### Shortcodes
     - Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
 >  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">wp-theme-blank</a>
