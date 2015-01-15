@@ -1,0 +1,78 @@
+@mixin declare-font-face($font-family, $font-filename, $font-weight: normal, $font-style: normal) {
+    @font-face {
+        font-family: #{$font-family};
+        src: url("fonts/#{$font-filename}.eot");
+        src: url("fonts/#{$font-filename}.eot?#iefix") format("embedded-opentype"), url("fonts/#{$font-filename}.woff") format("woff"), url("fonts/#{$font-filename}.ttf") format("truetype"), url("fonts/#{$font-filename}.svg##{$font-family}") format("svg");
+        font-weight: $font-weight;
+        font-style: $font-style;
+    }
+}
+//Using @include declare-font-face('FontName', 'font-filename', 400);
+
+@mixin box-sizing($s) {
+    -webkit-box-sizing: $s;
+    -moz-box-sizing: $s;
+    -ms-box-sizing: $s;
+    box-sizing: $s;
+}
+@mixin background-size($size) {
+    -webkit-background-size: $size;
+    -moz-background-size: $size;
+    -ms-background-size: $size;
+    background-size: $size;
+}
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+@mixin position($position: relative, $top: 0, $right: 0, $bottom: 0, $left: 0) {
+    position: $position;
+    top: $top;
+    right: $right;
+    left: $left;
+    bottom: $bottom;
+}
+@mixin transform($action, $backface: false) {
+    @if $backface {
+        -webkit-transform: $action;
+        -moz-transform: $action;
+        -ms-transform: $action;
+        transform: $action;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    @else {
+        -webkit-transform: $action;
+        -moz-transform: $action;
+        -ms-transform: $action;
+        transform: $action;
+    }
+}
+@mixin scale($scale) {
+    -webkit-transform: scale($scale);
+    -moz-transform: scale($scale);
+    -ms-transform: scale($scale);
+    transform: scale($scale);
+}
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-ms-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
