@@ -42,27 +42,16 @@
     - WP No Category Base
     - Better WordPress Minify
     - Advanced Custom Fields (PRO version, password protection)
-### Integreted library
-     [Angular’s dependency injection annotation process](http://toddmotto.com/angular-js-dependency-injection-annotation-process/)
-    - Cyr to Lat plugin
-    - Add custom minimalistic fonts with web interface element<a target="_blank" href="http://vskochko.github.io/custom_icons/">link</a>
 ##### Shortcodes
     - Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
+##### Integreted library
+    * [Angular’s dependency injection annotation process](http://toddmotto.com/angular-js-dependency-injection-annotation-process/)
+    * Cyr to Lat plugin
+    * Add custom minimalistic fonts with web interface element<a target="_blank" href="http://vskochko.github.io/custom_icons/">link</a>
 
 
-
-## Dependency Injection
-* [The "Magic" behind AngularJS Dependency Injection] (http://www.alexrothenberg.com/2013/02/11/the-magic-behind-angularjs-dependency-injection.html)
-* [AngularJS: More on Dependency Injection] (http://dailyjs.com/2013/05/23/angularjs-injection/)
-* [Angularjs Dependency Injection](http://diegobarahona.com/javascript/angularjs/2013/06/13/angularjs-dependency-injection/)
-* [Configuring Dependency Injection in AngularJS] (http://joelhooks.com/blog/2013/08/18/configuring-dependency-injection-in-angularjs/)
-* [Defining Instantiatable Classes In The AngularJS Dependency Injection Framework] (http://www.bennadel.com/blog/2527-Defining-Instantiatable-Classes-In-The-AngularJS-Dependency-Injection-Framework.htm)
-* [Deconstructing AngularJS Injector] (http://neverfriday.com/2013/11/30/deconstructing-angularjs-injector/)
-* [AngularJS Dependency Injection - Demystified](http://anandmanisankar.com/posts/angularjs-dependency-injection-demystified/)
-* [Angular’s dependency injection annotation process](http://toddmotto.com/angular-js-dependency-injection-annotation-process/)
 
 
 
 >  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">wp-theme-blank</a>
 >  Львів 2015
-Add custom minimalistic fonts with web interface element<a target="_blank" href="http://vskochko.github.io/custom_icons/">link</a>
