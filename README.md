@@ -44,7 +44,7 @@
     - Advanced Custom Fields (PRO version, password protection)
 ##### Integreted library
     - Cyr to Lat plugin
-    - [I'm an inline-style link](https://www.google.com)
+<a target="_blank" href="http://crystalstudio.me/">Made with love, coffee and rock n' roll.</a>
     - Add custom minimalistic fonts with web interface element http://vskochko.github.io/custom_icons/
 ##### Shortcodes
     - Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
