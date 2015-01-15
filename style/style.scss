@@ -1,5 +1,7 @@
 @import 'lib/reset';
-
+@import 'lib/lib';
+@import 'lib/custom_icons';
+@include declare-font-face('custom_icons', 'custom_icons', 400);
 
 
 // @media screen and (max-width: 1023px) {}
