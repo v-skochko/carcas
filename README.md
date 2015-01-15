@@ -1,7 +1,7 @@
 ## Blank wordpress template for writing themes
 ##### Speed & security boost
-    - Clean up wp_head()
-    - Remove wp version param from any enqueued scripts
+     - Clean up wp_head()
+     - Remove wp version param from any enqueued scripts
 ##### Theme setings
     - Custom post type supports
     - Registered jQuery,  css and js file
@@ -44,14 +44,9 @@
     - Advanced Custom Fields (PRO version, password protection)
 ##### Shortcodes
     - Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
-#### Integreted library
-    [Angular’s dependency injection annotation process](http://toddmotto.com/angular-js-dependency-injection-annotation-process/)
-    Cyr to Lat plugin
-    Add custom minimalistic fonts with web interface element<a target="_blank" href="http://vskochko.github.io/custom_icons/">link</a>
-
-
-
-
-
->  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">wp-theme-blank</a>
+##### Integreted library
+* Add <a target="_blank" href="http://vskochko.github.io/custom_icons/">custom minimalistic fonts</a>  with web interface element
+* <a target="_blank" href="http://wordpress.org/plugins/cyr3lat/">Cyr to Lat for URL</a>
+<br><br><br><br>
+>  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">wp-theme-blank</a> <br>
 >  Львів 2015
