@@ -1,12 +1,20 @@
 @import 'lib/reset';
 @import 'lib/lib';
 @import 'lib/custom_icons';
+/*_FONTS___________________________*/
 @include declare-font-face('custom_icons', 'custom_icons', 400);
+/*_COLOR___________________________*/
+
+/*_HEADER__________________________*/
+/*_MAIN____________________________*/
+/*_FOOTER__________________________*/
 
 
-// @media screen and (max-width: 1023px) {}
-// @media screen and (max-width: 960px) {}
-// @media screen and (max-width: 768px) {}
-// @media screen and (max-width: 640px) {}
-// @media screen and (max-width: 480px) {}
-// @media screen and (max-width: 320px) {}
+/* MEDIA QUERY__________________________
+ @media screen and (max-width: 1023px) {}
+ @media screen and (max-width: 960px) {}
+ @media screen and (max-width: 768px) {}
+ @media screen and (max-width: 640px) {}
+ @media screen and (max-width: 480px) {}
+ @media screen and (max-width: 320px) {}
+*/

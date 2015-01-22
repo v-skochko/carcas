@@ -12,13 +12,13 @@
         url("fonts/#{$font-filename}.svg##{$font-family}") format("svg");
     }
 }
-@mixin box-sizing($s) {
-    -webkit-box-sizing:$s;
-       -moz-box-sizing:$s;
-            box-sizing:$s;
+// @mixin box-sizing($s) {
+//     -webkit-box-sizing:$s;
+//        -moz-box-sizing:$s;
+//             box-sizing:$s;
 
-        -ms-box-sizing:$s;
-}
+//         -ms-box-sizing:$s;
+// }
 @mixin background-size($size) {
     -webkit-background-size:$size;
        -moz-background-size:$size;
@@ -35,7 +35,6 @@
     -webkit-transition:$transition-property $transition-time $method;
        -moz-transition:$transition-property $transition-time $method;
         -ms-transition:$transition-property $transition-time $method;
-         -o-transition:$transition-property $transition-time $method;
             transition:$transition-property $transition-time $method;
 }
 @mixin position($position:relative, $top: 0, $right: 0, $bottom: 0, $left: 0) {

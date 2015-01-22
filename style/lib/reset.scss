@@ -1,69 +1,111 @@
 @import "mixins";
-/*custom reset*/
-article, aside, footer, header, nav, section {
-    display:block;
-}
-mark {
-    background:none;
-}
-html, body {
-    height:100%;
+/*--------------------------------------------------------------
+BASE
+--------------------------------------------------------------*/
+* {
+    -moz-box-sizing:border-box;
+         box-sizing:border-box;
     margin:0;
+    padding:0;
 }
 html {
     -webkit-font-smoothing:antialiased;
     -webkit-overflow-scrolling:touch;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
     -webkit-text-size-adjust:none;
     >body {
         height:auto;
         min-height:100%;
     }
 }
-a {
-    text-decoration:none;
-    color:#00c2cb;
-    outline:0 none;
-    @include transition(all, .2s, ease-in-out);
-    &:hover {
-        outline:0 none;
-    }
+html, body {
+    height:100%;
+    margin:0;
 }
+footer, header, nav {
+    display:block;
+}
+article, aside, section {
+    display:block;
+}
+mark {
+    background:none;
+}
+::-moz-selection {
+    color:#fff;
+    background:#00c2cb;
+}
+::selection {
+    color:#fff;
+    background:#00c2cb;
+}
+/*--------------------------------------------------------------
+FORMS & TABLE & NAVIGATION
+--------------------------------------------------------------*/
 input, textarea, select {
     padding:0 10px;
     outline:0 none;
+
     -webkit-appearance:none;
-    @include box-sizing(border-box);
     @include transition(all, .2s, ease-in-out);
 }
-input[type="submit"] {
+input {
+    line-height: normal;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
     cursor:pointer;
 }
-* {
+button[disabled], html input[disabled] {
+    cursor:default;
+}
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border:0;
+}
+nav ul {
+    list-style:none;
+}
+ol {
+    list-style: decimal;
+}
+table {
+    border-spacing:0;
+    border-collapse:collapse;
+}
+
+/*--------------------------------------------------------------
+TYPOGRAPHY
+--------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font:400 16px/1 "Arial", sans-serif;
     margin:0;
     padding:0;
-    border-collapse:collapse;
-    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+    color:#000;
+}
+p {
+    padding-bottom:20px;
+}
+a {
+    text-decoration:none;
+    color:#00c2cb;
+    outline:0;
+
+    @include transition(all, .2s, ease-in-out);
+    &:hover {
+        outline:0;
+    }
 }
 img {
     display:block;
     max-width:100%;
     height:auto;
+    vertical-align:middle;
 }
 a>img {
     border:0;
 }
-h1, h2, h3, h4, h5, h6 {
-    font:400 14px / 1 "Arial", sans-serif;
-    margin:0;
-    padding:0;
-    color:#707070;
-}
-p {
-    padding-bottom:20px;
-}
-nav ul {
-    list-style:none;
-}
+/*--------------------------------------------------------------
+CLASSES
+--------------------------------------------------------------*/
 #wrap {
     min-height:100%;
 }
@@ -88,15 +130,6 @@ html[xmlns] .cfx {
 * html .cfx {
     height:1%;
 }
-//selection
-::-moz-selection {
-    color:#fff;
-    background:#00c2cb;
-}
-::selection {
-    color:#fff;
-    background:#00c2cb;
-}
 /* Vertical align inside DIV
 <span class="valign">Some content</span>
 <span class="vfix"></span>
@@ -116,6 +149,7 @@ html[xmlns] .cfx {
 .valign2 {
     position:relative;
     top:50%;
+
     @include transform(translateY(-50%));
 }
 /* Wordpress classes */
@@ -140,7 +174,7 @@ hr {
     height:1px;
     margin:20px 0;
     border:0 none;
-    background:#e1e1e1;
+    background:#707070;
 }
 strong {
     font-weight:700;
@@ -148,18 +182,10 @@ strong {
 body {
     font:400 14px / 20px "Arial", sans-serif;
     position:relative;
-    color:#707070;
 }
 .row {
     position:relative;
     width:960px;
     max-width:96%;
     margin:0 auto;
-}
-footer {
-    position:absolute;
-    right:0;
-    bottom:0;
-    left:0;
-    overflow:hidden;
 }
