@@ -1,16 +1,14 @@
-@import "lib/reset";
-@import "lib/lib";
+@import  "lib/reset", "lib/lib";
+
 /*--------------------------------------------------------------
 BASE
 --------------------------------------------------------------*/
 @include declare-font-face("custom_icons", "custom_icons", 400);
-.row {
-    width:960px;
-}
-$blue:#1091ae;
-$green:#16a085;
-$text:#222;
-$font:"Arial", sans-serif;
+
+
+
+
+
 
 /*--------------------------------------------------------------
 HEADER
@@ -21,13 +19,54 @@ FRONT PAGE
 /*--------------------------------------------------------------
 FOOTER
 --------------------------------------------------------------*/
+footer {
+    .social_link {
+        display:inline-block;
+        width:100%;
+        padding:20px 0;
+        cursor:pointer;
+        text-align:center;
+        a {
+            position:relative;
+            display:inline-block;
+            width:40px;
+            height:40px;
+            margin:0 5px;
+            color:#fff;
+            border-radius:50%;
+            background:$green;
+
+            @include transition(all, .15s, ease-in);
+            &:before {
+                font-size:20px;
+                position:relative;
+
+                @include center();
+            }
+            &.icf-facebook4 {
+                background:#3b5993;
+            }
+            &.icf-twitter {
+                background:#55acee;
+            }
+            &.icf-google-plus {
+                background:#d94733;
+            }
+            &:hover {
+                @include scale( 1.2 );
+            }
+        }
+    }
+}
 /*--------------------------------------------------------------
 MEDIA QUERY
-----------------------------------------------------------------
- @media screen and (max-width: 1023px) {}
+--------------------------------------------------------------*/
+ @media screen and (max-width: $row) {}
+
+/*
  @media screen and (max-width: 960px) {}
  @media screen and (max-width: 768px) {}
  @media screen and (max-width: 640px) {}
  @media screen and (max-width: 480px) {}
  @media screen and (max-width: 320px) {}
-*/
+ */

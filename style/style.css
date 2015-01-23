@@ -2,14 +2,17 @@
 BASE
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-CONTACT FORM 7
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
 BASE
 --------------------------------------------------------------*/
-/*
-http://vskochko.github.io/custom_icons/
-*/
+/*--------------------------------------------------------------
+VARIABLES
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+MIXINS
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+CONTACT FORM 7
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 HEADER
 --------------------------------------------------------------*/
@@ -19,16 +22,6 @@ FRONT PAGE
 /*--------------------------------------------------------------
 FOOTER
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-MEDIA QUERY
-----------------------------------------------------------------
- @media screen and (max-width: 1023px) {}
- @media screen and (max-width: 960px) {}
- @media screen and (max-width: 768px) {}
- @media screen and (max-width: 640px) {}
- @media screen and (max-width: 480px) {}
- @media screen and (max-width: 320px) {}
-*/
 * {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -180,6 +173,13 @@ html[xmlns] .cfx {
   -moz-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+}
+footer {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
   /*--------------------------------------------------------------
 WORDPRESS CLASSES
 --------------------------------------------------------------*/
@@ -218,10 +218,11 @@ body {
   position: relative;
   max-width: 96%;
   margin: 0 auto;
+  width: 1020px;
 }
 .wpcf7 {
   /*--------------------------------------------------------------
-MATERIAL SHADOW
+MATERIAL SHADOW http://vskochko.github.io/shadow
 --------------------------------------------------------------*/
 }
 .wpcf7 .screen-reader-response {
@@ -309,18 +310,20 @@ MATERIAL SHADOW
 }
 .z-depth-z5, .z-depth-animation div:hover, .z-depth-animation div:focus {
   box-shadow: 0 27px 24px 0 rgba(0, 0, 0, .2), 0 40px 77px 0 rgba(0, 0, 0, .22);
+  /*--------------------------------------------------------------
+CUSTOM ICON FONT http://vskochko.github.io/custom_icons/
+--------------------------------------------------------------*/
 }
 [class^="icf-"], [class*=" icf-"] {
-  font-family: 'custom_icons';
-  speak: none;
-  font-style: normal;
+  font-family: "custom_icons";
   font-weight: normal;
+  font-style: normal;
   font-variant: normal;
-  text-transform: none;
-  /* Better Font Rendering =========== */
   line-height: 1;
+  text-transform: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  speak: none;
 }
 .icf-home:before {
   content: "\e900";
@@ -782,6 +785,62 @@ MATERIAL SHADOW
   src: url("fonts/custom_icons.eot");
   src: url("fonts/custom_icons.eot?#iefix") format("embedded-opentype"), url("fonts/custom_icons.woff") format("woff"), url("fonts/custom_icons.ttf") format("truetype"), url("fonts/custom_icons.svg#custom_icons") format("svg");
 }
-.row {
-  width: 960px;
+footer {
+  /*--------------------------------------------------------------
+MEDIA QUERY
+--------------------------------------------------------------*/
 }
+footer .social_link {
+  display: inline-block;
+  width: 100%;
+  padding: 20px 0;
+  cursor: pointer;
+  text-align: center;
+}
+footer .social_link a {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  color: #fff;
+  border-radius: 50%;
+  background: #16a085;
+  -webkit-transition: all 0.15s ease-in;
+  -moz-transition: all 0.15s ease-in;
+  -ms-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+}
+footer .social_link a:before {
+  font-size: 20px;
+  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* @include rotate( 180 ); */
+}
+footer .social_link a.icf-facebook4 {
+  background: #3b5993;
+}
+footer .social_link a.icf-twitter {
+  background: #55acee;
+}
+footer .social_link a.icf-google-plus {
+  background: #d94733;
+}
+footer .social_link a:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  /* @include center(true, false); */
+}
+@media screen and (max-width: 1020px) {
+  /*
+ @media screen and (max-width: 960px) {}
+ @media screen and (max-width: 768px) {}
+ @media screen and (max-width: 640px) {}
+ @media screen and (max-width: 480px) {}
+ @media screen and (max-width: 320px) {}
+ */}

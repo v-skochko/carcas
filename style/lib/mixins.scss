@@ -1,3 +1,16 @@
+/*--------------------------------------------------------------
+VARIABLES
+--------------------------------------------------------------*/
+$row: 1020px;
+$blue:#1091ae;
+$green:#16a085;
+$txt:#222;
+$brd:#c1c1c1;
+$fnt:"Arial", sans-serif;
+
+/*--------------------------------------------------------------
+MIXINS
+--------------------------------------------------------------*/
 //Using @include declare-font-face('FontName', 'font-filename', 400);
 @mixin declare-font-face($font-family, $font-filename, $font-weight:normal, $font-style: normal) {
     @font-face {
@@ -12,13 +25,13 @@
         url("fonts/#{$font-filename}.svg##{$font-family}") format("svg");
     }
 }
-// @mixin box-sizing($s) {
-//     -webkit-box-sizing:$s;
-//        -moz-box-sizing:$s;
-//             box-sizing:$s;
+@mixin box-sizing($s) {
+    -webkit-box-sizing:$s;
+       -moz-box-sizing:$s;
+            box-sizing:$s;
 
-//         -ms-box-sizing:$s;
-// }
+        -ms-box-sizing:$s;
+}
 @mixin background-size($size) {
     -webkit-background-size:$size;
        -moz-background-size:$size;
@@ -67,20 +80,38 @@
         -ms-transform:scale($scale);
             transform:scale($scale);
 }
-@mixin keyframes($name) {
-    @-webkit-keyframes #{$name} {
-        @content;
-    }
-    @-moz-keyframes #{$name} {
-        @content;
-    }
-    @-ms-keyframes #{$name} {
-        @content;
-    }
-    @keyframes #{$name} {
-        @content;
-    }
+
+/* @include center(true, false); */
+@mixin center($horizontal: true, $vertical: true) {
+  position: absolute;
+
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
 }
+/* @include rotate( 180 ); */
+@mixin rotate( $degrees ) {
+  -webkit-transform: rotate(#{$degrees}deg);
+  -moz-transform: rotate(#{$degrees}deg);
+  -ms-transform: rotate(#{$degrees}deg);
+  -o-transform: rotate(#{$degrees}deg);
+  transform: rotate(#{$degrees}deg);
+
+  filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+  zoom: 1;
+ }
+
 
 
 

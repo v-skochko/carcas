@@ -1,4 +1,4 @@
-@import "mixins";
+@import "mixins", "variables";
 /*--------------------------------------------------------------
 BASE
 --------------------------------------------------------------*/
@@ -149,6 +149,13 @@ html[xmlns] .cfx {
 
     @include transform(translateY(-50%));
 }
+footer {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+}
 /*--------------------------------------------------------------
 WORDPRESS CLASSES
 --------------------------------------------------------------*/
@@ -186,4 +193,5 @@ body {
     position:relative;
     max-width:96%;
     margin:0 auto;
+    width: $row;
 }
