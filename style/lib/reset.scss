@@ -49,9 +49,6 @@ input, textarea, select {
     -webkit-appearance:none;
     @include transition(all, .2s, ease-in-out);
 }
-input {
-    line-height: normal;
-}
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
     cursor:pointer;
 }
@@ -65,7 +62,7 @@ nav ul {
     list-style:none;
 }
 ol {
-    list-style: decimal;
+    list-style:decimal;
 }
 table {
     border-spacing:0;
@@ -152,7 +149,9 @@ html[xmlns] .cfx {
 
     @include transform(translateY(-50%));
 }
-/* Wordpress classes */
+/*--------------------------------------------------------------
+WORDPRESS CLASSES
+--------------------------------------------------------------*/
 .alignleft {
     float:left;
 }
@@ -185,7 +184,6 @@ body {
 }
 .row {
     position:relative;
-    width:960px;
     max-width:96%;
     margin:0 auto;
 }
