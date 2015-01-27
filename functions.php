@@ -3,7 +3,7 @@
     require_once('logic/plugins/init.php');
 ## Shortcodes functions
     require_once('shortcodes.php');
-
+add_image_size( 'blog', '204', '204', true );
 ## SPEED & SECURITY BOOST
     ### Clean up wp_head()
     remove_action('wp_head', 'feed_links_extra', 3);
