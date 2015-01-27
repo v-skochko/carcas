@@ -38,6 +38,7 @@
     - Contact Form 7
     - WP Migrate DB
     - BackWPup Free
+    - AJAX Thumbnail Rebuild
     - WP-SCSS
     - WP No Category Base
     - Better WordPress Minify
