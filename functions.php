@@ -32,22 +32,44 @@ add_image_size( 'blog', '204', '204', true );
     // require_once('custom-cpt.php');
 
     ### Registered jQuery,  css and js file
-    function tt_add_scripts() {
+    // function tt_add_scripts() {
+    // if (!is_admin()) {
+    //     wp_deregister_script( 'jquery' );
+    //     wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+    //     wp_enqueue_script( 'jquery' );
+    // }
+    // wp_enqueue_script('lib_min', theme().'/logic/lib.js', array('jquery'), '', true );
+    // wp_enqueue_script('js_init', theme().'/logic/init.js', array('jquery'), '', true );
+    // //style.css
+    // wp_register_style('base_style', theme().'/style/style.css');
+    // wp_enqueue_style('base_style');
+    // //custom.css
+    // wp_register_style('custom_style', theme().'/style/lib/custom_icon.css');
+    // wp_enqueue_style('custom_style');
+    // }
+    // add_action('wp_enqueue_scripts', 'tt_add_scripts');
+
+
+
+//Custom JS/Styles
+function tt_add_jscss() {
     if (!is_admin()) {
         wp_deregister_script( 'jquery' );
-        wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
-        wp_enqueue_script( 'jquery' );
     }
-    wp_enqueue_script('lib_min', theme().'/logic/lib.js', array('jquery'), '', true );
-    wp_enqueue_script('js_init', theme().'/logic/init.js', array('jquery'), '', true );
-    //style.css
-    wp_register_style('base_style', theme().'/style/style.css');
-    wp_enqueue_style('base_style');
-    //custom.css
-    wp_register_style('custom_style', theme().'/style/lib/custom_icon.css');
-    wp_enqueue_style('custom_style');
-    }
-    add_action('wp_enqueue_scripts', 'tt_add_scripts');
+    // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
+    wp_enqueue_script( 'jquery', get_template_directory_uri().'/logic/jquery-1.9.1.js', array(), '', FALSE);
+    wp_enqueue_script('libs', get_template_directory_uri().'/logic/lib.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('init', get_template_directory_uri().'/logic/init.js', array('jquery'), '1.0', true);
+    wp_deregister_style( 'contact-form-7' );
+    wp_enqueue_style('reset', get_template_directory_uri() . '/style/lib/reset.scss');
+    // wp_enqueue_style('font', get_template_directory_uri() . '/style/lib/custom_icon.css');
+    wp_enqueue_style('lib', get_template_directory_uri() . '/style/lib/lib.scss');
+    wp_enqueue_style('style', get_template_directory_uri() . '/style/style.scss');
+}
+add_action('wp_enqueue_scripts', 'tt_add_jscss');
+
+
+
 
     ### Option Update
         ### Set permalink settings

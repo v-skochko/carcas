@@ -1,15 +1,8 @@
-@import  "lib/reset", "lib/lib";
-
 /*--------------------------------------------------------------
 BASE
 --------------------------------------------------------------*/
-@include declare-font-face("custom_icons", "custom_icons", 400);
-
-
-
-
-
-
+@import "mixins";
+// @include declare-font-face("custom_icons", "custom_icons", 400);
 /*--------------------------------------------------------------
 HEADER
 --------------------------------------------------------------*/
@@ -61,12 +54,15 @@ footer {
 /*--------------------------------------------------------------
 MEDIA QUERY
 --------------------------------------------------------------*/
- @media screen and (max-width: $row) {}
-
-/*
- @media screen and (max-width: 960px) {}
- @media screen and (max-width: 768px) {}
- @media screen and (max-width: 640px) {}
- @media screen and (max-width: 480px) {}
- @media screen and (max-width: 320px) {}
- */
+@media screen and (max-width: $row) {
+}
+@media screen and (max-width: 960px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 640px) {
+}
+@media screen and (max-width: 480px) {
+}
+@media screen and (max-width: 320px) {
+}

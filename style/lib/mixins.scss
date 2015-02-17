@@ -1,13 +1,12 @@
 /*--------------------------------------------------------------
 VARIABLES
 --------------------------------------------------------------*/
-$row: 1020px;
+$row:1450px;
 $blue:#1091ae;
 $green:#16a085;
 $txt:#222;
 $brd:#c1c1c1;
 $fnt:"Arial", sans-serif;
-
 /*--------------------------------------------------------------
 MIXINS
 --------------------------------------------------------------*/
@@ -80,49 +79,48 @@ MIXINS
         -ms-transform:scale($scale);
             transform:scale($scale);
 }
-
 /* @include center(true, false); */
-@mixin center($horizontal: true, $vertical: true) {
-  position: absolute;
-
-  @if ($horizontal and $vertical) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-  } @else if ($horizontal) {
-    left: 50%;
-    transform: translate(-50%, 0);
-
-  } @else if ($vertical) {
-    top: 50%;
-    transform: translate(0, -50%);
-  }
+@mixin center($horizontal:true, $vertical: true) {
+    position:absolute;
+    @if ($horizontal and $vertical) {
+        top:50%;
+        left:50%;
+        -webkit-transform:translate(-50%, -50%);
+                transform:translate(-50%, -50%);
+    } @else if ($horizontal) {
+        left:50%;
+        -webkit-transform:translate(-50%, 0);
+                transform:translate(-50%, 0);
+    } @else if ($vertical) {
+        top:50%;
+        -webkit-transform:translate(0, -50%);
+                transform:translate(0, -50%);
+    }
 }
 // Placeholder text
 @mixin placeholder {
-  &:-moz-placeholder { @content; } // Firefox 4-18
-  &::-moz-placeholder { opacity: 1; @content; } // Firefox 19+
-  &:-ms-input-placeholder { @content; } // Internet Explorer 10+
-  &::-webkit-input-placeholder { @content; } // Safari and Chrome
+    &:-moz-placeholder {
+        @content;
+    } // Firefox 4-18
+    &::-moz-placeholder {
+        opacity:1; @content;
+    } // Firefox 19+
+    &:-ms-input-placeholder {
+        @content;
+    } // Internet Explorer 10+
+    &::-webkit-input-placeholder {
+        @content;
+    } // Safari and Chrome
 }
-
 /* @include rotate( 180 ); */
 @mixin rotate( $degrees ) {
-  -webkit-transform: rotate(#{$degrees}deg);
-  -moz-transform: rotate(#{$degrees}deg);
-  -ms-transform: rotate(#{$degrees}deg);
-  -o-transform: rotate(#{$degrees}deg);
-  transform: rotate(#{$degrees}deg);
+    zoom:1;
+    -webkit-transform:rotate(#{$degrees}deg);
+       -moz-transform:rotate(#{$degrees}deg);
+        -ms-transform:rotate(#{$degrees}deg);
+         -o-transform:rotate(#{$degrees}deg);
+            transform:rotate(#{$degrees}deg);
 
-  filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
-  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
-  zoom: 1;
- }
-
-
-
-
-
-
-
+    -ms-filter:"progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
+    filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+}
