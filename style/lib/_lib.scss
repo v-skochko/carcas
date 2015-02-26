@@ -1,6 +1,55 @@
+@import "_mixins";
+@import "_variables";
+/*--------------------------------------------------------------
+CONTACT FORM 7
+--------------------------------------------------------------*/
+.wpcf7 {
+    .screen-reader-response {
+        display:none !important;
+    }
+    .wpcf7-not-valid-tip {
+        font:500 14px/1 "Arial";
+        position:absolute;
+        top:0;
+        right:0;
+        left:0;
+        text-align:center;
+        color:#ff5f5f;
+        background:#eee;
+    }
+    .wpcf7-response-output {
+        display:none;
+        float:left;
+        width:96%;
+        margin:20px 0;
+        padding:2%;
+        text-align:center;
+        background:#fff;
+        &.wpcf7-validation-errors {
+            color:white;
+            background:#ff5f5f;
+        }
+        &.wpcf7-mail-sent-ng {
+            color:white;
+            background:#1091ae;
+        }
+        &.wpcf7-mail-sent-ok {
+            color:white;
+            background:#16a085;
+        }
+    }
+    .wpcf7-form-control-wrap {
+        position:relative;
+        display:block !important;
+    }
+}
+
+
+
 /*--------------------------------------------------------------
 MATERIAL SHADOW http://vskochko.github.io/shadow
 --------------------------------------------------------------*/
+
 .z-depth-z1 {
     box-shadow:0 2px 5px 0 rgba(0, 0, 0, .26), 0 2px 10px 0 rgba(0, 0, 0, .16);
 }
@@ -49,6 +98,10 @@ MATERIAL SHADOW http://vskochko.github.io/shadow
 .z-depth-z5, .z-depth-animation div:hover, .z-depth-animation div:focus {
     box-shadow:0 27px 24px 0 rgba(0, 0, 0, .2), 0 40px 77px 0 rgba(0, 0, 0, .22);
 }
+
+
+
+
 /*--------------------------------------------------------------
 CUSTOM ICON FONT http://vskochko.github.io/custom_icons/
 --------------------------------------------------------------*/
