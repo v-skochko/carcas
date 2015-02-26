@@ -167,9 +167,9 @@ function my_theme_register_required_plugins() {
             'required'  => false,
         ),
         array(
-            'name'      => 'WP-SCSS',
-            'slug'      => 'wp-scss',
-            'required'  => false,
+            'name'      => 'AssetsMinify',
+            'slug'      => 'assetsminify',
+            'required'  => true,
         ),
         array(
             'name'      => 'WP No Category Base',
@@ -186,11 +186,7 @@ function my_theme_register_required_plugins() {
             'slug'      => 'ajax-thumbnail-rebuild',
             'required'  => false,
         ),
-          array(
-            'name'      => 'Better WordPress Minify',
-            'slug'      => 'bwp-minify',
-            'required'  => false,
-        ),
+
         array(
             'name'               => 'Advanced Custom Fields: PRO',
             'slug'               => 'advanced-custom-fields-pro',
