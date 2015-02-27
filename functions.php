@@ -56,9 +56,10 @@ function style_js() {
     wp_deregister_style( 'contact-form-7' );
     if (!is_admin()) {
         wp_deregister_script( 'jquery' );
+        wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+        wp_enqueue_script( 'jquery' );
     }
     // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
-    wp_enqueue_script( 'jquery', get_template_directory_uri().'/logic/jquery-1.9.1.js', array(), '', false);
     wp_enqueue_script('libs', get_template_directory_uri().'/logic/lib.js', array('jquery'), '1.0', true);
     wp_enqueue_script('init', get_template_directory_uri().'/logic/init.js', array('jquery'), '1.0', true);
     wp_enqueue_style('reset', get_template_directory_uri() . '/style/lib/_reset.scss');
