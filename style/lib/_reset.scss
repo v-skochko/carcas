@@ -46,7 +46,7 @@ FORMS & TABLE & NAVIGATION
 input, textarea, select {
     padding:0 10px;
     outline:0 none;
-    // -webkit-appearance:none;
+    -webkit-appearance:none;
 
     @include transition(all, .2s, ease-in-out);
 }
@@ -99,6 +99,21 @@ img {
 }
 a>img {
     border:0;
+}
+hr {
+    display:block;
+    clear:both;
+    height:1px;
+    margin:20px 0;
+    border:0 none;
+    background:#707070;
+}
+strong {
+    font-weight:700;
+}
+body {
+    font:400 14px / 20px "Arial", sans-serif;
+    position:relative;
 }
 /*--------------------------------------------------------------
 CLASSES
@@ -174,24 +189,21 @@ img.aligncenter {
     margin-right:auto;
     margin-left:auto;
 }
-hr {
-    display:block;
-    clear:both;
-    height:1px;
-    margin:20px 0;
-    border:0 none;
-    background:#707070;
-}
-strong {
-    font-weight:700;
-}
-body {
-    font:400 14px / 20px "Arial", sans-serif;
-    position:relative;
-}
+
 .row {
     position:relative;
     width:$row;
     max-width:96%;
     margin:0 auto;
 }
+
+#logo {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;
+   &:hover {
+      opacity: 0.5;
+
+   }
+   }
