@@ -1,5 +1,68 @@
 @import "_mixins";
 @import "_variables";
+
+
+.underline_lr {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+    &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    transition: width 0s ease, background .5s ease;
+    }
+    &:after {
+          content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: #000;
+    transition: width .5s ease;
+    }
+    &:hover {
+        &:before {
+              width: 100%;
+    background: #000;
+    transition: width .5s ease;
+        }
+        &:after {
+                width: 100%;
+    background: transparent;
+    transition: all 0s ease;
+        }
+    }
+}
+
+
+
+.underline_c {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+    &:after {
+            content: '';
+    display: block;
+    margin: auto;
+    height: 1px;
+    width: 0px;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+    }
+    &:hover:after {
+            width: 100%;
+    background: #222;
+    }
+}
+
+
 /*--------------------------------------------------------------
 CONTACT FORM 7
 --------------------------------------------------------------*/
