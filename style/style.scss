@@ -3,9 +3,7 @@
 /*--------------------------------------------------------------
 OPTIONS
 --------------------------------------------------------------*/
-@include declare-font-face("custom_icons", "custom_icons", 400);
-
-
+@include declare-font-face("icf", "icf", 400);
 
 /*--------------------------------------------------------------
 BASE
@@ -33,16 +31,26 @@ BASE
 
                 @include center();
             }
-            &.icf-facebook4 {
+            &.icf-facebook {
                 background:#3b5993;
+                &:before {
+                   content: '\e858';
+                }
             }
             &.icf-twitter {
                 background:#55acee;
+                &:before {
+                   content: '\e866';
+                }
             }
             &.icf-google-plus {
                 background:#d94733;
+                &:before {
+                   content: '\e85d';
+                }
             }
             &:hover {
+
                 @include scale( 1.2 );
             }
         }
@@ -51,7 +59,7 @@ BASE
 HEADER
 --------------------------------------------------------------*/
 header {
-    
+
 }
 /*--------------------------------------------------------------
 FRONT PAGE
@@ -60,7 +68,7 @@ FRONT PAGE
 FOOTER
 --------------------------------------------------------------*/
 footer {
-    
+
 }
 /*--------------------------------------------------------------
 MEDIA QUERY
