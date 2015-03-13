@@ -61,5 +61,5 @@ function register_jobs() {
         'query_var'             => true,
 //        'menu_icon' => get_bloginfo('stylesheet_directory') . '/images/cpt-icon.png',
     ));
-flush_rewrite_rules();
+// flush_rewrite_rules();
 }
