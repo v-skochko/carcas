@@ -1,5 +1,4 @@
-<?php get_header();
-wp_redirect( home_url() ); exit; ?>
+<?php get_header(); ?>
     <section class="content row cfx">
         <article>
 
