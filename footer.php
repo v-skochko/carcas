@@ -3,9 +3,9 @@
 <footer>
     <div class="row cfx">
     	<div class="social_link">
-    		<a href="#" class="icf-facebook"></a>
-    		<a href="#" class="icf-twitter"></a>
-    		<a href="#" class="icf-google-plus"></a>
+    		<a href="#" class="icf-facebook" target="_blank"></a>
+    		<a href="#" class="icf-twitter" target="_blank"></a>
+    		<a href="#" class="icf-google-plus" target="_blank"></a>
     	</div>
     </div>
 </footer>
