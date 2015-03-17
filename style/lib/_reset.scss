@@ -171,6 +171,11 @@ footer {
     left:0;
     overflow:hidden;
 }
+.no_select {
+    -webkit-user-select:none;
+       -moz-user-select:none;
+        -ms-user-select:none;
+}
 /*--------------------------------------------------------------
 WORDPRESS CLASSES
 --------------------------------------------------------------*/
