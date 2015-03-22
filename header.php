@@ -21,7 +21,7 @@ ob_start('ob_html_compress');
 <?php wp_head(); ?>
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 <div id="wrap">
     <header>
         <div class="row cfx">
