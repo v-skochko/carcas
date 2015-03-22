@@ -1,6 +1,6 @@
 <div class="footix"></div>
 </div>
-<footer>
+<footer role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
     <div class="row cfx">
     	<div class="social_link">
     		<a href="#" class="icf-facebook" target="_blank"></a>
