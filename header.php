@@ -26,7 +26,7 @@ ob_start('ob_html_compress');
     <header>
         <div class="row cfx">
             <a href="<?php echo site_url(); ?>/" id="logo"><img src="" alt=""></a>
-            <nav class="cfx">
+            <nav class="cfx" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
                 <a class="toogle_nav" href="#" onclick="$('nav ul').slideToggle('fast'); return false;"></a>
                 <?php wp_nav_menu(array('container' => false, 'items_wrap' => '<ul id="%1$s">%3$s</ul>', 'theme_location'  => 'head_menu')); ?>
             </nav>
