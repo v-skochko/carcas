@@ -179,21 +179,26 @@
     return $classes;
 }
 add_filter( 'body_class', 'new_body_classes' );
-    ###Custom SEO title
-    function seo_title(){
-    global $post;
-    if(is_404()) {
-        echo '404 Page not found - ';
-    } elseif($post->post_parent) {
-        $parent_title = get_the_title($post->post_parent);
-        echo wp_title('-', true, 'right') . $parent_title.' - ';
-    } elseif(class_exists('Woocommerce') && is_shop()) {
-        echo get_the_title(SHOP_ID) . ' - ';
-    } else {
-        wp_title('-', true, 'right');
-    }
-    bloginfo('name');
+/* TG WP Title */
+function tg_wp_title( $title, $seperator ) {
+	global $paged, $page;
+
+	if ( is_feed() ) {
+		return $title;
+	}
+	$title .= ' ' .$seperator. ' ' .get_bloginfo( 'name' );
+	$description = get_bloginfo( 'description', 'display' );
+	if ( $description && ( is_front_page() ) )	{
+		$title = "$title $seperator $description";
+	}
+	if ( $paged >= 2 || $page >= 2 ) {
+		$title = "$title $seperator " . sprintf( __( 'Page %s' ), max( $paged, $page ) );
+	}
+
+	return trim( $title, ' ' .$seperator. ' ' );
 }
+add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
+/* End of TG WP Title */
     ###Register menus
     register_nav_menus(array(
         'head_menu' => 'Main navigation',
