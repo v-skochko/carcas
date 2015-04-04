@@ -65,7 +65,7 @@
         @include border-radius(5px);
         color: #ef4036 !important;
         display: block;
-        font: 400 14px/38px $font !important;
+        font: 400 14px/38px $f !important;
         list-style: none !important;
         margin: 20px 0 0;
         text-align: center;
@@ -78,7 +78,7 @@
             background: #4f91cd;
             border: 1px solid #3979b2;
             color: #fff;
-            font: 700 24px $proxima;
+            font: 700 24px $pf;
             padding: 10px;
             text-transform: uppercase;
             &.product-remove {
@@ -87,7 +87,7 @@
                     background: #ef4036;
                     color: #fff;
                     display: block;
-                    font: 700 20px/21px $font;
+                    font: 700 20px/21px $f;
                     margin: 0 auto;
                     text-align: center;
                     text-decoration: none;
@@ -140,7 +140,7 @@
                         @include border-radius(5px);
                         color: #555;
                         display: block;
-                        font: 400 14px/40px $font;
+                        font: 400 14px/40px $f;
                         height: 40px;
                         padding: 0 20px;
                         width: 100%;

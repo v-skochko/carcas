@@ -35,7 +35,7 @@
         wp_deregister_style( 'contact-form-7' );
         if (!is_admin()) {
             wp_deregister_script( 'jquery' );
-            wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+            wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
             wp_enqueue_script( 'jquery' );
         }
         // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
