@@ -15,57 +15,64 @@ OPTIONS
 BASE
 --------------------------------------------------------------*/
 .social_link {
+    display:inline-block;
+    width:100%;
+    padding:20px 0;
+    cursor:pointer;
+    text-align:center;
+    a {
+        position:relative;
         display:inline-block;
-        width:100%;
-        padding:20px 0;
-        cursor:pointer;
-        text-align:center;
-        a {
+        width:40px;
+        height:40px;
+        margin:0 5px;
+        color:#fff;
+        border-radius:50%;
+        background:$green;
+
+        @include transition(all, .15s, ease-in);
+        &:before {
+            font-size:20px;
             position:relative;
-            display:inline-block;
-            width:40px;
-            height:40px;
-            margin:0 5px;
-            color:#fff;
-            border-radius:50%;
-            background:$green;
 
-            @include transition(all, .15s, ease-in);
+            @include center();
+        }
+        &.icf-facebook {
+            background:#3b5993;
             &:before {
-                font-size:20px;
-                position:relative;
-
-                @include center();
-            }
-            &.icf-facebook {
-                background:#3b5993;
-                &:before {
-                   content: '\e858';
-                }
-            }
-            &.icf-twitter {
-                background:#55acee;
-                &:before {
-                   content: '\e866';
-                }
-            }
-            &.icf-google-plus {
-                background:#d94733;
-                &:before {
-                   content: '\e85d';
-                }
-            }
-            &:hover {
-
-                @include scale( 1.2 );
+                content:"\e858";
             }
         }
+        &.icf-twitter {
+            background:#55acee;
+            &:before {
+                content:"\e866";
+            }
+        }
+        &.icf-google-plus {
+            background:#d94733;
+            &:before {
+                content:"\e85d";
+            }
+        }
+        &:hover {
+            @include scale( 1.2 );
+        }
     }
+}
 /*--------------------------------------------------------------
 HEADER
 --------------------------------------------------------------*/
 header {
-
+    #logo {
+        -webkit-transition:opacity .25s ease-in-out;
+           -moz-transition:opacity .25s ease-in-out;
+                transition:opacity .25s ease-in-out;
+        opacity:1;
+        &:hover {
+            opacity:.5;
+        }
+    }
 }
 /*--------------------------------------------------------------
 FRONT PAGE
@@ -74,7 +81,6 @@ FRONT PAGE
 FOOTER
 --------------------------------------------------------------*/
 footer {
-
 }
 /*--------------------------------------------------------------
 MEDIA QUERY

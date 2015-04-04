@@ -23,6 +23,15 @@ MIXINS
 
         -ms-box-sizing:$s;
 }
+// @include border-radius(5px);
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+
+
 @mixin background-size($size) {
     -webkit-background-size:$size;
        -moz-background-size:$size;
@@ -110,7 +119,6 @@ MIXINS
     -webkit-transform:rotate(#{$degrees}deg);
        -moz-transform:rotate(#{$degrees}deg);
         -ms-transform:rotate(#{$degrees}deg);
-         -o-transform:rotate(#{$degrees}deg);
             transform:rotate(#{$degrees}deg);
 
     -ms-filter:"progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";

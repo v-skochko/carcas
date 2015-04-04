@@ -5,15 +5,15 @@ BASE
 --------------------------------------------------------------*/
 *, *:before, *:after {
     -moz-box-sizing:border-box;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+         box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 html {
     height:100%;
 
-  -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
     -webkit-overflow-scrolling:touch;
     -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
     -webkit-text-size-adjust:none;
@@ -21,7 +21,7 @@ html {
 
 
 body {
-    font:400 14px / 20px "Arial", sans-serif;
+    font:400 14px / 20px $f;
     position:relative;
     display:flex;
     flex-direction:column;
@@ -44,11 +44,11 @@ mark {
 }
 ::-moz-selection {
     color:#fff;
-    background:#00c2cb;
+    background:$basic;
 }
 ::selection {
     color:#fff;
-    background:#00c2cb;
+    background:$basic;
 }
 /*--------------------------------------------------------------
 FORMS & TABLE & NAVIGATION
@@ -105,8 +105,8 @@ img {
     display:block;
     max-width:100%;
     height:auto;
-    border: 0;
     vertical-align:middle;
+    border:0;
 }
 hr {
     display:block;
@@ -204,14 +204,4 @@ img.aligncenter {
     width:$row;
     max-width:96%;
     margin:0 auto;
-}
-
-#logo {
-    -webkit-transition:opacity .25s ease-in-out;
-       -moz-transition:opacity .25s ease-in-out;
-            transition:opacity .25s ease-in-out;
-    opacity:1;
-    &:hover {
-        opacity:.5;
-    }
 }
