@@ -124,3 +124,7 @@ MIXINS
     -ms-filter:"progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})";
     filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
 }
+@mixin rgba($hexcolor, $opacity) {
+    background-color: $hexcolor;
+    background-color: rgba($hexcolor, $opacity);
+}
