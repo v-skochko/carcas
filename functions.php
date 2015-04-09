@@ -41,9 +41,9 @@
         // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
         wp_enqueue_script('libs', get_template_directory_uri().'/logic/lib.js', array('jquery'), '1.0', true);
         wp_enqueue_script('init', get_template_directory_uri().'/logic/init.js', array('jquery'), '1.0', true);
-        wp_enqueue_style('reset', get_template_directory_uri() . '/style/lib/_reset.scss');
-        wp_enqueue_style('lib', get_template_directory_uri() . '/style/lib/_lib.scss');
-        wp_enqueue_style('style', get_template_directory_uri() . '/style/style.scss');
+        // wp_enqueue_style('reset', get_template_directory_uri() . '/style/lib/_reset.scss');
+        // wp_enqueue_style('lib', get_template_directory_uri() . '/style/lib/_lib.scss');
+        wp_enqueue_style('style', get_template_directory_uri() . '/style/base.scss');
     }
     add_action('wp_enqueue_scripts', 'style_js');
     ### Option Update
@@ -179,6 +179,7 @@
     return $classes;
 }
 add_filter( 'body_class', 'new_body_classes' );
+
 /* TG WP Title */
 function tg_wp_title( $title, $seperator ) {
 	global $paged, $page;
@@ -261,10 +262,13 @@ add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
     add_filter( 'login_headerurl', 'tt_login_url' );
     add_filter( 'login_headertitle', 'tt_login_title' );
     ### Add custom info to admin footer area
-    function remove_footer_admin () {
-        echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress </a>  | Theme Developer <a href="https://www.facebook.com/skochko" target="_blank">@skochko</a>';
-    }
-    add_filter('admin_footer_text', 'remove_footer_admin');
+
+    // function remove_footer_admin () {
+    //     echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress </a>  | Theme Developer <a href="https://www.facebook.com/skochko" target="_blank">@skochko</a>';
+    // }
+    // add_filter('admin_footer_text', 'remove_footer_admin');
+
+
     ###Change admin post/page color by status – draft, pending, future, private
     add_action('admin_footer','posts_status_color');
     function posts_status_color(){

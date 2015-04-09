@@ -1,5 +1,12 @@
-@import "lib/_mixins";
-@import "lib/_variables";
+@import "lib/_01_variables";
+@import "lib/_02_mixins";
+@import "lib/_03_reset";
+@import "lib/_04_helpers";
+
+
+
+
+
 /*--------------------------------------------------------------
 OPTIONS
 --------------------------------------------------------------*/
@@ -75,19 +82,4 @@ FRONT PAGE
 FOOTER
 --------------------------------------------------------------*/
 footer {
-}
-/*--------------------------------------------------------------
-MEDIA QUERY
---------------------------------------------------------------*/
-@media screen and (max-width: $row) {
-}
-@media screen and (max-width: 960px) {
-}
-@media screen and (max-width: 768px) {
-}
-@media screen and (max-width: 640px) {
-}
-@media screen and (max-width: 480px) {
-}
-@media screen and (max-width: 320px) {
 }
