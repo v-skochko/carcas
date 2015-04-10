@@ -1,5 +1,4 @@
-@import "_mixins";
-@import "_variables";
+@import "01_variables", "02_mixins";
 .underline_lr {
     position:relative;
     display:inline-block;

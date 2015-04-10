@@ -20,16 +20,8 @@
     remove_action('wp_head', 'adjacent_posts_rel_link_wp_head' );
     remove_action('wp_head', 'wp_generator'); //Remove WP Generator Meta Tag
     remove_action('wp_head', 'rel_canonical');
-    ###Remove wp version param from any enqueued scripts
-    function vc_remove_wp_ver_css_js( $src ) {
-        if ( strpos( $src, 'ver=' ) )
-            $src = remove_query_arg( 'ver', $src );
-        return $src;
-    }
-    add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
-    add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
-##THEME SETINGS
 
+##THEME SETINGS
     ### Registered jQuery,  css and js file
     function style_js() {
         wp_deregister_style( 'contact-form-7' );
@@ -41,9 +33,8 @@
         // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
         wp_enqueue_script('libs', get_template_directory_uri().'/logic/lib.js', array('jquery'), '1.0', true);
         wp_enqueue_script('init', get_template_directory_uri().'/logic/init.js', array('jquery'), '1.0', true);
-        // wp_enqueue_style('reset', get_template_directory_uri() . '/style/lib/_reset.scss');
-        // wp_enqueue_style('lib', get_template_directory_uri() . '/style/lib/_lib.scss');
         wp_enqueue_style('style', get_template_directory_uri() . '/style/base.scss');
+        wp_enqueue_style('style', get_template_directory_uri() . '/style/sass/_03_reset.scss');
     }
     add_action('wp_enqueue_scripts', 'style_js');
     ### Option Update
@@ -92,13 +83,7 @@
     return $items;
     }
     add_filter('wp_nav_menu_objects', 'wpb_first_and_last_menu_class');
-    ### Add ie conditional html5 shim to header (only for old IE)
-    function wp_IEhtml5_js () {
-        global $is_IE;
-        if ($is_IE)
-            echo '<!--[if lt IE 9]><script src="##html5shim.googlecode.com/svn/trunk/html5.js"></script><script src="##css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->';
-    }
-    add_action('wp_head', 'wp_IEhtml5_js');
+
     ### Add class to BODY
     function new_body_classes( $classes ){
     if( is_page() ){
