@@ -1,12 +1,8 @@
-@import "sass/01_variables", "sass/02_mixins";
-
-
-
 /*--------------------------------------------------------------
 OPTIONS
 --------------------------------------------------------------*/
+@import "sass/01_variables", "sass/02_mixins";
 @include declare-font-face("icf", "icf", 400);
-
 /*--------------------------------------------------------------
 BASE
 --------------------------------------------------------------*/
@@ -25,12 +21,10 @@ BASE
         color:#fff;
         border-radius:50%;
         background:$green;
-
         @include transition(all, .15s, ease-in);
         &:before {
             font-size:20px;
             position:relative;
-
             @include center();
         }
         &.icf-facebook {

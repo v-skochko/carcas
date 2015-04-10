@@ -4,7 +4,6 @@ global $post; ?>
         <article>
 
 
-
         </article>
     </section>
 <?php get_footer(); ?>
