@@ -8,27 +8,104 @@
        -moz-user-select:none;
         -ms-user-select:none;
 }
+
 .btn {
     line-height:40px;
     display:block;
     width:80px;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 3px;
-    color: #fff;
     height:40px;
     cursor:pointer;
+    -webkit-user-select:none;
+       -moz-user-select:none;
+        -ms-user-select:none;
+    text-align:center;
     text-decoration:none;
+    text-transform:uppercase;
+    color:#fff;
+    border-radius:3px;
     outline:0;
-    background:$basic;
+    background:$btn;
     &:hover {
-        background:darken( $basic, 10% );
+        background:darken( $btn, 10% );
     }
     &:active {
-
     }
     &:focus {
-
     }
-
+}
+.underline_lr {
+    position:relative;
+    display:inline-block;
+    padding-bottom:3px;
+    &:before {
+        position:absolute;
+        bottom:0;
+        left:0;
+        display:block;
+        width:0;
+        height:1px;
+        content:"";
+        transition:width 0s ease, background .5s ease;
+    }
+    &:after {
+        position:absolute;
+        right:0;
+        bottom:0;
+        display:block;
+        width:0;
+        height:1px;
+        content:"";
+        transition:width .5s ease;
+        background:#000;
+    }
+    &:hover {
+        &:before {
+            width:100%;
+            transition:width .5s ease;
+            background:#000;
+        }
+        &:after {
+            width:100%;
+            transition:all 0s ease;
+            background:transparent;
+        }
+    }
+}
+.underline_c {
+    position:relative;
+    display:inline-block;
+    padding-bottom:3px;
+    &:after {
+        display:block;
+        width:0;
+        height:1px;
+        margin:auto;
+        content:"";
+        transition:width .5s ease, background-color .5s ease;
+        background:transparent;
+    }
+    &:hover:after {
+        width:100%;
+        background:#222;
+    }
+}
+.wysiwyg {
+    a {
+        position:relative;
+        display:inline-block;
+        // padding-bottom:3px;
+        &:after {
+            display:block;
+            width:0;
+            height:1px;
+            margin:auto;
+            content:"";
+            transition:width .4s ease, background-color .4s ease;
+            background:transparent;
+        }
+        &:hover:after {
+            width:100%;
+            background:$link;
+        }
+    }
 }

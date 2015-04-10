@@ -87,7 +87,7 @@ p {
 }
 a {
     text-decoration:none;
-    color:#00c2cb;
+    color:$link;
     outline:0;
 
     @include transition(all, .2s, ease);
