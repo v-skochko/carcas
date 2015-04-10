@@ -18,8 +18,9 @@ html {
     -webkit-text-size-adjust:none;
 }
 
+
 body {
-    font:400 14px/20px $f;
+    font:400 14px/20px $font;
     position:relative;
     display:flex;
     flex-direction:column;
@@ -31,12 +32,7 @@ body {
     flex:1;
 }
 
-footer, header, nav {
-    display:block;
-}
-article, aside, section {
-    display:block;
-}
+
 mark {
     background:none;
 }
@@ -81,7 +77,7 @@ table {
 TYPOGRAPHY
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
-    font:400 16px/1 "Arial", sans-serif;
+    font:400 16px/1 $font;
     margin:0;
     padding:0;
     color:#000;
@@ -154,6 +150,7 @@ html[xmlns] .cfx {
     max-width:98%;
     vertical-align:middle;
 }
+
 .vfix {
     display:inline-block;
     width:0;
@@ -168,10 +165,6 @@ html[xmlns] .cfx {
     @include transform(translateY(-50%));
 }
 footer {
-    position:absolute;
-    right:0;
-    bottom:0;
-    left:0;
     overflow:hidden;
 }
 

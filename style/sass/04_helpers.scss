@@ -2,6 +2,7 @@
 .hidden {
     display:none;
 }
+
 .no_select {
     -webkit-user-select:none;
        -moz-user-select:none;
@@ -12,6 +13,8 @@
     display:block;
     width:80px;
     text-align: center;
+    text-transform: uppercase;
+    border-radius: 3px;
     color: #fff;
     height:40px;
     cursor:pointer;
