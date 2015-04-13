@@ -17,8 +17,13 @@ global $post; ?>
 			<div class="wysiwyg">
 				<h2>wysiwyg preview</h2>
 				<p><strong>Strong text</strong>, consectetur adipisicing elit. <a href="##">Ad blanditiis</a>  quae aspernatur laborum iusto cupiditate ea a perspiciatis est sit rem <a href="##">repellendus</a> ex animi, itaque soluta excepturi veniam dolor ullam nobis odit impedit. Dolorum atque dolorem, omnis nam quasi quidem!</p>
+			<blockquote>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur nisi sequi excepturi eos illo provident ullam doloremque aut necessitatibus ut!</p>
+			</blockquote>
+
 			</div>
         </article>
+
     </section>
     <style>
 article {

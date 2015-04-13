@@ -89,11 +89,13 @@
         background:#222;
     }
 }
+/*--------------------------------------------------------------
+WYSIWYG
+--------------------------------------------------------------*/
 .wysiwyg {
     a {
         position:relative;
         display:inline-block;
-        // padding-bottom:3px;
         &:after {
             display:block;
             width:0;
@@ -107,5 +109,37 @@
             width:100%;
             background:$link;
         }
+    }
+    blockquote {
+
+        font-size:1.4em;
+        font-style:italic;
+        line-height:1.6;
+        position:relative;
+        width:60%;
+        margin:50px auto;
+        padding:1.2em 30px 1.2em 75px;
+        color:#555;
+        border-left:8px solid #78c0a8 ;
+        background:#ededed;
+    }
+    blockquote::before {
+        font-family:Arial;
+        font-size:4em;
+        position:absolute;
+        top:-10px;
+        left:10px;
+        content:"\201C";
+        color:#78c0a8;
+    }
+    blockquote::after {
+        content:"";
+    }
+    blockquote span {
+        font-weight:bold;
+        font-style:normal;
+        display:block;
+        margin-top:1em;
+        color:#333;
     }
 }
