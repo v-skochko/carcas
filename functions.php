@@ -1,8 +1,8 @@
 <?php
 ## Recommended plugins installer
-    require_once('core/plugins/init.php');
+    require_once('include/plugins/init.php');
 ## Shortcodes functions
-    require_once('core/shortcodes.php');
+    require_once('include/shortcodes.php');
 ## Uncomit for add custom post type
     // require_once('custom-cpt.php');
 ## Register custom image size
@@ -49,8 +49,7 @@
               $wp_rewrite->set_permalink_structure('%postname%'); }
         add_action('after_switch_theme', 'set_permalink');
         ### Uploads organize into month- and year-based folders
-        function uploads_folder_update(){
-              update_option('uploads_use_yearmonth_folders', 1); }
+        function uploads_folder_update(){update_option('uploads_use_yearmonth_folders', 1); }
         add_action('after_switch_theme', 'uploads_folder_update');
         ### Image default link type
         function image_link_t(){
@@ -65,17 +64,7 @@
             unset($fields['url']);
             return $fields; }
         add_filter('comment_form_default_fields', 'rem_form_fields');
-    ### Add wiget area
-    $bar = array(
-        'name'          => 'Sidebar',
-        'id'            => 'sbar',
-        'description'   => 'Sidebar section',
-        'before_widget' => '<div class="widget cfx %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<div class="widgettitle">',
-        'after_title'   => '</div>'
-    );
-    register_sidebar($bar);
+
     ### Remove ID in menu list
     add_filter('nav_menu_item_id', 'clear_nav_menu_item_id', 10, 3);
     function clear_nav_menu_item_id($id, $item, $args) {
