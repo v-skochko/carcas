@@ -1,4 +1,4 @@
-<?php get_header(); /* Template Name: page_default */
+<?php get_header(); /* Template Name: page_custom */
 global $post; ?>
     <section class="content row cfx">
         <article>
