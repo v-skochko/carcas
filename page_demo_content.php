@@ -22,6 +22,9 @@ global $post; ?>
 			</blockquote>
 			</div>
         </article>
+        <article>
+        	<?php echo do_shortcode( '[contact-form-7 id="6" title="Demo"]' ); ?>
+        </article>
     </section>
     <style>
 article {

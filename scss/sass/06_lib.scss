@@ -4,11 +4,23 @@
 CONTACT FORM 7
 --------------------------------------------------------------*/
 .wpcf7 {
+    .wpcf7-submit {
+        font-size:16px;
+        line-height:30px;
+        width:130px;
+        height:30px;
+        color:#fff;
+        border:none;
+        background:$btn;
+        &:hover {
+            background:darken( $btn, 10% );
+        }
+    }
     .screen-reader-response {
         display:none !important;
     }
     .wpcf7-not-valid-tip {
-        font:500 14px/1 "Arial";
+        font:500 14px/1 $font;
         position:absolute;
         top:0;
         right:0;
@@ -43,57 +55,7 @@ CONTACT FORM 7
         display:block !important;
     }
 }
-/*--------------------------------------------------------------
-MATERIAL SHADOW http://vskochko.github.io/shadow
---------------------------------------------------------------*/
-.z-depth-z1 {
-    box-shadow:0 2px 5px 0 rgba(0, 0, 0, .26), 0 2px 10px 0 rgba(0, 0, 0, .16);
-}
-.z-depth-z1-top {
-    box-shadow:0 2px 10px 0 rgba(0, 0, 0, .16);
-}
-.z-depth-z1-bottom {
-    box-shadow:0 2px 5px 0 rgba(0, 0, 0, .26);
-}
-.z-depth-z2 {
-    box-shadow:0 8px 17px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
-}
-.z-depth-z2-top {
-    box-shadow:0 6px 20px 0 rgba(0, 0, 0, .19);
-}
-.z-depth-z2-bottom {
-    box-shadow:0 8px 17px 0 rgba(0, 0, 0, .2);
-}
-.z-depth-z3 {
-    box-shadow:0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
-}
-.z-depth-z3-top {
-    box-shadow:0 17px 50px 0 rgba(0, 0, 0, .19);
-}
-.z-depth-z3-bottom {
-    box-shadow:0 12px 15px 0 rgba(0, 0, 0, .24);
-}
-.z-depth-z4 {
-    box-shadow:0 16px 28px 0 rgba(0, 0, 0, .22), 0 25px 55px 0 rgba(0, 0, 0, .21);
-}
-.z-depth-z4-top {
-    box-shadow:0 25px 55px 0 rgba(0, 0, 0, .21);
-}
-.z-depth-z4-bottom {
-    box-shadow:0 16px 28px 0 rgba(0, 0, 0, .22);
-}
-.z-depth-z5-top {
-    box-shadow:0 40px 77px 0 rgba(0, 0, 0, .22);
-}
-.z-depth-z5-bottom {
-    box-shadow:0 27px 24px 0 rgba(0, 0, 0, .2);
-}
-.z-depth-animation:hover .z-depth-z1, .z-depth-animation:hover .z-depth-z2, .z-depth-animation:hover .z-depth-z3, .z-depth-animation:hover .z-depth-z4, .z-depth-animation:hover .z-depth-z5 {
-    transition:box-shadow .28s cubic-bezier(.4, 0, .2, 1);
-}
-.z-depth-z5, .z-depth-animation div:hover, .z-depth-animation div:focus {
-    box-shadow:0 27px 24px 0 rgba(0, 0, 0, .2), 0 40px 77px 0 rgba(0, 0, 0, .22);
-}
+
 /*--------------------------------------------------------------
 CUSTOM ICON FONT http://vskochko.github.io/icf/
 --------------------------------------------------------------*/
@@ -116,9 +78,10 @@ CUSTOM ICON FONT http://vskochko.github.io/icf/
     text-align:center;
     text-decoration:inherit;
     text-transform:none;
-    speak:none;
     /* you can be more comfortable with increased icons size */
     /* font-size: 120%; */
     /* Uncomment for 3D effect */
-     text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+    text-shadow:1px 1px 1px rgba(127, 127, 127, .3);
+
+    speak:none;
 }
