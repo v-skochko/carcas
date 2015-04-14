@@ -20,16 +20,19 @@ global $post; ?>
 			<blockquote>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur nisi sequi excepturi eos illo provident ullam doloremque aut necessitatibus ut!</p>
 			</blockquote>
-
 			</div>
         </article>
-
     </section>
     <style>
 article {
 	margin: 10px 0 0 0;
 	padding: 10px 0 ;
-	border-bottom: 1px solid #c1c1c1;
+	border-bottom: 1px solid #ddd;
+}
+.wysiwyg {
+	padding: 20px;
+	margin: 20px;
+	border: 1px solid #ddd;
 }
     </style>
 <?php get_footer(); ?>

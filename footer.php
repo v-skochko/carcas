@@ -1,6 +1,7 @@
 </div>
 <footer role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
     <div class="row cfx">
+    <span class="copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?></span>
     	<div class="social_link">
     		<a href="#" class="icf-facebook" target="_blank"></a>
     		<a href="#" class="icf-twitter" target="_blank"></a>
