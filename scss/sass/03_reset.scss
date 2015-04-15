@@ -2,7 +2,7 @@
 /*--------------------------------------------------------------
 BASE
 --------------------------------------------------------------*/
-*, *:before, *:after {
+* {
     -moz-box-sizing:border-box;
          box-sizing:border-box;
     margin:0;
@@ -10,15 +10,13 @@ BASE
 }
 html {
     height:100%;
-
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
     -webkit-overflow-scrolling:touch;
     -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
     -webkit-text-size-adjust:none;
+    overflow-y: scroll;
 }
-
-
 body {
     font:400 14px/20px $font;
     position:relative;
@@ -26,13 +24,11 @@ body {
     flex-direction:column;
     height:auto;
     min-height:100vh;
-}
 
+}
 #wrap {
     flex:1;
 }
-
-
 mark {
     background:none;
 }
@@ -50,7 +46,6 @@ FORMS & TABLE & NAVIGATION
 input, textarea, select {
     padding:0 10px;
     outline:0 none;
-
     -webkit-appearance:none;
     @include transition(all, .2s, ease-in-out);
 }
@@ -78,18 +73,12 @@ TYPOGRAPHY
 --------------------------------------------------------------*/
 h1, h2, h3, h4, h5, h6 {
     font:400 16px/1 $font;
-    margin:0;
-    padding:0;
-    color:#000;
-}
-p {
-    padding-bottom:20px;
+    color:$txt;
 }
 a {
     text-decoration:none;
     color:$link;
     outline:0;
-
     @include transition(all, .2s, ease);
     &:hover {
         outline:0;
@@ -113,7 +102,6 @@ hr {
 strong {
     font-weight:700;
 }
-
 /*--------------------------------------------------------------
 CLASSES
 --------------------------------------------------------------*/
@@ -150,7 +138,6 @@ html[xmlns] .cfx {
     max-width:98%;
     vertical-align:middle;
 }
-
 .vfix {
     display:inline-block;
     width:0;
@@ -161,13 +148,11 @@ html[xmlns] .cfx {
 .valign2 {
     position:relative;
     top:50%;
-
     @include transform(translateY(-50%));
 }
 footer {
     overflow:hidden;
 }
-
 #map_canvas img {
     max-width:inherit;
 }
@@ -189,7 +174,6 @@ img.aligncenter {
     margin-right:auto;
     margin-left:auto;
 }
-
 .row {
     position:relative;
     width:$row;
