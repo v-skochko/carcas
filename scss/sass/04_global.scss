@@ -1,14 +1,72 @@
 @import "01_variables", "02_mixins";
+/*--------------------------------------------------------------
+CLASSES
+--------------------------------------------------------------*/
+#wrap {
+    min-height:100%;
+}
+.c {
+    font-size:0;
+    line-height:0;
+    display:block;
+    clear:both;
+    overflow:hidden;
+}
+.cfx {
+    &:before, &:after {
+        display:table;
+        content:" ";
+    }
+    &:after {
+        clear:both;
+    }
+}
+
+/* Parent of .valign must have fixed height*/
+.valign2 {
+    position:relative;
+    top:50%;
+    @include transform(translateY(-50%));
+}
+//Fix for Google maps
+#map_canvas img {
+    max-width:inherit;
+}
+/*--------------------------------------------------------------
+WORDPRESS CLASSES
+--------------------------------------------------------------*/
+.alignleft {
+    float:left;
+}
+.alignright {
+    float:right;
+}
+.aligncenter {
+    margin-right:auto;
+    margin-left:auto;
+}
+img.aligncenter {
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+}
+.row {
+    position:relative;
+    width:$row;
+    max-width:96%;
+    margin:0 auto;
+}
+#content {
+    padding:20px 20px 40px 20px;
+}
 .hidden {
     display:none;
 }
-
 .no_select {
     -webkit-user-select:none;
        -moz-user-select:none;
         -ms-user-select:none;
 }
-
 .btn {
     line-height:40px;
     display:block;
@@ -94,7 +152,7 @@ WYSIWYG
 --------------------------------------------------------------*/
 .wysiwyg {
     p {
-        padding-bottom: 20px;
+        padding-bottom:20px;
     }
     a {
         position:relative;
@@ -114,7 +172,6 @@ WYSIWYG
         }
     }
     blockquote {
-
         font-size:1.4em;
         font-style:italic;
         line-height:1.6;

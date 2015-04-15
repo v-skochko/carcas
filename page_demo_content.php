@@ -1,6 +1,7 @@
 <?php get_header(); /* Template Name: page_demo_content */
 global $post; ?>
-    <section class="content row cfx">
+<div id="content" class="row cfx">
+    <main  role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
         <article>
 		<div class="c"></div>
 			<h1>heading 1</h1>
@@ -25,7 +26,8 @@ global $post; ?>
         <article>
         	<?php echo do_shortcode( '[contact-form-7 id="6" title="Demo"]' ); ?>
         </article>
-    </section>
+    </main>
+</div>
     <style>
 article {
 	margin: 10px 0 0 0;

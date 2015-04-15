@@ -1,65 +1,7 @@
 @import "01_variables", "02_mixins";
-
-/*--------------------------------------------------------------
-CONTACT FORM 7
---------------------------------------------------------------*/
-.wpcf7 {
-    .wpcf7-submit {
-        font-size:16px;
-        line-height:30px;
-        width:130px;
-        height:30px;
-        color:#fff;
-        border:none;
-        background:$btn;
-        &:hover {
-            background:darken( $btn, 10% );
-        }
-    }
-    .screen-reader-response {
-        display:none !important;
-    }
-    .wpcf7-not-valid-tip {
-        font:500 14px/1 $font;
-        position:absolute;
-        top:0;
-        right:0;
-        left:0;
-        text-align:center;
-        color:#ff5f5f;
-        background:#eee;
-    }
-    .wpcf7-response-output {
-        display:none;
-        float:left;
-        width:96%;
-        margin:20px 0;
-        padding:2%;
-        text-align:center;
-        background:#fff;
-        &.wpcf7-validation-errors {
-            color:white;
-            background:#ff5f5f;
-        }
-        &.wpcf7-mail-sent-ng {
-            color:white;
-            background:#1091ae;
-        }
-        &.wpcf7-mail-sent-ok {
-            color:white;
-            background:#16a085;
-        }
-    }
-    .wpcf7-form-control-wrap {
-        position:relative;
-        display:block !important;
-    }
-}
-
 /*--------------------------------------------------------------
 CUSTOM ICON FONT http://vskochko.github.io/icf/
 --------------------------------------------------------------*/
-
 [class^="icf-"]:before, [class*=" icf-"]:before {
     font-family:"icf";
     font-weight:normal;
@@ -82,6 +24,60 @@ CUSTOM ICON FONT http://vskochko.github.io/icf/
     /* font-size: 120%; */
     /* Uncomment for 3D effect */
     text-shadow:1px 1px 1px rgba(127, 127, 127, .3);
-
     speak:none;
 }
+/*--------------------------------------------------------------
+CONTACT FORM 7
+--------------------------------------------------------------*/
+// .wpcf7 {
+//     .wpcf7-submit {
+//         font-size:16px;
+//         line-height:30px;
+//         width:130px;
+//         height:30px;
+//         color:#fff;
+//         border:none;
+//         background:$btn;
+//         &:hover {
+//             background:darken( $btn, 10% );
+//         }
+//     }
+//     .screen-reader-response {
+//         display:none !important;
+//     }
+//     .wpcf7-not-valid-tip {
+//         font:500 14px/1 $font;
+//         position:absolute;
+//         top:0;
+//         right:0;
+//         left:0;
+//         text-align:center;
+//         color:#ff5f5f;
+//         background:#eee;
+//     }
+//     .wpcf7-response-output {
+//         display:none;
+//         float:left;
+//         width:96%;
+//         margin:20px 0;
+//         padding:2%;
+//         text-align:center;
+//         background:#fff;
+//         &.wpcf7-validation-errors {
+//             color:white;
+//             background:#ff5f5f;
+//         }
+//         &.wpcf7-mail-sent-ng {
+//             color:white;
+//             background:#1091ae;
+//         }
+//         &.wpcf7-mail-sent-ok {
+//             color:white;
+//             background:#16a085;
+//         }
+//     }
+//     .wpcf7-form-control-wrap {
+//         position:relative;
+//         display:block !important;
+//     }
+// }
