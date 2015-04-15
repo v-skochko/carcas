@@ -1,7 +1,41 @@
 @import "01_variables", "02_mixins";
 /*--------------------------------------------------------------
-CLASSES
+1. Wordpress default classes
+2. Helpers
+3. WYSIWYG
+4. 404 page
+5. Social link
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+WORDPRESS DEFAULT CLASSES
+--------------------------------------------------------------*/
+.alignleft {
+    float:left;
+}
+.alignright {
+    float:right;
+}
+.aligncenter {
+    margin-right:auto;
+    margin-left:auto;
+}
+img.aligncenter {
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+}
+/*--------------------------------------------------------------
+2. HELPERS
+--------------------------------------------------------------*/
+.row {
+    position:relative;
+    width:$row;
+    max-width:100%;
+    margin:0 auto;
+}
+#content {
+    padding:20px 20px 40px 20px;
+}
 #wrap {
     min-height:100%;
 }
@@ -21,7 +55,6 @@ CLASSES
         clear:both;
     }
 }
-
 /* Parent of .valign must have fixed height*/
 .valign2 {
     position:relative;
@@ -31,36 +64,6 @@ CLASSES
 //Fix for Google maps
 #map_canvas img {
     max-width:inherit;
-}
-/*--------------------------------------------------------------
-WORDPRESS CLASSES
---------------------------------------------------------------*/
-.alignleft {
-    float:left;
-}
-.alignright {
-    float:right;
-}
-.aligncenter {
-    margin-right:auto;
-    margin-left:auto;
-}
-img.aligncenter {
-    display:block;
-    margin-right:auto;
-    margin-left:auto;
-}
-.row {
-    position:relative;
-    width:$row;
-    max-width:96%;
-    margin:0 auto;
-}
-#content {
-    padding:20px 20px 40px 20px;
-}
-.hidden {
-    display:none;
 }
 .no_select {
     -webkit-user-select:none;
@@ -91,45 +94,7 @@ img.aligncenter {
     &:focus {
     }
 }
-.underline_lr {
-    position:relative;
-    display:inline-block;
-    padding-bottom:3px;
-    &:before {
-        position:absolute;
-        bottom:0;
-        left:0;
-        display:block;
-        width:0;
-        height:1px;
-        content:"";
-        transition:width 0s ease, background .5s ease;
-    }
-    &:after {
-        position:absolute;
-        right:0;
-        bottom:0;
-        display:block;
-        width:0;
-        height:1px;
-        content:"";
-        transition:width .5s ease;
-        background:#000;
-    }
-    &:hover {
-        &:before {
-            width:100%;
-            transition:width .5s ease;
-            background:#000;
-        }
-        &:after {
-            width:100%;
-            transition:all 0s ease;
-            background:transparent;
-        }
-    }
-}
-.underline_c {
+.underline {
     position:relative;
     display:inline-block;
     padding-bottom:3px;
@@ -148,7 +113,7 @@ img.aligncenter {
     }
 }
 /*--------------------------------------------------------------
-WYSIWYG
+3. WYSIWYG
 --------------------------------------------------------------*/
 .wysiwyg {
     p {
@@ -201,5 +166,106 @@ WYSIWYG
         display:block;
         margin-top:1em;
         color:#333;
+    }
+}
+/*--------------------------------------------------------------
+4. 404 page
+--------------------------------------------------------------*/
+.error404 {
+    .icf-404 {
+        &:before {
+            font-size:100px;
+            margin-bottom:20px;
+            content:"\e829";
+            color:#f44336;
+        }
+    }
+    main {
+        margin-top:20px;
+        text-align:center;
+    }
+    h1 {
+        font-size:18px;
+        margin-bottom:20px;
+        span {
+            font-size:30px;
+            display:block;
+            margin-bottom:10px;
+        }
+    }
+    #searchform {
+        width:100%;
+        max-width:280px;
+        margin:0 auto;
+        text-align:center;
+        label {
+            display:none;
+        }
+        input[type="text"] {
+            width:100%;
+            height:30px;
+            margin:20px 0 ;
+            border:1px solid $grey;
+            border-radius:3px;
+        }
+        input[type="submit"] {
+            position:relative;
+            padding:10px 20px;
+            color:#fff;
+            border:none;
+            border-radius:3px;
+            background:$btn;
+            &:hover {
+                background:darken( $btn, 10% );
+            }
+            &:before {
+            }
+        }
+    }
+}
+/*--------------------------------------------------------------
+5. SOCIAL LINK
+--------------------------------------------------------------*/
+.social_link {
+    display:inline-block;
+    float:right;
+    width:auto;
+    cursor:pointer;
+    text-align:center;
+    a {
+        position:relative;
+        display:inline-block;
+        width:40px;
+        height:40px;
+        margin:0 5px;
+        color:#fff;
+        border-radius:50%;
+        @include transition(all, .15s, ease-in);
+        &:before {
+            font-size:20px;
+            position:relative;
+            @include center();
+        }
+        &.icf-facebook {
+            background:#3b5993;
+            &:before {
+                content:"\e858";
+            }
+        }
+        &.icf-twitter {
+            background:#55acee;
+            &:before {
+                content:"\e866";
+            }
+        }
+        &.icf-google-plus {
+            background:#d94733;
+            &:before {
+                content:"\e85d";
+            }
+        }
+        &:hover {
+            @include scale( 1.2 );
+        }
     }
 }

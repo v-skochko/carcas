@@ -6,6 +6,10 @@ MEDIA QUERY
     display:none;
 }
 @media screen and (max-width: $row) {
+    .row {
+        width:100%;
+        max-width:96%;
+    }
     .toogle_nav {
         display:block;
     }
