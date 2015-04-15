@@ -11,12 +11,13 @@ BASE
 html {
     overflow-y:scroll;
     height:100%;
+
     -webkit-font-smoothing:antialiased;
     -moz-osx-font-smoothing:grayscale;
     -webkit-overflow-scrolling:touch;
     -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-  -ms-text-size-adjust: 100%; // 2
-  -webkit-text-size-adjust: 100%; // 2
+    -webkit-text-size-adjust:100%; // 2
+        -ms-text-size-adjust:100%; // 2
 }
 body {
     font:400 14px/20px $font;
@@ -30,11 +31,11 @@ body {
     flex:1 0 auto; /*  */
 }
 details, main, summary {
-  display: block;
+    display:block;
 }
 audio, canvas, progress, video {
-  display: inline-block;
-  vertical-align: baseline;
+    display:inline-block;
+    vertical-align:baseline;
 }
 
 mark {
@@ -54,12 +55,17 @@ FORMS & TABLE & NAVIGATION
 input, textarea, select {
     padding:0 10px;
     outline:0 none;
+
     -webkit-appearance:none;
     @include transition(all, .2s, ease-in-out);
 }
 button, html input[type="button"], input[type="reset"], input[type="submit"] {
     cursor:pointer;
 }
+input[type="text"], input[type="email"] {
+    padding: 0 5px 0 10px;
+}
+
 button[disabled], html input[disabled] {
     cursor:default;
 }
@@ -87,6 +93,7 @@ a {
     text-decoration:none;
     color:$link;
     outline:0;
+
     @include transition(all, .2s, ease);
     &:hover {
         outline:0;
