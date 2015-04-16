@@ -1,30 +1,31 @@
-@import "01_variables", "02_mixins";
+@import '01_variables', '02_mixins';
 /*--------------------------------------------------------------
 CUSTOM ICON FONT http://vskochko.github.io/icf/
 --------------------------------------------------------------*/
-[class^="icf-"]:before, [class*=" icf-"]:before {
-    font-family:"icf";
-    font-weight:normal;
-    font-style:normal;
+[class^='icf-']:before, [class*=' icf-']:before{
+    font-family: 'icf';
+    font-weight: normal;
+    font-style: normal;
     /* opacity: .8; */
     /* For safety - reset parent styles, that can break glyph codes*/
-    font-variant:normal;
+    font-variant: normal;
     /* fix buttons height, for twitter bootstrap */
-    line-height:1em;
-    display:inline-block;
-    width:1em;
+    line-height: 1em;
+    display: inline-block;
+    width: 1em;
     // margin-right:.2em;
     /* Animation center compensation - margins should be symmetric */
     /* remove if not needed */
     // margin-left:.2em;
-    text-align:center;
-    text-decoration:inherit;
-    text-transform:none;
+    text-align: center;
+    text-decoration: inherit;
+    text-transform: none;
     /* you can be more comfortable with increased icons size */
     /* font-size: 120%; */
     /* Uncomment for 3D effect */
-    text-shadow:1px 1px 1px rgba(127, 127, 127, .3);
-    speak:none;
+    text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
+
+    speak: none;
 }
 /*--------------------------------------------------------------
 CONTACT FORM 7

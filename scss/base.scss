@@ -1,8 +1,8 @@
 /*--------------------------------------------------------------
 OPTIONS
 --------------------------------------------------------------*/
-@import "sass/01_variables", "sass/02_mixins";
-@include declare-font-face("icf", "icf", 400);
+@import 'sass/01_variables', 'sass/02_mixins';
+@include declare-font-face('icf', 'icf', 400);
 /*--------------------------------------------------------------
 BASE
 --------------------------------------------------------------*/
@@ -10,49 +10,49 @@ BASE
 /*--------------------------------------------------------------
 HEADER
 --------------------------------------------------------------*/
-header {
-    #logo {
-        -webkit-transition:opacity .25s ease-in-out;
-           -moz-transition:opacity .25s ease-in-out;
-                transition:opacity .25s ease-in-out;
-        opacity:1;
-        &:hover {
-            opacity:.5;
+header{
+    #logo{
+        -webkit-transition: opacity .25s ease-in-out;
+           -moz-transition: opacity .25s ease-in-out;
+                transition: opacity .25s ease-in-out;
+        opacity: 1;
+        &:hover{
+            opacity: .5;
         }
     }
-    nav {
-        margin-top:10px;
-        border:1px solid $grey;
-        >ul {
-            font-size:0;
-            >li {
-                position:relative;
-                display:inline-block;
-                >a {
-                    font-size:16px;
-                    display:block;
-                    padding:5px 15px;
-                    border-right:1px solid $grey;
+    nav{
+        margin-top: 10px;
+        border: 1px solid $grey;
+        >ul{
+            font-size: 0;
+            >li{
+                position: relative;
+                display: inline-block;
+                >a{
+                    font-size: 16px;
+                    display: block;
+                    padding: 5px 15px;
+                    border-right: 1px solid $grey;
                 }
-                &.menu-item-has-children {
-                    >.sub-menu {
-                        position:absolute;
-                        visibility:hidden;
-                        overflow:hidden;
-                        min-width:120px;
-                        border:1px solid $grey;
-                        background:#fff;
+                &.menu-item-has-children{
+                    >.sub-menu{
+                        position: absolute;
+                        visibility: hidden;
+                        overflow: hidden;
+                        min-width: 120px;
+                        border: 1px solid $grey;
+                        background: #fff;
 
                         @include transition(all, .2s, ease-in-out);
-                        >li {
-                            >a {
-                                font-size:16px;
+                        >li{
+                            >a{
+                                font-size: 16px;
                             }
                         }
                     }
-                    &:hover {
-                        >.sub-menu {
-                            visibility:visible;
+                    &:hover{
+                        >.sub-menu{
+                            visibility: visible;
                         }
                     }
                 }
@@ -66,12 +66,12 @@ FRONT PAGE
 /*--------------------------------------------------------------
 FOOTER
 --------------------------------------------------------------*/
-footer {
-    padding:20px 0;
-    background:#212122 1px;
-    .copyright {
-        float:left;
-        color:#fff;
+footer{
+    padding: 20px 0;
+    background: #212122 1px;
+    .copyright{
+        float: left;
+        color: #fff;
 
         @include center(false, true);
     }

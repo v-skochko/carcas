@@ -1,119 +1,119 @@
-@import "01_variables", "02_mixins";
+@import '01_variables', '02_mixins';
 /*--------------------------------------------------------------
 BASE
 --------------------------------------------------------------*/
-* {
-    -moz-box-sizing:border-box;
-         box-sizing:border-box;
-    margin:0;
-    padding:0;
+*{
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-html {
-    overflow-y:scroll;
-    height:100%;
+html{
+    overflow-y: scroll;
+    height: 100%;
 
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    -webkit-overflow-scrolling:touch;
-    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
-    -webkit-text-size-adjust:100%; // 2
-        -ms-text-size-adjust:100%; // 2
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: 100%; // 2
+        -ms-text-size-adjust: 100%; // 2
 }
-body {
-    font:400 14px/20px $font;
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    height:auto;
-    min-height:100vh;
+body{
+    font: 400 14px/20px $font;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
 }
-#wrap {
-    flex:1 0 auto; /*  */
+#wrap{
+    flex: 1 0 auto; /*  */
 }
-details, main, summary {
-    display:block;
+details, main, summary{
+    display: block;
 }
-audio, canvas, progress, video {
-    display:inline-block;
-    vertical-align:baseline;
+audio, canvas, progress, video{
+    display: inline-block;
+    vertical-align: baseline;
 }
 
-mark {
-    background:none;
+mark{
+    background: none;
 }
-::-moz-selection {
-    color:#fff;
-    background:$basic;
+::-moz-selection{
+    color: #fff;
+    background: $basic;
 }
-::selection {
-    color:#fff;
-    background:$basic;
+::selection{
+    color: #fff;
+    background: $basic;
 }
 /*--------------------------------------------------------------
 FORMS & TABLE & NAVIGATION
 --------------------------------------------------------------*/
-input, textarea, select {
-    padding:0 10px;
-    outline:0 none;
+input, textarea, select{
+    padding: 0 10px;
+    outline: 0 none;
 
-    -webkit-appearance:none;
+    -webkit-appearance: none;
     @include transition(all, .2s, ease-in-out);
 }
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
-    cursor:pointer;
+button, html input[type='button'], input[type='reset'], input[type='submit']{
+    cursor: pointer;
 }
-input[type="text"], input[type="email"] {
+input[type='text'], input[type='email']{
     padding: 0 5px 0 10px;
 }
 
-button[disabled], html input[disabled] {
-    cursor:default;
+button[disabled], html input[disabled]{
+    cursor: default;
 }
-button::-moz-focus-inner, input::-moz-focus-inner {
-    border:0;
+button::-moz-focus-inner, input::-moz-focus-inner{
+    border: 0;
 }
-nav ul {
-    list-style:none;
+nav ul{
+    list-style: none;
 }
-ol {
-    list-style:decimal;
+ol{
+    list-style: decimal;
 }
-table {
-    border-spacing:0;
-    border-collapse:collapse;
+table{
+    border-spacing: 0;
+    border-collapse: collapse;
 }
 /*--------------------------------------------------------------
 TYPOGRAPHY
 --------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
-    font:400 16px/1 $font;
-    color:$txt;
+h1, h2, h3, h4, h5, h6{
+    font: 400 16px/1 $font;
+    color: $txt;
 }
-a {
-    text-decoration:none;
-    color:$link;
-    outline:0;
+a{
+    text-decoration: none;
+    color: $link;
+    outline: 0;
 
     @include transition(all, .2s, ease);
-    &:hover {
-        outline:0;
+    &:hover{
+        outline: 0;
     }
 }
-img {
-    display:block;
-    max-width:100%;
-    height:auto;
-    vertical-align:middle;
-    border:0;
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
 }
-hr {
-    display:block;
-    clear:both;
-    height:1px;
-    margin:20px 0;
-    border:0 none;
-    background:#707070;
+hr{
+    display: block;
+    clear: both;
+    height: 1px;
+    margin: 20px 0;
+    border: 0 none;
+    background: #707070;
 }
-strong {
-    font-weight:700;
+strong{
+    font-weight: 700;
 }
