@@ -190,7 +190,7 @@ function my_theme_register_required_plugins() {
         array(
             'name'               => 'Advanced Custom Fields: PRO',
             'slug'               => 'advanced-custom-fields-pro',
-            'source'             => get_stylesheet_directory() . '/logic/plugins/advanced-custom-fields-pro.zip',
+            'source'             => get_stylesheet_directory() . '/include/plugins/advanced-custom-fields-pro.zip',
             'required'           => false,
             'version'            => '',
             'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
