@@ -25,7 +25,7 @@ ob_start('ob_html_compress');
 <div id="wrap">
     <header>
         <div class="row cfx">
-            <a href="<?php echo site_url(); ?>/" id="logo"><img src="" alt=""></a>
+            <a href="<?php echo site_url(); ?>/" id="logo">cArcAss<img src="" alt=""></a>
             <nav class="cfx" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
                 <a class="toogle_nav" href="#" onclick="$('nav ul').slideToggle('fast'); return false;">MENU</a>
                 <?php wp_nav_menu(array( 'theme_location'  => 'head_menu')); ?>
