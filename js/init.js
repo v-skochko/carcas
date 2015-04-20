@@ -5,6 +5,15 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Windows Phone|ZuneWP7|No
 $(document).ready(function() {
     "use strict";
 
+
+    $('.homepage_slider').bxSlider({
+        nextText: "p",
+        prevText: "n",
+        pager:false,
+        auto: true
+    });
+
+
    /* close validation error on click*/
     $(this).on('click', '.wpcf7-not-valid-tip', function() {
         $(this).prev().trigger('focus');
