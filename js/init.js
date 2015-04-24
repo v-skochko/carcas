@@ -1,16 +1,19 @@
 $ = jQuery;
 var ww = document.body.clientWidth;
-var mob = false;
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Windows Phone|ZuneWP7|Nokia|Opera Mini/i.test(navigator.userAgent)) { var mob = true; }
+
 $(document).ready(function() {
     "use strict";
 
 
-    $('.homepage_slider').bxSlider({
-        nextText: "p",
-        prevText: "n",
-        pager:false,
-        auto: true
+    $('.slider ul').bxSlider({
+        nextText: "",
+        prevText: "",
+        pause: 7000,
+        pager: false,
+        auto: true,
+        onSliderLoad: function() {
+            $('.slider').addClass('slider_loaded ');
+        }
     });
 
 
