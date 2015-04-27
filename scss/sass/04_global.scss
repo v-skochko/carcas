@@ -72,10 +72,8 @@ img.aligncenter{
         -ms-user-select: none;
 }
 .btn{
-    line-height: 40px;
-    display: block;
-    width: 80px;
-    height: 40px;
+    display: inline-block;
+    padding: 10px 20px;
     cursor: pointer;
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -88,10 +86,12 @@ img.aligncenter{
     outline: 0;
     background: $btn;
     &:hover{
-        background: darken( $btn, 10% );
-        webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        background: darken( $btn, 5% );
+        -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+             box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+
+        webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+
     }
 }
 .underline{
@@ -216,7 +216,7 @@ img.aligncenter{
             border-radius: 3px;
             background: $btn;
             &:hover{
-                background: darken( $btn, 10% );
+                background: darken( $btn, 5% );
             }
         }
     }
@@ -356,12 +356,12 @@ CONTACT FORM 7
 //    color: red;
 // }
 // :-moz-placeholder { /* Firefox 18- */
-//    color: red;  
+//    color: red;
 // }
 // ::-moz-placeholder {  /* Firefox 19+ */
-//    color: red;  
+//    color: red;
 // }
-// :-ms-input-placeholder {  
-//    color: red;  
+// :-ms-input-placeholder {
+//    color: red;
 // }
 // }
