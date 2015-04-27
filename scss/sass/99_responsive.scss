@@ -1,10 +1,7 @@
-@import '01_variables', '02_mixins';
-/*--------------------------------------------------------------
-MEDIA QUERY
---------------------------------------------------------------*/
 .toogle_nav{
     display: none;
 }
+
 @media screen and (max-width: $row){
     .row{
         width: 100%;

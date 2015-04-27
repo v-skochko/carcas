@@ -1,7 +1,3 @@
-
-/*--------------------------------------------------------------
-MIXINS
---------------------------------------------------------------*/
 //Using @include declare-font-face('FontName', 'font-filename', 400);
 @mixin declare-font-face($font-family, $font-filename, $font-weight: normal, $font-style: normal){
     @font-face{
@@ -29,9 +25,6 @@ MIXINS
        -moz-border-radius: $radius;
             border-radius: $radius;
 }
-
-
-
 @mixin background-size($size){
     -webkit-background-size: $size;
        -moz-background-size: $size;
@@ -39,41 +32,13 @@ MIXINS
 
         -ms-background-size: $size;
 }
-@mixin box-shadow($shadow){
-    -webkit-box-shadow: $shadow;
-       -moz-box-shadow: $shadow;
-            box-shadow: $shadow;
-}
 @mixin transition($transition-property, $transition-time, $method){
     -webkit-transition: $transition-property $transition-time $method;
        -moz-transition: $transition-property $transition-time $method;
         -ms-transition: $transition-property $transition-time $method;
             transition: $transition-property $transition-time $method;
 }
-@mixin position($position: relative, $top: 0, $right: 0, $bottom: 0, $left: 0){
-    position: $position;
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
-}
-@mixin transform($action, $backface: false){
-    @if $backface{
-        -webkit-transform: $action;
-           -moz-transform: $action;
-            -ms-transform: $action;
-                transform: $action;
 
-        -webkit-backface-visibility: hidden;
-                backface-visibility: hidden;
-    }
-    @else{
-        -webkit-transform: $action;
-           -moz-transform: $action;
-            -ms-transform: $action;
-                transform: $action;
-    }
-}
 @mixin scale($scale){
     -webkit-transform: scale($scale);
        -moz-transform: scale($scale);
@@ -98,21 +63,7 @@ MIXINS
                 transform: translate(0, -50%);
     }
 }
-// Placeholder text
-@mixin placeholder{
-    &:-moz-placeholder{
-        @content;
-    } // Firefox 4-18
-    &::-moz-placeholder{
-        opacity: 1; @content;
-    } // Firefox 19+
-    &:-ms-input-placeholder{
-        @content;
-    } // Internet Explorer 10+
-    &::-webkit-input-placeholder{
-        @content;
-    } // Safari and Chrome
-}
+
 /* @include rotate( 180 ); */
 @mixin rotate( $degrees){
     zoom: 1;
@@ -124,25 +75,9 @@ MIXINS
     -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod=\'auto expand\', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})';
     filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
 }
-@mixin rgba($hexcolor, $opacity){
-    background-color: $hexcolor;
-    background-color: rgba($hexcolor, $opacity);
-}
-
-/// Vertically centers block elements with known height.
-/// @access public
-/// @param {Length} $height - Element's height
-/// @example scss - Usage
-///   .foo {
-///     @include center-h(42px);
-///   }
-/// @example css - Result
-///   .foo {
-///     position: absolute;
-///     top: 50%;
-///     height: 42px;
-///     margin-top: -21px;
-///   }
+//   .foo {
+//    @include center-h(42px);
+//   }
 @mixin center-h($height){
     position: absolute;
     top: 50%;
@@ -150,16 +85,11 @@ MIXINS
     margin-top: -($height / 2);
 }
 
-/*
- * @example
- *   .selector {
- *     @include x-placeholder {
- *         color: #bada55;
- *         font-weight: bold;
- *     }
- *   }
- */
-@mixin x-placeholder{
+// .selector {
+//   @include x-placeholder {
+//   }
+// }
+@mixin placeholder{
     &::-webkit-input-placeholder{
         @content // Chrome, Safari, Opera
     }

@@ -20,6 +20,11 @@
     remove_action('wp_head', 'adjacent_posts_rel_link_wp_head' );
     remove_action('wp_head', 'wp_generator'); //Remove WP Generator Meta Tag
     remove_action('wp_head', 'rel_canonical');
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+
 
 // remove wp version param from any enqueued scripts
 function vc_remove_wp_ver_css_js( $src ) {
@@ -42,13 +47,13 @@ add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
         // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
         wp_enqueue_script('libs', get_template_directory_uri().'/js/lib.js', array('jquery'), '1.0', true);
         wp_enqueue_script('init', get_template_directory_uri().'/js/init.js', array('jquery'), '1.0', true);
-        wp_enqueue_style('reset', get_template_directory_uri() . '/scss/sass/03_reset.scss');
-        wp_enqueue_style('global', get_template_directory_uri() . '/scss/sass/04_global.scss');
-        wp_enqueue_style('animations', get_template_directory_uri() . '/scss/sass/05_animations.scss');
-        wp_enqueue_style('style', get_template_directory_uri() . '/scss/base.scss');
-        wp_enqueue_style('lib', get_template_directory_uri() . '/scss/sass/06_lib.scss');
+        // wp_enqueue_style('reset', get_template_directory_uri() . '/scss/sass/03_reset.scss');
+        // wp_enqueue_style('global', get_template_directory_uri() . '/scss/sass/04_global.scss');
+        // wp_enqueue_style('animations', get_template_directory_uri() . '/scss/sass/05_animations.scss');
+        wp_enqueue_style('style', get_template_directory_uri() . '/scss/base.css');
+        // wp_enqueue_style('lib', get_template_directory_uri() . '/scss/sass/06_lib.scss');
         // wp_enqueue_style('woocommerce', get_template_directory_uri() . '/scss/sass/10_woocommerce.scss');
-        wp_enqueue_style('responsive', get_template_directory_uri() . '/scss/sass/99_responsive.scss');
+        // wp_enqueue_style('responsive', get_template_directory_uri() . '/scss/sass/99_responsive.scss');
     }
     add_action('wp_enqueue_scripts', 'style_js');
     ### Option Update

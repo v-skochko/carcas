@@ -1,0 +1,481 @@
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+/* ==========================================================================
+   1. Wordpress default classes
+2. Helpers
+3. WYSIWYG
+4. 404 page
+5. Social link
+   ========================================================================== */
+/* ==========================================================================
+   WORDPRESS DEFAULT CLASSES
+   ========================================================================== */
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+html {
+  overflow-y: scroll;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+body {
+  font: 400 14px/20px Arial, Helvetica, sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 100vh; }
+
+#wrap {
+  flex: 1 0 auto; }
+
+details, main, summary {
+  display: block; }
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+mark {
+  background: none; }
+
+::-moz-selection {
+  color: #fff;
+  background: #4caf50; }
+
+::selection {
+  color: #fff;
+  background: #4caf50;
+  /* ==========================================================================
+   FORMS & TABLE & NAVIGATION
+   ========================================================================== */ }
+
+input, textarea, select {
+  padding: 0 10px;
+  outline: 0 none;
+  -webkit-appearance: none;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -ms-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out; }
+
+button, html input[type='button'], input[type='reset'], input[type='submit'] {
+  cursor: pointer; }
+
+input[type='text'], input[type='email'] {
+  padding: 0 5px 0 10px; }
+
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0; }
+
+nav ul {
+  list-style: none; }
+
+ol {
+  list-style: decimal; }
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  /* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */ }
+
+h1, h2, h3, h4, h5, h6 {
+  font: 400 16px/1 Arial, Helvetica, sans-serif;
+  color: #222; }
+
+a {
+  text-decoration: none;
+  color: #f44336;
+  outline: 0;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+  a:hover {
+    outline: 0; }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border: 0; }
+
+hr {
+  display: block;
+  clear: both;
+  height: 1px;
+  margin: 20px 0;
+  border: 0 none;
+  background: #707070; }
+
+strong {
+  font-weight: 700; }
+
+@font-face {
+  font-family: icf;
+  font-weight: 400;
+  font-style: normal;
+  src: url('fonts/icf.eot');
+  src: url('fonts/icf.eot?#iefix') format('embedded-opentype'), url('fonts/icf.woff') format('woff'), url('fonts/icf.ttf') format('truetype'), url('fonts/icf.svg#icf') format('svg'); }
+
+.alignleft {
+  float: left; }
+
+.alignright {
+  float: right; }
+
+.aligncenter {
+  margin-right: auto;
+  margin-left: auto; }
+
+img.aligncenter {
+  display: block;
+  margin-right: auto;
+  margin-left: auto; }
+
+[class^='icf-']:before, [class*=' icf-']:before {
+  font-family: 'icf';
+  font-weight: normal;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    /* fix buttons height, for twitter bootstrap */
+  font-style: normal;
+  line-height: 1em;
+  display: inline-block;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  width: 1em;
+  text-align: center;
+  text-decoration: inherit;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  text-transform: none;
+  text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
+  speak: none;
+  /* ==========================================================================
+   CF7
+   ========================================================================== */
+  /* ==========================================================================
+   HELPERS
+   ========================================================================== */ }
+
+.row {
+  position: relative;
+  width: 960px;
+  max-width: 100%;
+  margin: 0 auto; }
+
+#content {
+  padding: 20px 20px 40px 20px; }
+
+#wrap {
+  min-height: 100%; }
+
+.c {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  clear: both;
+  overflow: hidden; }
+
+.cfx:before, .cfx:after {
+  display: table;
+  content: ' '; }
+  .cfx:after {
+    clear: both; }
+
+#map_canvas img {
+  max-width: inherit; }
+
+.no_select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 3px;
+  outline: 0;
+  background: #4caf50; }
+  .btn:hover {
+    background: #449d48;
+    -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+    webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15); }
+  .btn a:active {
+    color: red;
+    background: #3d8b40; }
+
+.underline {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 3px;
+  /* ==========================================================================
+   WYSIWYG
+   ========================================================================== */ }
+  .underline:after {
+    display: block;
+    width: 0;
+    height: 1px;
+    margin: auto;
+    content: '';
+    transition: width 0.5s ease, background-color 0.5s ease;
+    background: transparent; }
+  .underline:hover:after {
+    width: 100%;
+    background: #222; }
+
+.wysiwyg {
+  /* ==========================================================================
+   404 page
+   ========================================================================== */ }
+  .wysiwyg p {
+    padding-bottom: 20px; }
+  .wysiwyg a {
+    position: relative;
+    display: inline-block; }
+    .wysiwyg a:after {
+      display: block;
+      width: 0;
+      height: 1px;
+      margin: auto;
+      content: '';
+      transition: width 0.4s ease, background-color 0.4s ease;
+      background: transparent; }
+    .wysiwyg a:hover:after {
+      width: 100%;
+      background: #f44336; }
+  .wysiwyg blockquote {
+    font-size: 1.4em;
+    font-style: italic;
+    line-height: 1.6;
+    position: relative;
+    width: 60%;
+    margin: 50px auto;
+    padding: 1.2em 30px 1.2em 75px;
+    color: #555;
+    border-left: 8px solid #78c0a8;
+    background: #ededed; }
+  .wysiwyg blockquote::before {
+    font-family: Arial;
+    font-size: 4em;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    content: '\201C';
+    color: #78c0a8; }
+  .wysiwyg blockquote::after {
+    content: ''; }
+  .wysiwyg blockquote span {
+    font-weight: bold;
+    font-style: normal;
+    display: block;
+    margin-top: 1em;
+    color: #333; }
+
+.error404 {
+  /* ==========================================================================
+   SOCIAL LINK
+   ========================================================================== */ }
+  .error404 .icf-404:before {
+    font-size: 100px;
+    margin-bottom: 20px;
+    content: '\e829';
+    color: #f44336; }
+  .error404 main {
+    margin-top: 20px;
+    text-align: center; }
+  .error404 h1 {
+    font-size: 18px;
+    margin-bottom: 20px; }
+    .error404 h1 span {
+      font-size: 30px;
+      display: block;
+      margin-bottom: 10px; }
+  .error404 #searchform {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    text-align: center; }
+    .error404 #searchform label {
+      display: none; }
+    .error404 #searchform input[type='text'] {
+      width: 100%;
+      height: 30px;
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 3px; }
+    .error404 #searchform input[type='submit'] {
+      position: relative;
+      padding: 10px 20px;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      background: #4caf50; }
+      .error404 #searchform input[type='submit']:hover {
+        background: #449d48; }
+
+.social_link {
+  display: inline-block;
+  float: right;
+  width: auto;
+  cursor: pointer;
+  text-align: center; }
+  .social_link a {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin: 0 5px;
+    color: #fff;
+    border-radius: 50%;
+    -webkit-transition: all 0.15s ease-in;
+    -moz-transition: all 0.15s ease-in;
+    -ms-transition: all 0.15s ease-in;
+    transition: all 0.15s ease-in; }
+    .social_link a:before {
+      font-size: 20px;
+      position: relative;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      /* @include rotate( 180 ); */ }
+    .social_link a.icf-facebook {
+      background: #3b5993; }
+      .social_link a.icf-facebook:before {
+        content: '\e858'; }
+    .social_link a.icf-twitter {
+      background: #55acee; }
+      .social_link a.icf-twitter:before {
+        content: '\e866'; }
+    .social_link a.icf-google-plus {
+      background: #d94733; }
+      .social_link a.icf-google-plus:before {
+        content: '\e85d'; }
+    .social_link a:hover {
+      -webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+      transform: scale(1.2);
+      /* @include center(true, false); */ }
+
+/*--------------------------------------------------------------
+CUSTOM ICON FONT http:/ /vskochko.github.io/ icf /
+--------------------------------------------------------------*/ [class^='icf-']:before, [class*=' icf-']:before {
+  font-family: 'icf';
+  font-weight: normal;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    /* fix buttons height, for twitter bootstrap */
+  font-style: normal;
+  line-height: 1em;
+  display: inline-block;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  width: 1em;
+  text-align: center;
+  text-decoration: inherit;
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Uncomment for 3D effect */
+  text-transform: none;
+  text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
+  speak: none;
+  /* ==========================================================================
+   CONTACT FORM 7
+   ========================================================================== */ }
+
+header {
+  /* ==========================================================================
+   FOOTER
+   ========================================================================== */ }
+  header #logo {
+    -webkit-transition: opacity 0.25s ease-in-out;
+    -moz-transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
+    opacity: 1; }
+    header #logo:hover {
+      opacity: 0.5; }
+  header nav {
+    margin-top: 10px;
+    border: 1px solid #ddd; }
+    header nav > .menu > ul {
+      font-size: 0; }
+      header nav > .menu > ul > li {
+        position: relative;
+        display: inline-block; }
+        header nav > .menu > ul > li > a {
+          font-size: 16px;
+          display: block;
+          padding: 5px 15px;
+          border-right: 1px solid #ddd; }
+        header nav > .menu > ul > li.menu-item-has-children > .sub-menu {
+          position: absolute;
+          visibility: hidden;
+          overflow: hidden;
+          min-width: 120px;
+          border: 1px solid #ddd;
+          background: #fff;
+          -webkit-transition: all 0.2s ease-in-out;
+          -moz-transition: all 0.2s ease-in-out;
+          -ms-transition: all 0.2s ease-in-out;
+          transition: all 0.2s ease-in-out; }
+          header nav > .menu > ul > li.menu-item-has-children > .sub-menu > li > a {
+            font-size: 16px; }
+          header nav > .menu > ul > li.menu-item-has-children:hover > .sub-menu {
+            visibility: visible; }
+
+footer {
+  padding: 20px 0;
+  background: #212122 1px; }
+  footer .copyright {
+    float: left;
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    /* @include rotate( 180 ); */ }
+
+.toogle_nav {
+  display: none; }
+
+@media screen and (max-width: 960px) {
+  .row {
+    width: 100%;
+    max-width: 96%; }
+
+  .toogle_nav {
+    display: block; } }
