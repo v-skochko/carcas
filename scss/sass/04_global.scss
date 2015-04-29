@@ -5,7 +5,7 @@
 4. 404 page
 5. Social link
    ========================================================================== */
-   @include declare-font-face('icf', 'icf', 400);
+@include declare-font-face('icf', 'icf', 400);
 /* ==========================================================================
    WORDPRESS DEFAULT CLASSES
    ========================================================================== */
@@ -47,12 +47,21 @@ img.aligncenter{
     /* font-size: 120%; */
     /* Uncomment for 3D effect */
     text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
+
     speak: none;
 }
 /* ==========================================================================
    CF7
    ========================================================================== */
 // .wpcf7 {
+
+
+// input[type=text]:focus, input[type=email]:focus, textarea:focus{
+//     border-color:  rgba(81, 203, 238, 1);
+//     box-shadow: 0 0 5px rgba(81, 203, 238, .8);
+// }
+
+
 //     .wpcf7-submit {
 //         font-size:16px;
 //         line-height:30px;
@@ -174,6 +183,7 @@ img.aligncenter{
         background: darken( $btn, 5% );
         -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
              box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+
         webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
     }
     a:active{
@@ -325,10 +335,12 @@ img.aligncenter{
         margin: 0 5px;
         color: #fff;
         border-radius: 50%;
+
         @include transition(all, .15s, ease-in);
         &:before{
             font-size: 20px;
             position: relative;
+
             @include center();
         }
         &.icf-facebook{
@@ -379,6 +391,7 @@ CUSTOM ICON FONT http://vskochko.github.io/icf/
     /* font-size: 120%; */
     /* Uncomment for 3D effect */
     text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
+
     speak: none;
 }
 /* ==========================================================================
