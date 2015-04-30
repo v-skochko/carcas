@@ -15,7 +15,7 @@ $(document).ready(function() {
             $('.slider').addClass('slider_loaded ');
         }
     });
-
+ $("select").selbel();
 
    /* close validation error on click*/
     $(this).on('click', '.wpcf7-not-valid-tip', function() {
