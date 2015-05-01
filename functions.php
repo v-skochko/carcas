@@ -4,7 +4,7 @@
 ## Shortcodes functions
     require_once('include/shortcodes.php');
 ## Uncomit for add custom post type
-    // require_once('custom-cpt.php');
+    // require_once('include/custom-cpt.php');
 ## Register custom image size
     add_image_size( 'blog', '204', '204', true );
 
