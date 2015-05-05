@@ -167,8 +167,8 @@ function my_theme_register_required_plugins() {
             'required'  => false,
         ),
         array(
-            'name'      => 'AssetsMinify',
-            'slug'      => 'assetsminify',
+            'name'      => 'Wp-scss',
+            'slug'      => 'wp-scss',
             'required'  => true,
         ),
         array(
@@ -184,6 +184,11 @@ function my_theme_register_required_plugins() {
            array(
             'name'      => 'AJAX Thumbnail Rebuild',
             'slug'      => 'ajax-thumbnail-rebuild',
+            'required'  => false,
+        ),
+         array(
+            'name'      => 'Optimize Database after Deleting Revisions',
+            'slug'      => 'rvg-optimize-database',
             'required'  => false,
         ),
 
