@@ -21,9 +21,9 @@
     remove_action('wp_head', 'wp_generator'); //Remove WP Generator Meta Tag
     remove_action('wp_head', 'rel_canonical');
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
-remove_action( 'wp_print_styles', 'print_emoji_styles' );
-remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
 
 
 // remove wp version param from any enqueued scripts
@@ -290,20 +290,15 @@ add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
          add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
         }
         add_action('admin_menu', 'all_settings_link');
-    ### FOR USERS EXCEPT SYSADMIN:
-        #### Remove the wordpress update notification for all users except sysadmin
-        global $user_login;
-        get_currentuserinfo();
-        if (!current_user_can('update_plugins')) { ## checks to see if current user can update plugins
-         add_action( 'init', create_function( '$a', "remove_action( 'init', 'wp_version_check' );" ), 2 );
-         add_filter( 'pre_option_update_core', create_function( '$a', "return null;" ) ); }
-    function adm_separator() {
-        echo '<style type="text/css">#adminmenu li.wp-menu-separator {margin: 0; height: 2px; background: #26292C;}</style>';
-    }
-    add_action( 'admin_head', 'adm_separator' );
-    
-    
-    // remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
+
+
+
+// remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
 function bones_filter_ptags_on_images($content){
 	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+}
+//Update wp-scss setings
+if(class_exists('Wp_Scss_Settings')) {
+    $wpscss = get_option('wpscss_options');
+    if(empty($wpscss['css_dir']) && empty($wpscss['scss_dir'])) update_option('wpscss_options', array('css_dir' => '/scss/', 'scss_dir' => '/scss/', 'compiling_options' => 'scss_formatter_compressed'));
 }
