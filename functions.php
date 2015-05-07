@@ -8,7 +8,13 @@
 ## Uncomit for add custom post type
     // require_once('include/custom-cpt.php');
 ## Register custom image size
-    add_image_size( 'blog', '204', '204', true );
+    // add_image_size( 'custom', '300', '300', true );
+    update_option('thumbnail_size_w', 200);
+    update_option('thumbnail_size_h', 200);
+    update_option('medium_size_w', 400);
+    update_option('medium_size_h', 350);
+    update_option('large_size_w', 800);
+    update_option('large_size_h', 400);
 
 ## SPEED & SECURITY BOOST
     ### Clean up wp_head()
