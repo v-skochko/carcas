@@ -3,8 +3,6 @@
     require_once('include/plugins/init.php');
 ## Shortcodes functions
     require_once('include/shortcodes.php');
-## Corefunctions
-    require_once('include/core.php');
 ## Uncomit for add custom post type
     // require_once('include/custom-cpt.php');
 ## Register custom image size
@@ -29,6 +27,11 @@
 
 
 // remove wp version param from any enqueued scripts
+function vc_remove_wp_ver_css_js( $src ) {
+    if ( strpos( $src, 'ver=' ) )
+        $src = remove_query_arg( 'ver', $src );
+    return $src;
+}
 add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 
@@ -44,7 +47,13 @@ add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
         // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
         wp_enqueue_script('libs', get_template_directory_uri().'/js/lib.js', array('jquery'), '1.0', true);
         wp_enqueue_script('init', get_template_directory_uri().'/js/init.js', array('jquery'), '1.0', true);
+        // wp_enqueue_style('reset', get_template_directory_uri() . '/scss/sass/03_reset.scss');
+        // wp_enqueue_style('global', get_template_directory_uri() . '/scss/sass/04_global.scss');
+        // wp_enqueue_style('animations', get_template_directory_uri() . '/scss/sass/05_animations.scss');
         wp_enqueue_style('style', get_template_directory_uri() . '/scss/base.css');
+        // wp_enqueue_style('lib', get_template_directory_uri() . '/scss/sass/06_lib.scss');
+        // wp_enqueue_style('woocommerce', get_template_directory_uri() . '/scss/sass/10_woocommerce.scss');
+        // wp_enqueue_style('responsive', get_template_directory_uri() . '/scss/sass/99_responsive.scss');
     }
     add_action('wp_enqueue_scripts', 'style_js');
     ### Option Update
@@ -70,13 +79,120 @@ add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
             return $fields; }
         add_filter('comment_form_default_fields', 'rem_form_fields');
 
+    ### Remove ID in menu list
+    add_filter('nav_menu_item_id', 'clear_nav_menu_item_id', 10, 3);
+    function clear_nav_menu_item_id($id, $item, $args) {
+        return "";
+    }
+    ### Classes for First & Last menu items
+    function wpb_first_and_last_menu_class($items) {
+    $items[1]->classes[] = 'first';
+    $items[count($items)]->classes[] = 'last';
+    return $items;
+    }
+    add_filter('wp_nav_menu_objects', 'wpb_first_and_last_menu_class');
 
     ### Add class to BODY
-    add_filter( 'body_class', 'new_body_classes' );
+    function new_body_classes( $classes ){
+    if( is_page() ){
+        global $post;
+        $temp = get_page_template();
+        if ( $temp != null ) {
+            $path = pathinfo($temp);
+            $tmp = $path['filename'] . "." . $path['extension'];
+            $tn= str_replace(".php", "", $tmp);
+            $classes[] = $tn;
+        }
+        if (is_active_sidebar('sidebar')) {
+            $classes[] = 'with_sidebar';
+        }
+        foreach($classes as $k => $v) {
+            if(
+                $v == 'page-template' ||
+                $v == 'page-id-'.$post->ID ||
+                $v == 'page-template-default' ||
+                $v == 'woocommerce-page' ||
+                ($temp != null?($v == 'page-template-'.$tn.'-php' || $v == 'page-template-'.$tn):'')) unset($classes[$k]);
+        }
+    }
+    if( is_single() ){
+        global $post;
+        $f = get_post_format( $post->ID );
+        foreach($classes as $k => $v) {
+            if($v == 'postid-'.$post->ID || $v == 'single-format-'.(!$f?'standard':$f)) unset($classes[$k]);
+        }
+    }
+    global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
+    $browser = $_SERVER[ 'HTTP_USER_AGENT' ];
+    // Mac, PC ...or Linux
+    if ( preg_match( "/Mac/", $browser ) ){
+        $classes[] = 'macos';
+    } elseif ( preg_match( "/Windows/", $browser ) ){
+        $classes[] = 'windows';
+    } elseif ( preg_match( "/Linux/", $browser ) ) {
+        $classes[] = 'linux';
+    } else {
+        $classes[] = 'unknown-os';
+    }
+    // Checks browsers in this order: Chrome, Safari, Opera, MSIE, FF
+    if ( preg_match( "/Chrome/", $browser ) ) {
+        $classes[] = 'chrome';
+        preg_match( "/Chrome\/(\d.\d)/si", $browser, $matches);
+        $classesh_version = 'ch' . str_replace( '.', '-', $matches[1] );
+        $classes[] = $classesh_version;
+    } elseif ( preg_match( "/Safari/", $browser ) ) {
+        $classes[] = 'safari';
+        preg_match( "/Version\/(\d.\d)/si", $browser, $matches);
+        $sf_version = 'sf' . str_replace( '.', '-', $matches[1] );
+        $classes[] = $sf_version;
+    } elseif ( preg_match( "/Opera/", $browser ) ) {
+        $classes[] = 'opera';
+        preg_match( "/Opera\/(\d.\d)/si", $browser, $matches);
+        $op_version = 'op' . str_replace( '.', '-', $matches[1] );
+        $classes[] = $op_version;
+    } elseif ( preg_match( "/MSIE/", $browser ) ) {
+        $classes[] = 'msie';
+        if( preg_match( "/MSIE 6.0/", $browser ) ) {
+            $classes[] = 'ie6';
+        } elseif ( preg_match( "/MSIE 7.0/", $browser ) ){
+            $classes[] = 'ie7';
+        } elseif ( preg_match( "/MSIE 8.0/", $browser ) ){
+            $classes[] = 'ie8';
+        } elseif ( preg_match( "/MSIE 9.0/", $browser ) ){
+            $classes[] = 'ie9';
+        }
+    } elseif ( preg_match( "/Firefox/", $browser ) && preg_match( "/Gecko/", $browser ) ) {
+        $classes[] = 'firefox';
+        preg_match( "/Firefox\/(\d)/si", $browser, $matches);
+        $ff_version = 'ff' . str_replace( '.', '-', $matches[1] );
+        $classes[] = $ff_version;
+    } else {
+        $classes[] = 'unknown-browser';
+    }
+    return $classes;
+}
+add_filter( 'body_class', 'new_body_classes' );
 
 /* TG WP Title */
-add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
+function tg_wp_title( $title, $seperator ) {
+	global $paged, $page;
 
+	if ( is_feed() ) {
+		return $title;
+	}
+	$title .= ' ' .$seperator. ' ' .get_bloginfo( 'name' );
+	$description = get_bloginfo( 'description', 'display' );
+	if ( $description && ( is_front_page() ) )	{
+		$title = "$title $seperator $description";
+	}
+	if ( $paged >= 2 || $page >= 2 ) {
+		$title = "$title $seperator " . sprintf( __( 'Page %s' ), max( $paged, $page ) );
+	}
+
+	return trim( $title, ' ' .$seperator. ' ' );
+}
+add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
+/* End of TG WP Title */
     ###Register menus
     register_nav_menus(array(
         'head_menu' => 'Main navigation',
@@ -100,7 +216,26 @@ add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
     function voodoo_deregister_styles() {
         wp_deregister_style( 'contact-form-7' );
     }
-
+    ### Activate ACF option page
+   if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title'    => 'Theme General Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Theme Header Settings',
+        'menu_title'    => 'Header',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+    acf_add_options_sub_page(array(
+        'page_title'    => 'Theme Footer Settings',
+        'menu_title'    => 'Footer',
+        'parent_slug'   => 'theme-general-settings',
+    ));
+}
 ## WORDPRESS ADMIN PANEL SETINGS
     ### Remove dashboard wigets
     function rem_dash_widgets() {
@@ -135,8 +270,7 @@ add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
     .status-draft{background: #E6E6E6 !important;}
     .status-pending{background: #E2F0FF !important;}
     .status-future{background: #C6EBF5 !important;}
-    .status-private{background:#F2D46F;
-    }
+    .status-private{background:#F2D46F;}
     </style>
     <?php
     }
@@ -156,6 +290,8 @@ add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
          add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
         }
         add_action('admin_menu', 'all_settings_link');
+
+
 
 // remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
 function bones_filter_ptags_on_images($content){
