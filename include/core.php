@@ -1,5 +1,7 @@
 <?php
-    ### Add class to BODY
+    /* ==========================================================================
+       001 BODY CLASS
+       ========================================================================== */
     function new_body_classes( $classes ){
     if( is_page() ){
         global $post;
@@ -78,16 +80,10 @@
     }
     return $classes;
 }
-
-// remove wp version param from any enqueued scripts
-function vc_remove_wp_ver_css_js( $src ) {
-    if ( strpos( $src, 'ver=' ) )
-        $src = remove_query_arg( 'ver', $src );
-    return $src;
-}
-
-/* TG WP Title */
-function tg_wp_title( $title, $seperator ) {
+/* ==========================================================================
+   002 Custom WP Title
+   ========================================================================== */
+function custom_wp_title( $title, $seperator ) {
     global $paged, $page;
     if ( is_feed() ) {
         return $title;
@@ -102,9 +98,22 @@ function tg_wp_title( $title, $seperator ) {
     }
     return trim( $title, ' ' .$seperator. ' ' );
 }
-add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
+add_filter( 'wp_title', 'custom_wp_title', 10, 2 );
 
-    ### Activate ACF option page
+
+/* ==========================================================================
+   remove wp version param from any enqueued scripts
+   ========================================================================== */
+function vc_remove_wp_ver_css_js( $src ) {
+    if ( strpos( $src, 'ver=' ) )
+        $src = remove_query_arg( 'ver', $src );
+    return $src;
+}
+
+
+/* ==========================================================================
+   ACF option page
+   ========================================================================== */
    if( function_exists('acf_add_options_page') ) {
     acf_add_options_page(array(
         'page_title'    => 'Theme General Settings',
@@ -124,3 +133,31 @@ add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
         'parent_slug'   => 'theme-general-settings',
     ));
 }
+/* ==========================================================================
+   Update wp-scss setings
+   ========================================================================== */
+if(class_exists('Wp_Scss_Settings')) {
+    $wpscss = get_option('wpscss_options');
+    if(empty($wpscss['css_dir']) && empty($wpscss['scss_dir'])) update_option('wpscss_options', array('css_dir' => '/scss/', 'scss_dir' => '/scss/', 'compiling_options' => 'scss_formatter_compressed'));
+}
+/* ==========================================================================
+   Remove the p from around imgs
+   ========================================================================== */
+function filter_ptags_on_images($content) {
+    $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+    return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
+}
+
+/* ==========================================================================
+   Set permalink settings
+   ========================================================================== */
+ function set_permalink_postname(){
+       global $wp_rewrite;
+       $wp_rewrite->set_permalink_structure('%postname%'); }
+
+   /* ==========================================================================
+      Add link to all settings menu
+      ========================================================================== */
+        function all_settings_link() {
+         add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
+        }
