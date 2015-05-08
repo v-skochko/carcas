@@ -11,10 +11,12 @@
     // add_image_size( 'custom', '300', '300', true );
     update_option('thumbnail_size_w', 200);
     update_option('thumbnail_size_h', 200);
-    update_option('medium_size_w', 400);
-    update_option('medium_size_h', 350);
-    update_option('large_size_w', 800);
-    update_option('large_size_h', 400);
+    // Thumbnails theme support
+    // add_theme_support( 'post-thumbnails' );
+    // update_option('medium_size_w', 400);
+    // update_option('medium_size_h', 350);
+    // update_option('large_size_w', 800);
+    // update_option('large_size_h', 400);
 
 ## SPEED & SECURITY BOOST
     ### Clean up wp_head()
@@ -55,23 +57,17 @@ add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
     add_action('wp_enqueue_scripts', 'style_js');
     ### Option Update
         ### Set permalink settings
-        function set_permalink(){
-              global $wp_rewrite;
-              $wp_rewrite->set_permalink_structure('%postname%'); }
-        add_action('after_switch_theme', 'set_permalink');
-        ### Uploads organize into month- and year-based folders
-        function uploads_folder_update(){update_option('uploads_use_yearmonth_folders', 1); }
-        add_action('after_switch_theme', 'uploads_folder_update');
-        ### Image default link type
-        function image_link_t(){
-               update_option('image_default_link_type','none'); }
-        add_action('after_switch_theme', 'image_link_t');
+        add_action('after_switch_theme', 'set_permalink_postname');
+
+
+
+
         ### For coments: remove Email & Url fields
          function require_name(){
               update_option('require_name_email', 0); }
         add_action('after_switch_theme', 'require_name');
         function rem_form_fields($fields) {
-            unset($fields['email']);
+            // unset($fields['email']);
             unset($fields['url']);
             return $fields; }
         add_filter('comment_form_default_fields', 'rem_form_fields');
@@ -80,27 +76,20 @@ add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
     ### Add class to BODY
     add_filter( 'body_class', 'new_body_classes' );
 
-/* TG WP Title */
-add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
+/*WP Title */
+add_filter( 'wp_title', 'custom_wp_title', 10, 2 );
 
     ###Register menus
     register_nav_menus(array(
         'head_menu' => 'Main navigation',
         'foot_menu' => 'Footer navigation'
     ));
-    ###Thumbnails theme support
-    add_theme_support( 'post-thumbnails' );
+
     ##custom theme url
     function theme(){
     return ($_SERVER['REMOTE_ADDR']=='127.0.0.1'?site_url():'') . str_replace(site_url(), '', get_stylesheet_directory_uri());
     }
-    ###Disables Kses
-    foreach (array('term_description', 'link_description', 'link_notes', 'user_description') as $filter) {
-        remove_filter($filter, 'wp_kses_data');
-    }
-      foreach (array('pre_term_description', 'pre_link_description', 'pre_link_notes', 'pre_user_description') as $filter) {
-        remove_filter($filter, 'wp_filter_kses');
-    }
+
     ### Deregister Contact Form 7 default styles
     add_action( 'wp_print_styles', 'voodoo_deregister_styles', 100 );
     function voodoo_deregister_styles() {
@@ -158,17 +147,10 @@ add_filter( 'wp_title', 'tg_wp_title', 10, 2 );
         #### Hide the Admin Bar
         add_filter('show_admin_bar', '__return_false');
         #### Add link to all settings menu
-        function all_settings_link() {
-         add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
-        }
         add_action('admin_menu', 'all_settings_link');
 
-// remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
-function bones_filter_ptags_on_images($content){
-	return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-}
-//Update wp-scss setings
-if(class_exists('Wp_Scss_Settings')) {
-    $wpscss = get_option('wpscss_options');
-    if(empty($wpscss['css_dir']) && empty($wpscss['scss_dir'])) update_option('wpscss_options', array('css_dir' => '/scss/', 'scss_dir' => '/scss/', 'compiling_options' => 'scss_formatter_compressed'));
-}
+/* ==========================================================================
+   Remove the p from around imgs
+   ========================================================================== */
+
+add_filter('the_content', 'filter_ptags_on_images');
