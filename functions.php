@@ -87,7 +87,7 @@ add_filter( 'wp_title', 'custom_wp_title', 10, 2 );
 
     ##custom theme url
     function theme(){
-    return ($_SERVER['REMOTE_ADDR']=='127.0.0.1'?site_url():'') . str_replace(site_url(), '', get_stylesheet_directory_uri());
+    return  get_stylesheet_directory_uri();
     }
 
     ### Deregister Contact Form 7 default styles

@@ -13,17 +13,17 @@ $h4: 16px;
 $h5: 14px;
 $h6: 12px;
 //colors
-$basic: #4caf50;
+$basic: #fb5300;
 $link: #f44336;
-$btn: #4caf50;
+$btn: #fb5300;
 $grey: #ddd;
-$txt: #444;
+$text: #444;
 //FONTS
 @include declare-font-face('icf', 'icf', 400);
 // IMPORT STYLE
 @import 'import/03_reset'; // reset default style
 @import 'import/04_global'; // global elements (header, footer, contact fotm buttons, etc..)
 @import 'import/05_page'; // style for static page
-@import  'import/09_comments'; // wordpress comments style
-@import  'import/10_woocommerce'; //woocommerce
+@import 'import/09_comments'; // wordpress comments style
+// @import 'import/10_woocommerce'; //woocommerce
 @import 'import/99_responsive'; // responsive

@@ -1,21 +1,4 @@
-/* ==========================================================================
-   WORDPRESS DEFAULT CLASSES
-   ========================================================================== */
-.alignleft{
-    float: left;
-}
-.alignright{
-    float: right;
-}
-.aligncenter{
-    margin-right: auto;
-    margin-left: auto;
-}
-img.aligncenter{
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
+
 /* ==========================================================================
    HELPERS
    ========================================================================== */
@@ -54,7 +37,6 @@ img.aligncenter{
 .no_select{
     -webkit-user-select: none;
        -moz-user-select: none;
-        -ms-user-select: none;
 }
 .btn{
     display: inline-block;
@@ -62,7 +44,6 @@ img.aligncenter{
     cursor: pointer;
     -webkit-user-select: none;
        -moz-user-select: none;
-        -ms-user-select: none;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -72,14 +53,9 @@ img.aligncenter{
     background: $btn;
     &:hover{
         background: darken( $btn, 5% );
-        -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-             box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-
-        webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-    }
-    a:active{
-        color: red;
-        background: darken( $btn, 10% );
+        -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+           -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+                box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
     }
 }
 .underline{
@@ -97,8 +73,41 @@ img.aligncenter{
     }
     &:hover:after{
         width: 100%;
-        background: #222;
+        background: $basic;
     }
+}
+/* ==========================================================================
+   WORDPRESS DEFAULT CLASSES
+   ========================================================================== */
+.aligncenter{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.alignleft{
+    float: left;
+}
+.alignright{
+    float: right;
+}
+.wp-caption{
+    margin: 10px;
+    padding-top: 4px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f3f3f3;
+}
+.wp-caption img{
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+.wp-caption p.wp-caption-text{
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
 }
 /* ==========================================================================
    WYSIWYG
@@ -157,6 +166,7 @@ img.aligncenter{
     }
 }
 
+
 /* ==========================================================================
    SOCIAL LINK
    ========================================================================== */
@@ -212,94 +222,77 @@ CUSTOM ICON FONT http://vskochko.github.io/icf/
     font-family: 'icf';
     font-weight: normal;
     font-style: normal;
-    /* opacity: .8; */
-    /* For safety - reset parent styles, that can break glyph codes*/
     font-variant: normal;
-    /* fix buttons height, for twitter bootstrap */
-    line-height: 1em;
     display: inline-block;
     width: 1em;
-    // margin-right:.2em;
-    /* Animation center compensation - margins should be symmetric */
-    /* remove if not needed */
-    // margin-left:.2em;
     text-align: center;
     text-decoration: inherit;
     text-transform: none;
-    /* you can be more comfortable with increased icons size */
-    /* font-size: 120%; */
-    /* Uncomment for 3D effect */
-    text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
-
-    speak: none;
 }
 /* ==========================================================================
    CONTACT FORM 7
    ========================================================================== */
-// .wpcf7 {
-//     .wpcf7-submit {
-//         font-size:16px;
-//         line-height:30px;
-//         width:130px;
-//         height:30px;
-//         color:#fff;
-//         border:none;
-//         background:$btn;
-//         &:hover {
-//             background:darken( $btn, 10% );
-//         }
-//     }
-//     .screen-reader-response {
-//         display:none !important;
-//     }
-//     .wpcf7-not-valid-tip {
-//         font:500 14px/1 $font;
-//         position:absolute;
-//         top:0;
-//         right:0;
-//         left:0;
-//         text-align:center;
-//         color:#ff5f5f;
-//         background:#eee;
-//     }
-//     .wpcf7-response-output {
-//         display:none;
-//         float:left;
-//         width:96%;
-//         margin:20px 0;
-//         padding:2%;
-//         text-align:center;
-//         background:#fff;
-//         &.wpcf7-validation-errors {
-//             color:white;
-//             background:#ff5f5f;
-//         }
-//         &.wpcf7-mail-sent-ng {
-//             color:white;
-//             background:#1091ae;
-//         }
-//         &.wpcf7-mail-sent-ok {
-//             color:white;
-//             background:#16a085;
-//         }
-//     }
-//     .wpcf7-form-control-wrap {
-//         position:relative;
-//         display:block !important;
-//     }
-// ::-webkit-input-placeholder {
-//    color: red;
-// }
-// :-moz-placeholder { /* Firefox 18- */
-//    color: red;
-// }
-// ::-moz-placeholder {  /* Firefox 19+ */
-//    color: red;
-// }
-// :-ms-input-placeholder {
-//    color: red;
-// }
-// }
+.wpcf7{
+    .wpcf7-submit{
+        font-size: 16px;
+        line-height: 30px;
+        width: 130px;
+        height: 30px;
+        color: #fff;
+        border: none;
+        background: $btn;
+        &:hover{
+            background: darken( $btn, 10% );
+        }
+    }
+    .screen-reader-response{
+        display: none !important;
+    }
+    .wpcf7-not-valid-tip{
+        font: 500 14px/1 $font;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        text-align: center;
+        color: #ff5f5f;
+        background: #eee;
+    }
+    .wpcf7-response-output{
+        display: none;
+        float: left;
+        width: 96%;
+        margin: 20px 0;
+        padding: 2%;
+        text-align: center;
+        background: #fff;
+        &.wpcf7-validation-errors{
+            color: white;
+            background: #ff5f5f;
+        }
+        &.wpcf7-mail-sent-ng{
+            color: white;
+            background: #1091ae;
+        }
+        &.wpcf7-mail-sent-ok{
+            color: white;
+            background: #16a085;
+        }
+    }
+    .wpcf7-form-control-wrap{
+        position: relative;
+        display: block !important;
+    }
+    ::-webkit-input-placeholder{
+        color: $text;
+    }
+    ::-moz-placeholder{
+        color: $text;
+    }
+    :-ms-input-placeholder{
+        color: $text;
+    }
+}
 /* ==========================================================================
    GRID
    ========================================================================== */
