@@ -1,12 +1,4 @@
 /* ==========================================================================
-   1. Wordpress default classes
-2. Helpers
-3. WYSIWYG
-4. 404 page
-5. Social link
-   ========================================================================== */
-@include declare-font-face('icf', 'icf', 400);
-/* ==========================================================================
    WORDPRESS DEFAULT CLASSES
    ========================================================================== */
 .alignleft{
@@ -24,102 +16,6 @@ img.aligncenter{
     margin-right: auto;
     margin-left: auto;
 }
-// CUSTOM ICON FONT http://vskochko.github.io/icf/
-[class^='icf-']:before, [class*=' icf-']:before{
-    font-family: 'icf';
-    font-weight: normal;
-    font-style: normal;
-    /* opacity: .8; */
-    /* For safety - reset parent styles, that can break glyph codes*/
-    font-variant: normal;
-    /* fix buttons height, for twitter bootstrap */
-    line-height: 1em;
-    display: inline-block;
-    width: 1em;
-    // margin-right:.2em;
-    /* Animation center compensation - margins should be symmetric */
-    /* remove if not needed */
-    // margin-left:.2em;
-    text-align: center;
-    text-decoration: inherit;
-    text-transform: none;
-    /* you can be more comfortable with increased icons size */
-    /* font-size: 120%; */
-    /* Uncomment for 3D effect */
-    text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
-    speak: none;
-}
-/* ==========================================================================
-   CF7
-   ========================================================================== */
-// .wpcf7 {
-// input[type=text]:focus, input[type=email]:focus, textarea:focus{
-//     border-color:  rgba(81, 203, 238, 1);
-//     box-shadow: 0 0 5px rgba(81, 203, 238, .8);
-// }
-//     .wpcf7-submit {
-//         font-size:16px;
-//         line-height:30px;
-//         width:130px;
-//         height:30px;
-//         color:#fff;
-//         border:none;
-//         background:$btn;
-//         &:hover {
-//             background:darken( $btn, 10% );
-//         }
-//     }
-//     .screen-reader-response {
-//         display:none !important;
-//     }
-//     .wpcf7-not-valid-tip {
-//         font:500 14px/1 $font;
-//         position:absolute;
-//         top:0;
-//         right:0;
-//         left:0;
-//         text-align:center;
-//         color:#ff5f5f;
-//         background:#eee;
-//     }
-//     .wpcf7-response-output {
-//         display:none;
-//         float:left;
-//         width:96%;
-//         margin:20px 0;
-//         padding:2%;
-//         text-align:center;
-//         background:#fff;
-//         &.wpcf7-validation-errors {
-//             color:white;
-//             background:#ff5f5f;
-//         }
-//         &.wpcf7-mail-sent-ng {
-//             color:white;
-//             background:#1091ae;
-//         }
-//         &.wpcf7-mail-sent-ok {
-//             color:white;
-//             background:#16a085;
-//         }
-//     }
-//     .wpcf7-form-control-wrap {
-//         position:relative;
-//         display:block !important;
-//     }
-// ::-webkit-input-placeholder {
-//    color: red;
-// }
-// :-moz-placeholder { /* Firefox 18- */
-//    color: red;
-// }
-// ::-moz-placeholder {  /* Firefox 19+ */
-//    color: red;
-// }
-// :-ms-input-placeholder {
-//    color: red;
-// }
-// }
 /* ==========================================================================
    HELPERS
    ========================================================================== */
@@ -178,6 +74,7 @@ img.aligncenter{
         background: darken( $btn, 5% );
         -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
              box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+
         webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
     }
     a:active{
@@ -259,59 +156,7 @@ img.aligncenter{
         color: #333;
     }
 }
-/* ==========================================================================
-   404 page
-   ========================================================================== */
-.error404{
-    .icf-404{
-        &:before{
-            font-size: 100px;
-            margin-bottom: 20px;
-            content: '\e829';
-            color: #f44336;
-        }
-    }
-    main{
-        margin-top: 20px;
-        text-align: center;
-    }
-    h1{
-        font-size: 18px;
-        margin-bottom: 20px;
-        span{
-            font-size: 30px;
-            display: block;
-            margin-bottom: 10px;
-        }
-    }
-    #searchform{
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
-        text-align: center;
-        label{
-            display: none;
-        }
-        input[type='text']{
-            width: 100%;
-            height: 30px;
-            margin: 20px 0 ;
-            border: 1px solid $grey;
-            border-radius: 3px;
-        }
-        input[type='submit']{
-            position: relative;
-            padding: 10px 20px;
-            color: #fff;
-            border: none;
-            border-radius: 3px;
-            background: $btn;
-            &:hover{
-                background: darken( $btn, 5% );
-            }
-        }
-    }
-}
+
 /* ==========================================================================
    SOCIAL LINK
    ========================================================================== */
@@ -329,10 +174,12 @@ img.aligncenter{
         margin: 0 5px;
         color: #fff;
         border-radius: 50%;
+
         @include transition(all, .15s, ease-in);
         &:before{
             font-size: 20px;
             position: relative;
+
             @include center();
         }
         &.icf-facebook{
@@ -383,6 +230,7 @@ CUSTOM ICON FONT http://vskochko.github.io/icf/
     /* font-size: 120%; */
     /* Uncomment for 3D effect */
     text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
+
     speak: none;
 }
 /* ==========================================================================

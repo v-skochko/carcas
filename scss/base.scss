@@ -1,77 +1,29 @@
-/* ==========================================================================
-   BASE
-   ========================================================================== */
-@import
-'sass/01_variables',
-'sass/02_mixins',
-'sass/03_reset',
-'sass/04_global',
-'sass/comments',
-'sass/05_animations.scss',
-'sass/06_lib';
-
-/* ==========================================================================
-   HEADER
-   ========================================================================== */
-header{
-    #logo{
-        -webkit-transition: opacity .25s ease-in-out;
-           -moz-transition: opacity .25s ease-in-out;
-                transition: opacity .25s ease-in-out;
-        opacity: 1;
-        &:hover{
-            opacity: .5;
-        }
-    }
-    nav{
-        margin-top: 10px;
-        border: 1px solid $grey;
-        >.menu>ul{
-            font-size: 0;
-            >li{
-                position: relative;
-                display: inline-block;
-                >a{
-                    font-size: 16px;
-                    display: block;
-                    padding: 5px 15px;
-                    border-right: 1px solid $grey;
-                }
-                &.menu-item-has-children{
-                    >.sub-menu{
-                        position: absolute;
-                        visibility: hidden;
-                        overflow: hidden;
-                        min-width: 120px;
-                        border: 1px solid $grey;
-                        background: #fff;
-                        @include transition(all, .2s, ease-in-out);
-                        >li{
-                            >a{
-                                font-size: 16px;
-                            }
-                        }
-                    }
-                    &:hover{
-                        >.sub-menu{
-                            visibility: visible;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-footer{
-    padding: 20px 0;
-    background: #212122 1px;
-    .copyright{
-        float: left;
-        color: #fff;
-        @include center(false, true);
-    }
-}
-@import 'sass/99_responsive';
+@import 'import/02_mixins';
+// Base typography settings
+$row: 960px;
+$fz: 14px;
+$lh: 21px;
+$font: Arial, Helvetica, sans-serif;
+$f_bold: Arial, Helvetica, sans-serif;
+$f_light: Arial, Helvetica, sans-serif;
+$h1: 22px;
+$h2: 20px;
+$h3: 18px;
+$h4: 16px;
+$h5: 14px;
+$h6: 12px;
+//colors
+$basic: #4caf50;
+$link: #f44336;
+$btn: #4caf50;
+$grey: #ddd;
+$txt: #444;
+//FONTS
+@include declare-font-face('icf', 'icf', 400);
+// IMPORT STYLE
+@import 'import/03_reset'; // reset default style
+@import 'import/04_global'; // global elements (header, footer, contact fotm buttons, etc..)
+@import 'import/05_page'; // style for static page
+@import  'import/09_comments'; // wordpress comments style
+@import  'import/10_woocommerce'; //woocommerce
+@import 'import/99_responsive'; // responsive
