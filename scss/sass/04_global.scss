@@ -47,21 +47,16 @@ img.aligncenter{
     /* font-size: 120%; */
     /* Uncomment for 3D effect */
     text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
-
     speak: none;
 }
 /* ==========================================================================
    CF7
    ========================================================================== */
 // .wpcf7 {
-
-
 // input[type=text]:focus, input[type=email]:focus, textarea:focus{
 //     border-color:  rgba(81, 203, 238, 1);
 //     box-shadow: 0 0 5px rgba(81, 203, 238, .8);
 // }
-
-
 //     .wpcf7-submit {
 //         font-size:16px;
 //         line-height:30px;
@@ -183,7 +178,6 @@ img.aligncenter{
         background: darken( $btn, 5% );
         -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
              box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-
         webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
     }
     a:active{
@@ -335,12 +329,10 @@ img.aligncenter{
         margin: 0 5px;
         color: #fff;
         border-radius: 50%;
-
         @include transition(all, .15s, ease-in);
         &:before{
             font-size: 20px;
             position: relative;
-
             @include center();
         }
         &.icf-facebook{
@@ -391,7 +383,6 @@ CUSTOM ICON FONT http://vskochko.github.io/icf/
     /* font-size: 120%; */
     /* Uncomment for 3D effect */
     text-shadow: 1px 1px 1px rgba(127, 127, 127, .3);
-
     speak: none;
 }
 /* ==========================================================================
@@ -461,3 +452,66 @@ CUSTOM ICON FONT http://vskochko.github.io/icf/
 //    color: red;
 // }
 // }
+/* ==========================================================================
+   GRID
+   ========================================================================== */
+//----- Extends
+%clearfix:after{
+    display: block;
+    clear: both;
+    content: '';
+}
+//----- Grid System
+$grid-spacing: 3%;
+.grid{
+    &+&{
+        margin-top: $grid-spacing;
+    }
+}
+[class^='col-']{
+    float: left;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-right: $grid-spacing;
+    &:last-child{
+        margin-right: 0;
+    }
+}
+//----- Columns (Automatic)
+.col-1{
+    width: (100% / 12) - ($grid-spacing * 11 / 12);
+}
+.col-2{
+    width: (100% / 6) - ($grid-spacing * 10 / 12);
+}
+.col-3{
+    width: (100% / 4) - ($grid-spacing * 9 / 12);
+}
+.col-4{
+    width: (100% / 3) - ($grid-spacing * 8 / 12);
+}
+.col-5{
+    width: (100% / 2.4) - ($grid-spacing * 7 / 12);
+}
+.col-6{
+    width: (100% / 2) - ($grid-spacing * 6 / 12);
+}
+.col-7{
+    width: (100% / 1.714285714285714) - ($grid-spacing * 5 / 12);
+}
+.col-8{
+    width: (100% / 1.5) - ($grid-spacing * 4 / 12);
+}
+.col-9{
+    width: (100% / 1.333333333333333) - ($grid-spacing * 3 / 12);
+}
+.col-10{
+    width: (100% / 1.2) - ($grid-spacing * 2 / 12);
+}
+.col-11{
+    width: (100% / 1.090909090909091) - ($grid-spacing * 1 / 12);
+}
+.col-12{
+    width: 100%;
+}
