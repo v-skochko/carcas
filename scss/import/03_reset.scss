@@ -109,6 +109,7 @@ hr{
     border: 0 none;
     background: #707070;
 }
-strong{
-    font-weight: 700;
+strong, b{
+    font-family: $font_b;
+    font-weight: normal;
 }

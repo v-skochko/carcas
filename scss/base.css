@@ -158,8 +158,9 @@ hr {
   border: 0 none;
   background: #707070; }
 
-strong {
-  font-weight: 700; }
+strong, b {
+  font-family: 'm7', Arial, Helvetica, sans-serif;
+  font-weight: normal; }
 
 .row {
   position: relative;
