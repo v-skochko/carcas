@@ -8,7 +8,7 @@
         src: url('fonts/#{$font-filename}.eot');
         src: url('fonts/#{$font-filename}.eot?#iefix') format('embedded-opentype'),
         url('fonts/#{$font-filename}.woff') format('woff'),
-        url('fonts/#{$font-filename}.ttf') format('truetype'),
+        url('fonts/#{$font-filename}.ttf') format('truetype'),;
     }
 }
 @mixin box-sizing($s){

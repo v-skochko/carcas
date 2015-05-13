@@ -30,10 +30,7 @@
         clear: both;
     }
 }
-//Fix for Google maps
-#map_canvas img{
-    max-width: inherit;
-}
+
 .no_select{
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -48,7 +45,8 @@
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
-    border-radius: 3px;
+    font: 400 15px/1 $font_b;
+   @include border-radius(3px);
     outline: 0;
     background: $btn;
     &:hover{
@@ -61,7 +59,6 @@
 .underline{
     position: relative;
     display: inline-block;
-    padding-bottom: 3px;
     &:after{
         display: block;
         width: 0;
@@ -73,7 +70,7 @@
     }
     &:hover:after{
         width: 100%;
-        background: $basic;
+        background: $link;
     }
 }
 /* ==========================================================================
