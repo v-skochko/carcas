@@ -1,7 +1,7 @@
 //Using @include declare-font-face('FontName', 'font-filename', 400);
 @mixin declare-font-face($font-family, $font-filename, $font-weight: normal, $font-style: normal){
     @font-face{
-        font-family: #{$font-family};
+        font-family: '#{$font-family}';
         font-weight: $font-weight;
         font-style: $font-style;
 
@@ -9,7 +9,6 @@
         src: url('fonts/#{$font-filename}.eot?#iefix') format('embedded-opentype'),
         url('fonts/#{$font-filename}.woff') format('woff'),
         url('fonts/#{$font-filename}.ttf') format('truetype'),
-        url('fonts/#{$font-filename}.svg##{$font-family}') format('svg');
     }
 }
 @mixin box-sizing($s){

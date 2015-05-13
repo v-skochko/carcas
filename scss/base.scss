@@ -1,29 +1,35 @@
 @import 'import/02_mixins';
-// Base typography settings
-$row: 960px;
+
+// Base  settings
+$row: 960px; //web page width
 $fz: 14px;
 $lh: 21px;
-$font: Arial, Helvetica, sans-serif;
-$f_bold: Arial, Helvetica, sans-serif;
-$f_light: Arial, Helvetica, sans-serif;
-$h1: 22px;
-$h2: 20px;
-$h3: 18px;
-$h4: 16px;
-$h5: 14px;
-$h6: 12px;
-//colors
+
+// Defaul fonts varieble
+$f5: 'm5', Arial, Helvetica, sans-serif; //default regular font
+$f5i: 'm5i', Arial, Helvetica, sans-serif; //default italic font
+$font_l: 'm1', Arial, Helvetica, sans-serif; //default thin font
+$font_b: 'm7', Arial, Helvetica, sans-serif; //default bold font
+
+//custom icon fonts
+@include declare-font-face('icf', 'icf', 400);
+//museo font family
+@include declare-font-face('m1', 'museosanscyrl_100-webfont', 100);
+@include declare-font-face('m3', 'museosanscyrl_300-webfont', 300);
+@include declare-font-face('m5', 'museosanscyrl_500-webfont', 500);
+@include declare-font-face('m5i', 'museosanscyrl_500_italic-webfont', 500);
+@include declare-font-face('m7', 'museosanscyrl_700-webfont', 700);
+
+//COLORS
 $basic: #fb5300;
 $link: #f44336;
 $btn: #fb5300;
 $grey: #ddd;
 $text: #444;
-//FONTS
-@include declare-font-face('icf', 'icf', 400);
-// IMPORT STYLE
+// LOAD ORDER
 @import 'import/03_reset'; // reset default style
 @import 'import/04_global'; // global elements (header, footer, contact fotm buttons, etc..)
 @import 'import/05_page'; // style for static page
 @import 'import/09_comments'; // wordpress comments style
-// @import 'import/10_woocommerce'; //woocommerce
+@import 'import/10_woocommerce'; //woocommerce
 @import 'import/99_responsive'; // responsive

@@ -16,7 +16,7 @@ html{
         -ms-text-size-adjust: 100%;
 }
 body{
-    font: 400 14px/20px $font;
+    font: 400 14px/20px $f5;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -81,7 +81,7 @@ table{
    TYPOGRAPHY
    ========================================================================== */
 h1, h2, h3, h4, h5, h6{
-    font: 400 16px/1 $font;
+    font: 400 16px/1 $f5;
     color: $txt;
 }
 a{
