@@ -11,43 +11,64 @@ header{
             opacity: .5;
         }
     }
-    nav{
-        margin-top: 10px;
-        border: 1px solid $grey;
-        >.menu>ul{
-            font-size: 0;
-            >li{
-                position: relative;
-                display: inline-block;
-                >a{
-                    font-family: $font_l ;
-                    font-size: 16px;
-                    display: block;
-                    padding: 5px 15px;
-                    border-right: 1px solid $grey;
+}
+// MAIN NAVIGATION MENU
+.main_nav_container{
+    margin-top: 10px;
+    border: 1px solid $grey;
+    .main-nav{
+        font-size: 0;
+    }
+    //level 0
+    .menu-item-depth-0{
+        position: relative;
+        display: inline-block;
+        >a{
+            font-family: $font_l ;
+            font-size: 16px;
+            display: block;
+            padding: 5px 15px;
+            border-right: 1px solid $grey;
+        }
+        &.current-menu-item{
+            background: #ccc;
+        }
+        &.menu-item-has-children{
+            >span{
+                &:before{
+                    font-family: 'icf';
+                    content: '\e844';
+                    font-size: 13px;
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
                 }
-                &.menu-item-has-children{
-                    >.sub-menu{
-                        position: absolute;
-                        visibility: hidden;
-                        overflow: hidden;
-                        min-width: 120px;
-                        border: 1px solid $grey;
-                        background: #fff;
+            }
+            >a {
+                padding-right: 20px;
+            }
+        }
+    }
+    //submenu
+    .menu-item-has-children{
+        >.sub-menu{
+            position: absolute;
+            visibility: hidden;
+            overflow: hidden;
+            min-width: 120px;
+            border: 1px solid $grey;
+            background: #fff;
 
-                        @include transition(all, .2s, ease-in-out);
-                        >li{
-                            >a{
-                                font-size: 16px;
-                            }
-                        }
-                    }
-                    &:hover{
-                        >.sub-menu{
-                            visibility: visible;
-                        }
-                    }
+            @include transition(all, .2s, ease-in-out);
+            >li{
+                >a{
+                    font-size: 16px;
                 }
+            }
+        }
+        &:hover{
+            >.sub-menu{
+                visibility: visible;
             }
         }
     }

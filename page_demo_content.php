@@ -24,7 +24,106 @@ global $post; ?>
 			</div>
         </article>
         <article>
-        	<?php echo do_shortcode( '[contact-form-7 id="6" title="Demo"]' ); ?>
+        	<?php echo do_shortcode( '[contact-form-7 id="4" title="Contact form 1"]' ); ?>
+        </article>
+        <article>
+        	<div class="grid-wrap">
+<div class="grid">
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+</div>
+<div class="grid">
+<div class="col-2">Col #2</div>
+<div class="col-2">Col #2</div>
+<div class="col-2">Col #2</div>
+<div class="col-2">Col #2</div>
+<div class="col-2">Col #2</div>
+<div class="col-2">Col #2</div>
+</div>
+<div class="grid">
+<div class="col-3">Col #3</div>
+<div class="col-3">Col #3</div>
+<div class="col-3">Col #3</div>
+<div class="col-3">Col #3</div>
+</div>
+<div class="grid">
+<div class="col-4">Col #4</div>
+<div class="col-4">Col #4</div>
+<div class="col-4">Col #4</div>
+</div>
+<div class="grid">
+<div class="col-5">Col #5</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+</div>
+<div class="grid">
+<div class="col-6">Col #6</div>
+<div class="col-6">Col #6</div>
+</div>
+<div class="grid">
+<div class="col-7">Col #7</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+</div>
+<div class="grid">
+<div class="col-8">Col #8</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+</div>
+<div class="grid">
+<div class="col-9">Col #9</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+</div>
+<div class="grid">
+<div class="col-10">Col #10</div>
+<div class="col-1">Col #1</div>
+<div class="col-1">Col #1</div>
+</div>
+<div class="grid">
+<div class="col-11">Col #11</div>
+<div class="col-1">Col #1</div>
+</div>
+<div class="grid">
+<div class="col-12">Col #12</div>
+</div>
+<div class="grid">
+	<div class="col-6">
+		<div class="col-6">6</div>
+		<div class="col-6">6</div>
+	</div>
+	<div class="col-6">
+		<div class="col-2">2</div>
+		<div class="col-2">2</div>
+		<div class="col-2">2</div>
+		<div class="col-2">2</div>
+		<div class="col-2">2</div>
+		<div class="col-1">1</div>
+		<div class="col-1">1</div>
+	</div>
+</div>
+</div>
         </article>
     </main>
 </div>
@@ -38,6 +137,23 @@ article {
 	padding: 20px;
 	margin: 20px;
 	border: 1px solid #ddd;
+}
+
+.grid-wrap {
+  padding: 3%;
+  background: #f6f7f8;
+}
+.grid [class^="col-"] {
+  padding: 5px;
+  background: #e4e5e7;
+  text-align: center;
+  color: #767779;
+  font-size: 11px;
+}
+.grid  [class^="col-"] [class^="col-"] {
+  background: #ADB0B6;
+  text-align: center;
+  color: #fff;
 }
     </style>
 <?php get_footer(); ?>

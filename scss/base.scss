@@ -9,7 +9,7 @@ $lh: 21px;
 $f5: 'm5', Arial, Helvetica, sans-serif; //default regular font
 $f5i: 'm5i', Arial, Helvetica, sans-serif; //default italic font
 $font_l: 'm1', Arial, Helvetica, sans-serif; //default thin font
-$font_b: 'm7', Arial, Helvetica, sans-serif; //default bold font
+$bold: 'm7', Arial, Helvetica, sans-serif; //default bold font
 
 //custom icon fonts
 @include declare-font-face('icf', 'icf', 400);
@@ -31,5 +31,5 @@ $text: #444;
 @import 'import/04_global'; // global elements (header, footer, contact fotm buttons, etc..)
 @import 'import/05_page'; // style for static page
 @import 'import/09_comments'; // wordpress comments style
-@import 'import/10_woocommerce'; //woocommerce
+// @import 'import/10_woocommerce'; //woocommerce
 @import 'import/99_responsive'; // responsive

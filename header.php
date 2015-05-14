@@ -46,9 +46,19 @@ ob_start('ob_html_compress');
     <header>
         <div class="row cfx">
             <a href="<?php echo site_url(); ?>/" id="logo">cArcAss<img src="" alt=""></a>
-            <nav class="cfx" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <nav class="main_nav_container" class="cfx" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
                 <a class="toogle_nav" href="#" onclick="$('nav ul').slideToggle('fast'); return false;">MENU</a>
-                <?php wp_nav_menu(array( 'theme_location'  => 'head_menu')); ?>
+                <?php
+                    $main_nav = array(
+                      'theme_location'  => 'head_menu',
+                      'menu'            => '',
+                      'container'       => false,
+                      'menu_class'      => 'main-nav',
+                      'after'           => '<span></span>',
+                      'walker'        => new carcass_walker
+                    );
+                    wp_nav_menu( $main_nav );
+                 ?>
             </nav>
         </div>
     </header>
