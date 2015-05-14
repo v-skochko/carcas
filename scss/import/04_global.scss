@@ -36,6 +36,7 @@
        -moz-user-select: none;
 }
 .btn{
+    font: 400 15px/1 $font_b;
     display: inline-block;
     padding: 10px 20px;
     cursor: pointer;
@@ -45,10 +46,10 @@
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
-    font: 400 15px/1 $font_b;
-   @include border-radius(3px);
     outline: 0;
     background: $btn;
+
+    @include border-radius(3px);
     &:hover{
         background: darken( $btn, 5% );
         -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
@@ -186,45 +187,29 @@
         &:before{
             font-size: 20px;
             position: relative;
+            color: #fff;
 
             @include center();
         }
         &.icf-facebook{
             background: #3b5993;
-            &:before{
-                content: '\e858';
-            }
         }
         &.icf-twitter{
             background: #55acee;
             &:before{
-                content: '\e866';
+                // content: '\e866';
             }
         }
         &.icf-google-plus{
             background: #d94733;
             &:before{
-                content: '\e85d';
+                // content: '\e85d';
             }
         }
         &:hover{
             @include scale( 1.2 );
         }
     }
-}
-/*--------------------------------------------------------------
-CUSTOM ICON FONT http://vskochko.github.io/icf/
---------------------------------------------------------------*/
-[class^='icf-']:before, [class*=' icf-']:before{
-    font-family: 'icf';
-    font-weight: normal;
-    font-style: normal;
-    font-variant: normal;
-    display: inline-block;
-    width: 1em;
-    text-align: center;
-    text-decoration: inherit;
-    text-transform: none;
 }
 /* ==========================================================================
    CONTACT FORM 7
@@ -294,45 +279,66 @@ CUSTOM ICON FONT http://vskochko.github.io/icf/
    GRID
    ========================================================================== */
 //----- Extends
-%clearfix:after {
-    display:block;
-    clear:both;
-    content:'';
+%clearfix:after{
+    display: block;
+    clear: both;
+    content: '';
 }
 
 //----- Grid System
-$grid-spacing:3%;
+$grid-spacing: 3%;
 
-.grid {
+.grid{
     @extend %clearfix;
-
-    & + & {
-        margin-top:$grid-spacing;
+    &+&{
+        margin-top: $grid-spacing;
     }
 }
 
-[class^="col-"] {
-    float:left;
-    margin-right:$grid-spacing;
-
-
-    &:last-child {
-        margin-right:0%;
+[class^='col-']{
+    float: left;
+    margin-right: $grid-spacing;
+    &:last-child{
+        margin-right: 0;
     }
 }
 
 
 
 //----- Columns (Automatic)
-.col-1   { width:(100% / 12) - ($grid-spacing * 11 / 12); }
-.col-2   { width:(100% / 6) - ($grid-spacing * 10 / 12); }
-.col-3   { width:(100% / 4) - ($grid-spacing * 9 / 12); }
-.col-4   { width:(100% / 3) - ($grid-spacing * 8 / 12); }
-.col-5   { width:(100% / 2.4) - ($grid-spacing * 7 / 12); }
-.col-6   { width:(100% / 2) - ($grid-spacing * 6 / 12); }
-.col-7   { width:(100% / 1.714285714285714) - ($grid-spacing * 5 / 12); }
-.col-8   { width:(100% / 1.5) - ($grid-spacing * 4 / 12); }
-.col-9   { width:(100% / 1.333333333333333) - ($grid-spacing * 3 / 12); }
-.col-10  { width:(100% / 1.2) - ($grid-spacing * 2 / 12); }
-.col-11  { width:(100% / 1.090909090909091) - ($grid-spacing * 1 / 12); }
-.col-12  { width:100%; }
+.col-1{
+    width: (100% / 12) - ($grid-spacing * 11 / 12);
+}
+.col-2{
+    width: (100% / 6) - ($grid-spacing * 10 / 12);
+}
+.col-3{
+    width: (100% / 4) - ($grid-spacing * 9 / 12);
+}
+.col-4{
+    width: (100% / 3) - ($grid-spacing * 8 / 12);
+}
+.col-5{
+    width: (100% / 2.4) - ($grid-spacing * 7 / 12);
+}
+.col-6{
+    width: (100% / 2) - ($grid-spacing * 6 / 12);
+}
+.col-7{
+    width: (100% / 1.714285714285714) - ($grid-spacing * 5 / 12);
+}
+.col-8{
+    width: (100% / 1.5) - ($grid-spacing * 4 / 12);
+}
+.col-9{
+    width: (100% / 1.333333333333333) - ($grid-spacing * 3 / 12);
+}
+.col-10{
+    width: (100% / 1.2) - ($grid-spacing * 2 / 12);
+}
+.col-11{
+    width: (100% / 1.090909090909091) - ($grid-spacing * 1 / 12);
+}
+.col-12{
+    width: 100%;
+}
