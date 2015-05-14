@@ -244,15 +244,6 @@ article{
     .screen-reader-response{
         display: none !important;
     }
-    input[type='text'], input[type='email'], textarea{
-        height: 40px;
-        border: 1px solid $grey;
-        width: 100%;
-    }
-    textarea{
-        height: 120px;
-        resize: none;
-    }
     .wpcf7-not-valid-tip{
         font: 500 14px/1 $font;
         position: absolute;

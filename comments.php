@@ -21,6 +21,7 @@
         ) );
       ?>
     </section>
+
     <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : ?>
     	<nav class="navigation comment-navigation" role="navigation">
       	<div class="comment-nav-prev btn icf-prev"><?php previous_comments_link( __( 'Previous Comments') ); ?></div>
