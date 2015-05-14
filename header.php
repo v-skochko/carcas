@@ -37,7 +37,6 @@ ob_start('ob_html_compress');
 <meta name="msapplication-TileImage" content="/mstile-144x144.png">
 <meta name="theme-color" content="#ffffff">
 
-
 <?php wp_head(); ?>
 <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 </head>
@@ -45,7 +44,7 @@ ob_start('ob_html_compress');
 <div id="wrap">
     <header>
         <div class="row cfx">
-            <a href="<?php echo site_url(); ?>/" id="logo">cArcAss<img src="" alt=""></a>
+            <a href="<?php echo site_url(); ?>/" id="logo">cArcAs<img src="" alt=""></a>
             <nav class="main_nav_container" class="cfx" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
                 <a class="toogle_nav" href="#" onclick="$('nav ul').slideToggle('fast'); return false;">MENU</a>
                 <?php
@@ -54,8 +53,9 @@ ob_start('ob_html_compress');
                       'menu'            => '',
                       'container'       => false,
                       'menu_class'      => 'main-nav',
-                      'after'           => '<span></span>',
-                      'walker'        => new carcass_walker
+                      'link_after'           => '<i></i>',
+
+                      'walker'        => new carcas_walker
                     );
                     wp_nav_menu( $main_nav );
                  ?>

@@ -178,7 +178,7 @@ function filter_ptags_on_images($content) {
 /* ==========================================================================
    Menu walker
    ========================================================================== */
-        class carcass_walker extends Walker_Nav_Menu {
+        class carcas_walker extends Walker_Nav_Menu {
 
 // add classes to ul sub-menus
 function start_lvl( &$output, $depth ) {

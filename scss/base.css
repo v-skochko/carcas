@@ -504,15 +504,16 @@ header #logo {
     border-right: 1px solid #ddd; }
   .main_nav_container .menu-item-depth-0.current-menu-item {
     background: #ccc; }
-  .main_nav_container .menu-item-depth-0.menu-item-has-children > span:before {
-    font-family: 'icf';
-    content: '\e844';
-    font-size: 13px;
-    position: absolute;
-    top: 5px;
-    right: 5px; }
-    .main_nav_container .menu-item-depth-0.menu-item-has-children > a {
-      padding-right: 20px; }
+  .main_nav_container .menu-item-depth-0.menu-item-has-children > a i {
+    padding-right: 5px; }
+    .main_nav_container .menu-item-depth-0.menu-item-has-children > a i:before {
+      font-family: 'icf';
+      font-size: 16px;
+      font-style: normal;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      content: '\e844'; }
   .main_nav_container .menu-item-has-children > .sub-menu {
     position: absolute;
     visibility: hidden;
