@@ -13,6 +13,7 @@ global $post; ?>
         </article>
         <article>
 			<a class="btn" href="##">buton</a>
+			<a class="btn btn_next" href="##">buton next</a>
 		</article>
 		<article>
 			<div class="wysiwyg">
@@ -23,7 +24,7 @@ global $post; ?>
 			</blockquote>
 			</div>
         </article>
-        <article>
+        <article class='cfx'>
         	<?php echo do_shortcode( '[contact-form-7 id="4" title="Contact form 1"]' ); ?>
         </article>
         <article>

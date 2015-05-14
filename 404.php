@@ -4,8 +4,11 @@
         <article>
         <span class="icf-new-releases"></span>
 			<h1><span>404</span> Article Not Found</h1>
-			<p><?php _e( 'The article you were looking for was not found, but maybe try looking again!', 'bonestheme' ); ?></p>
-			<p><?php get_search_form(); ?></p>
+			<p>The article you were looking for was not found, but maybe try looking again!</p>
+			<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ) ?>" >
+				<span class="icf-search"><input placeholder="Search" type="text" value="<?php echo get_search_query() ?>" name="s" id="s" /></span>
+				<input class="btn" type="submit" id="searchsubmit" value="Search" />
+			</form>
         </article>
 	</main>
 </div>

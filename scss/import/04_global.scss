@@ -30,13 +30,23 @@
         clear: both;
     }
 }
+article{
+    &:before, &:after{
+        display: table;
+        content: ' ';
+    }
+    &:after{
+        clear: both;
+    }
+}
 
 .no_select{
     -webkit-user-select: none;
        -moz-user-select: none;
 }
-.btn{
+.btn, input[type='submit']{
     font: 400 15px/1 $font_b;
+    position: relative;
     display: inline-block;
     padding: 10px 20px;
     cursor: pointer;
@@ -46,6 +56,7 @@
     text-decoration: none;
     text-transform: uppercase;
     color: #fff;
+    border: none;
     outline: 0;
     background: $btn;
 
@@ -57,6 +68,16 @@
                 box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
     }
 }
+.btn_next{
+    padding-right: 30px !important;
+    &:after{
+        font-family: 'icf';
+        font-size: 18px;
+        position: absolute;
+        content: '\e633';
+    }
+}
+
 .underline{
     position: relative;
     display: inline-block;
@@ -215,20 +236,22 @@
    CONTACT FORM 7
    ========================================================================== */
 .wpcf7{
+    width: 100%;
+    max-width: 320px;
     .wpcf7-submit{
-        font-size: 16px;
-        line-height: 30px;
-        width: 130px;
-        height: 30px;
-        color: #fff;
-        border: none;
-        background: $btn;
-        &:hover{
-            background: darken( $btn, 10% );
-        }
+        margin-top: 10px;
     }
     .screen-reader-response{
         display: none !important;
+    }
+    input[type='text'], input[type='email'], textarea{
+        height: 40px;
+        border: 1px solid $grey;
+        width: 100%;
+    }
+    textarea{
+        height: 120px;
+        resize: none;
     }
     .wpcf7-not-valid-tip{
         font: 500 14px/1 $font;
@@ -266,12 +289,15 @@
         display: block !important;
     }
     ::-webkit-input-placeholder{
+        opacity: 1;
         color: $text;
     }
     ::-moz-placeholder{
+        opacity: 1;
         color: $text;
     }
     :-ms-input-placeholder{
+        opacity: 1;
         color: $text;
     }
 }
