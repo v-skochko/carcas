@@ -14,6 +14,7 @@ global $post; ?>
         <article>
 			<a class="btn" href="##">buton</a>
 			<a class="btn btn_next" href="##">buton next</a>
+			<a class="btn custom-glyph-17" href="##">buton next</a>
 		</article>
 		<article>
 			<div class="wysiwyg">

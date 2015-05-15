@@ -3,10 +3,10 @@
    ========================================================================== */
 header{
     #logo{
+        font-family: 'm1';
+        font-size: 40px;
         display: block;
-      padding: 20px 0 10px;
-      font-size: 40px;
-      font-family: "m1";
+        padding: 20px 0 10px;
         -webkit-transition: opacity .25s ease-in-out;
            -moz-transition: opacity .25s ease-in-out;
                 transition: opacity .25s ease-in-out;
@@ -14,7 +14,6 @@ header{
         &:hover{
             opacity: .5;
         }
-
     }
 }
 // MAIN NAVIGATION MENU
@@ -49,7 +48,7 @@ header{
                         position: absolute;
                         top: 5px;
                         right: 5px;
-                        content: '\e631';
+                        content: '\e837';
                     }
                 }
             }
@@ -91,9 +90,17 @@ footer{
     background: #212122 1px;
     .icf-copyright{
         font-family: $font_b;
-        float: left;
+        // float: left;
+        display: block;
         color: #fff;
-
+        text-transform: uppercase;
+    }
+    .custom-glyph{
+        display: block;
+        font-family: $font_b;
+        text-transform: uppercase;
+        // float: left;
+        color: #fff;
     }
 }
 /* ==========================================================================
