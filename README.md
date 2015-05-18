@@ -48,8 +48,5 @@
 
 License: WTFPL License URI: http://sam.zoy.org/wtfpl/ Are You Serious? Yes.
 
-##### Integreted library
-* Add <a target="_blank" href="http://vskochko.github.io/custom_icons/">custom minimalistic fonts</a>  with web interface element
-* <a target="_blank" href="http://wordpress.org/plugins/cyr3lat/">Cyr to Lat for URL</a>
->  Based on Tusko Trush <a href="https://github.com/Tusko/wp-theme-blank">wp-theme-blank</a> <br>
+>  <a href="https://www.facebook.com/skochko">Skochko</a>
 >  Львів 2015
