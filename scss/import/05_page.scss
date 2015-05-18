@@ -90,7 +90,7 @@ footer{
     background: #212122 1px;
     .icf-copyright{
         font-family: $font_b;
-        // float: left;
+        float: left;
         display: block;
         color: #fff;
         text-transform: uppercase;
@@ -107,7 +107,7 @@ footer{
    404 page
    ========================================================================== */
 .error404{
-    .icf-new-releases{
+    .icf-exclamation{
         &:before{
             font-size: 100px;
             color: #f44336;

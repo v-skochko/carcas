@@ -2,11 +2,6 @@
 $catID = get_queried_object()->term_id;
 $catN = get_queried_object()->name;
 $curauth = $wp_query->get_queried_object();
-
-//if(is_post_type_archive('projects')){
-//    wp_redirect(site_url());
-//}
-
 if(is_date()){
     $queryname = 'Archive of '.date("F").', '.date('Y');
 } elseif(is_category()) {
@@ -45,4 +40,3 @@ if(is_date()){
     </aside>
 </section>
 <?php get_footer(); ?>
-

@@ -69,12 +69,9 @@ article{
     }
 }
 .btn_next{
-    padding-right: 30px !important;
     &:after{
         font-family: 'icf';
-        font-size: 18px;
-        position: absolute;
-        content: '\e633';
+        content: '\e838';
     }
 }
 
