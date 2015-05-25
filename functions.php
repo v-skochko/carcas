@@ -46,7 +46,14 @@ remove_action('admin_print_styles', 'print_emoji_styles');
 add_filter('style_loader_src', 'vc_remove_wp_ver_css_js', 9999);
 add_filter('script_loader_src', 'vc_remove_wp_ver_css_js', 9999);
 
+//rem comments
+function remove_html_comments($content = '') {
+    return preg_replace('/<!--(.|\s)*?-->/', '', $content);
+}
+ob_start('remove_html_comments');
+
 //#THEME SETINGS
+
 //## Registered jQuery,  css and js file
 function style_js() {
 	wp_deregister_style('contact-form-7');
@@ -54,7 +61,10 @@ function style_js() {
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
 		wp_enqueue_script('jquery');
-	}
+		wp_enqueue_script('comment-reply');
+	};
+
+
 
 	// wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
 	wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js', array('jquery'), '1.0', true);

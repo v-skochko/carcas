@@ -2,13 +2,6 @@
 header('Content-Type: text/html; charset=utf-8');
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 header('X-UA-Compatible: IE=Edge,chrome=1');
-/*
-// HTML Compress
-function ob_html_compress($buf){
-return preg_replace(array('/<!--(?>(?!\[).)(.*)(?>(?!\]).)-->/Uis','/[[:blank:]]+/'),array('',' '),str_replace(array("\n","\r","\t"),'',$buf));
-}
-ob_start('ob_html_compress');
-*/
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,18 +29,17 @@ ob_start('ob_html_compress');
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-TileImage" content="/mstile-144x144.png">
         <meta name="theme-color" content="#ffffff">
+        <!-- end favicon -->
         <?php wp_head();?>
-        <?php if (is_singular()) {
-        wp_enqueue_script('comment-reply');
-        }
-        ?>
+
+
     </head>
     <body <?php body_class();?> itemscope itemtype="http://schema.org/WebPage">
         <div id="wrap">
             <header>
                 <div class="row cfx">
-                    <a href="<?php echo site_url();?>/" id="logo">cArcAs<img src="" alt=""></a>
-                    <nav class="main_nav_container" class="cfx" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                    <a href="<?php echo site_url();?>/" id="logo">cArcAs</a>
+                    <nav class="main_nav_container cfx"  role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
                         <a class="toogle_nav" href="#" onclick="$('nav ul').slideToggle('fast'); return false;">MENU</a>
                         <?php
                         $main_nav = array(
