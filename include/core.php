@@ -157,6 +157,7 @@ function filter_ptags_on_images($content) {
 	return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
 }
 
+
 /* ==========================================================================
 Set permalink settings
 ========================================================================== */

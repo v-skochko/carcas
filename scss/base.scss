@@ -1,4 +1,4 @@
-@import 'import/02_mixins';
+@import 'components/02_mixins';
 
 // Base  settings
 $row: 960px; //web page width
@@ -27,11 +27,11 @@ $btn: #009688;
 $grey: #ccc;
 $text: #444;
 // LOAD ORDER
-@import 'import/03_reset'; // reset default style
-@import 'import/04_global'; // global elements (header, footer, contact fotm buttons, etc..)
-@import 'import/05_page'; // style for static page
-@import 'import/09_comments'; // wordpress comments style
-// @import 'import/10_woocommerce'; //woocommerce
-@import 'import/98_icf'; // responsive
-@import 'import/99_responsive'; // responsive
+@import 'components/03_reset'; // reset default style
+@import 'components/04_global'; // global elements (header, footer, contact fotm buttons, etc..)
+@import 'components/05_page'; // style for static page
+@import 'components/09_comments'; // wordpress comments style
+// @import 'components/10_woocommerce'; //woocommerce
+@import 'components/98_icf'; // responsive
+@import 'components/99_responsive'; // responsive
 

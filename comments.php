@@ -13,7 +13,6 @@ wp_list_comments(array(
 	'short_ping' => true,
 	'avatar_size' => 40,
 	'type' => 'all',
-	// 'reply_text'        => __('Reply', 'bonestheme'),
 	'page' => '',
 	'per_page' => '',
 	'reverse_top_level' => null,

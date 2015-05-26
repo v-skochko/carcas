@@ -1,4 +1,4 @@
-<?php get_header(); /* Template Name: page_demo_content */
+<?php get_header(); /* Template Name: tpl_demo_content */
 global $post; ?>
 <div id="content" class="row cfx">
     <main  role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
