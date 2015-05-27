@@ -12,12 +12,12 @@ require_once 'include/core.php';
 //# Uncomit for add custom post type
 // require_once('include/custom-cpt.php');
 //# Register custom image size
+add_theme_support( 'post-thumbnails' );
 // add_image_size( 'custom', '300', '300', true );
 update_option('thumbnail_size_w', 200);
 update_option('thumbnail_size_h', 200);
 
 // Thumbnails theme support
-// add_theme_support( 'post-thumbnails' );
 // update_option('medium_size_w', 400);
 // update_option('medium_size_h', 350);
 // update_option('large_size_w', 800);
@@ -97,8 +97,11 @@ add_filter('body_class', 'new_body_classes');
 add_filter('wp_title', 'custom_wp_title', 10, 2);
 
 //##Register menus
-register_nav_menus(array('head_menu' => 'Main navigation', 'foot_menu' => 'Footer navigation'));
-
+register_nav_menus(array(
+	'head_menu' => 'Main navigation',
+	'second_menu' => 'Second navigation',
+	'foot_menu' => 'Footer navigation'
+	));
 //#custom theme url
 function theme() {
 	return get_stylesheet_directory_uri();

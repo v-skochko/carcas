@@ -21,13 +21,15 @@
     overflow: hidden;
 }
 .cfx{
-    &:before, &:after{
-        display: table;
-        content: ' ';
-    }
-    &:after{
-        clear: both;
-    }
+  &:after{
+    display: table;
+    clear: both;
+    content: ' ';
+  }
+  &:before{
+    display: table;
+    content: ' ';
+  }
 }
 article{
     &:before, &:after{

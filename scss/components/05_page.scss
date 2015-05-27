@@ -87,7 +87,7 @@ header{
    ========================================================================== */
 footer{
     padding: 20px 0;
-    background: #212122 1px;
+    background: #212122;
     .icf-copyright{
         font-family: $font_b;
         float: left;
@@ -126,7 +126,7 @@ footer{
             margin-bottom: 10px;
         }
     }
-    #searchform{
+    .search404{
         width: 100%;
         max-width: 280px;
         margin: 0 auto;
