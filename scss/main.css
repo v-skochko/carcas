@@ -1,5 +1,11 @@
 /* ==========================================================================
+   HELPERS
+   ========================================================================== */
+/* ==========================================================================
    HEADER
+   ========================================================================== */
+/* ==========================================================================
+   CONTACT FORM 7
    ========================================================================== */
 @font-face {
   font-family: 'icf';
@@ -173,28 +179,6 @@ strong, b {
 i {
   font-style: normal; }
 
-.pace {
-  -webkit-pointer-events: none;
-  pointer-events: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none; }
-
-.pace-inactive {
-  display: none; }
-
-.pace .pace-progress {
-  background: #29d;
-  position: fixed;
-  z-index: 2000;
-  top: 0;
-  right: 100%;
-  width: 100%;
-  height: 2px;
-  /* ==========================================================================
-   HELPERS
-   ========================================================================== */ }
-
 .row {
   position: relative;
   width: 960px;
@@ -214,11 +198,13 @@ i {
   clear: both;
   overflow: hidden; }
 
-.cfx:before, .cfx:after {
+.cfx:after {
   display: table;
+  clear: both;
   content: ' '; }
-  .cfx:after {
-    clear: both; }
+  .cfx:before {
+    display: table;
+    content: ' '; }
 
 article:before, article:after {
   display: table;
@@ -313,7 +299,18 @@ article:before, article:after {
   /* ==========================================================================
    SOCIAL LINK
    ========================================================================== */ }
+  .wysiwyg h1, .wysiwyg h2 {
+    border-bottom: 1px solid #009688;
+    margin-bottom: 10px;
+    font-size: 20px;
+    padding-bottom: 5px;
+    text-transform: uppercase; }
+  .wysiwyg h2 {
+    border-bottom: 0; }
   .wysiwyg p {
+    padding-bottom: 20px; }
+  .wysiwyg ul {
+    margin-left: 30px;
     padding-bottom: 20px; }
   .wysiwyg a {
     position: relative;
@@ -362,10 +359,7 @@ article:before, article:after {
   float: right;
   width: auto;
   cursor: pointer;
-  text-align: center;
-  /* ==========================================================================
-   CONTACT FORM 7
-   ========================================================================== */ }
+  text-align: center; }
   .social_link a {
     position: relative;
     display: inline-block;
@@ -400,105 +394,6 @@ article:before, article:after {
         -ms-transform: scale(1.2);
         transform: scale(1.2);
         /* @include center(true, false); */ }
-
-.wpcf7 {
-  width: 100%;
-  max-width: 320px;
-  /* ==========================================================================
-   GRID
-   ========================================================================== */ }
-  .wpcf7 .wpcf7-submit {
-    margin-top: 10px; }
-  .wpcf7 .screen-reader-response {
-    display: none !important; }
-  .wpcf7 .wpcf7-not-valid-tip {
-    font: 500 14px/1 ;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    text-align: center;
-    color: #ff5f5f;
-    background: #eee; }
-  .wpcf7 .wpcf7-response-output {
-    display: none;
-    float: left;
-    width: 96%;
-    margin: 20px 0;
-    padding: 2%;
-    text-align: center;
-    background: #fff; }
-    .wpcf7 .wpcf7-response-output.wpcf7-validation-errors {
-      color: white;
-      background: #ff5f5f; }
-    .wpcf7 .wpcf7-response-output.wpcf7-mail-sent-ng {
-      color: white;
-      background: #1091ae; }
-    .wpcf7 .wpcf7-response-output.wpcf7-mail-sent-ok {
-      color: white;
-      background: #16a085; }
-  .wpcf7 .wpcf7-form-control-wrap {
-    position: relative;
-    display: block !important; }
-  .wpcf7 ::-webkit-input-placeholder {
-    opacity: 1;
-    color: #444; }
-  .wpcf7 ::-moz-placeholder {
-    opacity: 1;
-    color: #444; }
-  .wpcf7 :-ms-input-placeholder {
-    opacity: 1;
-    color: #444; }
-
-.grid:after {
-  display: block;
-  clear: both;
-  content: ''; }
-
-.grid + .grid {
-  margin-top: 3%; }
-
-[class^='col-'] {
-  float: left;
-  margin-right: 3%; }
-  [class^='col-']:last-child {
-    margin-right: 0; }
-
-.col-1 {
-  width: 5.58333%; }
-
-.col-2 {
-  width: 14.16667%; }
-
-.col-3 {
-  width: 22.75%; }
-
-.col-4 {
-  width: 31.33333%; }
-
-.col-5 {
-  width: 39.91667%; }
-
-.col-6 {
-  width: 48.5%; }
-
-.col-7 {
-  width: 57.08333%; }
-
-.col-8 {
-  width: 65.66667%; }
-
-.col-9 {
-  width: 74.25%; }
-
-.col-10 {
-  width: 82.83333%; }
-
-.col-11 {
-  width: 91.41667%; }
-
-.col-12 {
-  width: 100%; }
 
 header #logo {
   font-family: 'm1';
@@ -563,7 +458,7 @@ header #logo {
 
 footer {
   padding: 20px 0;
-  background: #212122 1px;
+  background: #212122;
   /* ==========================================================================
    404 page
    ========================================================================== */ }
@@ -592,26 +487,125 @@ footer {
     font-size: 30px;
     display: block;
     margin-bottom: 10px; }
-  .error404 #searchform {
+  .error404 .search404 {
     width: 100%;
     max-width: 280px;
     margin: 0 auto;
     text-align: center; }
-  .error404 #searchform span {
+  .error404 .search404 span {
     position: relative;
     display: block; }
-  .error404 #searchform .icf-search {
+  .error404 .search404 .icf-search {
     margin: 20px 0; }
-    .error404 #searchform .icf-search:before {
+    .error404 .search404 .icf-search:before {
       font-size: 18px;
       position: absolute;
       top: 5px;
       right: 10px; }
-  .error404 #searchform input[type='text'] {
+  .error404 .search404 input[type='text'] {
     width: 100%;
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 3px; }
+
+.wpcf7 {
+  width: 100%;
+  max-width: 320px;
+  /* ==========================================================================
+   GRID
+   ========================================================================== */ }
+  .wpcf7 .wpcf7-submit {
+    margin-top: 10px; }
+  .wpcf7 .screen-reader-response {
+    display: none !important; }
+  .wpcf7 .wpcf7-not-valid-tip {
+    font: 500 14px/1 ;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: #ff5f5f;
+    background: #eee; }
+  .wpcf7 .wpcf7-response-output {
+    display: none;
+    float: left;
+    width: 96%;
+    margin: 20px 0;
+    padding: 2%;
+    text-align: center;
+    background: #fff; }
+  .wpcf7 .wpcf7-response-output.wpcf7-validation-errors {
+    color: white;
+    background: #ff5f5f; }
+  .wpcf7 .wpcf7-response-output.wpcf7-mail-sent-ng {
+    color: white;
+    background: #1091ae; }
+  .wpcf7 .wpcf7-response-output.wpcf7-mail-sent-ok {
+    color: white;
+    background: #16a085; }
+  .wpcf7 .wpcf7-form-control-wrap {
+    position: relative;
+    display: block !important; }
+  .wpcf7 ::-webkit-input-placeholder {
+    opacity: 1;
+    color: #444; }
+  .wpcf7 ::-moz-placeholder {
+    opacity: 1;
+    color: #444; }
+  .wpcf7 :-ms-input-placeholder {
+    opacity: 1;
+    color: #444; }
+
+.grid:after {
+  display: block;
+  clear: both;
+  content: ''; }
+
+.grid + .grid {
+  margin-top: 3%; }
+
+[class^='col-'] {
+  float: left;
+  margin-right: 3%; }
+  [class^='col-']:last-child {
+    margin-right: 0; }
+
+.col-1 {
+  width: 5.58333%; }
+
+.col-2 {
+  width: 14.16667%; }
+
+.col-3 {
+  width: 22.75%; }
+
+.col-4 {
+  width: 31.33333%; }
+
+.col-5 {
+  width: 39.91667%; }
+
+.col-6 {
+  width: 48.5%; }
+
+.col-7 {
+  width: 57.08333%; }
+
+.col-8 {
+  width: 65.66667%; }
+
+.col-9 {
+  width: 74.25%; }
+
+.col-10 {
+  width: 82.83333%; }
+
+.col-11 {
+  width: 91.41667%; }
+
+.col-12 {
+  width: 100%; }
 
 .comment_wrap {
   padding: 5px;

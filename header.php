@@ -31,7 +31,7 @@ header('X-UA-Compatible: IE=Edge,chrome=1');
         <div id="wrap">
             <header>
                 <div class="row cfx">
-                    <a href="<?php echo site_url();?>/" id="logo">cArcAs</a>
+                    <a href="<?php echo site_url();?>/" id="logo">LOGO</a>
                     <nav class="main_nav_container cfx"  role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
                         <a class="toogle_nav" href="#" onclick="$('nav ul').slideToggle('fast'); return false;">MENU</a>
                         <?php

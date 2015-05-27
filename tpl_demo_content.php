@@ -2,27 +2,34 @@
 global $post; ?>
 <div id="content" class="row cfx">
     <main  role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+    <h1 class="page-title" itemprop="headline">Page title</h1>
     <article>
-        <div class="c"></div>
-        <h1>heading 1</h1>
-        <h2>heading 2</h2>
-        <h3>heading 3</h3>
-        <h4>heading 4</h4>
-        <h5>heading 5</h5>
-        <h6>heading 6</h6>
+        <h2>wysiwyg preview</h2>
+        <div class="wysiwyg">
+            <h1>heading 1</h1>
+            <h2>heading 2</h2>
+            <h3>heading 3</h3>
+            <h4>heading 4</h4>
+            <h5>heading 5</h5>
+            <h6>heading 6</h6>
+            <p><strong>Strong text</strong>, <strong><i>strong italic text</i></strong>  <i>italic text</i>   <a href="##">link</a>  quae aspernatur laborum iusto cupiditate ea a perspiciatis est sit rem <a href="##">repellendus</a> ex animi, itaque soluta excepturi veniam dolor ullam nobis odit impedit. Dolorum atque dolorem, omnis nam quasi quidem!</p>
+           <ul>
+               <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, nemo.</li>
+               <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, maiores.</li>
+               <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, debitis.</li>
+               <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, consequatur.</li>
+               <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, deserunt!</li>
+           </ul>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus explicabo quaerat assumenda debitis vero eos enim autem accusantium impedit officiis, id velit magni. Asperiores explicabo deleniti perspiciatis temporibus, minus sequi blanditiis nesciunt reprehenderit eum odit facere assumenda ducimus fugiat cumque numquam culpa ratione, necessitatibus placeat ab, cupiditate deserunt ea velit.</p>
+                <blockquote>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur nisi sequi excepturi eos illo provident ullam doloremque aut necessitatibus ut!</p>
+                    <cite>chuck norris</cite>
+                </blockquote>
+        </div>
     </article>
-    <article>
+        <article>
         <a class="btn" href="##">buton</a>
         <a class="btn btn_next" href="##">buton next</a>
-    </article>
-    <article>
-        <div class="wysiwyg">
-            <h2>wysiwyg preview</h2>
-            <p><strong>Strong text</strong>, consectetur adipisicing elit. <a href="##">Ad blanditiis</a>  quae aspernatur laborum iusto cupiditate ea a perspiciatis est sit rem <a href="##">repellendus</a> ex animi, itaque soluta excepturi veniam dolor ullam nobis odit impedit. Dolorum atque dolorem, omnis nam quasi quidem!</p>
-            <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur nisi sequi excepturi eos illo provident ullam doloremque aut necessitatibus ut!</p>
-            </blockquote>
-        </div>
     </article>
     <article class='cfx'>
         <?php echo do_shortcode('[contact-form-7 id="4" title="Contact form 1"]'); ?>
