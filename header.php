@@ -1,13 +1,13 @@
-<?php header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + 3600));
-header('Content-Type: text/html; charset=utf-8');
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header('X-UA-Compatible: IE=Edge,chrome=1');
+<?php header( 'Expires: ' . gmdate( 'D, d M Y H:i:s \G\M\T', time() + 3600 ) );
+header( 'Content-Type: text/html; charset=utf-8' );
+header( "Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . " GMT" );
+header( 'X-UA-Compatible: IE=Edge,chrome=1' );
 ?>
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title><?php wp_title();?></title>
+        <title><?php wp_title(); ?></title>
         <meta name="MobileOptimized" content="width" />
         <meta name="HandheldFriendly" content="True"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
@@ -23,28 +23,28 @@ header('X-UA-Compatible: IE=Edge,chrome=1');
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
         <!-- end favicon -->
-        <?php wp_head();?>
+        <?php wp_head(); ?>
 
 
     </head>
-    <body <?php body_class();?> itemscope itemtype="http://schema.org/WebPage">
+    <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
         <div id="wrap">
             <header>
                 <div class="row cfx">
-                    <a href="<?php echo site_url();?>/" id="logo">LOGO</a>
+                    <a href="<?php echo site_url(); ?>/" id="logo">LOGO</a>
                     <nav class="main_nav_container cfx"  role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
                         <a class="toogle_nav" href="#" onclick="$('nav ul').slideToggle('fast'); return false;">MENU</a>
                         <?php
-                        $main_nav = array(
-                        'theme_location' => 'head_menu',
-                        'menu' => '',
-                        'container' => false,
-                        'menu_class' => 'main-nav',
-                        'link_after' => '<i></i>',
-                        'walker' => new carcas_walker,
-                        );
-                        wp_nav_menu($main_nav);
-                        ?>
+                                $main_nav = array(
+                                    'theme_location' => 'head_menu',
+                                    'menu' => '',
+                                    'container' => false,
+                                    'menu_class' => 'main-nav',
+                                    'link_after' => '<i></i>',
+                                    'walker' => new carcas_walker,
+                                );
+                                wp_nav_menu( $main_nav );
+                                ?>
                     </nav>
                 </div>
             </header>

@@ -1,10 +1,9 @@
 <?php // You can start editing here. ?>
 <div class="comment_wrap">
-
   <?php if (have_comments()): ?>
- <!--    <h3 id="comments-title" >
+     <h3 id="comments-title" >
         <?php comments_number(__('<span>No</span> Comments'), __('<span>One</span> Comment'), __('<span>%</span> Comments'));?>
-    </h3> -->
+    </h3>
 
     <section class="commentlist">
       <?php
@@ -23,8 +22,8 @@ wp_list_comments(array(
 
     <?php if (get_comment_pages_count() > 1 && get_option('page_comments')): ?>
     	<nav class="navigation comment-navigation" role="navigation">
-      	<div class="comment-nav-prev btn icf-prev"><?php previous_comments_link(__('Previous Comments'));?></div>
-      	<div class="comment-nav-next btn icf-next"><?php next_comments_link(__('More Comments'));?></div>
+      	<div class="comment-nav-prev btn "><?php previous_comments_link(__('Previous Comments'));?></div>
+      	<div class="comment-nav-next btn "><?php next_comments_link(__('More Comments'));?></div>
     	</nav>
     <?php endif;?>
 

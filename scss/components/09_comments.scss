@@ -1,27 +1,31 @@
 .comment_wrap{
     padding: 5px;
-    border-top: 3px solid #444;
+    // border-top: 3px solid #444;
 }
 .commentlist{
-    .comment{
+    .depth-1{
         margin-bottom: 20px;
         padding: 10px;
-        border-bottom: 1px solid $grey;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),0 1px 5px 0 rgba(0, 0, 0, .12),0 3px 1px -2px rgba(0, 0, 0, .2);
+        &.thread-even{
+            border-top: 3px solid $basic;
+        }
+        &.thread-odd{
+            border-top: 3px solid $second;
+        }
     }
     .comment-author{
         display: inline-block;
-        &:before{
-            font-family: 'icf';
-            content: '\e626';
-            color: $basic;
+        .avatar{
+            display: none;
         }
     }
     .comment-meta{
         display: inline-block;
-        &:before{
-            font-family: 'icf';
-            content: '\e60f';
-            color: $basic;
-        }
+    }
+    .reply{
+        text-align: right;
     }
 }

@@ -61,7 +61,7 @@ function style_js() {
 		wp_deregister_script('jquery');
 		wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
 		wp_enqueue_script('jquery');
-		wp_enqueue_script('comment-reply');
+		// wp_enqueue_script('comment-reply');
 	};
 
 
