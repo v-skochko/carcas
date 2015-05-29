@@ -19,64 +19,18 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles');
-//remove wp version param from any enqueued scripts
-function vc_remove_wp_ver_css_js($src) {
-	if (strpos($src, 'ver=')) {
-		$src = remove_query_arg('ver', $src);
-	}
-	return $src;
-}
-add_filter('style_loader_src', 'vc_remove_wp_ver_css_js', 9999);
-add_filter('script_loader_src', 'vc_remove_wp_ver_css_js', 9999);
-//### Hide the Admin Bar
-add_filter('show_admin_bar', '__return_false');
-//### Add link to all settings menu
-add_action('admin_menu', 'all_settings_link');
+
+
+
+
+
+
+
+
+
+
 // Thumbnails theme support
 add_theme_support('post-thumbnails');
-//## Remove dashboard wigets
-function rem_dash_widgets() {
-	remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal');
-	remove_meta_box('dashboard_plugins', 'dashboard', 'normal');
-	remove_meta_box('dashboard_primary', 'dashboard', 'normal');
-	remove_meta_box('dashboard_secondary', 'dashboard', 'normal');
-}
-add_action('admin_init', 'rem_dash_widgets');
-/* ==========================================================================
-Update  setings
-========================================================================== */
-//Update wp-scss setings
-if (class_exists('Wp_Scss_Settings')) {
-	$wpscss = get_option('wpscss_options');
-	if (empty($wpscss['css_dir']) && empty($wpscss['scss_dir'])) {
-		update_option('wpscss_options', array('css_dir' => '/scss/', 'scss_dir' => '/scss/', 'compiling_options' => 'scss_formatter_compressed'));
-	}
-}
-/* ==========================================================================
-Remove the p from around imgs
-========================================================================== */
-function filter_ptags_on_images($content) {
-	$content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-	return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
-}
-add_filter('the_content', 'filter_ptags_on_images');
-/* ==========================================================================
-Set permalink settings
-========================================================================== */
-function set_permalink_postname() {
-	global $wp_rewrite;
-	$wp_rewrite->set_permalink_structure('%postname%');}
-add_action('after_switch_theme', 'set_permalink_postname');
-/* ==========================================================================
-Add link to all settings menu
-========================================================================== */
-function all_settings_link() {
-	add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
-}
-/* ==========================================================================
-SOME UPDATE
-========================================================================== */
-
 
 //## For coments: remove Email & Url fields
 function require_name() {
@@ -95,8 +49,101 @@ add_filter('comment_form_default_fields', 'rem_form_fields');
 
 
 
+/* ==========================================================================
+Update  setings
+========================================================================== */
+//Update wp-scss setings
+if (class_exists('Wp_Scss_Settings')) {
+	$wpscss = get_option('wpscss_options');
+	if (empty($wpscss['css_dir']) && empty($wpscss['scss_dir'])) {
+		update_option('wpscss_options', array('css_dir' => '/scss/', 'scss_dir' => '/scss/', 'compiling_options' => 'scss_formatter_compressed'));
+	}
+}
 
 
+/* ==========================================================================
+Set permalink settings
+========================================================================== */
+function set_permalink_postname() {
+	global $wp_rewrite;
+	$wp_rewrite->set_permalink_structure('%postname%');}
+add_action('after_switch_theme', 'set_permalink_postname');
+
+
+
+/* ==========================================================================
+   Remove default wordpress function
+   ========================================================================== */
+
+/* ==========================================================================
+Remove the p from around imgs
+========================================================================== */
+function filter_ptags_on_images($content) {
+	$content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+	return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');
+
+
+//remove wp version param from any enqueued scripts
+function vc_remove_wp_ver_css_js($src) {
+	if (strpos($src, 'ver=')) {
+		$src = remove_query_arg('ver', $src);
+	}
+	return $src;
+}
+add_filter('style_loader_src', 'vc_remove_wp_ver_css_js', 9999);
+add_filter('script_loader_src', 'vc_remove_wp_ver_css_js', 9999);
+//## Remove dashboard wigets
+remove_action('welcome_panel', 'wp_welcome_panel');
+function rem_dash_widgets() {
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal');
+	remove_meta_box('dashboard_plugins', 'dashboard', 'normal');
+	remove_meta_box('dashboard_primary', 'dashboard', 'normal');
+	remove_meta_box('dashboard_secondary', 'dashboard', 'normal');
+	remove_meta_box('dashboard_quick_press', 'dashboard', 'normal');
+}
+add_action('admin_init', 'rem_dash_widgets');
+
+//### Hide the Admin Bar
+add_filter('show_admin_bar', '__return_false');
+
+
+
+add_action( 'widgets_init', 'cwwp_unregister_default_widgets' );
+
+function cwwp_unregister_default_widgets() {
+
+	unregister_widget( 'WP_Widget_Archives' );
+	unregister_widget( 'WP_Widget_Calendar' );
+	// unregister_widget( 'WP_Widget_Categories' );
+	unregister_widget( 'WP_Nav_Menu_Widget' );
+	unregister_widget( 'WP_Widget_Links' );
+	unregister_widget( 'WP_Widget_Meta' );
+	unregister_widget( 'WP_Widget_Pages' );
+	unregister_widget( 'WP_Widget_Recent_Comments' );
+	unregister_widget( 'WP_Widget_Recent_Posts' );
+	unregister_widget( 'WP_Widget_RSS' );
+	unregister_widget( 'WP_Widget_Search' );
+	unregister_widget( 'WP_Widget_Tag_Cloud' );
+	// unregister_widget( 'WP_Widget_Text' );
+
+}
+
+
+function arphabet_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Wiget',
+		'id'            => 'wiget',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+}
+add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 
 /* ==========================================================================
