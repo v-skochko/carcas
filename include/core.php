@@ -1,6 +1,165 @@
 <?php
+
 /* ==========================================================================
-001 BODY CLASS
+ACTION & FILTER
+========================================================================== */
+// Clean up wp_head()
+remove_action('wp_head', 'feed_links_extra', 3);
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'index_rel_link');
+remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+remove_action('wp_head', 'start_post_rel_link', 10, 0);
+remove_action('wp_head', 'wp_shortlink_wp_head');
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
+remove_action('wp_head', 'wp_generator');
+//Remove WP Generator Meta Tag
+remove_action('wp_head', 'rel_canonical');
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('admin_print_styles', 'print_emoji_styles');
+//remove wp version param from any enqueued scripts
+function vc_remove_wp_ver_css_js($src) {
+	if (strpos($src, 'ver=')) {
+		$src = remove_query_arg('ver', $src);
+	}
+	return $src;
+}
+add_filter('style_loader_src', 'vc_remove_wp_ver_css_js', 9999);
+add_filter('script_loader_src', 'vc_remove_wp_ver_css_js', 9999);
+//### Hide the Admin Bar
+add_filter('show_admin_bar', '__return_false');
+//### Add link to all settings menu
+add_action('admin_menu', 'all_settings_link');
+// Thumbnails theme support
+add_theme_support('post-thumbnails');
+//## Remove dashboard wigets
+function rem_dash_widgets() {
+	remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal');
+	remove_meta_box('dashboard_plugins', 'dashboard', 'normal');
+	remove_meta_box('dashboard_primary', 'dashboard', 'normal');
+	remove_meta_box('dashboard_secondary', 'dashboard', 'normal');
+}
+add_action('admin_init', 'rem_dash_widgets');
+/* ==========================================================================
+Update  setings
+========================================================================== */
+//Update wp-scss setings
+if (class_exists('Wp_Scss_Settings')) {
+	$wpscss = get_option('wpscss_options');
+	if (empty($wpscss['css_dir']) && empty($wpscss['scss_dir'])) {
+		update_option('wpscss_options', array('css_dir' => '/scss/', 'scss_dir' => '/scss/', 'compiling_options' => 'scss_formatter_compressed'));
+	}
+}
+/* ==========================================================================
+Remove the p from around imgs
+========================================================================== */
+function filter_ptags_on_images($content) {
+	$content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
+	return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');
+/* ==========================================================================
+Set permalink settings
+========================================================================== */
+function set_permalink_postname() {
+	global $wp_rewrite;
+	$wp_rewrite->set_permalink_structure('%postname%');}
+add_action('after_switch_theme', 'set_permalink_postname');
+/* ==========================================================================
+Add link to all settings menu
+========================================================================== */
+function all_settings_link() {
+	add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
+}
+/* ==========================================================================
+SOME UPDATE
+========================================================================== */
+
+
+//## For coments: remove Email & Url fields
+function require_name() {
+	update_option('require_name_email', 0);
+}
+add_action('after_switch_theme', 'require_name');
+function rem_form_fields($fields) {
+
+	// unset($fields['email']);
+	unset($fields['url']);
+	return $fields;
+}
+add_filter('comment_form_default_fields', 'rem_form_fields');
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+CUSTOM STYLE
+- Custom logo on login page
+- Custom css in admin panel
+- Custom info to admin footer area
+- Color scheme "Midnight" set as default
+========================================================================== */
+
+//Custom logo on login page
+add_action('login_head', 'namespace_login_style');
+function namespace_login_style() {
+	echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
+}
+
+//Custom css in admin panel
+function c_css() { ?>
+    <style>
+    .status-draft{background: #E6E6E6 !important;}
+    .status-pending{background: #E2F0FF !important;} /* Change admin post/page color by status – draft, pending, future, private*/
+    .status-future{background: #C6EBF5 !important;}
+    .status-private{background:#F2D46F; }
+    #toplevel_page_edit-post_type-acf-field-group {border-top: 1px solid #ccc !important; }
+    </style>
+    <?php
+}
+add_action('admin_footer', 'c_css');
+
+//Custom info to admin footer area
+// function remove_footer_admin () {
+//     echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress </a>  | Theme Developer <a href="https://www.facebook.com/skochko" target="_blank">@skochko</a>';
+// }
+// add_filter('admin_footer_text', 'remove_footer_admin');
+
+// Color scheme "Midnight" set as default
+add_filter('get_user_option_admin_color', function ($color_scheme) {
+	global $_wp_admin_css_colors;
+	if ('classic' == $color_scheme || 'fresh' == $color_scheme) {
+		$color_scheme = 'midnight';
+	}
+	return $color_scheme;
+}, 5);
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+CUSTOM FUNCTION
+- Body class
+- Custom WP Title
+- Menu walker
+- ACF option page
+========================================================================== */
+/* ==========================================================================
+Body class
 ========================================================================== */
 function new_body_classes($classes) {
 	if (is_page()) {
@@ -24,7 +183,6 @@ function new_body_classes($classes) {
 				($temp != null ? ($v == 'page-template-' . $tn . '-php' || $v == 'page-template-' . $tn) : '')) {
 				unset($classes[$k]);
 			}
-
 		}
 	}
 	if (is_single()) {
@@ -34,7 +192,6 @@ function new_body_classes($classes) {
 			if ($v == 'postid-' . $post->ID || $v == 'single-format-' . (!$f ? 'standard' : $f)) {
 				unset($classes[$k]);
 			}
-
 		}
 	}
 	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
@@ -86,8 +243,10 @@ function new_body_classes($classes) {
 	}
 	return $classes;
 }
+add_filter('body_class', 'new_body_classes');
+
 /* ==========================================================================
-002 Custom WP Title
+Custom WP Title
 ========================================================================== */
 function custom_wp_title($title, $seperator) {
 	global $paged, $page;
@@ -106,17 +265,65 @@ function custom_wp_title($title, $seperator) {
 }
 add_filter('wp_title', 'custom_wp_title', 10, 2);
 
-/* ==========================================================================
-remove wp version param from any enqueued scripts
-========================================================================== */
-function vc_remove_wp_ver_css_js($src) {
-	if (strpos($src, 'ver=')) {
-		$src = remove_query_arg('ver', $src);
-	}
-
-	return $src;
+//#custom theme url
+function theme() {
+	return get_stylesheet_directory_uri();
 }
 
+/* ==========================================================================
+Menu walker
+========================================================================== */
+class carcas_walker extends Walker_Nav_Menu {
+	// add classes to ul sub-menus
+	function start_lvl(&$output, $depth) {
+		// depth dependent classes
+		$indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
+		$display_depth = ($depth + 1); // because it counts the first submenu as 0
+		$classes = array(
+			'sub-menu',
+			($display_depth % 2 ? 'menu-odd' : 'menu-even'),
+			($display_depth >= 2 ? 'sub-sub-menu' : ''),
+			'menu-depth-' . $display_depth,
+		);
+		$class_names = implode(' ', $classes);
+		// build html
+		$output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
+	}
+	// add main/sub classes to li's and links
+	function start_el(&$output, $item, $depth, $args) {
+		global $wp_query;
+		$indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
+		// depth dependent classes
+		$depth_classes = array(
+			($depth == 0 ? 'main-menu-item' : 'sub-menu-item'),
+			($depth >= 2 ? 'sub-sub-menu-item' : ''),
+			($depth % 2 ? 'menu-item-odd' : 'menu-item-even'),
+			'menu-item-depth-' . $depth,
+		);
+		$depth_class_names = esc_attr(implode(' ', $depth_classes));
+		// passed classes
+		$classes = empty($item->classes) ? array() : (array) $item->classes;
+		$class_names = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item)));
+		// build html
+		$output .= $indent . '<li  class="' . $depth_class_names . ' ' . $class_names . '">';
+		// link attributes
+		$attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+		$attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+		$attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+		$attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
+		$attributes .= ' class="menu-link ' . ($depth > 0 ? 'sub-menu-link' : 'main-menu-link') . '"';
+		$item_output = sprintf('%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+			$args->before,
+			$attributes,
+			$args->link_before,
+			apply_filters('the_title', $item->title, $item->ID),
+			$args->link_after,
+			$args->after
+		);
+		// build html
+		$output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+	}
+}
 /* ==========================================================================
 ACF option page
 ========================================================================== */
@@ -139,100 +346,3 @@ if (function_exists('acf_add_options_page')) {
 	// 	'parent_slug' => 'theme-general-settings',
 	// ));
 }
-/* ==========================================================================
-Update wp-scss setings
-========================================================================== */
-if (class_exists('Wp_Scss_Settings')) {
-	$wpscss = get_option('wpscss_options');
-	if (empty($wpscss['css_dir']) && empty($wpscss['scss_dir'])) {
-		update_option('wpscss_options', array('css_dir' => '/scss/', 'scss_dir' => '/scss/', 'compiling_options' => 'scss_formatter_compressed'));
-	}
-
-}
-/* ==========================================================================
-Remove the p from around imgs
-========================================================================== */
-function filter_ptags_on_images($content) {
-	$content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-	return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
-}
-
-
-/* ==========================================================================
-Set permalink settings
-========================================================================== */
-function set_permalink_postname() {
-	global $wp_rewrite;
-	$wp_rewrite->set_permalink_structure('%postname%');}
-
-/* ==========================================================================
-Add link to all settings menu
-========================================================================== */
-function all_settings_link() {
-	add_options_page(__('All Settings'), __('All Settings'), 'administrator', 'options.php');
-}
-
-/* ==========================================================================
-Menu walker
-========================================================================== */
-class carcas_walker extends Walker_Nav_Menu {
-
-// add classes to ul sub-menus
-	function start_lvl(&$output, $depth) {
-		// depth dependent classes
-		$indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
-		$display_depth = ($depth + 1); // because it counts the first submenu as 0
-		$classes = array(
-			'sub-menu',
-			($display_depth % 2 ? 'menu-odd' : 'menu-even'),
-			($display_depth >= 2 ? 'sub-sub-menu' : ''),
-			'menu-depth-' . $display_depth,
-		);
-		$class_names = implode(' ', $classes);
-
-		// build html
-		$output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
-	}
-
-// add main/sub classes to li's and links
-	function start_el(&$output, $item, $depth, $args) {
-		global $wp_query;
-		$indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
-
-		// depth dependent classes
-		$depth_classes = array(
-			($depth == 0 ? 'main-menu-item' : 'sub-menu-item'),
-			($depth >= 2 ? 'sub-sub-menu-item' : ''),
-			($depth % 2 ? 'menu-item-odd' : 'menu-item-even'),
-			'menu-item-depth-' . $depth,
-		);
-		$depth_class_names = esc_attr(implode(' ', $depth_classes));
-
-		// passed classes
-		$classes = empty($item->classes) ? array() : (array) $item->classes;
-		$class_names = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item)));
-
-		// build html
-		$output .= $indent . '<li  class="' . $depth_class_names . ' ' . $class_names . '">';
-
-		// link attributes
-		$attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
-		$attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
-		$attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
-		$attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
-		$attributes .= ' class="menu-link ' . ($depth > 0 ? 'sub-menu-link' : 'main-menu-link') . '"';
-
-		$item_output = sprintf('%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
-			$args->before,
-			$attributes,
-			$args->link_before,
-			apply_filters('the_title', $item->title, $item->ID),
-			$args->link_after,
-			$args->after
-		);
-		// build html
-		$output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-	}
-}
-
-

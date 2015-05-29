@@ -2,6 +2,11 @@
 header( 'Content-Type: text/html; charset=utf-8' );
 header( "Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . " GMT" );
 header( 'X-UA-Compatible: IE=Edge,chrome=1' );
+//rem comments
+function remove_html_comments($content = '') {
+    return preg_replace('/<!--(.|\s)*?-->/', '', $content);
+}
+ob_start('remove_html_comments');
 ?>
 <!doctype html>
 <html lang="en">
