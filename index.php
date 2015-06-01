@@ -26,7 +26,7 @@ if(is_date()){
                     <div class="blogmeta cfx">
                         <div class="author"><?php the_author(); ?></div>
                         <div class="ccount"><?php comments_number( 'No comments', 'One comment', '% comments' ); ?></div>
-                        <time><?php the_date( 'F j'); ?><span>, <?php echo get_the_date('Y'); ?></span></time>
+                        <time><?php echo get_the_date( 'j F, Y'); ?></time>
                     </div>
                     <?php the_content('Read More'); ?>
                 </div>
