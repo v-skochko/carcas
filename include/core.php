@@ -1,9 +1,52 @@
 <?php
-
 /* ==========================================================================
-ACTION & FILTER
+Update  setings
 ========================================================================== */
-// Clean up wp_head()
+// Thumbnails theme support
+add_theme_support('post-thumbnails');
+//## For coments: remove Email & Url fields
+function require_name() {
+	update_option('require_name_email', 0);
+}
+add_action('after_switch_theme', 'require_name');
+function rem_form_fields($fields) {
+	// unset($fields['email']);
+	unset($fields['url']);
+	return $fields;
+}
+add_filter('comment_form_default_fields', 'rem_form_fields');
+/* Update wp-scss setings
+   ========================================================================== */
+if (class_exists('Wp_Scss_Settings')) {
+	$wpscss = get_option('wpscss_options');
+	if (empty($wpscss['css_dir']) && empty($wpscss['scss_dir'])) {
+		update_option('wpscss_options', array('css_dir' => '/scss/', 'scss_dir' => '/scss/', 'compiling_options' => 'scss_formatter_compressed'));
+	}
+}
+/* Set permalink settings
+   ========================================================================== */
+function set_permalink_postname() {
+	global $wp_rewrite;
+	$wp_rewrite->set_permalink_structure('%postname%');}
+add_action('after_switch_theme', 'set_permalink_postname');
+/* Add wiget
+   ========================================================================== */
+function arphabet_widgets_init() {
+	register_sidebar(array(
+		'name' => 'Wiget',
+		'id' => 'wiget',
+		'before_widget' => '<div>',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="rounded">',
+		'after_title' => '</h2>',
+	));
+}
+add_action('widgets_init', 'arphabet_widgets_init');
+/* ==========================================================================
+Remove default wordpress function
+========================================================================== */
+/* Clean up wp_head()
+========================================================================== */
 remove_action('wp_head', 'feed_links_extra', 3);
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'wlwmanifest_link');
@@ -13,79 +56,22 @@ remove_action('wp_head', 'start_post_rel_link', 10, 0);
 remove_action('wp_head', 'wp_shortlink_wp_head');
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 remove_action('wp_head', 'wp_generator');
-//Remove WP Generator Meta Tag
+/* Remove WP Generator Meta Tag
+===============================\=========================================== */
 remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles');
-
-
-
-
-
-
-
-
-
-
-// Thumbnails theme support
-add_theme_support('post-thumbnails');
-
-//## For coments: remove Email & Url fields
-function require_name() {
-	update_option('require_name_email', 0);
-}
-add_action('after_switch_theme', 'require_name');
-function rem_form_fields($fields) {
-
-	// unset($fields['email']);
-	unset($fields['url']);
-	return $fields;
-}
-add_filter('comment_form_default_fields', 'rem_form_fields');
-
-
-
-
-
-/* ==========================================================================
-Update  setings
-========================================================================== */
-//Update wp-scss setings
-if (class_exists('Wp_Scss_Settings')) {
-	$wpscss = get_option('wpscss_options');
-	if (empty($wpscss['css_dir']) && empty($wpscss['scss_dir'])) {
-		update_option('wpscss_options', array('css_dir' => '/scss/', 'scss_dir' => '/scss/', 'compiling_options' => 'scss_formatter_compressed'));
-	}
-}
-
-
-/* ==========================================================================
-Set permalink settings
-========================================================================== */
-function set_permalink_postname() {
-	global $wp_rewrite;
-	$wp_rewrite->set_permalink_structure('%postname%');}
-add_action('after_switch_theme', 'set_permalink_postname');
-
-
-
-/* ==========================================================================
-   Remove default wordpress function
-   ========================================================================== */
-
-/* ==========================================================================
-Remove the p from around imgs
+/* Remove the p from around imgs
 ========================================================================== */
 function filter_ptags_on_images($content) {
 	$content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 	return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
 }
 add_filter('the_content', 'filter_ptags_on_images');
-
-
-//remove wp version param from any enqueued scripts
+/* Remove wp version param from any enqueued scripts
+   ========================================================================== */
 function vc_remove_wp_ver_css_js($src) {
 	if (strpos($src, 'ver=')) {
 		$src = remove_query_arg('ver', $src);
@@ -94,7 +80,8 @@ function vc_remove_wp_ver_css_js($src) {
 }
 add_filter('style_loader_src', 'vc_remove_wp_ver_css_js', 9999);
 add_filter('script_loader_src', 'vc_remove_wp_ver_css_js', 9999);
-//## Remove dashboard wigets
+/* Remove dashboard wigets
+   ========================================================================== */
 remove_action('welcome_panel', 'wp_welcome_panel');
 function rem_dash_widgets() {
 	remove_meta_box('dashboard_incoming_links', 'dashboard', 'normal');
@@ -104,48 +91,27 @@ function rem_dash_widgets() {
 	remove_meta_box('dashboard_quick_press', 'dashboard', 'normal');
 }
 add_action('admin_init', 'rem_dash_widgets');
-
-//### Hide the Admin Bar
+/* Hide the Admin Bar
+   ========================================================================== */
 add_filter('show_admin_bar', '__return_false');
-
-
-
-add_action( 'widgets_init', 'cwwp_unregister_default_widgets' );
-
+/* Remove default wigets
+   ========================================================================== */
+add_action('widgets_init', 'cwwp_unregister_default_widgets');
 function cwwp_unregister_default_widgets() {
-
-	unregister_widget( 'WP_Widget_Archives' );
-	unregister_widget( 'WP_Widget_Calendar' );
+	unregister_widget('WP_Widget_Archives');
+	unregister_widget('WP_Widget_Calendar');
 	// unregister_widget( 'WP_Widget_Categories' );
-	unregister_widget( 'WP_Nav_Menu_Widget' );
-	unregister_widget( 'WP_Widget_Links' );
-	unregister_widget( 'WP_Widget_Meta' );
-	unregister_widget( 'WP_Widget_Pages' );
-	unregister_widget( 'WP_Widget_Recent_Comments' );
-	unregister_widget( 'WP_Widget_Recent_Posts' );
-	unregister_widget( 'WP_Widget_RSS' );
-	unregister_widget( 'WP_Widget_Search' );
-	unregister_widget( 'WP_Widget_Tag_Cloud' );
+	unregister_widget('WP_Nav_Menu_Widget');
+	unregister_widget('WP_Widget_Links');
+	unregister_widget('WP_Widget_Meta');
+	unregister_widget('WP_Widget_Pages');
+	unregister_widget('WP_Widget_Recent_Comments');
+	unregister_widget('WP_Widget_Recent_Posts');
+	unregister_widget('WP_Widget_RSS');
+	unregister_widget('WP_Widget_Search');
+	unregister_widget('WP_Widget_Tag_Cloud');
 	// unregister_widget( 'WP_Widget_Text' );
-
 }
-
-
-function arphabet_widgets_init() {
-
-	register_sidebar( array(
-		'name'          => 'Wiget',
-		'id'            => 'wiget',
-		'before_widget' => '<div>',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="rounded">',
-		'after_title'   => '</h2>',
-	) );
-
-}
-add_action( 'widgets_init', 'arphabet_widgets_init' );
-
-
 /* ==========================================================================
 CUSTOM STYLE
 - Custom logo on login page
@@ -153,15 +119,13 @@ CUSTOM STYLE
 - Custom info to admin footer area
 - Color scheme "Midnight" set as default
 ========================================================================== */
-
 //Custom logo on login page
 add_action('login_head', 'namespace_login_style');
 function namespace_login_style() {
 	echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
 }
-
 //Custom css in admin panel
-function c_css() { ?>
+function c_css() {?>
     <style>
     .status-draft{background: #E6E6E6 !important;}
     .status-pending{background: #E2F0FF !important;} /* Change admin post/page color by status – draft, pending, future, private*/
@@ -172,13 +136,11 @@ function c_css() { ?>
     <?php
 }
 add_action('admin_footer', 'c_css');
-
 //Custom info to admin footer area
 // function remove_footer_admin () {
 //     echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress </a>  | Theme Developer <a href="https://www.facebook.com/skochko" target="_blank">@skochko</a>';
 // }
 // add_filter('admin_footer_text', 'remove_footer_admin');
-
 // Color scheme "Midnight" set as default
 add_filter('get_user_option_admin_color', function ($color_scheme) {
 	global $_wp_admin_css_colors;
@@ -187,17 +149,6 @@ add_filter('get_user_option_admin_color', function ($color_scheme) {
 	}
 	return $color_scheme;
 }, 5);
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
 CUSTOM FUNCTION
 - Body class
@@ -205,9 +156,8 @@ CUSTOM FUNCTION
 - Menu walker
 - ACF option page
 ========================================================================== */
-/* ==========================================================================
-Body class
-========================================================================== */
+/* Body class
+   ========================================================================== */
 function new_body_classes($classes) {
 	if (is_page()) {
 		global $post;
@@ -291,10 +241,8 @@ function new_body_classes($classes) {
 	return $classes;
 }
 add_filter('body_class', 'new_body_classes');
-
-/* ==========================================================================
-Custom WP Title
-========================================================================== */
+/* Custom WP Title
+   ========================================================================== */
 function custom_wp_title($title, $seperator) {
 	global $paged, $page;
 	if (is_feed()) {
@@ -311,15 +259,12 @@ function custom_wp_title($title, $seperator) {
 	return trim($title, ' ' . $seperator . ' ');
 }
 add_filter('wp_title', 'custom_wp_title', 10, 2);
-
 //#custom theme url
 function theme() {
 	return get_stylesheet_directory_uri();
 }
-
-/* ==========================================================================
-Menu walker
-========================================================================== */
+/* Menu walker
+   ========================================================================== */
 class carcas_walker extends Walker_Nav_Menu {
 	// add classes to ul sub-menus
 	function start_lvl(&$output, $depth) {
@@ -371,9 +316,8 @@ class carcas_walker extends Walker_Nav_Menu {
 		$output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
 	}
 }
-/* ==========================================================================
-ACF option page
-========================================================================== */
+/* ACF option page
+   ========================================================================== */
 if (function_exists('acf_add_options_page')) {
 	acf_add_options_page(array(
 		'page_title' => 'Theme General Settings',
