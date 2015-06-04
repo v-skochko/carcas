@@ -1,20 +1,11 @@
 <?php
 /* ==========================================================================
-Update  setings
+/*
+/*
+Various Shit
 ========================================================================== */
 // Thumbnails theme support
 add_theme_support('post-thumbnails');
-//## For coments: remove Email & Url fields
-function require_name() {
-	update_option('require_name_email', 0);
-}
-add_action('after_switch_theme', 'require_name');
-function rem_form_fields($fields) {
-	// unset($fields['email']);
-	unset($fields['url']);
-	return $fields;
-}
-add_filter('comment_form_default_fields', 'rem_form_fields');
 /* Update wp-scss setings
    ========================================================================== */
 if (class_exists('Wp_Scss_Settings')) {
@@ -43,7 +34,17 @@ function arphabet_widgets_init() {
 }
 add_action('widgets_init', 'arphabet_widgets_init');
 /* ==========================================================================
+/*
+/*
 Remove default wordpress function
+- Clean up wp_head()
+- Remove WP Generator Meta Tag
+- Remove the p from around imgs
+- Remove wp version param from any enqueued scripts
+- Remove dashboard wigets
+- Remove default wigets
+- Hide the Admin Bar
+- For coments: remove Email & Url fields
 ========================================================================== */
 /* Clean up wp_head()
 ========================================================================== */
@@ -57,7 +58,7 @@ remove_action('wp_head', 'wp_shortlink_wp_head');
 remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 remove_action('wp_head', 'wp_generator');
 /* Remove WP Generator Meta Tag
-===============================\=========================================== */
+========================================================================== */
 remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
@@ -91,9 +92,6 @@ function rem_dash_widgets() {
 	remove_meta_box('dashboard_quick_press', 'dashboard', 'normal');
 }
 add_action('admin_init', 'rem_dash_widgets');
-/* Hide the Admin Bar
-   ========================================================================== */
-add_filter('show_admin_bar', '__return_false');
 /* Remove default wigets
    ========================================================================== */
 add_action('widgets_init', 'cwwp_unregister_default_widgets');
@@ -112,19 +110,38 @@ function cwwp_unregister_default_widgets() {
 	unregister_widget('WP_Widget_Tag_Cloud');
 	// unregister_widget( 'WP_Widget_Text' );
 }
+/* Hide the Admin Bar
+   ========================================================================== */
+add_filter('show_admin_bar', '__return_false');
+/* For coments: remove Email & Url fields
+   ========================================================================== */
+function require_name() {
+	update_option('require_name_email', 0);
+}
+add_action('after_switch_theme', 'require_name');
+function rem_form_fields($fields) {
+	// unset($fields['email']);
+	unset($fields['url']);
+	return $fields;
+}
+add_filter('comment_form_default_fields', 'rem_form_fields');
 /* ==========================================================================
+/*
+/*
 CUSTOM STYLE
 - Custom logo on login page
 - Custom css in admin panel
 - Custom info to admin footer area
 - Color scheme "Midnight" set as default
 ========================================================================== */
-//Custom logo on login page
+/* Custom logo on login page
+   ========================================================================== */
 add_action('login_head', 'namespace_login_style');
 function namespace_login_style() {
 	echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
 }
-//Custom css in admin panel
+/* Custom css in admin panel
+   ========================================================================== */
 function c_css() {?>
     <style>
     .status-draft{background: #E6E6E6 !important;}
@@ -136,12 +153,14 @@ function c_css() {?>
     <?php
 }
 add_action('admin_footer', 'c_css');
-//Custom info to admin footer area
+/* Custom info to admin footer area
+   ========================================================================== */
 // function remove_footer_admin () {
 //     echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress </a>  | Theme Developer <a href="https://www.facebook.com/skochko" target="_blank">@skochko</a>';
 // }
 // add_filter('admin_footer_text', 'remove_footer_admin');
-// Color scheme "Midnight" set as default
+/* Color scheme "Midnight" set as default
+   ========================================================================== */
 add_filter('get_user_option_admin_color', function ($color_scheme) {
 	global $_wp_admin_css_colors;
 	if ('classic' == $color_scheme || 'fresh' == $color_scheme) {
@@ -150,9 +169,12 @@ add_filter('get_user_option_admin_color', function ($color_scheme) {
 	return $color_scheme;
 }, 5);
 /* ==========================================================================
+/*
+/*
 CUSTOM FUNCTION
 - Body class
 - Custom WP Title
+- Custom theme url
 - Menu walker
 - ACF option page
 ========================================================================== */
@@ -259,7 +281,10 @@ function custom_wp_title($title, $seperator) {
 	return trim($title, ' ' . $seperator . ' ');
 }
 add_filter('wp_title', 'custom_wp_title', 10, 2);
-//#custom theme url
+
+
+/* custom theme url
+   ========================================================================== */
 function theme() {
 	return get_stylesheet_directory_uri();
 }
