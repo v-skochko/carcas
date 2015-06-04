@@ -1,157 +1,157 @@
 /* ==========================================================================
    HEADER
    ========================================================================== */
-header {
-  #logo {
-    font-family: 'm1';
-    font-size: 40px;
-    display: block;
-    padding: 20px 0 10px;
-    -webkit-transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    transition: opacity .25s ease-in-out;
-    opacity: 1;
-    &:hover {
-      opacity: .5;
+header{
+    #logo{
+        font-family: 'm1';
+        font-size: 40px;
+        display: block;
+        padding: 20px 0 10px;
+        -webkit-transition: opacity .25s ease-in-out;
+           -moz-transition: opacity .25s ease-in-out;
+                transition: opacity .25s ease-in-out;
+        opacity: 1;
+        &:hover{
+            opacity: .5;
+        }
     }
-  }
 }
 
 // MAIN NAVIGATION MENU
-.main_nav_container {
-  margin-top: 10px;
-  border: 1px solid $grey;
-  .main-nav {
-    font-size: 0;
-  }
-  //level 0
-  .menu-item-depth-0 {
-    position: relative;
-    display: inline-block;
-    > a {
-      font-family: $font_l;
-      font-size: 16px;
-      display: block;
-      padding: 5px 15px;
-      border-right: 1px solid $grey;
+.main_nav_container{
+    margin-top: 10px;
+    border: 1px solid $grey;
+    .main-nav{
+        font-size: 0;
     }
-    &.current-menu-item {
-      background: #ccc;
-    }
-    &.menu-item-has-children {
-      > a {
-        i {
-          padding-right: 5px;
-          &:before {
-            font-family: 'icf';
+    //level 0
+    .menu-item-depth-0{
+        position: relative;
+        display: inline-block;
+        >a{
+            font-family: $font_l;
             font-size: 16px;
-            font-style: normal;
+            display: block;
+            padding: 5px 15px;
+            border-right: 1px solid $grey;
+        }
+        &.current-menu-item{
+            background: #ccc;
+        }
+        &.menu-item-has-children{
+            >a{
+                i{
+                    padding-right: 5px;
+                    &:before{
+                        font-family: 'icf';
+                        font-size: 16px;
+                        font-style: normal;
+                        position: absolute;
+                        top: 5px;
+                        right: 5px;
+                        content: '\e837';
+                    }
+                }
+            }
+        }
+    }
+    //submenu
+    .menu-item-has-children{
+        .menu-depth-1{
             position: absolute;
-            top: 5px;
-            right: 5px;
-            content: '\e837';
-          }
-        }
-      }
-    }
-  }
-  //submenu
-  .menu-item-has-children {
-    .menu-depth-1 {
-      position: absolute;
-      z-index: 100;
-      display: none;
-      overflow: hidden;
-      width: 180px;
-      border: 1px solid $grey;
-      background: #fff;
-      -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-      -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-      box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+            z-index: 100;
+            display: none;
+            overflow: hidden;
+            width: 180px;
+            border: 1px solid $grey;
+            background: #fff;
+            -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+               -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+                    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
 
-      @include transition(all, .2s, ease-in-out);
-      > li {
-        > a {
-          font-size: 16px;
+            @include transition(all, .2s, ease-in-out);
+            >li{
+                >a{
+                    font-size: 16px;
+                }
+            }
         }
-      }
+        &:hover{
+            >.menu-depth-1{
+                display: block;
+            }
+        }
     }
-    &:hover {
-      > .menu-depth-1 {
-        display: block;
-      }
-    }
-  }
 }
 
 /* ==========================================================================
    FOOTER
    ========================================================================== */
-footer {
-  padding: 20px 0;
-  background: #212122;
-  .icf-copyright {
-    font-family: $font_b;
-    float: left;
-    display: block;
-    color: #fff;
-    text-transform: uppercase;
-  }
-  .custom-glyph {
-    display: block;
-    font-family: $font_b;
-    text-transform: uppercase;
-    // float: left;
-    color: #fff;
-  }
+footer{
+    padding: 20px 0;
+    background: #212122;
+    .icf-copyright{
+        font-family: $font_b;
+        display: block;
+        float: left;
+        text-transform: uppercase;
+        color: #fff;
+    }
+    .custom-glyph{
+        font-family: $font_b;
+        display: block;
+        text-transform: uppercase;
+        // float: left;
+        color: #fff;
+    }
 }
 
 /* ==========================================================================
    404 page
    ========================================================================== */
-.error404 {
-  .icf-exclamation {
-    &:before {
-      font-size: 100px;
-      color: #f44336;
+.error404{
+    .icf-exclamation{
+        &:before{
+            font-size: 100px;
+            color: #f44336;
+        }
     }
-  }
-  main {
-    margin: 40px 0;
-    text-align: center;
-  }
-  h1 {
-    font-size: 18px;
-    margin: 30px 0 20px;
-    span {
-      font-size: 30px;
-      display: block;
-      margin-bottom: 10px;
+    main{
+        margin: 40px 0;
+        text-align: center;
     }
-  }
-  .search404 {
-    width: 100%;
-    max-width: 280px;
-    margin: 0 auto;
-    text-align: center;
-    span {
-      position: relative;
-      display: block;
-    }
-    .icf-search {
-      margin: 20px 0;
-      &:before {
+    h1{
         font-size: 18px;
-        position: absolute;
-        top: 5px;
-        right: 10px;
-      }
+        margin: 30px 0 20px;
+        span{
+            font-size: 30px;
+            display: block;
+            margin-bottom: 10px;
+        }
     }
-    input[type='text'] {
-      width: 100%;
-      height: 30px;
-      border: 1px solid $grey;
-      border-radius: 3px;
+    .search404{
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        text-align: center;
+        span{
+            position: relative;
+            display: block;
+        }
+        .icf-search{
+            margin: 20px 0;
+            &:before{
+                font-size: 18px;
+                position: absolute;
+                top: 5px;
+                right: 10px;
+            }
+        }
+        input[type='text']{
+            width: 100%;
+            height: 30px;
+            border: 1px solid $grey;
+            border-radius: 3px;
+        }
     }
-  }
 }

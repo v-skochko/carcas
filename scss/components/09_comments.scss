@@ -1,32 +1,32 @@
-.comment_wrap {
-  padding: 5px;
-  // border-top: 3px solid #444;
+.comment_wrap{
+    padding: 5px;
+    // border-top: 3px solid #444;
 }
 
-.commentlist {
-  .depth-1 {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
-    &.thread-even {
-      border-top: 3px solid $basic;
+.commentlist{
+    .depth-1{
+        margin-bottom: 20px;
+        padding: 10px;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+        &.thread-even{
+            border-top: 3px solid $basic;
+        }
+        &.thread-odd{
+            border-top: 3px solid $second;
+        }
     }
-    &.thread-odd {
-      border-top: 3px solid $second;
+    .comment-author{
+        display: inline-block;
+        .avatar{
+            display: none;
+        }
     }
-  }
-  .comment-author {
-    display: inline-block;
-    .avatar {
-      display: none;
+    .comment-meta{
+        display: inline-block;
     }
-  }
-  .comment-meta {
-    display: inline-block;
-  }
-  .reply {
-    text-align: right;
-  }
+    .reply{
+        text-align: right;
+    }
 }

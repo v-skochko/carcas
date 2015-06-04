@@ -1,137 +1,137 @@
 /* ==========================================================================
    CONTACT FORM 7
    ========================================================================== */
-.wpcf7 {
-  width: 100%;
-  max-width: 320px;
-  .wpcf7-submit {
-    margin-top: 10px;
-  }
-  .screen-reader-response {
-    display: none !important;
-  }
-  .wpcf7-not-valid-tip {
-    font: 500 14px/1 $font;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    text-align: center;
-    color: #ff5f5f;
-    background: #eee;
-  }
-  .wpcf7-response-output {
-    display: none;
-    float: left;
-    width: 96%;
-    margin: 20px 0;
-    padding: 2%;
-    text-align: center;
-    background: #fff;
-    &.wpcf7-validation-errors {
-      color: white;
-      background: #ff5f5f;
+.wpcf7{
+    width: 100%;
+    max-width: 320px;
+    .wpcf7-submit{
+        margin-top: 10px;
     }
-    &.wpcf7-mail-sent-ng {
-      color: white;
-      background: #1091ae;
+    .screen-reader-response{
+        display: none !important;
     }
-    &.wpcf7-mail-sent-ok {
-      color: white;
-      background: #16a085;
+    .wpcf7-not-valid-tip{
+        font: 500 14px/1 $font;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        text-align: center;
+        color: #ff5f5f;
+        background: #eee;
     }
-  }
-  .wpcf7-form-control-wrap {
-    position: relative;
-    display: block !important;
-  }
-  ::-webkit-input-placeholder {
-    opacity: 1;
-    color: $text;
-  }
-  ::-moz-placeholder {
-    opacity: 1;
-    color: $text;
-  }
-  :-ms-input-placeholder {
-    opacity: 1;
-    color: $text;
-  }
+    .wpcf7-response-output{
+        display: none;
+        float: left;
+        width: 96%;
+        margin: 20px 0;
+        padding: 2%;
+        text-align: center;
+        background: #fff;
+        &.wpcf7-validation-errors{
+            color: white;
+            background: #ff5f5f;
+        }
+        &.wpcf7-mail-sent-ng{
+            color: white;
+            background: #1091ae;
+        }
+        &.wpcf7-mail-sent-ok{
+            color: white;
+            background: #16a085;
+        }
+    }
+    .wpcf7-form-control-wrap{
+        position: relative;
+        display: block !important;
+    }
+    ::-webkit-input-placeholder{
+        opacity: 1;
+        color: $text;
+    }
+    ::-moz-placeholder{
+        opacity: 1;
+        color: $text;
+    }
+    :-ms-input-placeholder{
+        opacity: 1;
+        color: $text;
+    }
 }
 
 /* ==========================================================================
    GRID
    ========================================================================== */
 //----- Extends
-%clearfix:after {
-  display: block;
-  clear: both;
-  content: '';
+%clearfix:after{
+    display: block;
+    clear: both;
+    content: '';
 }
 
 //----- Grid System
 $grid-spacing: 3%;
 
-.grid {
-  @extend %clearfix;
-  & + & {
-    margin-top: $grid-spacing;
-  }
+.grid{
+    @extend %clearfix;
+    &+&{
+        margin-top: $grid-spacing;
+    }
 }
 
-[class^='col-'] {
-  float: left;
-  margin-right: $grid-spacing;
-  &:last-child {
-    margin-right: 0;
-  }
+[class^='col-']{
+    float: left;
+    margin-right: $grid-spacing;
+    &:last-child{
+        margin-right: 0;
+    }
 }
 
 //----- Columns (Automatic)
-.col-1 {
-  width: (100% / 12) - ($grid-spacing * 11 / 12);
+.col-1{
+    width: (100% / 12) - ($grid-spacing * 11 / 12);
 }
 
-.col-2 {
-  width: (100% / 6) - ($grid-spacing * 10 / 12);
+.col-2{
+    width: (100% / 6) - ($grid-spacing * 10 / 12);
 }
 
-.col-3 {
-  width: (100% / 4) - ($grid-spacing * 9 / 12);
+.col-3{
+    width: (100% / 4) - ($grid-spacing * 9 / 12);
 }
 
-.col-4 {
-  width: (100% / 3) - ($grid-spacing * 8 / 12);
+.col-4{
+    width: (100% / 3) - ($grid-spacing * 8 / 12);
 }
 
-.col-5 {
-  width: (100% / 2.4) - ($grid-spacing * 7 / 12);
+.col-5{
+    width: (100% / 2.4) - ($grid-spacing * 7 / 12);
 }
 
-.col-6 {
-  width: (100% / 2) - ($grid-spacing * 6 / 12);
+.col-6{
+    width: (100% / 2) - ($grid-spacing * 6 / 12);
 }
 
-.col-7 {
-  width: (100% / 1.714285714285714) - ($grid-spacing * 5 / 12);
+.col-7{
+    width: (100% / 1.714285714285714) - ($grid-spacing * 5 / 12);
 }
 
-.col-8 {
-  width: (100% / 1.5) - ($grid-spacing * 4 / 12);
+.col-8{
+    width: (100% / 1.5) - ($grid-spacing * 4 / 12);
 }
 
-.col-9 {
-  width: (100% / 1.333333333333333) - ($grid-spacing * 3 / 12);
+.col-9{
+    width: (100% / 1.333333333333333) - ($grid-spacing * 3 / 12);
 }
 
-.col-10 {
-  width: (100% / 1.2) - ($grid-spacing * 2 / 12);
+.col-10{
+    width: (100% / 1.2) - ($grid-spacing * 2 / 12);
 }
 
-.col-11 {
-  width: (100% / 1.090909090909091) - ($grid-spacing * 1 / 12);
+.col-11{
+    width: (100% / 1.090909090909091) - ($grid-spacing * 1 / 12);
 }
 
-.col-12 {
-  width: 100%;
+.col-12{
+    width: 100%;
 }
