@@ -333,24 +333,23 @@ function new_body_classes($classes)
 add_filter('body_class', 'new_body_classes');
 /* Custom WP Title
    ========================================================================== */
-function custom_wp_title($title, $seperator)
-{
-    global $paged, $page;
-    if (is_feed()) {
-        return $title;
-    }
-    $title .= ' ' . $seperator . ' ' . get_bloginfo('name');
-    $description = get_bloginfo('description', 'display');
-    if ($description && (is_front_page())) {
-        $title = "$title $seperator $description";
-    }
-    if ($paged >= 2 || $page >= 2) {
-        $title = "$title $seperator " . sprintf(__('Page %s'), max($paged, $page));
-    }
-    return trim($title, ' ' . $seperator . ' ');
+function custom_wp_title($title, $seperator) {
+	global $paged, $page;
+	if (is_feed()) {
+		return $title;
+	}
+	$title .= ' ' . $seperator . ' ' . get_bloginfo('name');
+	$description = get_bloginfo('description', 'display');
+	if ($description && (is_front_page())) {
+		$title = "$title $seperator $description";
+	}
+	if ($paged >= 2 || $page >= 2) {
+		$title = "$title $seperator " . sprintf(__('Page %s'), max($paged, $page));
+	}
+	return ltrim($title, ' ' . $seperator . ' ');
 }
-
 add_filter('wp_title', 'custom_wp_title', 10, 2);
+
 /* custom theme url
    ========================================================================== */
 function theme()
