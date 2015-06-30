@@ -60,7 +60,7 @@ input, textarea, select{
     padding: 0 10px;
     outline: 0 none;
 
-    -webkit-appearance: none;
+
     @include transition(all, .2s, ease-in-out);
 }
 
