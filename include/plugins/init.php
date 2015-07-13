@@ -200,6 +200,11 @@ function my_theme_register_required_plugins()
             'slug' => 'tinymce-advanced',
             'required' => false,
         ),
+             array(
+            'name' => 'Duplicate post',
+            'slug' => 'duplicate-post',
+            'required' => false,
+        ),
         array(
             'name' => 'AJAX Thumbnail Rebuild',
             'slug' => 'ajax-thumbnail-rebuild',
