@@ -1,8 +1,8 @@
 @import 'components/02_mixins';
 
-// Base  settings
-$row: 960px;
 //web page width
+$row: 960px;
+
 $fz: 14px;
 $lh: 21px;
 
@@ -18,12 +18,7 @@ $bold: 'm7', Arial, Helvetica, sans-serif;
 
 //custom icon fonts
 @include declare-font-face('icf', 'icf', 400);
-//museo font family
-@include declare-font-face('m1', 'museosanscyrl_100-webfont', 100);
-@include declare-font-face('m3', 'museosanscyrl_300-webfont', 300);
-@include declare-font-face('m5', 'museosanscyrl_500-webfont', 500);
-@include declare-font-face('m5i', 'museosanscyrl_500_italic-webfont', 500);
-@include declare-font-face('m7', 'museosanscyrl_700-webfont', 700);
+
 
 //COLORS
 $basic: #009688;
@@ -40,11 +35,10 @@ $text: #444;
 @import 'components/05_page';
 // style for static page
 @import 'components/06_vendors';
-// style for static page
-@import 'components/09_comments';
 // wordpress comments style
+@import 'components/09_comments';
+// Woocommerce
 // @import 'components/10_woocommerce'; //woocommerce
 @import 'components/98_icf';
 // responsive
 @import 'components/99_responsive';
-// responsive
