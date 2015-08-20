@@ -78,6 +78,7 @@ input[type='text'], input[type='email'], input[type='tel'], textarea{
 textarea{
     height: 120px;
     resize: none;
+     padding-top: 10px;
 }
 
 input[type=text]:focus, input[type=email]:focus, input[type='tel']:focus, textarea:focus{
