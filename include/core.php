@@ -4,7 +4,6 @@
 /*
 THEME SETINGS
 - Registered jQuery,  css and js file
-- Register menus
 - Thumbnails theme support
    ========================================================================== */
 /* Registered jQuery,  css and js file
@@ -25,13 +24,7 @@ function style_js()
 }
 
 add_action('wp_enqueue_scripts', 'style_js');
-/* Register menus
-   ========================================================================== */
-register_nav_menus(array(
-    'head_menu' => 'Main navigation',
-    'second_menu' => 'Second navigation',
-    'foot_menu' => 'Footer navigation'
-));
+
 /* Thumbnails theme support
    ========================================================================== */
 add_theme_support('post-thumbnails');
