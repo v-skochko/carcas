@@ -1,10 +1,7 @@
 $ = jQuery;
-var ww = document.body.clientWidth;
-
 $(document).ready(function () {
     "use strict";
-
-
+    //BXslider
     $('.slider ul').bxSlider({
         nextText: "",
         prevText: "",
@@ -15,9 +12,9 @@ $(document).ready(function () {
             $('.slider').addClass('slider_loaded ');
         }
     });
+    //selbel itit
     $("select").selbel();
-
-    /* close validation error on click*/
+    /*Contact form7 - close validation error on click*/
     $(this).on('click', '.wpcf7-not-valid-tip', function () {
         $(this).prev().trigger('focus');
         $(this).fadeOut(500, function () {

@@ -7,15 +7,12 @@
     max-width: 100%;
     margin: 0 auto;
 }
-
 #content{
     padding: 20px 20px 40px 20px;
 }
-
 #wrap{
     min-height: 100%;
 }
-
 .c{
     font-size: 0;
     line-height: 0;
@@ -23,7 +20,6 @@
     clear: both;
     overflow: hidden;
 }
-
 .cfx{
     &:after{
         display: table;
@@ -35,7 +31,6 @@
         content: ' ';
     }
 }
-
 article{
     &:before, &:after{
         display: table;
@@ -45,12 +40,10 @@ article{
         clear: both;
     }
 }
-
 .no_select{
     -webkit-user-select: none;
        -moz-user-select: none;
 }
-
 .btn, input[type='submit']{
     font: 400 15px/1 $font_b;
     position: relative;
@@ -66,7 +59,6 @@ article{
     border: none;
     outline: 0;
     background: $btn;
-
     @include border-radius(3px);
     &:hover{
         background: darken($btn, 5%);
@@ -75,14 +67,12 @@ article{
                 box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
     }
 }
-
 .btn_next{
     &:after{
         font-family: 'icf';
         content: '\e838';
     }
 }
-
 .underline{
     position: relative;
     display: inline-block;
@@ -100,7 +90,6 @@ article{
         background: $link;
     }
 }
-
 /* ==========================================================================
    WORDPRESS DEFAULT CLASSES
    ========================================================================== */
@@ -109,15 +98,12 @@ article{
     margin-right: auto;
     margin-left: auto;
 }
-
 .alignleft{
     float: left;
 }
-
 .alignright{
     float: right;
 }
-
 .wp-caption{
     margin: 10px;
     padding-top: 4px;
@@ -126,20 +112,17 @@ article{
     border-radius: 3px;
     background-color: #f3f3f3;
 }
-
 .wp-caption img{
     margin: 0;
     padding: 0;
     border: 0 none;
 }
-
 .wp-caption p.wp-caption-text{
     font-size: 11px;
     line-height: 17px;
     margin: 0;
     padding: 0 4px 5px;
 }
-
 /* ==========================================================================
    WYSIWYG
    ========================================================================== */
@@ -210,7 +193,6 @@ article{
         color: #333;
     }
 }
-
 /* ==========================================================================
    SOCIAL LINK
    ========================================================================== */
@@ -228,13 +210,11 @@ article{
         margin: 0 5px;
         color: #fff;
         border-radius: 50%;
-
         @include transition(all, .15s, ease-in);
         &:before{
             font-size: 20px;
             position: relative;
             color: #fff;
-
             @include center();
         }
         &.icf-facebook{

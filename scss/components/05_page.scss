@@ -17,68 +17,70 @@ header{
     }
 }
 
-// MAIN NAVIGATION MENU
-.main_nav_container{
-    margin-top: 10px;
-    border: 1px solid $grey;
-    .main-nav{
-        font-size: 0;
-    }
-    //level 0
-    .menu-item-depth-0{
-        position: relative;
-        display: inline-block;
-        >a{
-            font-family: $font_l;
-            font-size: 16px;
-            display: block;
-            padding: 5px 15px;
-            border-right: 1px solid $grey;
+@media screen and (min-width: $row){
+    // MAIN NAVIGATION MENU
+    .main_nav_container{
+        margin-top: 10px;
+        border: 1px solid $grey;
+        .main-nav{
+            font-size: 0;
         }
-        &.current-menu-item{
-            background: #ccc;
-        }
-        &.menu-item-has-children{
+        //level 0
+        .menu-item-depth-0{
+            position: relative;
+            display: inline-block;
             >a{
-                i{
-                    padding-right: 5px;
-                    &:before{
-                        font-family: 'icf';
-                        font-size: 16px;
-                        font-style: normal;
-                        position: absolute;
-                        top: 5px;
-                        right: 5px;
-                        content: '\e837';
+                font-family: $font_l;
+                font-size: 16px;
+                display: block;
+                padding: 5px 15px;
+                border-right: 1px solid $grey;
+            }
+            &.current-menu-item{
+                background: #ccc;
+            }
+            &.menu-item-has-children{
+                >a{
+                    i{
+                        padding-right: 5px;
+                        &:before{
+                            font-family: 'icf';
+                            font-size: 16px;
+                            font-style: normal;
+                            position: absolute;
+                            top: 5px;
+                            right: 5px;
+                            content: '\e837';
+                        }
                     }
                 }
             }
         }
-    }
-    //submenu
-    .menu-item-has-children{
-        .menu-depth-1{
-            position: absolute;
-            z-index: 100;
-            display: none;
-            overflow: hidden;
-            width: 180px;
-            border: 1px solid $grey;
-            background: #fff;
-            -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-               -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-                    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+        //submenu
+        .menu-item-has-children{
+            .menu-depth-1{
+                position: absolute;
+                z-index: 100;
+                display: none;
+                overflow: hidden;
+                width: 180px;
+                border: 1px solid $grey;
+                background: #fff;
+                -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+                   -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+                        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
 
-            @include transition(all, .2s, ease-in-out);
-            >li{
-                >a{
-                    font-size: 16px;
+                @include transition(all, .2s, ease-in-out);
+                >li{
+                    >a{
+                        font-size: 16px;
+                    }
                 }
             }
-        }
-        &:hover{
-            >.menu-depth-1{
-                display: block;
+            &:hover{
+                >.menu-depth-1{
+                    display: block;
+                }
             }
         }
     }

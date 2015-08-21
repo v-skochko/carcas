@@ -1,10 +1,8 @@
 @import 'components/02_mixins';
 
+
 //web page width
 $row: 960px;
-
-$fz: 14px;
-$lh: 21px;
 
 // Defaul fonts varieble
 $f5: 'm5', Arial, Helvetica, sans-serif;
@@ -18,7 +16,6 @@ $bold: 'm7', Arial, Helvetica, sans-serif;
 
 //custom icon fonts
 @include declare-font-face('icf', 'icf', 400);
-
 
 //COLORS
 $basic: #009688;
