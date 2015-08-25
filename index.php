@@ -12,6 +12,16 @@ if (is_date()) {
     $queryname = get_the_title(BLOG_ID);
 } ?>
 <?php if ($queryname) : echo '<h1>' . $queryname . '</h1>'; endif; ?>
+<?php
+if ( is_search() ) { ?>
+        <h1 class="page-title" itemprop="headline">Search result</h1>
+<?php } else { ?>
+        <h1 class="page-title" itemprop="headline">BLOG</h1>
+
+<?php }
+?>
+
+
 <section class="content row cfx">
     <article>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
