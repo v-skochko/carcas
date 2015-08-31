@@ -54,13 +54,13 @@ function register_jobs()
             'show_ui' => true,
             'show_in_menu' => true,
             'supports' => array('title', 'editor', 'thumbnail'),
+            'menu_icon' => 'dashicons-flag',
             'rewrite' => array('slug' => 'cpt'),
             'has_archive' => true,
             'hierarchical' => true,
             'show_in_nav_menus' => true,
             'capability_type' => 'page',
             'query_var' => true,
-//        'menu_icon' => get_bloginfo('stylesheet_directory') . '/images/cpt-icon.png',
         ));
 // flush_rewrite_rules();
 }
