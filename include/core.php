@@ -206,6 +206,10 @@ function c_css()
         #toplevel_page_edit-post_type-acf-field-group {
             border-top: 1px solid #ccc !important;
         }
+        .acf-repeater>.acf-table>.ui-sortable>.acf-row:nth-child(even)>.order {
+color: #fff !important;
+    background-color: #777!important;
+}
     </style>
 <?php
 }
