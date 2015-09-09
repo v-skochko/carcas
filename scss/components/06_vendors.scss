@@ -58,6 +58,47 @@
     }
 }
 
+  .wpcf7-list-item {
+    display: block;
+    margin: 8px 0;
+    color: #484848;
+    label {
+      display: inline-block;
+      span {
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        padding-left: 30px;
+        cursor: pointer;
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;;
+          border: 1px solid #ccc;
+          width: 14px;
+          height: 14px;
+        }
+        &:after{
+          content:'\2713';
+          position:absolute;
+          left:2px;
+          top:-10px;
+          font-size:21px;
+          font-weight: 700;
+          color: #ccc;
+          opacity:0;
+        }
+      }
+      input {
+        display: none;
+        &:checked + span{
+          &:after {opacity: 1}
+        }
+      }
+    }
+  }
+
 /* ==========================================================================
    GRID
    ========================================================================== */
