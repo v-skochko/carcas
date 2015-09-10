@@ -40,3 +40,29 @@ function gebid($post_id, $num, $readmore = ''){
     }
     return $content . ($readmore != ''?'<p class="readmore"><a href="' . get_permalink($post_id) . '">' . $readmore . '</a></p>':'');
 }
+
+
+//acf custom style
+function acf_repeater_even() {
+    $scheme = get_user_option( 'admin_color' );
+    $color = '';
+    if($scheme == 'fresh') {
+        $color = '#0073aa';
+    } else if($scheme == 'light') {
+        $color = '#d64e07';
+    } else if($scheme == 'blue') {
+        $color = '#52accc';
+    } else if($scheme == 'coffee') {
+        $color = '#59524c';
+    } else if($scheme == 'ectoplasm') {
+        $color = '#523f6d';
+    } else if($scheme == 'midnight') {
+        $color = '#e14d43';
+    } else if($scheme == 'ocean') {
+        $color = '#738e96';
+    } else if($scheme == 'sunrise') {
+        $color = '#dd823b';
+    }
+    echo '<style>.acf-repeater>.acf-input-table > tbody > tr:nth-child(even)>.order {color: #fff !important;background-color: '.$color.' !important; text-shadow: none}</style>';
+}
+add_action('admin_footer', 'acf_repeater_even');
