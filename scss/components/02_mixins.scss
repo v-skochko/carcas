@@ -121,7 +121,9 @@ $b_vendor: true !default;
         @if $border-radius != 0 {
             border-radius: $border-radius;
         }
-
+& {
+    display: inline-block;
+}
         @if $b_vendor {
             -webkit-transition-property: background-color, -webkit-transform;
             -moz-transition-property: background-color, -moz-transform;

@@ -22,18 +22,19 @@ header{
     }
 }
 
-.menu-button {
-    display: inline-block;
-    padding: .5em;
-    background-color: #fafafa;
-    border: 1px solid #ccc;
-}
+// .menu-button {
+//     display: inline-block;
+//     padding: .5em;
+//     background-color: #fafafa;
+//     border: 1px solid #ccc;
+// }
 
 .burger-icon {
-    @include burger(25px, 3px, 5px, #444);
+    @include burger(18px, 2px, 4px, #444);
+    display: inline-block;
 }
 
-.menu-button.is-active .burger-icon {
+.toogle_nav.is-active .burger-icon {
     @include burger-to-cross;
 }
 

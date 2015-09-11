@@ -2,19 +2,18 @@ $ = jQuery;
 $(document).ready(function() {
     "use strict";
     $('.toogle_nav').click(function() {
-        $(this).next().toggleClass('open_menu');
+        $(this).next().toggleClass('o_menu');
+          $(this).toggleClass('is-active');
         return false;
     });
+
     $(".main_nav_container .menu-item-has-children").append('<i class="icf-down"></i>')
     $(".menu-item-has-children i").click(function(event) {
         $(this).prev('.sub-menu').slideToggle("fast");
+
+
     });
-    //backstretch
-    $('[data-background]').each(function() {
-        if ($(this).attr('data-background').length) {
-            $(this).backstretch($(this).attr('data-background'));
-        }
-    });
+
     //BXslider
     $('.slider ul').bxSlider({
         nextText: "",
@@ -26,8 +25,8 @@ $(document).ready(function() {
             $('.slider').addClass('slider_loaded ');
         }
     });
-    //selbel itit
-    $("select").selbel();
+
+
     /*Contact form7 - close validation error on click*/
     $(this).on('click', '.wpcf7-not-valid-tip', function() {
         $(this).prev().trigger('focus');
@@ -39,9 +38,4 @@ $(document).ready(function() {
 /* end ready*/
 $(window).load(function() {
     "use strict";
-});
-var menuButton = document.getElementById('menuButton');
-menuButton.addEventListener('click', function(e) {
-    menuButton.classList.toggle('is-active');
-    e.preventDefault();
 });

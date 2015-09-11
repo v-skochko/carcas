@@ -395,24 +395,19 @@ header #logo {
 header #logo:hover {
   opacity: 0.5;
 }
-.menu-button {
-  display: inline-block;
-  padding: 0.5em;
-  background-color: #fafafa;
-  border: 1px solid #ccc;
-}
 .burger-icon {
   position: relative;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 6px;
+  margin-bottom: 6px;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+  display: inline-block;
 }
 .burger-icon, .burger-icon::before, .burger-icon::after {
   display: block;
-  width: 25px;
-  height: 3px;
+  width: 18px;
+  height: 2px;
   background-color: #444;
   -webkit-transition-property: background-color, -webkit-transform;
   -moz-transition-property: background-color, -moz-transform;
@@ -421,28 +416,31 @@ header #logo:hover {
   -moz-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
+.burger-icon, .burger-icon::before, .burger-icon::after {
+  display: inline-block;
+}
 .burger-icon::before, .burger-icon::after {
   position: absolute;
   content: "";
 }
 .burger-icon::before {
-  top: -8px;
+  top: -6px;
 }
 .burger-icon::after {
-  top: 8px;
+  top: 6px;
 }
-.menu-button.is-active .burger-icon {
+.toogle_nav.is-active .burger-icon {
   background-color: transparent;
 }
-.menu-button.is-active .burger-icon::before {
-  -webkit-transform: translateY(8px) rotate(45deg);
-  -moz-transform: translateY(8px) rotate(45deg);
-  transform: translateY(8px) rotate(45deg);
+.toogle_nav.is-active .burger-icon::before {
+  -webkit-transform: translateY(6px) rotate(45deg);
+  -moz-transform: translateY(6px) rotate(45deg);
+  transform: translateY(6px) rotate(45deg);
 }
-.menu-button.is-active .burger-icon::after {
-  -webkit-transform: translateY(-8px) rotate(-45deg);
-  -moz-transform: translateY(-8px) rotate(-45deg);
-  transform: translateY(-8px) rotate(-45deg);
+.toogle_nav.is-active .burger-icon::after {
+  -webkit-transform: translateY(-6px) rotate(-45deg);
+  -moz-transform: translateY(-6px) rotate(-45deg);
+  transform: translateY(-6px) rotate(-45deg);
 }
 @media screen and (min-width: 960px) {
   /* ==========================================================================

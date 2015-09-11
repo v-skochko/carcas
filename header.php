@@ -40,11 +40,8 @@ ob_start('remove_html_comments');
             <nav class="main_nav_container cfx" role="navigation" itemscope
                  itemtype="http://schema.org/SiteNavigationElement">
 
-<a href="#" class="menu-button" id="menuButton">
-    <span class="burger-icon"></span>
-</a>
+<a href="#" class="toogle_nav"> <span class="burger-icon"></span>menu</a>
 
-                <a class="toogle_nav" href="" >MENU</a>
                 <?php
                 $main_nav = array(
                     'theme_location' => 'head_menu',
