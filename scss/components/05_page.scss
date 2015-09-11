@@ -1,3 +1,8 @@
+
+
+
+
+
 /* ==========================================================================
    HEADER
    ========================================================================== */
@@ -17,14 +22,28 @@ header{
     }
 }
 
+.menu-button {
+    display: inline-block;
+    padding: .5em;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+}
+
+.burger-icon {
+    @include burger(25px, 3px, 5px, #444);
+}
+
+.menu-button.is-active .burger-icon {
+    @include burger-to-cross;
+}
+
+
 @media screen and (min-width: $row){
     // MAIN NAVIGATION MENU
     .main_nav_container{
+        font-size: 0;
         margin-top: 10px;
         border: 1px solid $grey;
-        .main-nav{
-            font-size: 0;
-        }
         //level 0
         .menu-item-depth-0{
             position: relative;
@@ -69,7 +88,6 @@ header{
                 -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
                    -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
                         box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
-
                 @include transition(all, .2s, ease-in-out);
                 >li{
                     >a{
@@ -85,7 +103,6 @@ header{
         }
     }
 }
-
 /* ==========================================================================
    FOOTER
    ========================================================================== */
@@ -99,15 +116,7 @@ footer{
         text-transform: uppercase;
         color: #fff;
     }
-    .custom-glyph{
-        font-family: $font_b;
-        display: block;
-        text-transform: uppercase;
-        // float: left;
-        color: #fff;
-    }
 }
-
 /* ==========================================================================
    404 page
    ========================================================================== */

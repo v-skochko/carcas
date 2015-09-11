@@ -1,8 +1,7 @@
 $ = jQuery;
-$(document).ready(function () {
+$(document).ready(function() {
     "use strict";
-    
-       $('.toogle_nav').click(function() {
+    $('.toogle_nav').click(function() {
         $(this).next().toggleClass('open_menu');
         return false;
     });
@@ -10,13 +9,12 @@ $(document).ready(function () {
     $(".menu-item-has-children i").click(function(event) {
         $(this).prev('.sub-menu').slideToggle("fast");
     });
-
+    //backstretch
     $('[data-background]').each(function() {
         if ($(this).attr('data-background').length) {
             $(this).backstretch($(this).attr('data-background'));
         }
     });
-    
     //BXslider
     $('.slider ul').bxSlider({
         nextText: "",
@@ -24,21 +22,26 @@ $(document).ready(function () {
         pause: 7000,
         pager: false,
         auto: true,
-        onSliderLoad: function () {
+        onSliderLoad: function() {
             $('.slider').addClass('slider_loaded ');
         }
     });
     //selbel itit
     $("select").selbel();
     /*Contact form7 - close validation error on click*/
-    $(this).on('click', '.wpcf7-not-valid-tip', function () {
+    $(this).on('click', '.wpcf7-not-valid-tip', function() {
         $(this).prev().trigger('focus');
-        $(this).fadeOut(500, function () {
+        $(this).fadeOut(500, function() {
             $(this).remove();
         });
     });
 });
 /* end ready*/
-$(window).load(function () {
+$(window).load(function() {
     "use strict";
+});
+var menuButton = document.getElementById('menuButton');
+menuButton.addEventListener('click', function(e) {
+    menuButton.classList.toggle('is-active');
+    e.preventDefault();
 });

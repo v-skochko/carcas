@@ -17,8 +17,7 @@ ob_start('remove_html_comments');
     <title><?php wp_title(); ?></title>
     <meta name="MobileOptimized" content="width"/>
     <meta name="HandheldFriendly" content="True"/>
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="viewport"content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo theme(); ?>/img/favicon//apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo theme(); ?>/img/favicon//apple-touch-icon-60x60.png">
@@ -32,8 +31,6 @@ ob_start('remove_html_comments');
     <meta name="theme-color" content="#ffffff">
     <!-- end favicon -->
     <?php wp_head(); ?>
-
-
 </head>
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 <div id="wrap">
@@ -42,7 +39,12 @@ ob_start('remove_html_comments');
             <a href="<?php echo site_url(); ?>/" id="logo">LOGO</a>
             <nav class="main_nav_container cfx" role="navigation" itemscope
                  itemtype="http://schema.org/SiteNavigationElement">
-                <a class="toogle_nav" href="#" onclick="$('nav ul').slideToggle('fast'); return false;">MENU</a>
+
+<a href="#" class="menu-button" id="menuButton">
+    <span class="burger-icon"></span>
+</a>
+
+                <a class="toogle_nav" href="" >MENU</a>
                 <?php
                 $main_nav = array(
                     'theme_location' => 'head_menu',
@@ -56,4 +58,6 @@ ob_start('remove_html_comments');
                 ?>
             </nav>
         </div>
+
+
     </header>

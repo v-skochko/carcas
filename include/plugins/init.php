@@ -15,7 +15,6 @@ function transliterate($textcyr = null, $textlat = null)
     } else {
         return null;
     }
-
 }
 
 /*
@@ -150,26 +149,10 @@ require_once 'TGM-Plugin.php';
  */
 // require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 add_action('tgmpa_register', 'my_theme_register_required_plugins');
-/**
- * Register the required plugins for this theme.
- *
- * In this example, we register two plugins - one included with the TGMPA library
- * and one from the .org repo.
- *
- * The variable passed to tgmpa_register_plugins() should be an array of plugin
- * arrays.
- *
- * This function is hooked into tgmpa_init, which is fired within the
- * TGM_Plugin_Activation class constructor.
- */
 function my_theme_register_required_plugins()
 {
-    /**
-     * Array of plugin arrays. Required keys are name and slug.
-     * If the source is NOT from the .org repo, then source is also required.
-     */
+
     $plugins = array(
-        // This is an example of how to include a plugin from the WordPress Plugin Repository.
         array(
             'name' => 'Contact Form 7',
             'slug' => 'contact-form-7',
@@ -185,16 +168,22 @@ function my_theme_register_required_plugins()
             'slug' => 'wp-scss',
             'required' => true,
         ),
-        array(
-            'name' => 'Post Thumbnail Editor',
-            'slug' => 'post-thumbnail-editor',
-            'required' => true,
+            array(
+            'name' => 'Better WordPress Minify',
+            'slug' => 'bwp-minify',
+            'required' => false,
         ),
         array(
             'name' => 'WP No Category Base',
             'slug' => 'wp-no-category-base',
             'required' => false,
         ),
+        array(
+            'name' => 'Post Thumbnail Editor',
+            'slug' => 'post-thumbnail-editor',
+            'required' => false,
+        ),
+
         array(
             'name' => 'TinyMCE Advanced',
             'slug' => 'tinymce-advanced',
@@ -227,13 +216,7 @@ function my_theme_register_required_plugins()
             'external_url' => 'http://www.advancedcustomfields.com/pro/', // If set, overrides default API URL and points to an external URL.
         ),
     );
-    /**
-     * Array of configuration settings. Amend each line as needed.
-     * If you want the default strings to be available under your own theme domain,
-     * leave the strings uncommented.
-     * Some of the strings are added into a sprintf, so see the comments at the
-     * end of each line for what each argument will be.
-     */
+
     $config = array(
         'default_path' => '', // Default absolute path to pre-packaged plugins.
         'menu' => 'tgmpa-install-plugins', // Menu slug.
