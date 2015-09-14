@@ -1,28 +1,75 @@
 .toogle_nav{
     display: none;
 }
-
 @media screen and (max-width: $row){
+    /* MENU
+   ========================================================================== */
+    .toogle_nav{
+        position: absolute;
+        top: 10px;
+        right: 0;
+        display: block;
+        .burger-icon{
+            display: inline-block;
+
+            @include burger(18px, 2px, 4px, #444);
+        }
+        &.is-active{
+            .burger-icon{
+                @include burger-to-cross;
+            }
+        }
+    }
+    .main_nav_container{
+        position: absolute;
+        z-index: 1000;
+        top: 50px;
+        right: 0;
+        width: 280px;
+        padding: 10px 0;
+        -webkit-transition: all 200ms cubic-bezier(.95, .05, .795, .035);
+                transition: all 200ms cubic-bezier(.95, .05, .795, .035);
+        background: $a;
+
+        @include translate(100%, 0);
+        @include shadow(2);
+        &.o_menu{
+            @include translate(0, 0);
+        }
+        *{
+            line-height: 1;
+        }
+        a{
+            display: block;
+            padding: 8px 10px;
+            color: #fff;
+            &:hover{
+                background: darken($a, 5%);
+
+                @include shadow(1);
+            }
+        }
+    }
+    /* GLOBAL
+       ========================================================================== */
     .row{
         width: 100%;
         max-width: 96%;
     }
-    .toogle_nav{
-        display: block;
+    header{
+        position: relative;
+        .row{
+            max-width: 100%;
+        }
     }
 }
-
 @media screen and (max-width: 960px){
 }
-
 @media screen and (max-width: 768px){
 }
-
 @media screen and (max-width: 640px){
 }
-
 @media screen and (max-width: 480px){
 }
-
 @media screen and (max-width: 320px){
 }

@@ -7,6 +7,8 @@
 /* ==========================================================================
    CONTACT FORM 7
    ========================================================================== */
+/* MENU
+   ========================================================================== */
 @font-face {
   font-family: 'icf';
   font-weight: 400;
@@ -68,6 +70,7 @@ input, textarea, select {
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  /* @include center(true, false); */
 }
 button, html input[type='button'], input[type='reset'], input[type='submit'] {
   cursor: pointer;
@@ -118,6 +121,7 @@ a {
   -moz-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  /* @include center(true, false); */
 }
 a:hover {
   outline: 0;
@@ -354,6 +358,7 @@ article:after {
   -moz-transition: all 0.15s ease-in;
   -ms-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
+  /* @include center(true, false); */
 }
 .social_link a:before {
   font-size: 20px;
@@ -380,67 +385,18 @@ article:after {
   -moz-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
-  /* @include center(true, false); */
+}
+header {
+  /* menu
+   ========================================================================== */
 }
 header #logo {
-  font-family: 'm1';
-  font-size: 40px;
   display: block;
   padding: 20px 0 10px;
-  -webkit-transition: opacity 0.25s ease-in-out;
-  -moz-transition: opacity 0.25s ease-in-out;
-  transition: opacity 0.25s ease-in-out;
   opacity: 1;
 }
 header #logo:hover {
-  opacity: 0.5;
-}
-.burger-icon {
-  position: relative;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  display: inline-block;
-}
-.burger-icon, .burger-icon::before, .burger-icon::after {
-  display: block;
-  width: 18px;
-  height: 2px;
-  background-color: #444;
-  -webkit-transition-property: background-color, -webkit-transform;
-  -moz-transition-property: background-color, -moz-transform;
-  transition-property: background-color, transform;
-  -webkit-transition-duration: 0.3s;
-  -moz-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-}
-.burger-icon, .burger-icon::before, .burger-icon::after {
-  display: inline-block;
-}
-.burger-icon::before, .burger-icon::after {
-  position: absolute;
-  content: "";
-}
-.burger-icon::before {
-  top: -6px;
-}
-.burger-icon::after {
-  top: 6px;
-}
-.toogle_nav.is-active .burger-icon {
-  background-color: transparent;
-}
-.toogle_nav.is-active .burger-icon::before {
-  -webkit-transform: translateY(6px) rotate(45deg);
-  -moz-transform: translateY(6px) rotate(45deg);
-  transform: translateY(6px) rotate(45deg);
-}
-.toogle_nav.is-active .burger-icon::after {
-  -webkit-transform: translateY(-6px) rotate(-45deg);
-  -moz-transform: translateY(-6px) rotate(-45deg);
-  transform: translateY(-6px) rotate(-45deg);
+  opacity: 0.8;
 }
 @media screen and (min-width: 960px) {
   /* ==========================================================================
@@ -449,6 +405,9 @@ header #logo:hover {
     font-size: 0;
     margin-top: 10px;
     border: 1px solid #ccc;
+  }
+  .main_nav_container * {
+    line-height: 1;
   }
   .main_nav_container .menu-item-depth-0 {
     position: relative;
@@ -464,16 +423,20 @@ header #logo:hover {
   .main_nav_container .menu-item-depth-0.current-menu-item {
     background: #ccc;
   }
-  .main_nav_container .menu-item-depth-0.menu-item-has-children > a i {
+  .main_nav_container .menu-item-depth-0.menu-item-has-children > a {
+    position: relative;
+  }
+  .main_nav_container .menu-item-depth-0.menu-item-has-children i {
+    position: absolute;
+    top: 5px;
+    right: 8px;
     padding-right: 5px;
   }
-  .main_nav_container .menu-item-depth-0.menu-item-has-children > a i:before {
+  .main_nav_container .menu-item-depth-0.menu-item-has-children i:before {
     font-family: 'icf';
     font-size: 16px;
     font-style: normal;
     position: absolute;
-    top: 5px;
-    right: 5px;
     content: '\e837';
   }
   .main_nav_container .menu-item-has-children .menu-depth-1 {
@@ -491,6 +454,7 @@ header #logo:hover {
     -moz-transition: all 0.2s ease-in-out;
     -ms-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+    /* @include center(true, false); */
   }
   .main_nav_container .menu-item-has-children .menu-depth-1 > li > a {
     font-size: 16px;
@@ -1194,11 +1158,109 @@ footer .icf-copyright {
   display: none;
 }
 @media screen and (max-width: 960px) {
+  .toogle_nav {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    display: block;
+  }
+  .toogle_nav .burger-icon {
+    display: inline-block;
+    position: relative;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  .toogle_nav .burger-icon, .toogle_nav .burger-icon::before, .toogle_nav .burger-icon::after {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background-color: #444;
+    -webkit-transition-property: background-color, -webkit-transform;
+    -moz-transition-property: background-color, -moz-transform;
+    transition-property: background-color, transform;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+  }
+  .toogle_nav .burger-icon, .toogle_nav .burger-icon::before, .toogle_nav .burger-icon::after {
+    display: inline-block;
+  }
+  .toogle_nav .burger-icon::before, .toogle_nav .burger-icon::after {
+    position: absolute;
+    content: "";
+  }
+  .toogle_nav .burger-icon::before {
+    top: -6px;
+  }
+  .toogle_nav .burger-icon::after {
+    top: 6px;
+  }
+  .toogle_nav.is-active .burger-icon {
+    background-color: transparent;
+  }
+  .toogle_nav.is-active .burger-icon::before {
+    -webkit-transform: translateY(6px) rotate(45deg);
+    -moz-transform: translateY(6px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
+  }
+  .toogle_nav.is-active .burger-icon::after {
+    -webkit-transform: translateY(-6px) rotate(-45deg);
+    -moz-transform: translateY(-6px) rotate(-45deg);
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  .main_nav_container {
+    position: absolute;
+    z-index: 1000;
+    top: 50px;
+    right: 0;
+    width: 280px;
+    padding: 10px 0;
+    -webkit-transition: all 200ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    transition: all 200ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    background: #009688;
+    -webkit-transform: translate(100%, 0);
+    -moz-transform: translate(100%, 0);
+    -ms-transform: translate(100%, 0);
+    transform: translate(100%, 0);
+    /*  https://github.com/pfist/quantum-shadows
+    @include shadow(2);
+   ========================================================================== */
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.23), 0 8px 25px rgba(0, 0, 0, 0.05);
+    /* GLOBAL
+       ========================================================================== */
+  }
+  .main_nav_container.o_menu {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+    /*  https://github.com/pfist/quantum-shadows
+    @include shadow(2);
+   ========================================================================== */
+  }
+  .main_nav_container * {
+    line-height: 1;
+  }
+  .main_nav_container a {
+    display: block;
+    padding: 8px 10px;
+    color: #fff;
+  }
+  .main_nav_container a:hover {
+    background: #007d71;
+    box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.24), 0 3px 8px rgba(0, 0, 0, 0.05);
+  }
   .row {
     width: 100%;
     max-width: 96%;
   }
-  .toogle_nav {
-    display: block;
+  header {
+    position: relative;
+  }
+  header .row {
+    max-width: 100%;
   }
 }

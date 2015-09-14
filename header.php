@@ -37,10 +37,10 @@ ob_start('remove_html_comments');
     <header>
         <div class="row cfx">
             <a href="<?php echo site_url(); ?>/" id="logo">LOGO</a>
+<a href="#" class="toogle_nav">menu <span class="burger-icon"></span></a>
             <nav class="main_nav_container cfx" role="navigation" itemscope
                  itemtype="http://schema.org/SiteNavigationElement">
 
-<a href="#" class="toogle_nav"> <span class="burger-icon"></span>menu</a>
 
                 <?php
                 $main_nav = array(
@@ -48,7 +48,6 @@ ob_start('remove_html_comments');
                     'menu' => '',
                     'container' => false,
                     'menu_class' => 'main-nav',
-                    'link_after' => '<i></i>',
                     'walker' => new carcas_walker,
                 );
                 wp_nav_menu($main_nav);

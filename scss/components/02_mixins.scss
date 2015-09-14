@@ -12,13 +12,47 @@
     }
 }
 
-@mixin box-sizing($s){
-    -webkit-box-sizing: $s;
-       -moz-box-sizing: $s;
-            box-sizing: $s;
-
-        -ms-box-sizing: $s;
+@mixin scale($scale){
+    -webkit-transform: scale($scale);
+       -moz-transform: scale($scale);
+        -ms-transform: scale($scale);
+            transform: scale($scale);
 }
+@mixin translate($x, $y){
+    -webkit-transform: translate($x, $y);
+       -moz-transform: translate($x, $y);
+        -ms-transform: translate($x, $y);
+            transform: translate($x, $y);
+}
+
+/*  https://github.com/pfist/quantum-shadows
+    @include shadow(2);
+   ========================================================================== */
+@mixin shadow($depth) {
+  @if $depth == 1 {
+    box-shadow: 0 1.5px 3px rgba(black, 0.24),
+                0 3px 8px rgba(black, 0.05);
+  }
+  @if $depth == 2 {
+    box-shadow: 0 4px 7px rgba(black, 0.23),
+                0 8px 25px rgba(black, 0.05);
+  }
+  @if $depth == 3 {
+    box-shadow: 0 7px 10px rgba(black, 0.30),
+                0 10px 50px rgba(black, 0.12);
+  }
+  @if $depth == 4 {
+    box-shadow: 0 10px 15px rgba(black, 0.28),
+                0 15px 60px rgba(black, 0.18);
+  }
+  @if $depth == 5 {
+    box-shadow: 0 16px 20px rgba(black, 0.29),
+                0 20px 65px rgba(black, 0.18);
+  }
+}
+
+
+
 
 // @include border-radius(5px);
 @mixin border-radius($radius){
@@ -42,12 +76,7 @@
             transition: $transition-property $transition-time $method;
 }
 
-@mixin scale($scale){
-    -webkit-transform: scale($scale);
-       -moz-transform: scale($scale);
-        -ms-transform: scale($scale);
-            transform: scale($scale);
-}
+
 
 /* @include center(true, false); */
 @mixin center($horizontal: true, $vertical: true){

@@ -1,50 +1,27 @@
-
-
-
-
-
 /* ==========================================================================
    HEADER
    ========================================================================== */
 header{
     #logo{
-        font-family: 'm1';
-        font-size: 40px;
         display: block;
         padding: 20px 0 10px;
-        -webkit-transition: opacity .25s ease-in-out;
-           -moz-transition: opacity .25s ease-in-out;
-                transition: opacity .25s ease-in-out;
         opacity: 1;
         &:hover{
-            opacity: .5;
+            opacity: .8;
         }
     }
 }
-
-// .menu-button {
-//     display: inline-block;
-//     padding: .5em;
-//     background-color: #fafafa;
-//     border: 1px solid #ccc;
-// }
-
-.burger-icon {
-    @include burger(18px, 2px, 4px, #444);
-    display: inline-block;
-}
-
-.toogle_nav.is-active .burger-icon {
-    @include burger-to-cross;
-}
-
-
+/* menu
+   ========================================================================== */
 @media screen and (min-width: $row){
     // MAIN NAVIGATION MENU
     .main_nav_container{
         font-size: 0;
         margin-top: 10px;
         border: 1px solid $grey;
+        *{
+            line-height: 1;
+        }
         //level 0
         .menu-item-depth-0{
             position: relative;
@@ -61,17 +38,19 @@ header{
             }
             &.menu-item-has-children{
                 >a{
-                    i{
-                        padding-right: 5px;
-                        &:before{
-                            font-family: 'icf';
-                            font-size: 16px;
-                            font-style: normal;
-                            position: absolute;
-                            top: 5px;
-                            right: 5px;
-                            content: '\e837';
-                        }
+                    position: relative;
+                }
+                i{
+                    position: absolute;
+                    top: 5px;
+                    right: 8px;
+                    padding-right: 5px;
+                    &:before{
+                        font-family: 'icf';
+                        font-size: 16px;
+                        font-style: normal;
+                        position: absolute;
+                        content: '\e837';
                     }
                 }
             }

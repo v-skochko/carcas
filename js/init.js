@@ -7,11 +7,9 @@ $(document).ready(function() {
         return false;
     });
 
-    $(".main_nav_container .menu-item-has-children").append('<i class="icf-down"></i>')
+    $(".main_nav_container .menu-item-has-children>a").after('<i></i>')
     $(".menu-item-has-children i").click(function(event) {
         $(this).prev('.sub-menu').slideToggle("fast");
-
-
     });
 
     //BXslider
