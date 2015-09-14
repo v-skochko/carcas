@@ -387,11 +387,13 @@ article:after {
   transform: scale(1.2);
 }
 header {
+  height: 80px;
+  background: #ccc;
   /* menu
    ========================================================================== */
 }
 header #logo {
-  display: block;
+  float: left;
   padding: 20px 0 10px;
   opacity: 1;
 }
@@ -403,8 +405,9 @@ header #logo:hover {
    FOOTER
    ========================================================================== */  .main_nav_container {
     font-size: 0;
+    float: right;
     margin-top: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
   }
   .main_nav_container * {
     line-height: 1;

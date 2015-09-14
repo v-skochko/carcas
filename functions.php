@@ -66,3 +66,9 @@ function acf_repeater_even() {
     echo '<style>.acf-repeater>.acf-input-table > tbody > tr:nth-child(even)>.order {color: #fff !important;background-color: '.$color.' !important; text-shadow: none}</style>';
 }
 add_action('admin_footer', 'acf_repeater_even');
+
+
+// Compress HTML
+function ob_html_compress($buf){
+    return preg_replace(array('/<!--(?>(?!\[).)(.*)(?>(?!\]).)-->/Uis','/[[:blank:]]+/'),array('',' '),str_replace(array("\n","\r","\t"),'',$buf));
+}

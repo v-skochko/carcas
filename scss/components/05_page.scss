@@ -2,8 +2,10 @@
    HEADER
    ========================================================================== */
 header{
+    height: 80px;
+    background: #ccc;
     #logo{
-        display: block;
+        float: left;
         padding: 20px 0 10px;
         opacity: 1;
         &:hover{
@@ -17,8 +19,9 @@ header{
     // MAIN NAVIGATION MENU
     .main_nav_container{
         font-size: 0;
+        float: right;
         margin-top: 10px;
-        border: 1px solid $grey;
+        border: 1px solid #fff;
         *{
             line-height: 1;
         }
