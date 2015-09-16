@@ -12,6 +12,7 @@
 }
 #wrap{
     min-height: 100%;
+    overflow-x: hidden;
 }
 .c{
     font-size: 0;
@@ -45,7 +46,7 @@ article{
        -moz-user-select: none;
 }
 .btn, input[type='submit']{
-    font: 400 15px/1 $font_b;
+    font: 400 15px/1 $regular;
     position: relative;
     display: inline-block;
     padding: 10px 20px;
@@ -59,7 +60,6 @@ article{
     border: none;
     outline: 0;
     background: $btn;
-
     @include border-radius(3px);
     &:hover{
         background: darken($btn, 5%);
@@ -128,16 +128,14 @@ article{
    WYSIWYG
    ========================================================================== */
 .wysiwyg{
-    h1, h2{
+    h1{
         font-size: 20px;
         margin-bottom: 10px;
         padding-bottom: 5px;
         text-transform: uppercase;
-        border-bottom: 1px solid $basic;
+        line-height: 1;
     }
-    h2{
-        border-bottom: 0;
-    }
+
     p{
         padding-bottom: 20px;
     }
@@ -211,13 +209,11 @@ article{
         margin: 0 5px;
         color: #fff;
         border-radius: 50%;
-
         @include transition(all, .15s, ease-in);
         &:before{
             font-size: 20px;
             position: relative;
             color: #fff;
-
             @include center();
         }
         &.icf-facebook{
@@ -275,7 +271,7 @@ article{
                 right: 10px;
             }
         }
-        input[type='text']{
+        input[type='search']{
             width: 100%;
             height: 30px;
             border: 1px solid $grey;
@@ -283,9 +279,6 @@ article{
         }
     }
 }
-
-
-
 .inside_web{
     position: relative;
     width: 280px;
@@ -310,7 +303,6 @@ article{
         z-index: -2;
     }
 }
-
 .cog_top{
     top: 0;
     left: 50px;
@@ -347,7 +339,6 @@ article{
         color: #444;
     }
 }
-
 /* Animations */
 @-webkit-keyframes rotate{
     from{

@@ -2,24 +2,26 @@
 
 
 //web page width
-$row: 960px;
+$row: 1200px;
 
 // Defaul fonts varieble
-$f5: 'm5', Arial, Helvetica, sans-serif;
+$regular:   Helvetica, Arial, sans-serif;
 //default regular font
-$f5i: 'm5i', Arial, Helvetica, sans-serif;
-//default italic font
-$font_l: 'm1', Arial, Helvetica, sans-serif;
+$italic:  Helvetica, Arial, sans-serif;
 //default thin font
-$bold: 'm7', Arial, Helvetica, sans-serif;
+$bold:  Helvetica, Arial, sans-serif;
 //default bold font
 
+
+/* FONTS
+   ========================================================================== */
 //custom icon fonts
 @include declare-font-face('icf', 'icf', 400);
 
 
 
-//COLORS
+/* COLOR
+   ========================================================================== */
 $basic: #009688;
 $a: #009688;
 $second: #930704;
@@ -27,7 +29,9 @@ $link: $basic;
 $btn: #009688;
 $grey: #ccc;
 $text: #444;
-// LOAD ORDER
+
+/* LOAD ORDER
+   ========================================================================== */
 @import 'components/03_reset';
 // reset default style
 @import 'components/04_global';

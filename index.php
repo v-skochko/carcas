@@ -1,4 +1,6 @@
-<?php get_header();
+<?php get_header(); ?>
+<div id="content" class="row cfx">
+<?php
 $catID = get_queried_object()->term_id;
 $catN = get_queried_object()->name;
 $curauth = $wp_query->get_queried_object();
@@ -14,14 +16,11 @@ if (is_date()) {
 <?php if ($queryname) : echo '<h1>' . $queryname . '</h1>'; endif; ?>
 <?php
 if ( is_search() ) { ?>
-        <h1 class="page-title" itemprop="headline">Search result</h1>
+        <h1 class="page-title" itemprop="headline"><?php printf( esc_html__( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 <?php } else { ?>
         <h1 class="page-title" itemprop="headline">BLOG</h1>
-
 <?php }
 ?>
-
-
 <section class="content row cfx">
     <article>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -33,7 +32,6 @@ if ( is_search() ) { ?>
                 <?php } ?>
                 <div class="excerpt">
                     <a href="<?php the_permalink(); ?>" class="blogtitle"><?php the_title(); ?></a>
-
                     <div class="blogmeta cfx">
                         <div class="author"><?php the_author(); ?></div>
                         <div class="ccount"><?php comments_number('No comments', 'One comment', '% comments'); ?></div>
@@ -46,8 +44,6 @@ if ( is_search() ) { ?>
             // wp_pagenavi();
         endif; ?>
     </article>
-    <aside class="alignright">
-        <?php dynamic_sidebar('Blog Sidebar'); ?>
-    </aside>
 </section>
+</div>
 <?php get_footer(); ?>
