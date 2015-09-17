@@ -7,7 +7,7 @@
     .toogle_nav{
         position: absolute;
         top: 10px;
-        right: 0;
+        right: 5px;
         display: block;
         .burger-icon{
             display: inline-block;
@@ -26,28 +26,69 @@
         top: 50px;
         right: 0;
         width: 280px;
-        padding: 10px 0;
+        padding: 5px 0;
         -webkit-transition: all 200ms cubic-bezier(.95, .05, .795, .035);
                 transition: all 200ms cubic-bezier(.95, .05, .795, .035);
         background: $a;
+        // @include translate(110%, 0);
 
-        @include translate(100%, 0);
         @include shadow(2);
         &.o_menu{
             @include translate(0, 0);
         }
+        li{
+            position: relative;
+            &:last-child{
+                >a{
+                    border-bottom: none;
+                }
+            }
+        }
         *{
             line-height: 1;
         }
-        a{
+        i{
+            position: absolute;
+            top: 0;
+            right: 0;
             display: block;
-            padding: 8px 10px;
+            width: 30px;
+            height: 29px;
+            cursor: pointer;
             color: #fff;
+            background: darken($a, 6%);
+            &:hover{
+                background: darken($a, 8%);
+            }
+            &:before{
+                @include center();
+            }
+        }
+        a{
+            font-size: 14px;
+            line-height: 30px;
+            display: block;
+            height: 30px;
+            padding: 0  15px;
+            text-transform: uppercase;
+            color: #fff;
+            border-bottom: 1px solid darken($a, 6%) ;
             &:hover{
                 background: darken($a, 5%);
 
                 @include shadow(1);
             }
+        }
+        .menu-depth-1{
+            display: none;
+            padding-left: 10px;
+            background: darken($a, 6%);
+            i{
+                display: none;
+            }
+        }
+        .menu-depth-2{
+            display: none;
         }
     }
     /* GLOBAL
@@ -57,7 +98,7 @@
         max-width: 96%;
     }
     header{
-        position: relative;
+        height: 40px;
         .row{
             max-width: 100%;
         }

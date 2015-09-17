@@ -24,6 +24,19 @@
             transform: translate($x, $y);
 }
 
+
+/* @include rotate( 180 ); */
+@mixin rotate($degrees){
+    zoom: 1;
+    -webkit-transform: rotate(#{$degrees}deg);
+       -moz-transform: rotate(#{$degrees}deg);
+        -ms-transform: rotate(#{$degrees}deg);
+            transform: rotate(#{$degrees}deg);
+
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod=\'auto expand\', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})';
+    filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
+}
+
 /*  https://github.com/pfist/quantum-shadows
     @include shadow(2);
    ========================================================================== */
@@ -96,17 +109,7 @@
     }
 }
 
-/* @include rotate( 180 ); */
-@mixin rotate($degrees){
-    zoom: 1;
-    -webkit-transform: rotate(#{$degrees}deg);
-       -moz-transform: rotate(#{$degrees}deg);
-        -ms-transform: rotate(#{$degrees}deg);
-            transform: rotate(#{$degrees}deg);
 
-    -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod=\'auto expand\', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})';
-    filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
-}
 
 //   .foo {
 //    @include center-h(42px);

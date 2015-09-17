@@ -4,9 +4,11 @@
 header{
     height: 80px;
     background: #ccc;
+        position: relative;
+
     #logo{
         float: left;
-        padding: 20px 0 10px;
+        padding: 20px  10px;
         opacity: 1;
         &:hover{
             opacity: .8;

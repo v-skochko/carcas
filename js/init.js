@@ -6,10 +6,11 @@ $(document).ready(function() {
           $(this).toggleClass('is-active');
         return false;
     });
-
-    $(".main_nav_container .menu-item-has-children>a").after('<i></i>')
+    $(".main_nav_container .menu-item-has-children>a").after('<i class="icf-down"></i>')
     $(".menu-item-has-children i").click(function(event) {
-        $(this).prev('.sub-menu').slideToggle("fast");
+        $(".sub-menu").slideUp("fast")
+        $(this).toggleClass('icf-up').next().slideToggle("fast");
+        // $(this);;
     });
 
     //BXslider
