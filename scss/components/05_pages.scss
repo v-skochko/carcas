@@ -30,11 +30,11 @@ header{
             position: relative;
             display: inline-block;
             >a{
-                font-family: $font_l;
+                font-family: $regular;
                 font-size: 16px;
                 display: block;
                 padding: 5px 15px;
-                border-right: 1px solid $grey;
+                border-right: 1px solid $border;
             }
             &.current-menu-item{
                 background: #ccc;
@@ -66,7 +66,7 @@ header{
                 display: none;
                 overflow: hidden;
                 width: 180px;
-                border: 1px solid $grey;
+                border: 1px solid $border;
                 background: #fff;
                 -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
                    -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
@@ -93,7 +93,7 @@ footer{
     padding: 20px 0;
     background: #212122;
     .icf-copyright{
-        font-family: $font_b;
+        font-family: $bold;
         display: block;
         float: left;
         text-transform: uppercase;

@@ -1,6 +1,5 @@
 .comment_wrap{
     padding: 5px;
-    // border-top: 3px solid #444;
 }
 
 .commentlist{
@@ -11,10 +10,10 @@
         border-bottom-left-radius: 3px;
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
         &.thread-even{
-            border-top: 3px solid $basic;
+            border-top: 3px solid $a;
         }
         &.thread-odd{
-            border-top: 3px solid $second;
+            border-top: 3px solid $b;
         }
     }
     .comment-author{

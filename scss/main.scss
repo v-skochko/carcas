@@ -1,33 +1,37 @@
 @import 'components/02_mixins';
 
-
+/* variebles
+   ========================================================================== */
 //web page width
 $row: 1200px;
-
-// Defaul fonts varieble
-$regular:   Helvetica, Arial, sans-serif;
-//default regular font
-$italic:  Helvetica, Arial, sans-serif;
-//default thin font
-$bold:  Helvetica, Arial, sans-serif;
+// Defaul fonts
+$regular:  "font_regular",  Helvetica, Arial, sans-serif;
+//default italic font
+$italic:  "font_italic", Helvetica, Arial, sans-serif;
 //default bold font
+$bold:  "font_bold", Helvetica, Arial, sans-serif;
+
 
 
 /* FONTS
    ========================================================================== */
 //custom icon fonts
-@include declare-font-face('icf', 'icf', 400);
+@include declare-font('icf', 'icf', 400);
+
+
+
 
 
 
 /* COLOR
    ========================================================================== */
-$basic: #009688;
 $a: #009688;
-$second: #930704;
-$link: $basic;
+$b: #930704;
+
+$link: $a;
 $btn: #009688;
-$grey: #ccc;
+
+$border: #ccc;
 $text: #444;
 
 /* LOAD ORDER
@@ -36,7 +40,7 @@ $text: #444;
 // reset default style
 @import 'components/04_global';
 // global elements (header, footer, contact fotm buttons, etc..)
-@import 'components/05_page';
+@import 'components/05_pages';
 // style for static page
 @import 'components/06_vendors';
 // wordpress comments style

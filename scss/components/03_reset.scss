@@ -1,20 +1,13 @@
 *{
-    font-family: $regular;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-::-moz-selection{
-    color: #fff;
-    background: $basic;
-}
-::selection{
-    color: #fff;
-    background: $basic;
-}
+
 html{
     height: 100%;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-overflow-scrolling: touch;
@@ -23,12 +16,20 @@ html{
         -ms-text-size-adjust: 100%;
 }
 body{
-    font: 400 14px/20px $f5;
+    font-family: $regular;
     position: relative;
     display: flex;
     flex-direction: column;
     height: auto;
     min-height: 100vh;
+    ::-moz-selection{
+        color: #fff;
+        background: $a;
+    }
+    ::selection{
+        color: #fff;
+        background: $a;
+    }
 }
 #wrap{
     flex: 1 0 auto;
@@ -42,13 +43,14 @@ mark{
 input, textarea, select{
     padding: 0 10px;
     outline: 0 none;
+
     @include transition(all, .2s, ease-in-out);
 }
 input[type='text'], input[type='email'], input[type='tel'], textarea{
     width: 100%;
     height: 40px;
     padding: 0 5px 0 10px;
-    border: 1px solid $grey;
+    border: 1px solid $border;
 }
 textarea{
     height: 120px;
@@ -81,12 +83,13 @@ table{
 h1, h2, h3, h4, h5, h6{
     font-size: 14px;
     font-weight: normal;
-    color: $txt;
+    color: $text;
 }
 a{
     text-decoration: none;
     color: $link;
     outline: 0;
+
     @include transition(all, .2s, ease);
     &:hover{
         outline: 0;
