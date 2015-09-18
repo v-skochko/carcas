@@ -22,15 +22,5 @@ $(document).ready(function() {
             $('.slider').addClass('slider_loaded ');
         }
     });
-    /*Contact form7 - close validation error on click*/
-    $(this).on('click', '.wpcf7-not-valid-tip', function() {
-        $(this).prev().trigger('focus');
-        $(this).fadeOut(500, function() {
-            $(this).remove();
-        });
-    });
 });
 /* end ready*/
-$(window).load(function() {
-    "use strict";
-});

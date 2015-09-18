@@ -11,8 +11,8 @@
     padding: 20px 20px 40px 20px;
 }
 #wrap{
-    min-height: 100%;
     overflow-x: hidden;
+    min-height: 100%;
 }
 .c{
     font-size: 0;
@@ -66,6 +66,9 @@ article{
         -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
            -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
                 box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+    }
+    &:active{
+        background: darken($btn, 8%);
     }
 }
 .btn_next{
@@ -130,12 +133,11 @@ article{
 .wysiwyg{
     h1{
         font-size: 20px;
+        line-height: 1;
         margin-bottom: 10px;
         padding-bottom: 5px;
         text-transform: uppercase;
-        line-height: 1;
     }
-
     p{
         padding-bottom: 20px;
     }

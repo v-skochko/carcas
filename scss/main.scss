@@ -1,6 +1,5 @@
 @import 'components/02_mixins';
-
-/* variebles
+/* VARIABLES
    ========================================================================== */
 //web page width
 $row: 1200px;
@@ -10,30 +9,24 @@ $regular:  "font_regular",  Helvetica, Arial, sans-serif;
 $italic:  "font_italic", Helvetica, Arial, sans-serif;
 //default bold font
 $bold:  "font_bold", Helvetica, Arial, sans-serif;
-
-
-
 /* FONTS
    ========================================================================== */
 //custom icon fonts
 @include declare-font('icf', 'icf', 400);
-
-
 /* COLOR
    ========================================================================== */
+//main color
 $a: #00796B;
+//second color
 $b: #FF5252;
-
 //mobile menu color
 $menu: $a;
+// color og link
 $link: $a;
+// buttons color
 $btn: $b;
-
 $border: #ccc;
 $text: #333;
-
-
-
 /* LOAD ORDER
    ========================================================================== */
 @import 'components/03_reset';

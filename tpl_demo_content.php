@@ -9,6 +9,10 @@ global $post; ?>
                     <li><img src='http://placehold.it/1200x300'></li>
                     <li><img src='http://placehold.it/1200x300'></li>
                     <li><img src='http://placehold.it/1200x300'></li>
+                    <li><img src='http://placehold.it/1200x300'></li>
+                    <li><img src='http://placehold.it/1200x300'></li>
+                    <li><img src='http://placehold.it/1200x300'></li>
+                    <li><img src='http://placehold.it/1200x300'></li>
                 </ul>
             </div>
         </article>
@@ -49,7 +53,7 @@ global $post; ?>
             <a class="btn btn_next" href="##">buton next</a>
         </article>
         <article class='cfx'>
-            <?php echo do_shortcode('[contact-form-7 id="4" title="Contact form 1"]'); ?>
+            <?php echo do_shortcode('[contact-form-7 id="1713" title="demo"]'); ?>
         </article>
         <article>
             <div class="grid-wrap">

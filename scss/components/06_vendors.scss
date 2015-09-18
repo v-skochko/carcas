@@ -15,23 +15,32 @@
     }
     .wpcf7-response-output{
         display: none;
-        float: left;
-        width: 96%;
-        margin: 20px 0;
-        padding: 2%;
+        width: 100%;
+        max-width: 300px;
+        margin: 0;
+        margin: 20px auto;
+        padding: 15px 20px;
+        cursor: pointer;
         text-align: center;
-        background: #fff;
-        &.wpcf7-validation-errors{
-            color: white;
-            background: #ff5f5f;
+        color: white;
+        background: #ff5f5f;
+        &:before{
+            font-family: 'icf';
+            font-size: 40px;
+            position: relative;
+            top: 0;
+            display: block;
+            margin: 0 auto 10px;
+            content: '\e822';
         }
         &.wpcf7-mail-sent-ng{
-            color: white;
             background: #1091ae;
         }
         &.wpcf7-mail-sent-ok{
-            color: white;
             background: #16a085;
+            &:before{
+                content: '\e83b';
+            }
         }
     }
     .wpcf7-form-control-wrap{
@@ -127,7 +136,6 @@
             i:before{
                 font-size: 18px;
                 color: #222;
-
                 @include center();
             }
             &:hover{
