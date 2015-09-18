@@ -11,7 +11,6 @@
         display: block;
         .burger-icon{
             display: inline-block;
-
             @include burger(18px, 2px, 4px, #444);
         }
         &.is-active{
@@ -23,15 +22,17 @@
     .main_nav_container{
         position: absolute;
         z-index: 1000;
-        top: 50px;
+        z-index: 101;
+        top: 40px;
         right: 0;
-        width: 280px;
+        width: 80%;
+        max-width: 320px;
         padding: 5px 0;
         -webkit-transition: all 200ms cubic-bezier(.95, .05, .795, .035);
                 transition: all 200ms cubic-bezier(.95, .05, .795, .035);
-        background: $a;
-        // @include translate(110%, 0);
-
+        border-bottom-left-radius: 5px;
+        background: $menu;
+        @include translate(110%, 0);
         @include shadow(2);
         &.o_menu{
             @include translate(0, 0);
@@ -41,6 +42,18 @@
             &:last-child{
                 >a{
                     border-bottom: none;
+                }
+            }
+            &.current-menu-item{
+                >a{
+                    padding-left: 10px;
+                    &:before{
+                        font-family: 'icf';
+                        font-size: 11px;
+                        padding-right: 3px;
+                        content: '\e850';
+                        color: #fff;
+                    }
                 }
             }
         }
@@ -56,9 +69,9 @@
             height: 29px;
             cursor: pointer;
             color: #fff;
-            background: darken($a, 6%);
+            background: darken($menu, 6%);
             &:hover{
-                background: darken($a, 8%);
+                background: darken($menu, 8%);
             }
             &:before{
                 @include center();
@@ -68,21 +81,23 @@
             font-size: 14px;
             line-height: 30px;
             display: block;
+            overflow: hidden;
             height: 30px;
             padding: 0  15px;
             text-transform: uppercase;
             color: #fff;
-            border-bottom: 1px solid darken($a, 6%) ;
+            border-bottom: 1px solid darken($menu, 6%) ;
             &:hover{
-                background: darken($a, 5%);
-
+                background: darken($menu, 5%);
                 @include shadow(1);
             }
         }
         .menu-depth-1{
             display: none;
-            padding-left: 10px;
-            background: darken($a, 6%);
+            background: darken($menu, 8%);
+            a{
+                padding-left: 20px;
+            }
             i{
                 display: none;
             }

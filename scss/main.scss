@@ -19,17 +19,20 @@ $bold:  "font_bold", Helvetica, Arial, sans-serif;
 @include declare-font('icf', 'icf', 400);
 
 
-
 /* COLOR
    ========================================================================== */
 $a: #00796B;
 $b: #FF5252;
 
+//mobile menu color
+$menu: $a;
 $link: $a;
 $btn: $b;
 
 $border: #ccc;
-$text: #444;
+$text: #333;
+
+
 
 /* LOAD ORDER
    ========================================================================== */

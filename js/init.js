@@ -3,29 +3,25 @@ $(document).ready(function() {
     "use strict";
     $('.toogle_nav').click(function() {
         $(this).next().toggleClass('o_menu');
-          $(this).toggleClass('is-active');
+        $(this).toggleClass('is-active');
         return false;
     });
-    $(".main_nav_container .menu-item-has-children>a").after('<i class="icf-down"></i>')
+    $(".main_nav_container .menu-item-has-children>a").after('<i class="icf-down"></i>');
     $(".menu-item-has-children i").click(function(event) {
-        $(".sub-menu").slideUp("fast")
         $(this).toggleClass('icf-up').next().slideToggle("fast");
         // $(this);;
     });
-
     //BXslider
-    $('.slider ul').bxSlider({
-        nextText: "",
-        prevText: "",
+    $('.bx_slider ul').bxSlider({
+        nextText: "<i class='icf-left'></i>",
+        prevText: "<i class='icf-right'></i>",
         pause: 7000,
-        pager: false,
+        // pager: false,
         auto: true,
         onSliderLoad: function() {
             $('.slider').addClass('slider_loaded ');
         }
     });
-
-
     /*Contact form7 - close validation error on click*/
     $(this).on('click', '.wpcf7-not-valid-tip', function() {
         $(this).prev().trigger('focus');
