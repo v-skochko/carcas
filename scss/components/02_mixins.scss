@@ -11,6 +11,8 @@
     }
 }
 
+/* html5
+   ========================================================================== */
 @mixin scale($scale){
     -webkit-transform: scale($scale);
        -moz-transform: scale($scale);
@@ -23,8 +25,6 @@
         -ms-transform: translate($x, $y);
             transform: translate($x, $y);
 }
-
-
 /* @include rotate( 180 ); */
 @mixin rotate($degrees){
     zoom: 1;
@@ -32,10 +32,22 @@
        -moz-transform: rotate(#{$degrees}deg);
         -ms-transform: rotate(#{$degrees}deg);
             transform: rotate(#{$degrees}deg);
-
     -ms-filter: 'progid:DXImageTransform.Microsoft.Matrix(sizingMethod=\'auto expand\', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)})';
     filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=#{cos($degrees)}, M12=-#{sin($degrees)}, M21=#{sin($degrees)}, M22=#{cos($degrees)});
 }
+// @include border-radius(5px);
+@mixin border-radius($radius){
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+            border-radius: $radius;
+}
+@mixin transition($transition-property, $transition-time, $method){
+    -webkit-transition: $transition-property $transition-time $method;
+       -moz-transition: $transition-property $transition-time $method;
+        -ms-transition: $transition-property $transition-time $method;
+            transition: $transition-property $transition-time $method;
+}
+
 
 /*  https://github.com/pfist/quantum-shadows
     @include shadow(2);
@@ -64,31 +76,22 @@
 }
 
 
-
-
-// @include border-radius(5px);
-@mixin border-radius($radius){
-    -webkit-border-radius: $radius;
-       -moz-border-radius: $radius;
-            border-radius: $radius;
+// .selector {
+//   @include x-placeholder {
+//   }
+// }
+@mixin placeholder{
+    &::-webkit-input-placeholder{
+        @content;
+    }
+    &::-moz-placeholder{
+        @content ;
+        opacity: 1;
+    }
+    &:-ms-input-placeholder{
+        @content ;
+    }
 }
-
-@mixin background-size($size){
-    -webkit-background-size: $size;
-       -moz-background-size: $size;
-            background-size: $size;
-
-        -ms-background-size: $size;
-}
-
-@mixin transition($transition-property, $transition-time, $method){
-    -webkit-transition: $transition-property $transition-time $method;
-       -moz-transition: $transition-property $transition-time $method;
-        -ms-transition: $transition-property $transition-time $method;
-            transition: $transition-property $transition-time $method;
-}
-
-
 
 /* @include center(true, false); */
 @mixin center($horizontal: true, $vertical: true){
@@ -109,41 +112,23 @@
     }
 }
 
-
-
-//   .foo {
-//    @include center-h(42px);
-//   }
-@mixin center-h($height){
-    position: absolute;
-    top: 50%;
-    height: $height;
-    margin-top: -($height / 2);
-}
-
-
 /* ==========================================================================
    HAMBURGER
    ========================================================================== */
-
 // Vendor prefixes
 $b_vendor: true !default;
-
 // Burger
 @mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
     $burger-height: $height;
     $burger-gutter: $gutter ;
-
     position: relative;
     margin-top: $height + $gutter;
     margin-bottom: $height + $gutter;
-
     @if $b_vendor {
         -webkit-user-select: none;
         -moz-user-select: none;
     }
     user-select: none;
-
     &, &::before, &::after {
         display: block;
         width: $width;
@@ -160,55 +145,44 @@ $b_vendor: true !default;
             -moz-transition-property: background-color, -moz-transform;
         }
         transition-property: background-color, transform;
-
         @if $b_vendor {
             -webkit-transition-duration: $transition-duration;
             -moz-transition-duration: $transition-duration;
         }
         transition-duration: $transition-duration;
     }
-
     &::before, &::after {
         position: absolute;
         content: "";
     }
-
     &::before {
         top: -($height + $gutter);
     }
-
     &::after {
         top: $height + $gutter;
     }
 }
-
-
 // Select parts of the burger
 @mixin burger-parts {
     &, &::before, &::after {
         @content;
     }
 }
-
 @mixin burger-top {
     &::before {
         @content;
     }
 }
-
 @mixin burger-middle {
     & {
         @content;
     }
 }
-
 @mixin burger-bottom {
     &::after {
         @content;
     }
 }
-
-
 // Burger animations
 @mixin burger-to-cross {
     & {
@@ -229,25 +203,3 @@ $b_vendor: true !default;
         transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
     }
 }
-
-
-
-
-
-// .selector {
-//   @include x-placeholder {
-//   }
-// }
-@mixin placeholder{
-    &::-webkit-input-placeholder{
-        @content // Chrome, Safari, Opera
-    }
-    &::-moz-placeholder{
-        @content // Firefox 19+
-    }
-    &:-ms-input-placeholder{
-        @content // IE 10+
-    }
-}
-
-

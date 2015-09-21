@@ -21,7 +21,6 @@
     }
     .main_nav_container{
         position: absolute;
-        z-index: 1000;
         z-index: 101;
         top: 40px;
         right: 0;
@@ -46,7 +45,7 @@
             }
             &.current-menu-item{
                 >a{
-                    padding-left: 10px;
+                    padding-left: 10px;`
                     &:before{
                         font-family: 'icf';
                         font-size: 11px;
