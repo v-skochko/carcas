@@ -11,7 +11,6 @@
         display: block;
         .burger-icon{
             display: inline-block;
-
             @include burger(18px, 2px, 4px, #444);
         }
         &.is-active{
@@ -33,7 +32,6 @@
                 transition: all 200ms cubic-bezier(.95, .05, .795, .035);
         border-bottom-left-radius: 5px;
         background: $menu;
-
         @include translate(110%, 0);
         @include shadow(2);
         &.o_menu{
@@ -91,7 +89,6 @@
             border-bottom: 1px solid darken($menu, 6%) ;
             &:hover{
                 background: darken($menu, 5%);
-
                 @include shadow(1);
             }
         }
@@ -111,7 +108,6 @@
     }
     /* GLOBAL
        ========================================================================== */
-
     .bx-controls-direction{
         display: none;
     }
