@@ -12,7 +12,7 @@
         <title><?php wp_title(); ?></title>
         <meta name="MobileOptimized" content="width"/>
         <meta name="HandheldFriendly" content="True"/>
-        <meta name="viewport"content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
         <!-- favicon -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon-60x60.png">
