@@ -174,6 +174,11 @@ function my_theme_register_required_plugins()
             'required' => false,
         ),
         array(
+            'name' => 'Quick Bulk Post & Page Creator',
+            'slug' => 'quick-bulk-post-page-creator',
+            'required' => false,
+        ),
+        array(
             'name' => 'WP No Category Base',
             'slug' => 'wp-no-category-base',
             'required' => false,
