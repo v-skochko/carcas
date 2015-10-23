@@ -29,17 +29,19 @@ $border: #ccc;
 $text: #333;
 /* LOAD ORDER
    ========================================================================== */
+// reset
 @import 'components/03_reset';
-// reset default style
+// global elements (buttons, etc..)
 @import 'components/04_global';
-// global elements (header, footer, contact fotm buttons, etc..)
+// style for custom page
 @import 'components/05_pages';
-// style for static page
+// style for js plugins
 @import 'components/06_vendors';
 // wordpress comments style
 @import 'components/09_comments';
-// Woocommerce
+// woocommerce
 // @import 'components/10_woocommerce'; //woocommerce
+//icon fonts
 @import 'components/98_icf';
 // responsive
 @import 'components/99_responsive';

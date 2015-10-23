@@ -40,17 +40,6 @@
 //selbel itit
 $(window).load(function() {
     "use strict";
-    $("select").selbel();
-    /*Contact form7 - close validation error on click*/
-    $(this).on('click', '.wpcf7-not-valid-tip', function() {
-        $(this).prev().trigger('focus');
-        $(this).fadeOut(500, function() {
-            $(this).remove();
-        });
-    });
-    $(".wpcf7-response-output").click(function(event) {
-        $(this).slideUp(400);
-    });
     //backstretch
     $('[data-bg]').each(function() {
         if ($(this).attr('data-bg').length) {
