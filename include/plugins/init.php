@@ -188,6 +188,11 @@ function my_theme_register_required_plugins()
             'slug' => 'post-thumbnail-editor',
             'required' => false,
         ),
+             array(
+            'name' => 'Resize Image After Upload',
+            'slug' => 'resize-image-after-upload',
+            'required' => false,
+        ),
 
         array(
             'name' => 'TinyMCE Advanced',
