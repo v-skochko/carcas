@@ -11,6 +11,7 @@
         display: block;
         .burger-icon{
             display: inline-block;
+
             @include burger(18px, 2px, 4px, #444);
         }
         &.is-active{
@@ -31,6 +32,7 @@
                 transition: all 200ms cubic-bezier(.95, .05, .795, .035);
         border-bottom-left-radius: 5px;
         background: $menu;
+
         @include translate(110%, 0);
         @include shadow(2);
         &.o_menu{
@@ -47,10 +49,10 @@
                 >a{
                     padding-left: 10px;
                     &:before{
-                        font-family: 'icf';
+                        font-family: 'i';
                         font-size: 11px;
                         padding-right: 3px;
-                        content: '\e850';
+                        content: 'b';
                         color: #fff;
                     }
                 }
@@ -88,6 +90,7 @@
             border-bottom: 1px solid darken($menu, 6%) ;
             &:hover{
                 background: darken($menu, 5%);
+
                 @include shadow(1);
             }
         }

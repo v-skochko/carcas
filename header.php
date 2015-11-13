@@ -3,7 +3,7 @@
     header('Content-Type: text/html; charset=utf-8');
     header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
     header('X-UA-Compatible: IE=Edge,chrome=1');
-    ob_start('ob_html_compress');
+  /*  ob_start('ob_html_compress');*/
 ?>
 <!doctype html>
 <html lang="en">

@@ -4,9 +4,11 @@
         <span class="icf-copyright"><?php echo date('Y'); ?> <?php bloginfo('name'); ?></span>
 
         <div class="social_link">
-            <a href="#" class="icf-facebook" target="_blank"></a>
-            <a href="#" class="icf-twitter" target="_blank"></a>
-            <a href="#" class="icf-gplus" target="_blank"></a>
+            <a href="#" class="i-facebook" target="_blank"></a>
+            <a href="#" class="i-instagram" target="_blank"></a>
+            <a href="#" class="i-twitter" target="_blank"></a>
+            <a href="#" class="i-g" target="_blank"></a>
+            <a href="#" class="i-youtube-play" target="_blank"></a>
         </div>
     </div>
 </footer>

@@ -136,3 +136,98 @@
 .icf-mail3:before { content: '\e86a'; } /* '' */
 .icf-gplus:before { content: '\e86b'; } /* '' */
 .icf-cog:before { content: '\e86c'; } /* '' */
+
+
+
+[data-icon]:before {
+  font-family: "i" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="i-"]:before,
+[class*=" i-"]:before {
+  font-family: "i" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-t-left:before {
+  content: "a";
+}
+.i-t-right:before {
+  content: "b";
+}
+.i-t-down:before {
+  content: "c";
+}
+.i-t-up:before {
+  content: "d";
+}
+.i-left:before {
+  content: "e";
+}
+.i-right:before {
+  content: "f";
+}
+.i-up:before {
+  content: "g";
+}
+.i-down:before {
+  content: "h";
+}
+.i-youtube:before {
+  content: "i";
+}
+.i-youtube-play:before {
+  content: "j";
+}
+.i-twitter:before {
+  content: "k";
+}
+.i-instagram:before {
+  content: "l";
+}
+.i-linkedin:before {
+  content: "n";
+}
+.i-pinterest:before {
+  content: "o";
+}
+.i-facebook:before {
+  content: "p";
+}
+.i-mail:before {
+  content: "r";
+}
+.i-search:before {
+  content: "s";
+}
+.i-marker:before {
+  content: "t";
+}
+.i-calendar:before {
+  content: "u";
+}
+.i-phone:before {
+  content: "v";
+}
+.i-cross:before {
+  content: "w";
+}
+.i-g:before {
+  content: "q";
+}

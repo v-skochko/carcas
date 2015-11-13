@@ -60,6 +60,7 @@ article{
     border: none;
     outline: 0;
     background: $btn;
+
     @include border-radius(3px);
     &:hover{
         background: darken($btn, 5%);
@@ -211,30 +212,42 @@ article{
         margin: 0 5px;
         color: #fff;
         border-radius: 50%;
+
         @include transition(all, .15s, ease-in);
         &:before{
             font-size: 20px;
             position: relative;
             color: #fff;
+
             @include center();
         }
-        &.icf-facebook{
-            background: #3b5993;
-        }
-        &.icf-twitter{
-            background: #55acee;
-            &:before{
-                // content: '\e866';
+        &.i-facebook{
+            &:hover{
+                background: #3b5993;
             }
         }
-        &.icf-gplus{
-            background: #d94733;
-            &:before{
-                // content: '\e85d';
+        &.i-instagram{
+            &:hover{
+                background: #125688;
+            }
+        }
+        &.i-twitter{
+            &:hover{
+                background: #55acee;
+            }
+        }
+        &.i-g{
+            &:hover{
+                background: #d94733;
+            }
+        }
+        &.i-youtube-play{
+            &:hover{
+                background: #f80000;
             }
         }
         &:hover{
-            @include scale(1.2);
+            // @include scale(1.2);
         }
     }
 }
