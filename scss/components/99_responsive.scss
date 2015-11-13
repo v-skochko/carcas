@@ -49,10 +49,11 @@
                 >a{
                     padding-left: 10px;
                     &:before{
-                        font-family: 'i';
+                        font-family: 'i'!important;
                         font-size: 11px;
                         padding-right: 3px;
                         content: 'b';
+                        text-transform: none !important;
                         color: #fff;
                     }
                 }

@@ -8,9 +8,9 @@ $(document).ready(function() {
         $(this).toggleClass('is-active');
         return false;
     });
-    $(".main_nav_container .menu-item-has-children>a").after('<i class="icf-down"></i>');
+    $(".main_nav_container .menu-item-has-children>a").after('<i class="i-down"></i>');
     $(".menu-item-has-children i").click(function(event) {
-        $(this).toggleClass('icf-up').next().slideToggle("fast");
+        $(this).toggleClass('i-up').next().slideToggle("fast");
     });
 
     //bx_slider

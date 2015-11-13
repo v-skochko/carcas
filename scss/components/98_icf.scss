@@ -138,6 +138,17 @@
 .icf-cog:before { content: '\e86c'; } /* '' */
 
 
+@font-face {
+  font-family: "i";
+  src:url("fonts/i.eot");
+  src:url("fonts/i.eot?#iefix") format("embedded-opentype"),
+    url("fonts/i.woff") format("woff"),
+    url("fonts/i.ttf") format("truetype"),
+    url("fonts/i.svg#i") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
 
 [data-icon]:before {
   font-family: "i" !important;
@@ -176,18 +187,6 @@
 }
 .i-t-up:before {
   content: "d";
-}
-.i-left:before {
-  content: "e";
-}
-.i-right:before {
-  content: "f";
-}
-.i-up:before {
-  content: "g";
-}
-.i-down:before {
-  content: "h";
 }
 .i-youtube:before {
   content: "i";
@@ -230,4 +229,16 @@
 }
 .i-g:before {
   content: "q";
+}
+.i-down:before {
+  content: "e";
+}
+.i-up:before {
+  content: "f";
+}
+.i-left:before {
+  content: "g";
+}
+.i-right:before {
+  content: "h";
 }
