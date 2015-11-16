@@ -25,6 +25,12 @@
         -ms-transform: translate($x, $y);
             transform: translate($x, $y);
 }
+@mixin translateY( $y){
+    -webkit-transform: translateY( $y);
+       -moz-transform: translateY( $y);
+        -ms-transform: translateY( $y);
+            transform: translateY( $y);
+}
 /* @include rotate( 180 ); */
 @mixin rotate($degrees){
     zoom: 1;
@@ -76,8 +82,17 @@
 }
 
 
+
+
+
+
+
+
+
+
+
 // .selector {
-//   @include x-placeholder {
+//   @include placeholder {
 //   }
 // }
 @mixin placeholder{

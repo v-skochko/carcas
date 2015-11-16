@@ -3,6 +3,13 @@
    ========================================================================== */
 .wpcf7{
     width: 100%;
+    *{
+        @include placeholder{
+            font-size: 18px;
+            opacity: 1;
+            color: $text;
+        }
+    }
     .wpcf7-not-valid-tip{
         font: 500 14px/1 $regular;
         position: absolute;
@@ -48,18 +55,6 @@
     .wpcf7-form-control-wrap{
         position: relative;
         display: block !important;
-    }
-    ::-webkit-input-placeholder{
-        opacity: 1;
-        color: $text;
-    }
-    ::-moz-placeholder{
-        opacity: 1;
-        color: $text;
-    }
-    :-ms-input-placeholder{
-        opacity: 1;
-        color: $text;
     }
     .ajax-loader{
         display: none;
@@ -112,6 +107,7 @@
      ========================================================================== */
 .bx_style{
     opacity: 0;
+
     @include transition(all, .5s, ease-in-out);
     &.slider_loaded{
         opacity: 1;
@@ -142,18 +138,21 @@
                 opacity: .5;
                 border-radius: 50%;
                 background: rgba(255, 255, 255, .6);
+
                 @include transition(all, .2s, ease-in-out);
                 @include shadow(1);
             }
             i:before{
                 font-size: 18px;
                 color: #222;
+
                 @include center();
             }
             &:hover{
                 i{
                     opacity: .8;
                     background: rgba(255, 255, 255, .8);
+
                     @include shadow(2);
                 }
             }
@@ -161,6 +160,7 @@
                 i{
                     opacity: 1;
                     background: rgba(255, 255, 255, 1);
+
                     @include shadow(3);
                 }
             }
@@ -292,6 +292,7 @@ $grid-spacing: 3%;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
+
     -webkit-tap-highlight-color: transparent;
     .waves-ripple{
         position: absolute;
@@ -311,6 +312,7 @@ $grid-spacing: 3%;
         background:      -o-radial-gradient($gradient);
         background:    -moz-radial-gradient($gradient);
         background:         radial-gradient($gradient);
+
         $gradient: rgba(0,0,0,.2) 0,rgba(0,0,0,.3) 40%,rgba(0,0,0,.4) 50%,rgba(0,0,0,.5) 60%,rgba(255,255,255,0) 70%;
         @include waves-transition(all .5s ease-out);
         @include waves-transform(scale(0) translate(0,0));
@@ -321,6 +323,7 @@ $grid-spacing: 3%;
         background:      -o-radial-gradient($gradient);
         background:    -moz-radial-gradient($gradient);
         background:         radial-gradient($gradient);
+
         $gradient: rgba(255,255,255,.2) 0,rgba(255,255,255,.3) 40%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.5) 60%,rgba(255,255,255,0) 70%;
     }
     &.waves-classic .waves-ripple{

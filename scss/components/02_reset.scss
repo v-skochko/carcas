@@ -4,10 +4,8 @@
     margin: 0;
     padding: 0;
 }
-
 html{
     height: 100%;
-
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-overflow-scrolling: touch;
@@ -43,7 +41,6 @@ mark{
 input, textarea, select{
     padding: 0 10px;
     outline: 0 none;
-
     @include transition(all, .2s, ease-in-out);
 }
 input[type='text'], input[type='email'], input[type='tel'], textarea{
@@ -89,7 +86,6 @@ a{
     text-decoration: none;
     color: $link;
     outline: 0;
-
     @include transition(all, .2s, ease);
     &:hover{
         outline: 0;
@@ -116,4 +112,17 @@ strong, b{
 }
 i{
     font-style: normal;
+}
+::-webkit-scrollbar{
+    width: 13px;
+}
+::-webkit-scrollbar-track{
+    border-left: 1px solid #ccc;
+    background-color: #eaeaea;
+}
+::-webkit-scrollbar-thumb{
+    background-color: $a;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: darken($a, 5%);
 }
