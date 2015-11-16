@@ -1,4 +1,4 @@
-@import 'components/02_mixins';
+@import 'components/01_mixins';
 /* VARIABLES
    ========================================================================== */
 //web page width
@@ -12,7 +12,6 @@ $bold:  "font_bold", Helvetica, Arial, sans-serif;
 /* FONTS
    ========================================================================== */
 //custom icon fonts
-// @include declare-font('icf', 'icf', 400);
 @include declare-font('i', 'i', 400);
 /* COLOR
    ========================================================================== */
@@ -31,19 +30,19 @@ $text: #333;
 /* LOAD ORDER
    ========================================================================== */
 // reset
-@import 'components/03_reset';
+@import 'components/02_reset';
 // global elements (buttons, etc..)
-@import 'components/04_global';
+@import 'components/03_global';
 // style for custom page
-@import 'components/05_pages';
+@import 'components/04_pages';
 // style for js plugins
-@import 'components/06_vendors';
+@import 'components/05_vendors';
 // wordpress comments style
-@import 'components/09_comments';
+// @import 'components/06_comments';
 // woocommerce
-// @import 'components/10_woocommerce'; //woocommerce
+// @import 'components/07_woocommerce'; //woocommerce
 //icon fonts
-@import 'components/98_icf';
+@import 'components/98_i';
 // responsive
 @import 'components/99_responsive';
 

@@ -25,13 +25,15 @@
         color: white;
         background: #ff5f5f;
         &:before{
-            font-family: 'icf';
+            font-family: 'i' !important;
             font-size: 40px;
+            font-style: normal !important;
+            line-height: 1;
             position: relative;
             top: 0;
             display: block;
             margin: 0 auto 10px;
-            content: '\e822';
+            content: 'm';
         }
         &.wpcf7-mail-sent-ng{
             background: #1091ae;
@@ -39,7 +41,7 @@
         &.wpcf7-mail-sent-ok{
             background: #16a085;
             &:before{
-                content: '\e83b';
+                content: 'x';
             }
         }
     }
@@ -109,6 +111,11 @@
      bxSlider
      ========================================================================== */
 .bx_style{
+    opacity: 0;
+    @include transition(all, .5s, ease-in-out);
+    &.slider_loaded{
+        opacity: 1;
+    }
     .bx-wrapper{
         position: relative;
         &:hover{
@@ -126,23 +133,36 @@
         width: 100%;
         a{
             position: absolute;
-            display: block;
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            opacity: .3;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .6);
+            i{
+                display: block;
+                overflow: hidden;
+                width: 30px;
+                height: 30px;
+                text-align: center;
+                opacity: .5;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, .6);
+                @include transition(all, .2s, ease-in-out);
+                @include shadow(1);
+            }
             i:before{
                 font-size: 18px;
                 color: #222;
                 @include center();
             }
             &:hover{
-                background: rgba(255, 255, 255, .8);
+                i{
+                    opacity: .8;
+                    background: rgba(255, 255, 255, .8);
+                    @include shadow(2);
+                }
             }
             &:active{
-                background: rgba(255, 255, 255, 1);
+                i{
+                    opacity: 1;
+                    background: rgba(255, 255, 255, 1);
+                    @include shadow(3);
+                }
             }
         }
         .bx-prev{
@@ -237,4 +257,121 @@ $grid-spacing: 3%;
 }
 .col-12{
     width: 100%;
+}
+/*!
+ * Waves v0.7.4
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
+ * https://github.com/fians/Waves/blob/master/LICENSE
+ */
+@mixin waves-transition($transition){
+    -webkit-transition: $transition;
+       -moz-transition: $transition;
+         -o-transition: $transition;
+            transition: $transition;
+}
+@mixin waves-transform($string){
+    -webkit-transform: $string;
+       -moz-transform: $string;
+        -ms-transform: $string;
+         -o-transform: $string;
+            transform: $string;
+}
+@mixin waves-box-shadow($shadow){
+    -webkit-box-shadow: $shadow;
+            box-shadow: $shadow;
+}
+.waves-effect{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    .waves-ripple{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        margin-left: -50px;
+        -webkit-transition-property: -webkit-transform, opacity;
+           -moz-transition-property:    -moz-transform, opacity;
+             -o-transition-property:      -o-transform, opacity;
+                transition-property:         transform, opacity;
+        pointer-events: none;
+        opacity: 0;
+        border-radius: 50%;
+        background: rgba(0,0,0,.2);
+        background: -webkit-radial-gradient($gradient);
+        background:      -o-radial-gradient($gradient);
+        background:    -moz-radial-gradient($gradient);
+        background:         radial-gradient($gradient);
+        $gradient: rgba(0,0,0,.2) 0,rgba(0,0,0,.3) 40%,rgba(0,0,0,.4) 50%,rgba(0,0,0,.5) 60%,rgba(255,255,255,0) 70%;
+        @include waves-transition(all .5s ease-out);
+        @include waves-transform(scale(0) translate(0,0));
+    }
+    &.waves-light .waves-ripple{
+        background: rgba(255,255,255,.4);
+        background: -webkit-radial-gradient($gradient);
+        background:      -o-radial-gradient($gradient);
+        background:    -moz-radial-gradient($gradient);
+        background:         radial-gradient($gradient);
+        $gradient: rgba(255,255,255,.2) 0,rgba(255,255,255,.3) 40%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.5) 60%,rgba(255,255,255,0) 70%;
+    }
+    &.waves-classic .waves-ripple{
+        background: rgba(0,0,0, .2);
+    }
+    &.waves-classic.waves-light .waves-ripple{
+        background: rgba(255,255,255, .4);
+    }
+}
+.waves-notransition{
+    // @include waves-transition(none #{"!important"});
+}
+.waves-button, .waves-circle{
+    @include waves-transform(translateZ(0));
+    -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+}
+.waves-button, .waves-button:hover, .waves-button:visited, .waves-button-input{
+    z-index: 1;
+}
+.waves-input-wrapper{
+    vertical-align: bottom;
+    border-radius: .2em;
+    &.waves-button{
+        padding: 0;
+    }
+    .waves-button-input{
+        position: relative;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+}
+.waves-circle{
+    line-height: 2.5em;
+    width: 2.5em;
+    height: 2.5em;
+    text-align: center;
+    border-radius: 50%;
+}
+.waves-float{
+    -webkit-mask-image: none;
+    @include waves-box-shadow(0px 1px 1.5px 1px rgba(0, 0, 0, .12));
+    @include waves-transition(all 300ms);
+    &:active{
+        @include waves-box-shadow(0px 8px 20px 1px rgba(0, 0, 0, .30));
+    }
+}
+.waves-block{
+    display: block;
+}
+/* Firefox Bug: link not triggered */
+a.waves-effect .waves-ripple{
+    z-index: -1;
 }

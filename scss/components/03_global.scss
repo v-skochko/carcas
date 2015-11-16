@@ -60,6 +60,7 @@ article{
     border: none;
     outline: 0;
     background: $btn;
+
     @include border-radius(3px);
     &:hover{
         background: darken($btn, 5%);
@@ -69,12 +70,6 @@ article{
     }
     &:active{
         background: darken($btn, 8%);
-    }
-}
-.btn_next{
-    &:after{
-        font-family: 'icf';
-        content: '\e838';
     }
 }
 .underline{
@@ -163,10 +158,12 @@ article{
         margin: 0 2px;
         color: #fff;
         border-radius: 50%;
+
         @include transition(all, .1s, ease-in);
         &:before{
             font-size: 20px;
             color: #fff;
+
             @include center();
         }
         &.i-facebook{
@@ -192,6 +189,16 @@ article{
         &.i-youtube-play{
             &:hover{
                 background: #f80000;
+            }
+        }
+        &.i-pinterest{
+            &:hover{
+                background: #BD1E23;
+            }
+        }
+        &.i-linkedin{
+            &:hover{
+                background: #0177B5;
             }
         }
         &:hover{
@@ -225,7 +232,7 @@ article{
             position: relative;
             display: block;
         }
-        .icf-search{
+        .i-search{
             margin: 20px 0;
             &:before{
                 font-size: 18px;
@@ -261,7 +268,7 @@ article{
         background: transparent;
         box-shadow: 0 0 0 1000px rgba(255, 255, 255, .87), 0 0 19px 0 rgba(0, 0, 0, .16) inset;
     }
-    .icf-cog{
+    .i-cog{
         position: absolute;
         z-index: -2;
     }
@@ -270,7 +277,7 @@ article{
     top: 0;
     left: 50px;
     &:before{
-        font-size: 160px;
+        font-size: 150px;
         -webkit-animation: rotate 10s infinite linear;
                 animation: rotate 10s infinite linear;
         color: #999;
@@ -279,11 +286,11 @@ article{
 .cog_left{
     top: 114px;
     left: 35px;
-    -webkit-transform: rotate(51deg);
-        -ms-transform: rotate(51deg);
-            transform: rotate(51deg);
+    -webkit-transform: rotate(48deg);
+        -ms-transform: rotate(48deg);
+            transform: rotate(48deg);
     &:before{
-        font-size: 120px;
+        font-size: 110px;
         -webkit-animation: rotate_left 10s .1s infinite reverse linear;
                 animation: rotate_left 10s .1s infinite reverse linear;
         color: #666;
@@ -292,16 +299,16 @@ article{
 .cog_right{
     top: 175px;
     left: 118px;
-    -webkit-transform: rotate(19deg);
-        -ms-transform: rotate(19deg);
-            transform: rotate(19deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
     &:before{
-        font-size: 80px;
+        font-size: 75px;
         -webkit-animation: rotate_right 10.4s .4s infinite linear;
                 animation: rotate_right 10.4s .4s infinite linear;
         color: #444;
     }
 }
+
 /* Animations */
 @-webkit-keyframes rotate{
     from{
