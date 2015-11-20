@@ -1,0 +1,167 @@
+/* ==========================================================================
+   HELPERS
+   ========================================================================== */
+.row{
+    position: relative;
+    width: $row;
+    max-width: 100%;
+    margin: 0 auto;
+}
+#content{
+    padding: 20px 20px 40px 20px;
+}
+#wrap{
+    overflow-x: hidden;
+    min-height: 100%;
+}
+.c{
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    clear: both;
+    overflow: hidden;
+}
+.cfx{
+    &:after{
+        display: table;
+        clear: both;
+        content: ' ';
+    }
+    &:before{
+        display: table;
+        content: ' ';
+    }
+}
+
+.no_select{
+    -webkit-user-select: none;
+       -moz-user-select: none;
+}
+.btn, input[type='submit']{
+    font: 400 15px/1 $regular;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    outline: 0;
+    background: $btn;
+
+    @include border-radius(3px);
+    &:hover{
+        background: darken($btn, 5%);
+        -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+           -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+                box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+    }
+    &:active{
+        background: darken($btn, 8%);
+    }
+}
+.underline{
+    position: relative;
+    display: inline-block;
+    &:after{
+        display: block;
+        width: 0;
+        height: 1px;
+        margin: auto;
+        content: '';
+        transition: width .5s ease, background-color .5s ease;
+        background: transparent;
+    }
+    &:hover:after{
+        width: 100%;
+        background: $link;
+    }
+}
+/* ==========================================================================
+   WYSIWYG
+   ========================================================================== */
+.wysiwyg{
+    h1{
+        font-size: 20px;
+        line-height: 1;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+    }
+    p{
+        padding-bottom: 20px;
+    }
+    ul{
+        margin-left: 30px;
+        padding-bottom: 20px;
+    }
+}
+/* ==========================================================================
+   SOCIAL LINK
+   ========================================================================== */
+.social_link{
+    display: inline-block;
+    float: right;
+    width: auto;
+    cursor: pointer;
+    text-align: center;
+    a{
+        position: relative;
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        margin: 0 2px;
+        color: #fff;
+        border-radius: 50%;
+
+        @include transition(all, .1s, ease-in);
+        &:before{
+            font-size: 20px;
+            color: #fff;
+
+            @include center();
+        }
+        &.i-facebook{
+            &:hover{
+                background: #3b5993;
+            }
+        }
+        &.i-instagram{
+            &:hover{
+                background: #125688;
+            }
+        }
+        &.i-twitter{
+            &:hover{
+                background: #55acee;
+            }
+        }
+        &.i-g{
+            &:hover{
+                background: #d94733;
+            }
+        }
+        &.i-youtube-play{
+            &:hover{
+                background: #f80000;
+            }
+        }
+        &.i-pinterest{
+            &:hover{
+                background: #BD1E23;
+            }
+        }
+        &.i-linkedin{
+            &:hover{
+                background: #0177B5;
+            }
+        }
+        &:hover{
+            // @include scale(1.2);
+        }
+    }
+}

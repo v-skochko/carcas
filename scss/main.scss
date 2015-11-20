@@ -1,14 +1,14 @@
-@import 'components/01_mixins';
+@import 'components/00_mixins';
 /* VARIABLES
    ========================================================================== */
 //web page width
 $row: 1200px;
 // Defaul fonts
-$regular:  "font_regular",  Helvetica, Arial, sans-serif;
+$regular: 'font_regular',  Helvetica, Arial, sans-serif;
 //default italic font
-$italic:  "font_italic", Helvetica, Arial, sans-serif;
+$italic: 'font_italic', Helvetica, Arial, sans-serif;
 //default bold font
-$bold:  "font_bold", Helvetica, Arial, sans-serif;
+$bold: 'font_bold', Helvetica, Arial, sans-serif;
 /* FONTS
    ========================================================================== */
 //custom icon fonts
@@ -16,9 +16,9 @@ $bold:  "font_bold", Helvetica, Arial, sans-serif;
 /* COLOR
    ========================================================================== */
 //main color
-$a: #607D8B;
+$a: #607d8b;
 //second color
-$b: #FF5252;
+$b: #ff5252;
 //mobile menu color
 $menu: $a;
 // color og link
@@ -30,19 +30,18 @@ $text: #333;
 /* LOAD ORDER
    ========================================================================== */
 // reset
-@import 'components/02_reset';
-// global elements (buttons, etc..)
-@import 'components/03_global';
-// style for custom page
-@import 'components/04_pages';
-// style for js plugins
-@import 'components/05_vendors';
-// wordpress comments style
-// @import 'components/06_comments';
+@import 'components/01_reset';
+// wordpress
+@import 'components/10_wordpress';
 // woocommerce
-// @import 'components/07_woocommerce'; //woocommerce
+// @import 'components/11_woocommerce';
+// global elements (buttons, etc..)
+@import 'components/20_global';
+// style for custom page
+@import 'components/21_pages';
+// style for js plugins
+@import 'components/30_vendors';
 //icon fonts
 @import 'components/98_i';
 // responsive
 @import 'components/99_responsive';
-

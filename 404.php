@@ -15,7 +15,7 @@
                 <span class="i-search">
                 <input placeholder="Search" type="search" value="<?php echo get_search_query() ?>" name="s" id="s"/>
                 </span>
-                <input class="btn" type="submit" id="searchsubmit" value="Search"/>
+                <input type="submit" id="searchsubmit" value="Search"/>
             </form>
         </article>
     </main>
