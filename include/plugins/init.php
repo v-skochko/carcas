@@ -173,6 +173,11 @@ function my_theme_register_required_plugins()
             'slug' => 'bwp-minify',
             'required' => false,
         ),
+               array(
+            'name' => 'EWWW Image Optimizer',
+            'slug' => 'ewww-image-optimizer',
+            'required' => false,
+        ),
         array(
             'name' => 'Quick Bulk Post & Page Creator',
             'slug' => 'quick-bulk-post-page-creator',
