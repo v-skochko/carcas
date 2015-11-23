@@ -32,7 +32,6 @@
         content: ' ';
     }
 }
-
 .no_select{
     -webkit-user-select: none;
        -moz-user-select: none;
@@ -104,6 +103,7 @@
    SOCIAL LINK
    ========================================================================== */
 .social_link{
+    font-size: 0;
     display: inline-block;
     float: right;
     width: auto;
@@ -112,18 +112,27 @@
     a{
         position: relative;
         display: inline-block;
-        width: 35px;
-        height: 35px;
+        width: 40px;
+        height: 40px;
         margin: 0 2px;
+        -webkit-transition: all .6s cubic-bezier(.165, .84, .44, 1);
+                transition: all .6s cubic-bezier(.165, .84, .44, 1);
+        -webkit-transform: translate3d(0, 0, 0);
+           -moz-transform: translate3d(0, 0, 0);
         color: #fff;
         border-radius: 50%;
 
-        @include transition(all, .1s, ease-in);
+        @include shadow(1);
+        -webkit-backface-visibility: hidden;
+           -moz-backface-visibility: hidden;
         &:before{
             font-size: 20px;
             color: #fff;
 
             @include center();
+        }
+        &:hover{
+            @include shadow(3);
         }
         &.i-facebook{
             &:hover{
@@ -152,16 +161,13 @@
         }
         &.i-pinterest{
             &:hover{
-                background: #BD1E23;
+                background: #bd1e23;
             }
         }
         &.i-linkedin{
             &:hover{
-                background: #0177B5;
+                background: #0177b5;
             }
-        }
-        &:hover{
-            // @include scale(1.2);
         }
     }
 }
