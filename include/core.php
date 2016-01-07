@@ -21,6 +21,13 @@ function style_js()
     wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css');
 }
 add_action('wp_enqueue_scripts', 'style_js');
+function my_deregister_scripts(){
+  wp_deregister_script( 'wp-embed' );
+}
+add_action( 'wp_footer', 'my_deregister_scripts' );
+
+
+
 /* Thumbnails theme support
    ========================================================================== */
 add_theme_support('post-thumbnails');
@@ -60,7 +67,6 @@ if (class_exists('Wp_Scss_Settings')) {
 Remove default wordpress function
 - Clean up wp_head()
 - Remove WP Generator Meta Tag
-- Remove the p from around imgs
 - Remove wp version param from any enqueued scripts
 - Remove dashboard wigets
 - Remove default wigets
@@ -85,14 +91,9 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles');
-/* Remove the p from around imgs
-========================================================================== */
-function filter_ptags_on_images($content)
-{
-    $content = preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
-    return preg_replace('/<p>\s*(<iframe .*>*.<\/iframe>)\s*<\/p>/iU', '\1', $content);
-}
-add_filter('the_content', 'filter_ptags_on_images');
+
+
+
 /* Remove wp version param from any enqueued scripts
    ========================================================================== */
 function vc_remove_wp_ver_css_js($src)
