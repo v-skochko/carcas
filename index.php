@@ -37,7 +37,7 @@ if ( is_search() ) { ?>
                         <div class="ccount"><?php comments_number('No comments', 'One comment', '% comments'); ?></div>
                         <time><?php echo get_the_date('j F, Y'); ?></time>
                     </div>
-                    <?php the_content('Read More'); ?>
+                    <?php echo wp_trim_words( get_the_content(), 22, '...' ); ?>
                 </div>
             </div>
         <?php endwhile;
