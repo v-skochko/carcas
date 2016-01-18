@@ -1,9 +1,7 @@
 $ = jQuery;
 $(document).ready(function() {
     "use strict";
-    Waves.init();
-    Waves.attach('.btn');
-    Waves.attach('.wpcf7-submit');
+
     // ressponsive nav
     $('.toogle_nav').click(function() {
         $(this).next().toggleClass('o_menu');
