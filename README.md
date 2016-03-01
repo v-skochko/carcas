@@ -50,4 +50,4 @@
 License: WTFPL License URI: http://sam.zoy.org/wtfpl/ Are You Serious? Yes.
 
 >  <a href="https://www.facebook.com/skochko">Skochko</a>
->  Львів 2015
+>  Львів 2016
