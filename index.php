@@ -21,7 +21,7 @@ if ( is_search() ) { ?>
         <h1 class="page-title" itemprop="headline">BLOG</h1>
 <?php }
 ?>
-<section class="content row cfx">
+<section class="content cfx">
     <article>
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <div class="blogpost cfx">
