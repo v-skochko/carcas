@@ -1,6 +1,8 @@
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vskochko/carcas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 ## Blank wordpress template for writing themes
 ##### Speed & security boost
+
+[![Join the chat at https://gitter.im/vskochko/carcas](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vskochko/carcas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
      - Clean up wp_head()
      - Remove wp version param from any enqueued scripts
 ##### Theme setings
