@@ -92,6 +92,14 @@ remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles');
 
+// Disable Responsive Images
+add_filter( 'max_srcset_image_width', create_function( '', 'return 1;' ) );
+// Filters for WP-API version 1.x
+add_filter('json_enabled', '__return_false');
+add_filter('json_jsonp_enabled', '__return_false');
+// Filters for WP-API version 2.x
+add_filter('rest_enabled', '__return_false');
+add_filter('rest_jsonp_enabled', '__return_false');
 
 
 /* Remove wp version param from any enqueued scripts
