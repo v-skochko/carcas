@@ -22,12 +22,9 @@ function style_js()
 }
 add_action('wp_enqueue_scripts', 'style_js');
 function my_deregister_scripts(){
-  wp_deregister_script( 'wp-embed' );
+    wp_deregister_script( 'wp-embed' );
 }
 add_action( 'wp_footer', 'my_deregister_scripts' );
-
-
-
 /* Thumbnails theme support
    ========================================================================== */
 add_theme_support('post-thumbnails');
@@ -73,35 +70,43 @@ Remove default wordpress function
 - Hide the Admin Bar
 - For coments: remove Email & Url fields
 ========================================================================== */
-/* Clean up wp_head()
+/* clean_up_wp_head()
 ========================================================================== */
-remove_action('wp_head', 'feed_links_extra', 3);
-remove_action('wp_head', 'rsd_link');
-remove_action('wp_head', 'wlwmanifest_link');
-remove_action('wp_head', 'index_rel_link');
-remove_action('wp_head', 'parent_post_rel_link', 10, 0);
-remove_action('wp_head', 'start_post_rel_link', 10, 0);
-remove_action('wp_head', 'wp_shortlink_wp_head');
-remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
-remove_action('wp_head', 'wp_generator');
-/* Remove WP Generator Meta Tag
-========================================================================== */
-remove_action('wp_head', 'rel_canonical');
-remove_action('wp_head', 'print_emoji_detection_script', 7);
-remove_action('admin_print_scripts', 'print_emoji_detection_script');
-remove_action('wp_print_styles', 'print_emoji_styles');
-remove_action('admin_print_styles', 'print_emoji_styles');
-
-// Disable Responsive Images
-add_filter( 'max_srcset_image_width', create_function( '', 'return 1;' ) );
-// Filters for WP-API version 1.x
-add_filter('json_enabled', '__return_false');
-add_filter('json_jsonp_enabled', '__return_false');
-// Filters for WP-API version 2.x
-add_filter('rest_enabled', '__return_false');
-add_filter('rest_jsonp_enabled', '__return_false');
-
-
+function clean_up_wp_head () {
+    //basic
+    remove_action('wp_head', 'feed_links_extra', 3);
+    remove_action('wp_head', 'rsd_link');
+    remove_action('wp_head', 'wlwmanifest_link');
+    remove_action('wp_head', 'index_rel_link');
+    remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+    remove_action('wp_head', 'start_post_rel_link', 10, 0);
+    remove_action('wp_head', 'wp_shortlink_wp_head');
+    remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
+    remove_action('wp_head', 'wp_generator');
+    /* Remove WP Generator Meta Tag
+    ========================================================================== */
+    remove_action('wp_head', 'rel_canonical');
+    remove_action('wp_head', 'print_emoji_detection_script', 7);
+    remove_action('admin_print_scripts', 'print_emoji_detection_script');
+    remove_action('wp_print_styles', 'print_emoji_styles');
+    remove_action('admin_print_styles', 'print_emoji_styles');
+    // Remove the REST API lines from the HTML Header
+    remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+    remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+    // Remove the REST API endpoint.
+    remove_action( 'rest_api_init', 'wp_oembed_register_route' );
+    // Turn off oEmbed auto discovery.
+    add_filter( 'embed_oembed_discover', '__return_false' );
+    // Don't filter oEmbed results.
+    remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 );
+    // Remove oEmbed discovery links.
+    remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+    // Remove oEmbed-specific JavaScript from the front-end and back-end.
+    remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+    // Remove all embeds rewrite rules.
+    add_filter( 'rewrite_rules_array', 'disable_embeds_rewrites' );
+}
+add_action( 'after_setup_theme', 'clean_up_wp_head' );
 /* Remove wp version param from any enqueued scripts
    ========================================================================== */
 function vc_remove_wp_ver_css_js($src)
@@ -199,11 +204,11 @@ function c_css()
             border-top: 1px solid #ccc !important;
         }
         .acf-repeater>.acf-table>.ui-sortable>.acf-row:nth-child(even)>.order {
-color: #fff !important;
-    background-color: #777!important;
-}
+            color: #fff !important;
+            background-color: #777!important;
+        }
     </style>
-<?php
+    <?php
 }
 add_action('admin_footer', 'c_css');
 /* acf custom style
@@ -369,13 +374,12 @@ function theme()
 {
     return get_stylesheet_directory_uri();
 }
-
 /* Menu walker
    ========================================================================== */
 class carcas_walker extends Walker_Nav_Menu
 {
     // add classes to ul sub-menus
-   function start_lvl( &$output, $depth = 0, $args = array() )
+    function start_lvl( &$output, $depth = 0, $args = array() )
     {
         // depth dependent classes
         $indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
@@ -391,7 +395,7 @@ class carcas_walker extends Walker_Nav_Menu
         $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
     }
     // add main/sub classes to li's and links
-function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
     {
         global $wp_query;
         $indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
@@ -424,13 +428,8 @@ function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
         );
         // build html
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id );
-
-
     }
 }
-
-
-
 /* ACF option page
    ========================================================================== */
 if (function_exists('acf_add_options_page')) {
@@ -457,4 +456,3 @@ if (function_exists('acf_add_options_page')) {
 function ob_html_compress($buf){
     return preg_replace(array('/<!--(?>(?!\[).)(.*)(?>(?!\]).)-->/Uis','/[[:blank:]]+/'),array('',' '),str_replace(array("\n","\r","\t"),'',$buf));
 }
-
