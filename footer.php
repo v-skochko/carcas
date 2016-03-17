@@ -1,5 +1,5 @@
 </div>
-<footer role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+<footer >
     <div class="row cfx">
         <span class="copyright"><?php echo date('Y'); ?> <?php bloginfo('name'); ?></span>
 
