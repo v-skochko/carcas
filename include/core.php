@@ -72,24 +72,26 @@ Remove default wordpress function
 ========================================================================== */
 /* clean_up_wp_head()
 ========================================================================== */
+//basic
+remove_action('wp_head', 'feed_links_extra', 3);
+remove_action('wp_head', 'rsd_link');
+remove_action('wp_head', 'wlwmanifest_link');
+remove_action('wp_head', 'index_rel_link');
+remove_action('wp_head', 'parent_post_rel_link', 10, 0);
+remove_action('wp_head', 'start_post_rel_link', 10, 0);
+remove_action('wp_head', 'wp_shortlink_wp_head');
+remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
+remove_action('wp_head', 'wp_generator');
+/* Remove WP Generator Meta Tag
+========================================================================== */
+remove_action('wp_head', 'rel_canonical');
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('admin_print_styles', 'print_emoji_styles');
+
 function clean_up_wp_head () {
-    //basic
-    remove_action('wp_head', 'feed_links_extra', 3);
-    remove_action('wp_head', 'rsd_link');
-    remove_action('wp_head', 'wlwmanifest_link');
-    remove_action('wp_head', 'index_rel_link');
-    remove_action('wp_head', 'parent_post_rel_link', 10, 0);
-    remove_action('wp_head', 'start_post_rel_link', 10, 0);
-    remove_action('wp_head', 'wp_shortlink_wp_head');
-    remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
-    remove_action('wp_head', 'wp_generator');
-    /* Remove WP Generator Meta Tag
-    ========================================================================== */
-    remove_action('wp_head', 'rel_canonical');
-    remove_action('wp_head', 'print_emoji_detection_script', 7);
-    remove_action('admin_print_scripts', 'print_emoji_detection_script');
-    remove_action('wp_print_styles', 'print_emoji_styles');
-    remove_action('admin_print_styles', 'print_emoji_styles');
+
     // Remove the REST API lines from the HTML Header
     remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
     remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
@@ -132,7 +134,6 @@ function rem_dash_widgets()
 add_action('admin_init', 'rem_dash_widgets');
 /* Remove default wigets
    ========================================================================== */
-add_action('widgets_init', 'cwwp_unregister_default_widgets');
 function cwwp_unregister_default_widgets()
 {
     unregister_widget('WP_Widget_Archives');
@@ -149,6 +150,7 @@ function cwwp_unregister_default_widgets()
     unregister_widget('WP_Widget_Tag_Cloud');
     // unregister_widget( 'WP_Widget_Text' );
 }
+add_action('widgets_init', 'cwwp_unregister_default_widgets');
 /* Hide the Admin Bar
    ========================================================================== */
 add_filter('show_admin_bar', '__return_false');
