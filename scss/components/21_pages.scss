@@ -51,7 +51,6 @@ header{
                         font-family: 'i';
                         font-size: 13px;
                         font-style: normal;
-                        // position: relative;
                         position: absolute;
                         top: 7px;
                         content: 'e';
@@ -68,7 +67,6 @@ header{
                 position: absolute;
                 z-index: 100;
                 display: block;
-                // @include translateY( 80px);
                 display: none;
                 visibility: hidden;
                 overflow: hidden;
@@ -102,12 +100,10 @@ header{
             &:hover{
                 >.menu-depth-1{
                     display: block;
-                    // display: block;
                     visibility: visible;
                     overflow: visible;
                     height: auto;
                     opacity: 1;
-                    // @include translateY(0);
                 }
             }
         }
@@ -119,12 +115,4 @@ header{
 footer{
     padding: 20px 0;
     background: #212122;
-    // background: #ccc;
-    .icf-copyright{
-        font-family: $bold;
-        display: block;
-        float: left;
-        text-transform: uppercase;
-        color: #fff;
-    }
 }

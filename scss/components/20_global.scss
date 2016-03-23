@@ -51,7 +51,6 @@
     border: none;
     outline: 0;
     background: $btn;
-
     @include border-radius(3px);
     &:hover{
         background: darken($btn, 5%);
@@ -102,7 +101,7 @@
 /* ==========================================================================
    SOCIAL LINK
    ========================================================================== */
-.social_link{
+.s_link{
     font-size: 0;
     display: inline-block;
     float: right;
@@ -121,14 +120,12 @@
            -moz-transform: translate3d(0, 0, 0);
         color: #fff;
         border-radius: 50%;
-
         @include shadow(1);
         -webkit-backface-visibility: hidden;
            -moz-backface-visibility: hidden;
         &:before{
             font-size: 20px;
             color: #fff;
-
             @include center();
         }
         &:hover{
@@ -149,14 +146,14 @@
                 background: #55acee;
             }
         }
+        &.i-linkedin{
+            &:hover{
+                background: #0177b5;
+            }
+        }
         &.i-g{
             &:hover{
                 background: #d94733;
-            }
-        }
-        &.i-youtube-play{
-            &:hover{
-                background: #f80000;
             }
         }
         &.i-pinterest{
@@ -164,9 +161,9 @@
                 background: #bd1e23;
             }
         }
-        &.i-linkedin{
+        &.i-youtube-play{
             &:hover{
-                background: #0177b5;
+                background: #f80000;
             }
         }
     }
