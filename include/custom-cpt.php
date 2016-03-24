@@ -1,7 +1,7 @@
 <?php
-//Jobs
-add_action('init', 'register_jobs');
-function register_jobs()
+//custom CPT
+add_action('init', 'register_cpt');
+function register_cpt()
 {
 
 //custom taxonomy attached to jobs CPT

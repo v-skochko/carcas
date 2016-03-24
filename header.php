@@ -1,6 +1,4 @@
 <?php
-header('Expires: '.gmdate('D, d M Y H:i:s \G\M\T', time() + 3600));
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
 /*  ob_start('ob_html_compress');*/
 ?>
 <!doctype html>

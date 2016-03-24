@@ -1,8 +1,8 @@
 <?php get_header(); /* Template Name: tpl_demo_content */
 global $post; ?>
 <div id="content" class="row cfx">
-    <main role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-        <h1 class="page-title" itemprop="headline">Page title</h1>
+    <main >
+        <h1 >Page title</h1>
         <article>
             <div class="bx_slider bx_style">
                 <ul>

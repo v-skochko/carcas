@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="content" class="row cfx ">
-    <main role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+    <main>
         <article>
             <div class="inside_web">
                 <div class="l_overlay">

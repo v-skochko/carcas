@@ -16,9 +16,9 @@ if (is_date()) {
 <?php if ($queryname) : echo '<h1>' . $queryname . '</h1>'; endif; ?>
 <?php
 if ( is_search() ) { ?>
-        <h1 class="page-title" itemprop="headline"><?php printf( esc_html__( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+        <h1 class="page-title" ><?php printf( esc_html__( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 <?php } else { ?>
-        <h1 class="page-title" itemprop="headline">BLOG</h1>
+        <h1 class="page-title" >BLOG</h1>
 <?php }
 ?>
 <section class="content cfx">
