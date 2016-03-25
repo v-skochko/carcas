@@ -1,4 +1,5 @@
 ![My image](https://raw.githubusercontent.com/vskochko/carcas/master/carcas.png)
+<br />
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vskochko/carcas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 ## Blank wordpress template for writing themes
 ##### Speed & security boost
