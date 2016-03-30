@@ -3,9 +3,10 @@
    ========================================================================== */
 header{
     position: relative;
-    z-index: 100;
+    z-index: 10;
     height: 80px;
-    background: #ccc;
+    background: #fafafa;
+    border-bottom: 1px solid #ebebeb;
     #logo{
         float: left;
         padding: 20px  10px;
