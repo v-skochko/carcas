@@ -94,8 +94,10 @@ img{
     display: block;
     max-width: 100%;
     height: auto;
-    vertical-align: middle;
+    vertical-align: top;
     border: 0;
+       -moz-backface-visibility: hidden;
+            backface-visibility: hidden;
 }
 hr{
     display: block;
