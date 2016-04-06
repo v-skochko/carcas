@@ -32,14 +32,5 @@
         });
     };
 })(jQuery);
-//selbel itit
-$(window).load(function() {
-    "use strict";
-    //backstretch
-    $('[data-bg]').each(function() {
-        if ($(this).attr('data-bg').length) {
-            $(this).backstretch($(this).attr('data-bg'));
-        }
-    });
-});
+
 /* jshint ignore:end */
