@@ -15,6 +15,10 @@ function style_js()
         wp_enqueue_script('jquery');
         // wp_enqueue_script('comment-reply');
     };
+        /*if(basename(get_page_template()) == "tpl-contact.php") {
+        wp_register_script( 'google-map', "//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=en", '', null );
+        wp_enqueue_script( 'google-map' );
+    }*/
     // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
     wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js', array('jquery'), '1.0', true);
     wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js', array('jquery'), '1.0', true);
