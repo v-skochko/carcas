@@ -4,7 +4,7 @@
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <title><?php wp_title(); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon -->
@@ -18,7 +18,8 @@
     <link rel="apple-touch-icon" sizes="152x152" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon-180x180.png">
     <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/android-chrome-192x192.png"
+          sizes="192x192">
     <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="<?php echo theme(); ?>/img/favicon/manifest.json">

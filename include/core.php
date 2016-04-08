@@ -15,20 +15,23 @@ function style_js()
         wp_enqueue_script('jquery');
         // wp_enqueue_script('comment-reply');
     };
-        /*if(basename(get_page_template()) == "tpl-contact.php") {
-        wp_register_script( 'google-map', "//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=en", '', null );
-        wp_enqueue_script( 'google-map' );
-    }*/
+    /*if(basename(get_page_template()) == "tpl-contact.php") {
+    wp_register_script( 'google-map', "//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=en", '', null );
+    wp_enqueue_script( 'google-map' );
+}*/
     // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
     wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js', array('jquery'), '1.0', true);
     wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js', array('jquery'), '1.0', true);
     wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css');
 }
+
 add_action('wp_enqueue_scripts', 'style_js');
-function my_deregister_scripts(){
-    wp_deregister_script( 'wp-embed' );
+function my_deregister_scripts()
+{
+    wp_deregister_script('wp-embed');
 }
-add_action( 'wp_footer', 'my_deregister_scripts' );
+
+add_action('wp_footer', 'my_deregister_scripts');
 /* Thumbnails theme support
    ========================================================================== */
 add_theme_support('post-thumbnails');
@@ -39,6 +42,7 @@ function set_permalink_postname()
     global $wp_rewrite;
     $wp_rewrite->set_permalink_structure('%postname%');
 }
+
 add_action('after_switch_theme', 'set_permalink_postname');
 /* Add wiget
    ========================================================================== */
@@ -53,6 +57,7 @@ function arphabet_widgets_init()
         'after_title' => '</h2>',
     ));
 }
+
 add_action('widgets_init', 'arphabet_widgets_init');
 /* Update wp-scss setings
    ========================================================================== */
@@ -94,23 +99,25 @@ remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles');
 
-function clean_up_wp_head () {
+function clean_up_wp_head()
+{
 
     // Remove the REST API lines from the HTML Header
-    remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-    remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+    remove_action('wp_head', 'rest_output_link_wp_head', 10);
+    remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
     // Remove the REST API endpoint.
-    remove_action( 'rest_api_init', 'wp_oembed_register_route' );
+    remove_action('rest_api_init', 'wp_oembed_register_route');
     // Turn off oEmbed auto discovery.
-    add_filter( 'embed_oembed_discover', '__return_false' );
+    add_filter('embed_oembed_discover', '__return_false');
     // Don't filter oEmbed results.
-    remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 );
+    remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
     // Remove oEmbed discovery links.
-    remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+    remove_action('wp_head', 'wp_oembed_add_discovery_links');
     // Remove oEmbed-specific JavaScript from the front-end and back-end.
-    remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+    remove_action('wp_head', 'wp_oembed_add_host_js');
 }
-add_action( 'after_setup_theme', 'clean_up_wp_head' );
+
+add_action('after_setup_theme', 'clean_up_wp_head');
 /* Remove wp version param from any enqueued scripts
    ========================================================================== */
 function vc_remove_wp_ver_css_js($src)
@@ -120,6 +127,7 @@ function vc_remove_wp_ver_css_js($src)
     }
     return $src;
 }
+
 add_filter('style_loader_src', 'vc_remove_wp_ver_css_js', 9999);
 add_filter('script_loader_src', 'vc_remove_wp_ver_css_js', 9999);
 /* Remove dashboard wigets
@@ -133,6 +141,7 @@ function rem_dash_widgets()
     remove_meta_box('dashboard_secondary', 'dashboard', 'normal');
     remove_meta_box('dashboard_quick_press', 'dashboard', 'normal');
 }
+
 add_action('admin_init', 'rem_dash_widgets');
 /* Remove default wigets
    ========================================================================== */
@@ -152,6 +161,7 @@ function cwwp_unregister_default_widgets()
     unregister_widget('WP_Widget_Tag_Cloud');
     // unregister_widget( 'WP_Widget_Text' );
 }
+
 add_action('widgets_init', 'cwwp_unregister_default_widgets');
 /* Hide the Admin Bar
    ========================================================================== */
@@ -162,6 +172,7 @@ function require_name()
 {
     update_option('require_name_email', 0);
 }
+
 add_action('after_switch_theme', 'require_name');
 function rem_form_fields($fields)
 {
@@ -169,6 +180,7 @@ function rem_form_fields($fields)
     unset($fields['url']);
     return $fields;
 }
+
 add_filter('comment_form_default_fields', 'rem_form_fields');
 /* ==========================================================================
 /*
@@ -186,6 +198,7 @@ function namespace_login_style()
 {
     echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
 }
+
 /* Custom css in admin panel
    ========================================================================== */
 function c_css()
@@ -194,51 +207,59 @@ function c_css()
         .status-draft {
             background: #E6E6E6 !important;
         }
+
         .status-pending {
             background: #E2F0FF !important;
         }
+
         /* Change admin post/page color by status – draft, pending, future, private*/
         .status-future {
             background: #C6EBF5 !important;
         }
+
         .status-private {
             background: #F2D46F;
         }
+
         #toplevel_page_edit-post_type-acf-field-group {
             border-top: 1px solid #ccc !important;
         }
-        .acf-repeater>.acf-table>.ui-sortable>.acf-row:nth-child(even)>.order {
+
+        .acf-repeater > .acf-table > .ui-sortable > .acf-row:nth-child(even) > .order {
             color: #fff !important;
-            background-color: #777!important;
+            background-color: #777 !important;
         }
     </style>
     <?php
 }
+
 add_action('admin_footer', 'c_css');
 /* acf custom style
    ========================================================================== */
-function acf_repeater_even() {
-    $scheme = get_user_option( 'admin_color' );
+function acf_repeater_even()
+{
+    $scheme = get_user_option('admin_color');
     $color = '';
-    if($scheme == 'fresh') {
+    if ($scheme == 'fresh') {
         $color = '#0073aa';
-    } else if($scheme == 'light') {
+    } else if ($scheme == 'light') {
         $color = '#d64e07';
-    } else if($scheme == 'blue') {
+    } else if ($scheme == 'blue') {
         $color = '#52accc';
-    } else if($scheme == 'coffee') {
+    } else if ($scheme == 'coffee') {
         $color = '#59524c';
-    } else if($scheme == 'ectoplasm') {
+    } else if ($scheme == 'ectoplasm') {
         $color = '#523f6d';
-    } else if($scheme == 'midnight') {
+    } else if ($scheme == 'midnight') {
         $color = '#e14d43';
-    } else if($scheme == 'ocean') {
+    } else if ($scheme == 'ocean') {
         $color = '#738e96';
-    } else if($scheme == 'sunrise') {
+    } else if ($scheme == 'sunrise') {
         $color = '#dd823b';
     }
-    echo '<style>.acf-repeater>.acf-input-table > tbody > tr:nth-child(even)>.order {color: #fff !important;background-color: '.$color.' !important; text-shadow: none}</style>';
+    echo '<style>.acf-repeater>.acf-input-table > tbody > tr:nth-child(even)>.order {color: #fff !important;background-color: ' . $color . ' !important; text-shadow: none}</style>';
 }
+
 add_action('admin_footer', 'acf_repeater_even');
 /* Custom info to admin footer area
    ========================================================================== */
@@ -353,10 +374,12 @@ function new_body_classes($classes)
     }
     return $classes;
 }
+
 add_filter('body_class', 'new_body_classes');
 /* Custom WP Title
    ========================================================================== */
-function custom_wp_title($title, $seperator) {
+function custom_wp_title($title, $seperator)
+{
     global $paged, $page;
     if (is_feed()) {
         return $title;
@@ -371,6 +394,7 @@ function custom_wp_title($title, $seperator) {
     }
     return ltrim($title, ' ' . $seperator . ' ');
 }
+
 add_filter('wp_title', 'custom_wp_title', 10, 2);
 /* custom theme url
    ========================================================================== */
@@ -378,12 +402,14 @@ function theme()
 {
     return get_stylesheet_directory_uri();
 }
+
 /* Menu walker
    ========================================================================== */
+
 class carcas_walker extends Walker_Nav_Menu
 {
     // add classes to ul sub-menus
-    function start_lvl( &$output, $depth = 0, $args = array() )
+    function start_lvl(&$output, $depth = 0, $args = array())
     {
         // depth dependent classes
         $indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
@@ -398,6 +424,7 @@ class carcas_walker extends Walker_Nav_Menu
         // build html
         $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
     }
+
     // add main/sub classes to li's and links
     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
     {
@@ -431,9 +458,10 @@ class carcas_walker extends Walker_Nav_Menu
             $args->after
         );
         // build html
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id );
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
     }
 }
+
 /* ACF option page
    ========================================================================== */
 if (function_exists('acf_add_options_page')) {
@@ -457,6 +485,7 @@ if (function_exists('acf_add_options_page')) {
 }
 /* Compress HTML
    ========================================================================== */
-function ob_html_compress($buf){
-    return preg_replace(array('/<!--(?>(?!\[).)(.*)(?>(?!\]).)-->/Uis','/[[:blank:]]+/'),array('',' '),str_replace(array("\n","\r","\t"),'',$buf));
+function ob_html_compress($buf)
+{
+    return preg_replace(array('/<!--(?>(?!\[).)(.*)(?>(?!\]).)-->/Uis', '/[[:blank:]]+/'), array('', ' '), str_replace(array("\n", "\r", "\t"), '', $buf));
 }

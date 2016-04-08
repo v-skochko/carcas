@@ -32,5 +32,4 @@
         });
     };
 })(jQuery);
-
 /* jshint ignore:end */

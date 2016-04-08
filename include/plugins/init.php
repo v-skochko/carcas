@@ -163,7 +163,7 @@ register_activation_hook(__FILE__, 'ctl_schedule_conversion');
 require_once 'TGM-Plugin.php';
 
 
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+add_action('tgmpa_register', 'my_theme_register_required_plugins');
 
 /**
  * Register the required plugins for this theme.
@@ -182,7 +182,8 @@ add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
  *
  * This function is hooked into `tgmpa_register`, which is fired on the WP `init` action on priority 10.
  */
-function my_theme_register_required_plugins() {
+function my_theme_register_required_plugins()
+{
     /*
      * Array of plugin arrays. Required keys are name and slug.
      * If the source is NOT from the .org repo, then source is also required.
@@ -203,12 +204,12 @@ function my_theme_register_required_plugins() {
             'slug' => 'wp-scss',
             'required' => true,
         ),
-            array(
+        array(
             'name' => 'Better WordPress Minify',
             'slug' => 'bwp-minify',
             'required' => false,
         ),
-               array(
+        array(
             'name' => 'EWWW Image Optimizer',
             'slug' => 'ewww-image-optimizer',
             'required' => false,
@@ -228,7 +229,7 @@ function my_theme_register_required_plugins() {
             'slug' => 'post-thumbnail-editor',
             'required' => false,
         ),
-             array(
+        array(
             'name' => 'Resize Image After Upload',
             'slug' => 'resize-image-after-upload',
             'required' => false,
@@ -239,7 +240,7 @@ function my_theme_register_required_plugins() {
             'slug' => 'tinymce-advanced',
             'required' => false,
         ),
-             array(
+        array(
             'name' => 'Duplicate post',
             'slug' => 'duplicate-post',
             'required' => false,
@@ -278,19 +279,19 @@ function my_theme_register_required_plugins() {
      * Only uncomment the strings in the config array if you want to customize the strings.
      */
     $config = array(
-        'id'           => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+        'id' => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
         'default_path' => '',                      // Default absolute path to bundled plugins.
-        'menu'         => 'tgmpa-install-plugins', // Menu slug.
-        'parent_slug'  => 'themes.php',            // Parent menu slug.
-        'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
-        'has_notices'  => true,                    // Show admin notices or not.
-        'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-        'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+        'menu' => 'tgmpa-install-plugins', // Menu slug.
+        'parent_slug' => 'themes.php',            // Parent menu slug.
+        'capability' => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+        'has_notices' => true,                    // Show admin notices or not.
+        'dismissable' => true,                    // If false, a user cannot dismiss the nag message.
+        'dismiss_msg' => '',                      // If 'dismissable' is false, this message will be output at top of nag.
         'is_automatic' => false,                   // Automatically activate plugins after installation or not.
-        'message'      => '',                      // Message to output right before the plugins table.
+        'message' => '',                      // Message to output right before the plugins table.
 
 
     );
 
-    tgmpa( $plugins, $config );
+    tgmpa($plugins, $config);
 }
