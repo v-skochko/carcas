@@ -18,8 +18,7 @@
     <link rel="apple-touch-icon" sizes="152x152" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon-180x180.png">
     <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/android-chrome-192x192.png"
-          sizes="192x192">
+    <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/android-chrome-192x192.png"sizes="192x192">
     <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/png" href="<?php echo theme(); ?>/img/favicon/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="<?php echo theme(); ?>/img/favicon/manifest.json">
@@ -32,9 +31,9 @@
 <body <?php body_class(); ?> >
 <div id="wrap">
     <header>
-        <div class="row cfx">
+        <div class="row  flex ai_center">
             <a href="<?php echo site_url(); ?>/" id="logo">LOGO</a>
-            <a href="#" class="toogle_nav">menu <span class="burger-icon"></span></a>
+            <a href="#" class="toogle_nav"><span class="burger-icon"></span></a>
             <nav class="main_nav_container cfx">
                 <?php
                 $main_nav = array(

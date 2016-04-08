@@ -4,7 +4,7 @@ $(document).ready(function() {
 
     // ressponsive nav
     $('.toogle_nav').click(function() {
-        $(this).next().toggleClass('o_menu');
+        $(".main_nav_container").toggleClass('o_menu');
         $(this).toggleClass('is-active');
         return false;
     });

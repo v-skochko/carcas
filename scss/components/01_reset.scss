@@ -16,10 +16,10 @@ html{
 body{
     font-family: $regular;
     position: relative;
-    display: flex;
-    flex-direction: column;
     height: auto;
     min-height: 100vh;
+    @include flexbox();
+    @include flex-direction (column);
     ::-moz-selection{
         color: #fff;
         background: $a;
@@ -30,7 +30,7 @@ body{
     }
 }
 #wrap{
-    flex: 1 0 auto;
+    @include flex (1 0 auto);
 }
 mark{
     background: none;
@@ -85,7 +85,7 @@ a{
     text-decoration: none;
     color: $link;
     outline: 0;
-    @include transition(all, .2s, ease);
+    @include transition();
     &:hover{
         outline: 0;
     }
@@ -96,8 +96,8 @@ img{
     height: auto;
     vertical-align: top;
     border: 0;
-       -moz-backface-visibility: hidden;
-            backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+         backface-visibility: hidden;
 }
 hr{
     display: block;

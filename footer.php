@@ -1,6 +1,6 @@
 </div>
 <footer>
-    <div class="row cfx">
+    <div class="row flex  ai_center">
         <span class="copyright"><?php echo date('Y'); ?><?php bloginfo('name'); ?></span>
         <div class="s_link">
             <a href="<?php if (get_field('facebook', 'options')) {
