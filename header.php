@@ -33,7 +33,6 @@
     <header>
         <div class="row  flex ai_center">
             <a href="<?php echo site_url(); ?>/" id="logo">LOGO</a>
-            <a href="#" class="toogle_nav"><span class="burger-icon"></span></a>
             <nav class="main_nav_container cfx">
                 <?php
                 $main_nav = array(
@@ -45,6 +44,7 @@
                 );
                 wp_nav_menu($main_nav);
                 ?>
+            <a href="#" class="toogle_nav"><span class="burger-icon"></span></a>
             </nav>
         </div>
     </header>
