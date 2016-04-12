@@ -341,7 +341,7 @@ function new_body_classes($classes)
     if (preg_match("/Chrome/", $browser)) {
         $classes[] = 'chrome';
         preg_match("/Chrome\/(\d.\d)/si", $browser, $matches);
-        $classesh_version = 'ch' . str_replace('.', '-', $matches[1]);
+        @$classesh_version = 'ch' . str_replace('.', '-', $matches[1]);
         $classes[] = $classesh_version;
     } elseif (preg_match("/Safari/", $browser)) {
         $classes[] = 'safari';
