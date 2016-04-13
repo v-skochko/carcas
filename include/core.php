@@ -11,27 +11,21 @@ function style_js()
     wp_deregister_style('contact-form-7');
     if (!is_admin()) {
         wp_deregister_script('jquery');
-        wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js');
+        wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js');
         wp_enqueue_script('jquery');
-        // wp_enqueue_script('comment-reply');
     };
-    /*if(basename(get_page_template()) == "tpl-contact.php") {
-    wp_register_script( 'google-map', "//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=en", '', null );
-    wp_enqueue_script( 'google-map' );
-}*/
+
     // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
-    wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js', false, false, true);
+    wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js', false, false, true);
     wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css');
 }
 
 add_action('wp_enqueue_scripts', 'style_js');
-function my_deregister_scripts()
-{
-    wp_deregister_script('wp-embed');
-}
 
-add_action('wp_footer', 'my_deregister_scripts');
+
+
+
 /* Thumbnails theme support
    ========================================================================== */
 add_theme_support('post-thumbnails');
@@ -182,6 +176,26 @@ function rem_form_fields($fields)
 }
 
 add_filter('comment_form_default_fields', 'rem_form_fields');
+
+
+
+/* remove dafaul class for menu
+   ========================================================================== */
+   add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1);
+   add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1);
+   function my_css_attributes_filter($var) {
+       if(is_array($var)){
+           $varci= array_intersect($var, array('current-menu-item'));
+           $cmeni = array('current-menu-item');
+           $selava   = array('selectedmenu');
+           $selavaend = array();
+           $selavaend = str_replace($cmeni, $selava, $varci);
+       }
+       else{
+           $selavaend= '';
+       }
+       return $selavaend;
+   };
 /* ==========================================================================
 /*
 /*
@@ -403,64 +417,64 @@ function theme()
     return get_stylesheet_directory_uri();
 }
 
-/* Menu walker
-   ========================================================================== */
+// /* Menu walker
+//    ========================================================================== */
 
-class carcas_walker extends Walker_Nav_Menu
-{
-    // add classes to ul sub-menus
-    function start_lvl(&$output, $depth = 0, $args = array())
-    {
-        // depth dependent classes
-        $indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
-        $display_depth = ($depth + 1); // because it counts the first submenu as 0
-        $classes = array(
-            'sub-menu',
-            ($display_depth % 2 ? 'menu-odd' : 'menu-even'),
-            ($display_depth >= 2 ? 'sub-sub-menu' : ''),
-            'menu-depth-' . $display_depth,
-        );
-        $class_names = implode(' ', $classes);
-        // build html
-        $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
-    }
+// class carcas_walker extends Walker_Nav_Menu
+// {
+//     // add classes to ul sub-menus
+//     function start_lvl(&$output, $depth = 0, $args = array())
+//     {
+//         // depth dependent classes
+//         $indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
+//         $display_depth = ($depth + 1); // because it counts the first submenu as 0
+//         $classes = array(
+//             'sub-menu',
+//             ($display_depth % 2 ? 'menu-odd' : 'menu-even'),
+//             ($display_depth >= 2 ? 'sub-sub-menu' : ''),
+//             'menu-depth-' . $display_depth,
+//         );
+//         $class_names = implode(' ', $classes);
+//         // build html
+//         $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
+//     }
 
-    // add main/sub classes to li's and links
-    function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-    {
-        global $wp_query;
-        $indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
-        // depth dependent classes
-        $depth_classes = array(
-            ($depth == 0 ? 'main-menu-item' : 'sub-menu-item'),
-            ($depth >= 2 ? 'sub-sub-menu-item' : ''),
-            ($depth % 2 ? 'menu-item-odd' : 'menu-item-even'),
-            'menu-item-depth-' . $depth,
-        );
-        $depth_class_names = esc_attr(implode(' ', $depth_classes));
-        // passed classes
-        $classes = empty($item->classes) ? array() : (array)$item->classes;
-        $class_names = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item)));
-        // build html
-        $output .= $indent . '<li  class="' . $depth_class_names . ' ' . $class_names . '">';
-        // link attributes
-        $attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
-        $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
-        $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
-        $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
-        $attributes .= ' class="menu-link ' . ($depth > 0 ? 'sub-menu-link' : 'main-menu-link') . '"';
-        $item_output = sprintf('%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
-            $args->before,
-            $attributes,
-            $args->link_before,
-            apply_filters('the_title', $item->title, $item->ID),
-            $args->link_after,
-            $args->after
-        );
-        // build html
-        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
-    }
-}
+//     // add main/sub classes to li's and links
+//     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+//     {
+//         global $wp_query;
+//         $indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
+//         // depth dependent classes
+//         $depth_classes = array(
+//             ($depth == 0 ? 'main-menu-item' : 'sub-menu-item'),
+//             ($depth >= 2 ? 'sub-sub-menu-item' : ''),
+//             ($depth % 2 ? 'menu-item-odd' : 'menu-item-even'),
+//             'menu-item-depth-' . $depth,
+//         );
+//         $depth_class_names = esc_attr(implode(' ', $depth_classes));
+//         // passed classes
+//         $classes = empty($item->classes) ? array() : (array)$item->classes;
+//         $class_names = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item)));
+//         // build html
+//         $output .= $indent . '<li  class="' . $depth_class_names . ' ' . $class_names . '">';
+//         // link attributes
+//         $attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+//         $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+//         $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+//         $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
+//         $attributes .= ' class="menu-link ' . ($depth > 0 ? 'sub-menu-link' : 'main-menu-link') . '"';
+//         $item_output = sprintf('%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
+//             $args->before,
+//             $attributes,
+//             $args->link_before,
+//             apply_filters('the_title', $item->title, $item->ID),
+//             $args->link_after,
+//             $args->after
+//         );
+//         // build html
+//         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
+//     }
+// }
 
 /* ACF option page
    ========================================================================== */

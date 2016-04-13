@@ -7,6 +7,7 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <title><?php wp_title(); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php /*
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon-60x60.png">
@@ -26,6 +27,7 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#000000">
     <!-- end favicon -->
+    */?>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
@@ -39,8 +41,8 @@
                     'theme_location' => 'head_menu',
                     'menu' => '',
                     'container' => false,
-                    'menu_class' => 'main-nav',
-                    'walker' => new carcas_walker,
+                    'menu_class' => 'main-nav'
+                    // 'walker' => new carcas_walker,
                 );
                 wp_nav_menu($main_nav);
                 ?>
