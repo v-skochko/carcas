@@ -255,7 +255,11 @@ function my_theme_register_required_plugins()
             'slug' => 'rvg-optimize-database',
             'required' => false,
         ),
-
+     array(
+            'name' => 'All-in-One WP Migration',
+            'slug' => 'all-in-one-wp-migration',
+            'required' => false,
+        ),
         array(
             'name' => 'Advanced Custom Fields: PRO',
             'slug' => 'advanced-custom-fields-pro',
