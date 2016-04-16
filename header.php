@@ -1,6 +1,3 @@
-<?php
-/*  ob_start('ob_html_compress');*/
-?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -31,6 +28,25 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
+<nav class="resp_nav_container cfx">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas nulla nam sapiente, numquam tempore laboriosam, quisquam. Aliquid totam voluptatum quisquam repellendus odio ipsa a dolore aut, laudantium veniam eius. Quaerat, quidem eum. Vitae similique dolore ipsa iusto modi, illum amet, facere possimus quas dolor dicta. Voluptatibus vero commodi quaerat qui.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas nulla nam sapiente, numquam tempore laboriosam, quisquam. Aliquid totam voluptatum quisquam repellendus odio ipsa a dolore aut, laudantium veniam eius. Quaerat, quidem eum. Vitae similique dolore ipsa iusto modi, illum amet, facere possimus quas dolor dicta. Voluptatibus vero commodi quaerat qui.
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas nulla nam sapiente, numquam tempore laboriosam, quisquam. Aliquid totam voluptatum quisquam repellendus odio ipsa a dolore aut, laudantium veniam eius. Quaerat, quidem eum. Vitae similique dolore ipsa iusto modi, illum amet, facere possimus quas dolor dicta. Voluptatibus vero commodi quaerat qui.
+<?php
+ob_start('ob_html_compress');
+    $resp_nav = array(
+        'theme_location' => 'main_menu',
+        'menu' => '',
+        'container' => false,
+        'menu_class' => 'resp-nav'
+    );
+    wp_nav_menu($resp_nav);
+    ob_end_flush();
+?>
+<?php wp_footer(); ?>
+</nav>
+
+
 <div id="wrap">
     <header>
         <div class="row  flex ai_center">
@@ -45,7 +61,7 @@
                 );
                 wp_nav_menu($main_nav);
                 ?>
-            <a href="#" class="toogle_nav"><span class="burger-icon"></span></a>
             </nav>
+            <a href="#" class="toogle_nav"><span class="burger-icon"></span></a>
         </div>
     </header>

@@ -13,18 +13,7 @@
     </div>
 </div>
 </footer>
-<nav class="resp_nav_container cfx">
-<?php
-    $resp_nav = array(
-        'theme_location' => 'main_menu',
-        'menu' => '',
-        'container' => false,
-        'menu_class' => 'resp-nav'
-    );
-    wp_nav_menu($resp_nav);
-?>
-</nav>
-<?php wp_footer(); ?>
+
+
 </body>
 </html>
-<?php ob_end_flush() ?>

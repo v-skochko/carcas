@@ -6,6 +6,7 @@ $(document).ready(function() {
     $('.toogle_nav').click(function() {
         $(".main_nav_container").toggleClass('o_menu');
         $(this).toggleClass('is-active');
+        $("body").toggleClass('m_open');
         return false;
     });
     $(".main_nav_container .menu-item-has-children>a").after('<i class="i-down"></i>');
