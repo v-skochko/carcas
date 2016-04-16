@@ -20,14 +20,14 @@ header{
    ========================================================================== */
 @media screen and (min-width: $row){
     // MAIN NAVIGATION MENU
-    .main_nav_container{
+    .main-nav{
         // font-size: 0;
         border: 1px solid #fff;
         *{
             line-height: 1;
         }
         //level 0
-        .menu-item-depth-0{
+        >li{
             position: relative;
             display: inline-block;
             >a{
@@ -37,13 +37,13 @@ header{
                 padding: 5px 15px;
                 border-right: 1px solid $border;
             }
-            &.current-menu-item, &:hover{
+            &.active, &:hover{
                 background: darken($a, 5%);
                 >a{
                     color: #fff;
                 }
             }
-            &.menu-item-has-children{
+            &.has-children{
                 >a{
                     position: relative;
                     &:after{
@@ -61,8 +61,8 @@ header{
             }
         }
         //submenu
-        .menu-item-has-children{
-            .menu-depth-1{
+        .has-children{
+            >.sub-menu{
                 position: absolute;
                 z-index: 100;
                 display: none;
@@ -95,7 +95,7 @@ header{
                 }
             }
             &:hover{
-                >.menu-depth-1{
+                >.sub-menu{
                     display: block;
                     visibility: visible;
                     overflow: visible;

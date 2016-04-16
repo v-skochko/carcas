@@ -25,7 +25,7 @@ require_once 'include/core.php';
 /* REGISTER MENUS
    ========================================================================== */
 register_nav_menus(array(
-    'head_menu' => 'Main navigation',
+    'main_menu' => 'Main navigation',
     'second_menu' => 'Second navigation',
     'foot_menu' => 'Footer navigation'
 ));

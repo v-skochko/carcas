@@ -38,11 +38,10 @@
             <nav class="main_nav_container cfx">
                 <?php
                 $main_nav = array(
-                    'theme_location' => 'head_menu',
+                    'theme_location' => 'main_menu',
                     'menu' => '',
                     'container' => false,
                     'menu_class' => 'main-nav'
-                    // 'walker' => new carcas_walker,
                 );
                 wp_nav_menu($main_nav);
                 ?>

@@ -181,13 +181,13 @@ add_filter('comment_form_default_fields', 'rem_form_fields');
 
 /* remove dafaul class for menu
    ========================================================================== */
-   add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1);
-   add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1);
-   function my_css_attributes_filter($var) {
+   add_filter('nav_menu_css_class', 'main_nav_filter', 100, 1);
+   add_filter('nav_menu_item_id', 'main_nav_filter', 100, 1);
+   function main_nav_filter($var) {
        if(is_array($var)){
-           $varci= array_intersect($var, array('current-menu-item'));
-           $cmeni = array('current-menu-item');
-           $selava   = array('selectedmenu');
+           $varci= array_intersect($var, array('menu-item-has-children', 'current-menu-item'));
+           $cmeni = array('menu-item-has-children', 'current-menu-item');
+           $selava   = array('has-children', 'active');
            $selavaend = array();
            $selavaend = str_replace($cmeni, $selava, $varci);
        }
@@ -196,6 +196,8 @@ add_filter('comment_form_default_fields', 'rem_form_fields');
        }
        return $selavaend;
    };
+
+
 /* ==========================================================================
 /*
 /*
