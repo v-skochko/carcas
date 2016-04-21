@@ -44,6 +44,9 @@
     &.ai_center{
         @include align-items(center);
     }
+   &.ai_stretch{
+        @include align-items(stretch);
+    }
 }
 .btn, input[type='submit']{
     font: 400 15px/1 $regular;
