@@ -505,3 +505,15 @@ function ob_html_compress($buf)
 {
     return preg_replace(array('/<!--(?>(?!\[).)(.*)(?>(?!\]).)-->/Uis', '/[[:blank:]]+/'), array('', ' '), str_replace(array("\n", "\r", "\t"), '', $buf));
 }
+
+//Allow SVG through WordPress Media Uploader
+function wpa_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'wpa_mime_types');
+
+function wpa_fix_svg_thumb() {
+    echo '<style>td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {width: 100% !important;height: auto !important}</style>';
+}
+add_action('admin_head', 'wpa_fix_svg_thumb');
