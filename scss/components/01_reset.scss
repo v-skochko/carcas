@@ -61,6 +61,11 @@ input[type=text]:focus, input[type=search]:focus, input[type=email]:focus, input
 button[disabled], html input[disabled]{
     cursor: default;
 }
+input[type="submit"] {
+    -webkit-appearance: none;
+       -moz-appearance:    none;
+       appearance:         none;
+}
 button::-moz-focus-inner, input::-moz-focus-inner{
     border: 0;
 }
