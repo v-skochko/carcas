@@ -30,6 +30,21 @@ header{
         >li{
             position: relative;
             display: inline-block;
+            
+              &:not(:first-child) {
+                a {
+                   &:after{
+                       position: absolute;
+                       top: 0;
+                       left: 0;
+                       width: 1px;
+                       height: 14px;
+                       content: '';
+                       background: #fff;
+                   }
+                }
+            }
+            
             >a{
                 font-family: $regular;
                 font-size: 16px;
