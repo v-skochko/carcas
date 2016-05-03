@@ -29,3 +29,11 @@ register_nav_menus(array(
     'second_menu' => 'Second navigation',
     'foot_menu' => 'Footer navigation'
 ));
+
+//simple function for wp_get_attachment_image_src()
+//  echo  image_src( get_field('top_background') , 'medium', true ); 
+function image_src($id, $size = 'full', $background_image = false, $height = false) {
+    if ($image = wp_get_attachment_image_src($id, $size, true)) {
+        return $background_image ? 'background-image: url('.$image[0].');' . ($height?'height:'.$image[2].'px':'') : $image[0];
+    }
+}
