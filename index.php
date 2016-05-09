@@ -25,10 +25,14 @@
         <article>
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 <div class="blogpost cfx">
-                    <?php if (has_post_thumbnail()) { ?>
-                        <div class="alignleft">
-                            <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
-                        </div>
+                         <?php if (has_post_thumbnail()) { ?>
+                <div class="alignleft">
+                    <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
+                </div>
+                    <?php } else { ?>
+                  <div class="alignleft">
+                      <a href="<?php the_permalink(); ?>"><img src="<?php echo theme(); ?>/img/holder.png" alt=""></a>
+                  </div>
                     <?php } ?>
                     <div class="excerpt">
                         <a href="<?php the_permalink(); ?>" class="blogtitle"><?php the_title(); ?></a>
