@@ -55,8 +55,8 @@ textarea{
     resize: none;
 }
 input[type=text]:focus, input[type=search]:focus, input[type=email]:focus, input[type='tel']:focus, textarea:focus{
-    border-color: rgba(81, 203, 238, 1) ;
-    box-shadow: 0 0 3px rgba(81, 203, 238, 1);
+    border-color: rgba(81, 203, 238, 1)!important;
+    box-shadow: 0 0 3px rgba(81, 203, 238, 1)!important;
 }
 button[disabled], html input[disabled]{
     cursor: default;
