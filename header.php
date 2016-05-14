@@ -28,40 +28,20 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?> >
-<nav class="resp_nav_container cfx">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas nulla nam sapiente, numquam tempore laboriosam, quisquam. Aliquid totam voluptatum quisquam repellendus odio ipsa a dolore aut, laudantium veniam eius. Quaerat, quidem eum. Vitae similique dolore ipsa iusto modi, illum amet, facere possimus quas dolor dicta. Voluptatibus vero commodi quaerat qui.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas nulla nam sapiente, numquam tempore laboriosam, quisquam. Aliquid totam voluptatum quisquam repellendus odio ipsa a dolore aut, laudantium veniam eius. Quaerat, quidem eum. Vitae similique dolore ipsa iusto modi, illum amet, facere possimus quas dolor dicta. Voluptatibus vero commodi quaerat qui.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas nulla nam sapiente, numquam tempore laboriosam, quisquam. Aliquid totam voluptatum quisquam repellendus odio ipsa a dolore aut, laudantium veniam eius. Quaerat, quidem eum. Vitae similique dolore ipsa iusto modi, illum amet, facere possimus quas dolor dicta. Voluptatibus vero commodi quaerat qui.
-<?php
-ob_start('ob_html_compress');
-    $resp_nav = array(
-        'theme_location' => 'main_menu',
-        'menu' => '',
-        'container' => false,
-        'menu_class' => 'resp-nav'
-    );
-    wp_nav_menu($resp_nav);
-    ob_end_flush();
-?>
-<?php wp_footer(); ?>
-</nav>
-
-
 <div id="wrap">
     <header>
         <div class="row  flex ai_center">
             <a href="<?php echo site_url(); ?>/" id="logo">LOGO</a>
-            <nav class="main_nav_container cfx">
+            <nav class="main_nav cfx">
                 <?php
                 $main_nav = array(
                     'theme_location' => 'main_menu',
                     'menu' => '',
                     'container' => false,
-                    'menu_class' => 'main-nav'
+                    'menu_class' => 'level_a'
                 );
                 wp_nav_menu($main_nav);
                 ?>
             </nav>
-            <a href="#" class="toogle_nav"><span class="burger-icon"></span></a>
         </div>
     </header>

@@ -1,11 +1,12 @@
-*{
+* {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-html{
+html {
     height: 100%;
+
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-overflow-scrolling: touch;
@@ -13,98 +14,102 @@ html{
     -webkit-text-size-adjust: 100%;
         -ms-text-size-adjust: 100%;
 }
-body{
+body {
     font-family: $regular;
     position: relative;
     height: auto;
     min-height: 100vh;
+
     @include flexbox();
     @include flex-direction (column);
-    ::-moz-selection{
+    ::-moz-selection {
         color: #fff;
         background: $a;
     }
-    ::selection{
+    ::selection {
         color: #fff;
         background: $a;
     }
 }
-#wrap{
+#wrap {
     @include flex (1 0 auto);
 }
-mark{
+mark {
     background: none;
 }
 /* ==========================================================================
    FORMS & TABLE & NAVIGATION
    ========================================================================== */
-input, textarea, select{
+input, textarea, select {
     padding: 0 10px;
     outline: 0 none;
+
     @include transition(all, .2s, ease-in-out);
 }
-input[type='text'], input[type='email'], input[type='tel'], textarea{
+input[type='text'], input[type='email'], input[type='tel'], textarea {
     width: 100%;
     height: 40px;
     padding: 0 5px 0 10px;
     border: 1px solid #ccc;
 }
-textarea{
+textarea {
     height: 120px;
     padding-top: 10px;
     resize: none;
 }
-input[type=text]:focus, input[type=search]:focus, input[type=email]:focus, input[type='tel']:focus, textarea:focus{
+input[type=text]:focus, input[type=search]:focus, input[type=email]:focus, input[type='tel']:focus, textarea:focus {
     border-color: rgba(81, 203, 238, 1)!important;
     box-shadow: 0 0 3px rgba(81, 203, 238, 1)!important;
 }
-button[disabled], html input[disabled]{
+button[disabled], html input[disabled] {
     cursor: default;
 }
-input[type="submit"] {
+input[type='submit'] {
     -webkit-appearance: none;
-       -moz-appearance:    none;
-       appearance:         none;
+       -moz-appearance: none;
+            appearance: none;
 }
-button::-moz-focus-inner, input::-moz-focus-inner{
+button::-moz-focus-inner, input::-moz-focus-inner {
     border: 0;
 }
-nav ul{
+nav ul {
     list-style: none;
 }
-ol{
+ol {
     list-style: decimal;
 }
-table{
+table {
     border-spacing: 0;
     border-collapse: collapse;
 }
 /* ==========================================================================
    TYPOGRAPHY
    ========================================================================== */
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6 {
     font-weight: normal;
     color: $text;
 }
-a{
+a {
     text-decoration: none;
     color: $link;
     outline: 0;
+
     @include transition();
-    &:hover{
+    &:hover {
         outline: 0;
     }
 }
-img{
+img {
     display: block;
     max-width: 100%;
     height: auto;
     vertical-align: top;
     border: 0;
+
     -moz-backface-visibility: hidden;
          backface-visibility: hidden;
 }
-hr{
+hr {
     display: block;
     clear: both;
     height: 1px;
@@ -112,23 +117,25 @@ hr{
     border: 0 none;
     background: #707070;
 }
-strong, b{
+strong, b {
     font-family: $bold;
     font-weight: normal;
 }
-i{
+i {
     font-style: normal;
 }
-::-webkit-scrollbar{
-    width: 13px;
-}
-::-webkit-scrollbar-track{
-    border-left: 1px solid #ccc;
-    background-color: #eaeaea;
-}
-::-webkit-scrollbar-thumb{
-    background-color: $a;
-}
-::-webkit-scrollbar-thumb:hover{
-    background: darken($a, 5%);
+@media screen and (min-width: $row) {
+    ::-webkit-scrollbar {
+        width: 13px;
+    }
+    ::-webkit-scrollbar-track {
+        border-left: 1px solid #ccc;
+        background-color: #eaeaea;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: $a;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: darken($a, 5%);
+    }
 }

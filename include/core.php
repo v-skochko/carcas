@@ -16,8 +16,8 @@ function style_js()
     };
 
     // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
-    wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js', false, false, true);
-    wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js', false, false, true);
+    wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js');
+    wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js');
     wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css');
 }
 
@@ -181,21 +181,17 @@ add_filter('comment_form_default_fields', 'rem_form_fields');
 
 /* remove dafaul class for menu
    ========================================================================== */
-   add_filter('nav_menu_css_class', 'main_nav_filter', 100, 1);
-   add_filter('nav_menu_item_id', 'main_nav_filter', 100, 1);
-   function main_nav_filter($var) {
-       if(is_array($var)){
-           $varci= array_intersect($var, array('menu-item-has-children', 'current-menu-item'));
-           $cmeni = array('menu-item-has-children', 'current-menu-item');
-           $selava   = array('has-children', 'active');
-           $selavaend = array();
-           $selavaend = str_replace($cmeni, $selava, $varci);
-       }
-       else{
-           $selavaend= '';
-       }
-       return $selavaend;
-   };
+    add_filter('nav_menu_css_class', 'wpa_discard_menu_classes', 10, 2);
+    add_filter('nav_menu_item_id', '__return_false', 10);
+function wpa_discard_menu_classes($classes, $item) {
+    $classes = array_filter(
+        $classes, create_function( '$class', 'return in_array( $class, array( "current-menu-item", "current-menu-parent", "menu-item-has-children" ) );' )
+    );
+    return array_merge(
+        $classes,
+        (array)get_post_meta( $item->ID, '_menu_item_classes', true )
+    );
+}
 
 
 /* ==========================================================================

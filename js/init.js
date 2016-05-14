@@ -1,6 +1,14 @@
 $ = jQuery;
 $(document).ready(function() {
     "use strict";
+    $(".main_nav")
+        .clone()
+        .attr({class:'resp_nav'})
+        .insertAfter("footer")
+        .find('ul')
+        .removeAttr('id')
+        .find('.menu-item-has-children>a')
+        .after('<i class="i-down sub-anchor"></i>');
 
     // ressponsive nav
     $('.toogle_nav').click(function() {
@@ -9,7 +17,6 @@ $(document).ready(function() {
         $("body").toggleClass('m_open');
         return false;
     });
-    $(".main_nav_container .menu-item-has-children>a").after('<i class="i-down"></i>');
     $(".menu-item-has-children i").click(function(event) {
         $(this).toggleClass('i-up').next().slideToggle("fast");
     });
