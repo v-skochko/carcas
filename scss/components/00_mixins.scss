@@ -45,6 +45,22 @@
         @include transform (translate(0, 50%));
     }
 }
+// @include before(1px, auto, auto,  0, #0054a6,  8px, 8px, false )
+@mixin before($top, $right, $bottom,  $left, $background,  $width, $height, $radius: false ) {
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    background: $background;
+    width: $width;
+    height: $height;
+    position: absolute;
+    content: '';
+    @if $radius {
+        border-radius: $radius;
+    }
+}
+
 /*  https://github.com/pfist/quantum-shadows
     @include shadow(2);
    ========================================================================== */
