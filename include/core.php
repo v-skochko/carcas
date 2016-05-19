@@ -1,6 +1,5 @@
 <?php
-/* ==========================================================================
-THEME SETINGS
+/* THEME SETINGS
 - Registered jQuery,  css and js file
 - Thumbnails theme support
    ========================================================================== */
@@ -14,17 +13,12 @@ function style_js()
         wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js');
         wp_enqueue_script('jquery');
     };
-
     // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
     wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js');
     wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js');
     wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css');
 }
-
 add_action('wp_enqueue_scripts', 'style_js');
-
-
-
 
 /* Thumbnails theme support
    ========================================================================== */
@@ -302,92 +296,92 @@ CUSTOM FUNCTION
 ========================================================================== */
 /* Body class
    ========================================================================== */
-function new_body_classes($classes)
-{
-    if (is_page()) {
+//New Body Classe
+function wpa_body_classes( $classes ){
+    if( is_page() ){
         global $post;
         $temp = get_page_template();
-        if ($temp != null) {
+        if ( $temp != null ) {
             $path = pathinfo($temp);
             $tmp = $path['filename'] . "." . $path['extension'];
-            $tn = str_replace(".php", "", $tmp);
+            $tn= str_replace(".php", "", $tmp);
             $classes[] = $tn;
         }
-        if (is_active_sidebar('sidebar')) {
-            $classes[] = 'with_sidebar';
-        }
-        foreach ($classes as $k => $v) {
-            if (
-                // $v == 'page-template' ||
-                // $v == 'page-id-'.$post->ID ||
-                // $v == 'page-template-default' ||
+        foreach($classes as $k => $v) {
+            if(
+                $v == 'page-template' ||
+                $v == 'page-id-'.$post->ID ||
+                $v == 'page-template-default' ||
                 $v == 'woocommerce-page' ||
-                ($temp != null ? ($v == 'page-template-' . $tn . '-php' || $v == 'page-template-' . $tn) : '')
-            ) {
-                unset($classes[$k]);
-            }
+                ($temp != null?($v == 'page-template-'.$tn.'-php' || $v == 'page-template-'.$tn):'')) unset($classes[$k]);
         }
     }
-    if (is_single()) {
+    if( is_single() ){
         global $post;
-        $f = get_post_format($post->ID);
-        foreach ($classes as $k => $v) {
-            if ($v == 'postid-' . $post->ID || $v == 'single-format-' . (!$f ? 'standard' : $f)) {
-                unset($classes[$k]);
-            }
+        $f = get_post_format( $post->ID );
+        foreach($classes as $k => $v) {
+            if($v == 'postid-'.$post->ID || $v == 'single-format-'.(!$f?'standard':$f)) unset($classes[$k]);
         }
+    }
+    if ( is_multi_author() ) {
+        $classes[] = 'group-blog';
     }
     global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
-    $browser = $_SERVER['HTTP_USER_AGENT'];
+    $browser = $_SERVER[ 'HTTP_USER_AGENT' ];
     // Mac, PC ...or Linux
-    if (preg_match("/Mac/", $browser)) {
+    if ( preg_match( "/Mac/", $browser ) ){
         $classes[] = 'macos';
-    } elseif (preg_match("/Windows/", $browser)) {
+    } elseif ( preg_match( "/Windows/", $browser ) ){
         $classes[] = 'windows';
-    } elseif (preg_match("/Linux/", $browser)) {
+    } elseif ( preg_match( "/Linux/", $browser ) ) {
         $classes[] = 'linux';
     } else {
         $classes[] = 'unknown-os';
     }
     // Checks browsers in this order: Chrome, Safari, Opera, MSIE, FF
-    if (preg_match("/Chrome/", $browser)) {
+    if ( preg_match( "/Edge/", $browser ) ) {
+        $classes[] = 'edge';
+    } elseif ( preg_match( "/Chrome/", $browser ) ) {
         $classes[] = 'chrome';
-        preg_match("/Chrome\/(\d.\d)/si", $browser, $matches);
-        @$classesh_version = 'ch' . str_replace('.', '-', $matches[1]);
+        preg_match( "/Chrome\/(\d.\d)/si", $browser, $matches);
+        @$classesh_version = 'ch' . str_replace( '.', '-', $matches[1] );
         $classes[] = $classesh_version;
-    } elseif (preg_match("/Safari/", $browser)) {
+    } elseif ( preg_match( "/Safari/", $browser ) ) {
         $classes[] = 'safari';
-        preg_match("/Version\/(\d.\d)/si", $browser, $matches);
-        $sf_version = 'sf' . str_replace('.', '-', $matches[1]);
+        preg_match( "/Version\/(\d.\d)/si", $browser, $matches);
+        $sf_version = 'sf' . str_replace( '.', '-', $matches[1] );
         $classes[] = $sf_version;
-    } elseif (preg_match("/Opera/", $browser)) {
+    } elseif ( preg_match( "/Opera/", $browser ) ) {
         $classes[] = 'opera';
-        preg_match("/Opera\/(\d.\d)/si", $browser, $matches);
-        $op_version = 'op' . str_replace('.', '-', $matches[1]);
+        preg_match( "/Opera\/(\d.\d)/si", $browser, $matches);
+        $op_version = 'op' . str_replace( '.', '-', $matches[1] );
         $classes[] = $op_version;
-    } elseif (preg_match("/MSIE/", $browser)) {
+    } elseif ( preg_match( "/MSIE/", $browser ) ) {
         $classes[] = 'msie';
-        if (preg_match("/MSIE 6.0/", $browser)) {
+        if( preg_match( "/MSIE 6.0/", $browser ) ) {
             $classes[] = 'ie6';
-        } elseif (preg_match("/MSIE 7.0/", $browser)) {
+        } elseif ( preg_match( "/MSIE 7.0/", $browser ) ){
             $classes[] = 'ie7';
-        } elseif (preg_match("/MSIE 8.0/", $browser)) {
+        } elseif ( preg_match( "/MSIE 8.0/", $browser ) ){
             $classes[] = 'ie8';
-        } elseif (preg_match("/MSIE 9.0/", $browser)) {
+        } elseif ( preg_match( "/MSIE 9.0/", $browser ) ){
             $classes[] = 'ie9';
         }
-    } elseif (preg_match("/Firefox/", $browser) && preg_match("/Gecko/", $browser)) {
+    } elseif ( preg_match( "/Firefox/", $browser ) && preg_match( "/Gecko/", $browser ) ) {
         $classes[] = 'firefox';
-        preg_match("/Firefox\/(\d)/si", $browser, $matches);
-        $ff_version = 'ff' . str_replace('.', '-', $matches[1]);
+        preg_match( "/Firefox\/(\d)/si", $browser, $matches);
+        $ff_version = 'ff' . str_replace( '.', '-', $matches[1] );
         $classes[] = $ff_version;
     } else {
         $classes[] = 'unknown-browser';
     }
+    //qtranslate classes
+    if(defined('QTX_VERSION')) {
+        $classes[] = 'qtrans-' . qtranxf_getLanguage();
+    }
     return $classes;
 }
-
-add_filter('body_class', 'new_body_classes');
+add_filter( 'body_class', 'wpa_body_classes' );
 /* Custom WP Title
    ========================================================================== */
 function custom_wp_title($title, $seperator)
@@ -415,64 +409,6 @@ function theme()
     return get_stylesheet_directory_uri();
 }
 
-// /* Menu walker
-//    ========================================================================== */
-
-// class carcas_walker extends Walker_Nav_Menu
-// {
-//     // add classes to ul sub-menus
-//     function start_lvl(&$output, $depth = 0, $args = array())
-//     {
-//         // depth dependent classes
-//         $indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
-//         $display_depth = ($depth + 1); // because it counts the first submenu as 0
-//         $classes = array(
-//             'sub-menu',
-//             ($display_depth % 2 ? 'menu-odd' : 'menu-even'),
-//             ($display_depth >= 2 ? 'sub-sub-menu' : ''),
-//             'menu-depth-' . $display_depth,
-//         );
-//         $class_names = implode(' ', $classes);
-//         // build html
-//         $output .= "\n" . $indent . '<ul class="' . $class_names . '">' . "\n";
-//     }
-
-//     // add main/sub classes to li's and links
-//     function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
-//     {
-//         global $wp_query;
-//         $indent = ($depth > 0 ? str_repeat("\t", $depth) : ''); // code indent
-//         // depth dependent classes
-//         $depth_classes = array(
-//             ($depth == 0 ? 'main-menu-item' : 'sub-menu-item'),
-//             ($depth >= 2 ? 'sub-sub-menu-item' : ''),
-//             ($depth % 2 ? 'menu-item-odd' : 'menu-item-even'),
-//             'menu-item-depth-' . $depth,
-//         );
-//         $depth_class_names = esc_attr(implode(' ', $depth_classes));
-//         // passed classes
-//         $classes = empty($item->classes) ? array() : (array)$item->classes;
-//         $class_names = esc_attr(implode(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item)));
-//         // build html
-//         $output .= $indent . '<li  class="' . $depth_class_names . ' ' . $class_names . '">';
-//         // link attributes
-//         $attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
-//         $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
-//         $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
-//         $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
-//         $attributes .= ' class="menu-link ' . ($depth > 0 ? 'sub-menu-link' : 'main-menu-link') . '"';
-//         $item_output = sprintf('%1$s<a%2$s>%3$s%4$s%5$s</a>%6$s',
-//             $args->before,
-//             $attributes,
-//             $args->link_before,
-//             apply_filters('the_title', $item->title, $item->ID),
-//             $args->link_after,
-//             $args->after
-//         );
-//         // build html
-//         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
-//     }
-// }
 
 /* ACF option page
    ========================================================================== */
@@ -501,8 +437,8 @@ function ob_html_compress($buf)
 {
     return preg_replace(array('/<!--(?>(?!\[).)(.*)(?>(?!\]).)-->/Uis', '/[[:blank:]]+/'), array('', ' '), str_replace(array("\n", "\r", "\t"), '', $buf));
 }
-
-//Allow SVG through WordPress Media Uploader
+/* Allow SVG through WordPress Media Uploader
+   ========================================================================== */
 function wpa_mime_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;

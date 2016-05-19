@@ -223,9 +223,3 @@ function my_theme_register_required_plugins() {
 
     tgmpa( $plugins, $config );
 }
-
-
-
-
-
-
