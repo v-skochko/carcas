@@ -35,7 +35,7 @@
         @include transform (translateX(110%));
         @include transition(all, .2s, ease-in-out);
         nav {
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
         li {
             position: relative;
