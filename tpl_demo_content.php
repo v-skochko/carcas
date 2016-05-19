@@ -4,14 +4,7 @@ global $post; ?>
         <main>
             <h1>Page title</h1>
             <article>
-                <div class="bx_slider bx_style">
-                    <ul>
-                        <li><img src='http://lorempixel.com/1200/300/nature/'></li>
-                        <li><img src='http://lorempixel.com/1200/300/sports/'></li>
-                        <li><img src='http://lorempixel.com/1200/300/technics/'></li>
-                        <li><img src='http://lorempixel.com/1200/300/people/'></li>
-                    </ul>
-                </div>
+
             </article>
             <article>
                 <h2>wysiwyg preview</h2>

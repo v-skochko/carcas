@@ -1,18 +1,11 @@
-.toogle_nav, .resp_nav {
-    display: none;
-}
-body {
-    position: relative;
-}
 @media screen and (max-width: $row) {
-    .toogle_nav {
+    .burger {
         position: absolute;
-        z-index: 101 ;
-        top: 20px;
-        right: 20px;
-        display: block;
-        padding-right: 10px;
+        top: 10px;
+        right: 10px;
+        z-index: 101;
         text-align: left;
+        margin-right: 10px;
         .burger-icon {
             display: inline-block;
             @include burger(18px, 2px, 4px, #fff);
@@ -22,21 +15,28 @@ body {
                 @include burger-to-cross;
             }
         }
+
     }
-    .resp_nav {
+    .resp_container {
+        border-top: 40px solid darken($menu, 10%);
+        border-bottom: 3px solid darken($menu, 10%);
+        padding: 5px;
         font-size: 0;
         position: fixed;
         z-index: 100;
         top: 0;
+        max-width: 480px;
         right: 0;
-        display: block;
-        overflow: hidden;
+        overflow-x: hidden;
         overflow-y: scroll;
         width: 80%;
-        max-width: 320px;
         height: 100vh;
-        padding-top: 40px;
         background: $menu;
+        @include transform (translateX(110%));
+        @include transition(all, .2s, ease-in-out);
+        nav {
+            margin-bottom: 60px;
+        }
         li {
             position: relative;
         }
@@ -72,12 +72,18 @@ body {
                     background: lighten($menu, 10%);
                 }
             }
+            .sub-anchor {
+                display: none !important;
+            }
+            .sub-menu {
+                display: none !important;
+            }
         }
     }
     .level_a {
-        >li {
-            border-bottom: 1px solid  lighten($menu, 5%);
-            >a {
+        > li {
+            border-bottom: 1px solid lighten($menu, 5%);
+            > a {
                 font-size: 14px;
                 line-height: 30px;
                 height: 30px;
@@ -89,36 +95,67 @@ body {
             }
         }
     }
-    .row {
-        width: 100%;
-        max-width: 94%;
-    }
-    header {
-        #logo {
-            padding-left: 10px;
-        }
-        .row {
-            max-width: 100%;
-            height: 40px;
-        }
-    }
-    /* MENU
+
+    /* resp_menu_active
    ========================================================================== */
-    #wrap {
-        position: relative;
-        @include transition(all, .5s, cubic-bezier(.165, .84, .44, 1));
-        @include transform (translateX(0));
-    }
-    .m_open {
+    .resp_menu_active {
+        overflow: hidden;
+        &:before {
+            @include before(0, auto, auto, 0, rgba(0, 0, 0, .7), 100%, 100vh, false);
+            @include transition(all, .2s, ease-in-out);
+            z-index: 100;
+        }
         #wrap {
-            right: 82%;
-            overflow: hidden;
-            @include transform (translateX(80%));
+            position: fixed;
+            top: 0;
+            opacity: .6;
+        }
+        .burger {
+            position: fixed;
+            span {
+                position: relative;
+                z-index: 101;
+            }
+
         }
         footer {
             display: none;
         }
+        .resp_container {
+            @include transform (translateX(0));
+            opacity: 1;
+        }
     }
+
+    .resp_search {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        input {
+            max-width: 300px;
+            margin: 0 auto 10px;
+            width: 100%;
+            height: 40px;
+            border: 1px solid lighten($menu, 10%);
+            background: #fff;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+    }
+    /* ==========================================================================
+       global style
+       ========================================================================== */
+    header {
+        .row {
+            height: 40px;
+        }
+    }
+    .row {
+        width: 100%;
+        max-width: 94%;
+    }
+
 }
 @media screen and (max-width: 960px) {
 }

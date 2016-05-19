@@ -3,7 +3,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <title><?php wp_title(); ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui, minimum-scale=1.0, maximum-scale=1.0" />
     <?php /*
     <!-- favicon -->
     <link rel="apple-touch-icon" sizes="57x57" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon-57x57.png">
@@ -29,10 +29,11 @@
 </head>
 <body <?php body_class(); ?> >
 <div id="wrap">
+
     <header>
         <div class="row  flex ai_center">
             <a href="<?php echo site_url(); ?>/" id="logo">LOGO</a>
-            <nav class="main_nav cfx">
+            <nav class="main_nav cfx mobile_hide">
                 <?php
                 $main_nav = array(
                     'theme_location' => 'main_menu',
@@ -43,5 +44,6 @@
                 wp_nav_menu($main_nav);
                 ?>
             </nav>
+
         </div>
     </header>

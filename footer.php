@@ -13,8 +13,13 @@
     </div>
 </div>
 </footer>
-<a href="#" class="toogle_nav"><span class="burger-icon"></span></a>
+<a href="#" class="burger desctop_hide"><span class="burger-icon "></span></a>
+<div class="resp_container desctop_hide cfx">
+    <form role="search" method="get" class="resp_search" action="<?php echo home_url( '/' ); ?>">
+            <input type="search" class="search-field" placeholder="Search on site" value="" name="s" title="Search for:" />
+    </form>
 
 
+</div>
 </body>
 </html>

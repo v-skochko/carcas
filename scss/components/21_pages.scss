@@ -5,33 +5,96 @@ header {
     position: relative;
     z-index: 10;
     border-bottom: 1px solid #ebebeb;
-    background: #fafafa;
+    background: #181818;
     .row {
         height: 80px;
     }
     #logo {
         opacity: 1;
+        color: #ffffff;
         &:hover {
             opacity: .8;
         }
     }
-}
-/* menu
-   ========================================================================== */
-@media screen and (min-width: $row) {
-    // MAIN NAVIGATION MENU
-    .main_nav_container {
+    .main_nav {
         font-size: 0;
-        width: 100%;
-        li {
-            display: inline-block;
+
+        * {
+            line-height: 1;
         }
         a {
-            font-size: 14px;
-            color: #262626;
+            display: block;
         }
+
+    }
+    .level_a {
+        position: relative;
+
+        > li {
+            > a {
+                font-size: 14px;
+                color: #fff;
+                padding: 5px 20px;
+
+            }
+            &.current-menu-item, &:hover {
+                > a {
+                    color: #eeeeee;
+
+                }
+            }
+        }
+        li {
+            display: inline-block;
+            position: relative;
+            z-index: 0;
+
+        }
+    }
+    .sub-menu {
+        display: none;
+        margin-top: 27px;
+        background: $menu;
+        border-bottom: 3px solid lighten($menu, 10%);
+        border-top: 3px solid lighten($menu, 10%);
+        padding: 10px 0;
+        width: 100%;
+        min-width: 140px;
+        z-index: 100;
+        position: absolute;
+        max-width: 200px;
         .sub-menu {
-            display: none;
+            display: none !important;
+        }
+
+        li {
+            display: block;
+            list-style-type: none;
+        }
+        a {
+            font-size: 13px;
+            line-height: 1.3;
+            color: #ffffff;
+            padding: 3px 15px;
+            &:hover {
+                background: lighten($menu, 20%);
+            }
+        }
+    }
+    .menu-item-has-children {
+        &:before {
+            width: 100%;
+            height: 52px;
+            content: '';
+            position: absolute;
+            top: 0;
+            z-index: -1;
+            left: 0;
+        }
+        &:hover {
+            > .sub-menu {
+                display: block;
+            }
         }
     }
 }

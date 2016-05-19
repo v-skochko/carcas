@@ -1,61 +1,78 @@
 /* ==========================================================================
    HELPERS
    ========================================================================== */
-.row{
+body {
+    position: relative;
+    font-family: $regular;
+}
+.row {
     position: relative;
     width: $row;
     max-width: 100%;
     margin: 0 auto;
 }
-#content{
+#content {
     padding: 20px 20px 40px 20px;
 }
-#wrap{
-    overflow-x: hidden;
+#wrap {
     min-height: 100%;
+    position: relative;
+    width: 100%;
 }
-.c{
+.c {
     font-size: 0;
     line-height: 0;
     display: block;
     clear: both;
     overflow: hidden;
 }
-.cfx{
-    &:after{
+.cfx {
+    &:after {
         display: table;
         clear: both;
         content: ' ';
     }
-    &:before{
+    &:before {
         display: table;
         content: ' ';
     }
 }
-
-.flex{
+.desctop_hide {
+    display: none;
+}
+@media screen and (max-width: $row) {
+    .mobile_hide {
+        display: none;
+    }
+    .desctop_hide {
+        display: block;
+    }
+}
+.flex {
     @include flexbox;
     @include flex-wrap(wrap);
     @include align-items(flex-start);
     @include justify-content(space-between);
-    &.s_around{
+    &.s_around {
         @include justify-content(space-around);
     }
-    &.ai_center{
+    &.ai_center {
         @include align-items(center);
     }
-   &.ai_stretch{
+    &.ai_stretch {
         @include align-items(stretch);
     }
 }
-.btn, input[type='submit']{
+.btn, input[type='submit'] {
     font: 400 15px/1 $regular;
     position: relative;
     display: inline-block;
     padding: 10px 20px;
     cursor: pointer;
     -webkit-user-select: none;
-       -moz-user-select: none;
+    -moz-user-select: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -63,23 +80,25 @@
     border: none;
     outline: 0;
     background: $btn;
-    &:hover{
+    @include transition(all, .2s, ease);
+
+    &:hover {
         background: darken($btn, 5%);
-        box-shadow: 0 5px 11px 0 rgba(0, 0, 0, .18), 0 4px 15px 0 rgba(0, 0, 0, .15);
+        @include shadow(2);
     }
-    &:active{
+    &:active {
         background: darken($btn, 8%);
     }
 }
-.no_select{
+.no_select {
     -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
-.underline{
+.underline {
     position: relative;
     display: inline-block;
-    &:after{
+    &:after {
         display: block;
         width: 0;
         height: 1px;
@@ -88,7 +107,7 @@
         transition: width .5s ease, background-color .5s ease;
         background: transparent;
     }
-    &:hover:after{
+    &:hover:after {
         width: 100%;
         background: $link;
     }
@@ -96,18 +115,18 @@
 /* ==========================================================================
    WYSIWYG
    ========================================================================== */
-.wysiwyg{
-    h1{
+.wysiwyg {
+    h1 {
         font-size: 20px;
         line-height: 1;
         margin-bottom: 10px;
         padding-bottom: 5px;
         text-transform: uppercase;
     }
-    p{
+    p {
         padding-bottom: 20px;
     }
-    ul{
+    ul {
         margin-left: 30px;
         padding-bottom: 20px;
     }
@@ -115,13 +134,13 @@
 /* ==========================================================================
    SOCIAL LINK
    ========================================================================== */
-.s_link{
+.s_link {
     font-size: 0;
     display: inline-block;
     width: auto;
     cursor: pointer;
     text-align: center;
-    a{
+    a {
         position: relative;
         display: inline-block;
         width: 40px;
@@ -133,47 +152,47 @@
         @include transition(all, .5s, cubic-bezier(.165, .84, .44, 1));
         @include shadow(1);
         -webkit-backface-visibility: hidden;
-           -moz-backface-visibility: hidden;
-        &:before{
+        -moz-backface-visibility: hidden;
+        &:before {
             font-size: 20px;
             color: #fff;
             @include center();
         }
-        &:hover{
+        &:hover {
             @include shadow(3);
         }
-        &.i-facebook{
-            &:hover{
+        &.i-facebook {
+            &:hover {
                 background: #3b5993;
             }
         }
-        &.i-instagram{
-            &:hover{
+        &.i-instagram {
+            &:hover {
                 background: #125688;
             }
         }
-        &.i-twitter{
-            &:hover{
+        &.i-twitter {
+            &:hover {
                 background: #55acee;
             }
         }
-        &.i-linkedin{
-            &:hover{
+        &.i-linkedin {
+            &:hover {
                 background: #0177b5;
             }
         }
-        &.i-g{
-            &:hover{
+        &.i-g {
+            &:hover {
                 background: #d94733;
             }
         }
-        &.i-pinterest{
-            &:hover{
+        &.i-pinterest {
+            &:hover {
                 background: #bd1e23;
             }
         }
-        &.i-youtube-play{
-            &:hover{
+        &.i-youtube-play {
+            &:hover {
                 background: #f80000;
             }
         }

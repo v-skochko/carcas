@@ -3,18 +3,17 @@ $(document).ready(function() {
     "use strict";
     $(".main_nav")
         .clone()
-        .attr({class:'resp_nav'})
-        .insertAfter("footer")
+        .attr({class:''})
+        .insertAfter(".resp_search")
         .find('ul')
         .removeAttr('id')
         .find('.menu-item-has-children>a')
         .after('<i class="i-down sub-anchor"></i>');
 
     // ressponsive nav
-    $('.toogle_nav').click(function() {
-        $(".main_nav_container").toggleClass('o_menu');
+    $('.burger').click(function() {
         $(this).toggleClass('is-active');
-        $("body").toggleClass('m_open');
+        $("body").toggleClass('resp_menu_active');
         return false;
     });
     $(".menu-item-has-children i").click(function(event) {
