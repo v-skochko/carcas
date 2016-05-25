@@ -40,6 +40,12 @@ body {
 .desctop_hide {
     display: none;
 }
+.bg_center {
+    background-position: center center;
+    -webkit-background-size: cover;
+    background-size:cover;
+}
+
 @media screen and (max-width: $row) {
     .mobile_hide {
         display: none;
