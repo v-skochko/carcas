@@ -68,6 +68,9 @@ body {
     &.ai_stretch {
         @include align-items(stretch);
     }
+   &.ai_start {
+        @include align-items(flex-start);
+    }
 }
 .btn, input[type='submit'] {
     font: 400 15px/1 $regular;
