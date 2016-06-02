@@ -37,7 +37,10 @@
                     <div class="excerpt">
                         <a href="<?php the_permalink(); ?>" class="blogtitle"><?php the_title(); ?></a>
                         <div class="blogmeta cfx">
-                            <div class="author"><?php the_author(); ?></div>
+                            <div class="author">
+                                <?php echo $current_user->user_firstname; ?>
+                                <?php echo $current_user->user_lastname ?>
+                                <?php the_author(); ?></div>
                             <div
                                 class="ccount"><?php comments_number('No comments', 'One comment', '% comments'); ?></div>
                             <time><?php echo get_the_date('j F, Y'); ?></time>
