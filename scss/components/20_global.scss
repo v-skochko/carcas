@@ -62,6 +62,10 @@ body {
     &.s_around {
         @include justify-content(space-around);
     }
+       &.ai_all_center {
+        @include align-items(center);
+        @include justify-content(center);
+    }
     &.ai_center {
         @include align-items(center);
     }
