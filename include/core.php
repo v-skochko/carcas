@@ -14,8 +14,8 @@ function style_js()
         wp_enqueue_script('jquery');
     };
     // wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
-    wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js');
-    wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js');
+    wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js', array('jquery'), '1.0', true);
+    wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js', array('jquery'), '1.0', true);
     wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css');
 }
 add_action('wp_enqueue_scripts', 'style_js');
