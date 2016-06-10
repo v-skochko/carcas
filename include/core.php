@@ -386,11 +386,11 @@ add_filter( 'body_class', 'wpa_body_classes' );
    ========================================================================== */
 function custom_wp_title($title, $seperator)
 {
-    global $paged, $page;
+    global $paged, $page, $post;
     if (is_feed()) {
         return $title;
     }
-    $title .= ' ' . $seperator . ' ' . get_bloginfo('name');
+    $title = get_the_title($post->post_parent).' ' . $seperator . ' ' . get_bloginfo('name');
     $description = get_bloginfo('description', 'display');
     if ($description && (is_front_page())) {
         $title = "$title $seperator $description";
