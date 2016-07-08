@@ -1,26 +1,26 @@
-<?php get_header(); ?>
-<div id="content" class="row cfx">
-    <?php
-    $catID = get_queried_object()->term_id;
-    $catN = get_queried_object()->name;
-    $curauth = $wp_query->get_queried_object();
-    if (is_date()) {
-        $queryname = 'Archive of ' . date("F") . ', ' . date('Y');
-    } elseif (is_category()) {
-        $queryname = single_cat_title('', false);
-    } elseif (is_author()) {
-        $queryname = 'Posts by ' . $curauth->nickname;
-    } else {
-        $queryname = get_the_title(BLOG_ID);
-    } ?>
-    <?php if ($queryname) : echo '<h1>' . $queryname . '</h1>'; endif; ?>
-    <?php
-    if (is_search()) { ?>
-        <h1 class="page-title"><?php printf(esc_html__('Search Results for: %s'), '<span>' . get_search_query() . '</span>'); ?></h1>
-    <?php } else { ?>
-        <h1 class="page-title">BLOG</h1>
-    <?php }
-    ?>
+<?php get_header();
+$s = 0;
+if (get_query_var('paged')) {
+    $paged = get_query_var('paged');
+} elseif (get_query_var('page')) {
+    $paged = get_query_var('page');
+} else {
+    $paged = 1;
+}
+if (is_home()) {
+    $queryname = get_the_title(BLOG_ID);
+} else {
+    $queryname = 'Archive of ' . get_the_archive_title();
+} ?>
+
+    <div id="content" class="row cfx index_style">
+
+        <?php if (is_search()) { ?>
+            <h1 class="page-title"><?php printf(esc_html__('Search Results for: %s'), '<span>' . get_search_query() . '</span>'); ?></h1>
+        <?php } else {
+
+            echo '<h1 class="page-title">' . $queryname . '</h1>';
+        } ?>
     <section class="content cfx">
         <article>
             <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
