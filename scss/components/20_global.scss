@@ -12,9 +12,9 @@
     padding: 20px 20px 40px 20px;
 }
 #wrap {
-    min-height: 100%;
     position: relative;
     width: 100%;
+    min-height: 100%;
 }
 .c {
     font-size: 0;
@@ -40,7 +40,7 @@
 .bg_center {
     background-position: center center;
     -webkit-background-size: cover;
-    background-size:cover;
+            background-size: cover;
 }
 
 @media screen and (max-width: $row) {
@@ -59,7 +59,7 @@
     &.s_around {
         @include justify-content(space-around);
     }
-       &.ai_all_center {
+    &.ai_all_center {
         @include align-items(center);
         @include justify-content(center);
     }
@@ -69,7 +69,7 @@
     &.ai_stretch {
         @include align-items(stretch);
     }
-   &.ai_start {
+    &.ai_start {
         @include align-items(flex-start);
     }
 }
@@ -80,9 +80,7 @@
     padding: 10px 20px;
     cursor: pointer;
     -webkit-user-select: none;
-    -moz-user-select: none;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
+       -moz-user-select: none;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -90,10 +88,13 @@
     border: none;
     outline: 0;
     background: $btn;
-    @include transition(all, .2s, ease);
 
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    @include transition(all, .2s, ease);
     &:hover {
         background: darken($btn, 5%);
+
         @include shadow(2);
     }
     &:active {
@@ -102,8 +103,8 @@
 }
 .no_select {
     -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+       -moz-user-select: none;
+            user-select: none;
 }
 .underline {
     position: relative;
@@ -158,50 +159,52 @@
         margin: 0 2px;
         color: #fff;
         border-radius: 50%;
+
         @include transform (translate3d(0, 0, 0));
         @include transition(all, .5s, cubic-bezier(.165, .84, .44, 1));
         @include shadow(1);
         -webkit-backface-visibility: hidden;
-        -moz-backface-visibility: hidden;
+           -moz-backface-visibility: hidden;
         &:before {
             font-size: 20px;
             color: #fff;
+
             @include center();
         }
         &:hover {
             @include shadow(3);
         }
-        &.i-facebook {
+        &.i-c-bk {
             &:hover {
                 background: #3b5993;
             }
         }
-        &.i-instagram {
+        &.i-c-ism {
             &:hover {
-                background: #125688;
+                background: #181818;
             }
         }
-        &.i-twitter {
+        &.i-c-tr {
             &:hover {
                 background: #55acee;
             }
         }
-        &.i-linkedin {
+        &.i-c-ln {
             &:hover {
                 background: #0177b5;
             }
         }
-        &.i-g {
+        &.i-c-gp {
             &:hover {
                 background: #d94733;
             }
         }
-        &.i-pinterest {
+        &.i-c-pr {
             &:hover {
                 background: #bd1e23;
             }
         }
-        &.i-youtube-play {
+        &.i-c-yb {
             &:hover {
                 background: #f80000;
             }

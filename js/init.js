@@ -45,10 +45,6 @@ $(window).load(function() {
             $("#top_home_slider").addClass('loaded')
         }
     });
-    //backstretch
-    $('[data-bg]').each(function() {
-        if ($(this).attr('data-bg').length) {
-            $(this).backstretch($(this).attr('data-bg'));
-        }
-    });
+
+
 });

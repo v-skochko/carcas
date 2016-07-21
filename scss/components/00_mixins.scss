@@ -5,7 +5,8 @@
         font-weight: $font-weight;
         font-style: $font-style;
         src: url('../fonts/#{$font-filename}.eot');
-        src: url('../fonts/#{$font-filename}.eot?#iefix') format('embedded-opentype'),
+        src:
+        // url('../fonts/#{$font-filename}.eot?#iefix') format('embedded-opentype'),
         url('../fonts/#{$font-filename}.woff') format('woff'),
         url('../fonts/#{$font-filename}.ttf') format('truetype'),;
     }
