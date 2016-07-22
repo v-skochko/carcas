@@ -1,7 +1,6 @@
 /* ==========================================================================
    HELPERS
    ========================================================================== */
-
 .row {
     position: relative;
     width: $row;
@@ -40,9 +39,8 @@
 .bg_center {
     background-position: center center;
     -webkit-background-size: cover;
-            background-size: cover;
+    background-size: cover;
 }
-
 @media screen and (max-width: $row) {
     .mobile_hide {
         display: none;
@@ -80,7 +78,7 @@
     padding: 10px 20px;
     cursor: pointer;
     -webkit-user-select: none;
-       -moz-user-select: none;
+    -moz-user-select: none;
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -88,13 +86,11 @@
     border: none;
     outline: 0;
     background: $btn;
-
     -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    backface-visibility: hidden;
     @include transition(all, .2s, ease);
     &:hover {
         background: darken($btn, 5%);
-
         @include shadow(2);
     }
     &:active {
@@ -103,8 +99,8 @@
 }
 .no_select {
     -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 .underline {
     position: relative;
@@ -159,16 +155,14 @@
         margin: 0 2px;
         color: #fff;
         border-radius: 50%;
-
         @include transform (translate3d(0, 0, 0));
         @include transition(all, .5s, cubic-bezier(.165, .84, .44, 1));
         @include shadow(1);
         -webkit-backface-visibility: hidden;
-           -moz-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
         &:before {
             font-size: 20px;
             color: #fff;
-
             @include center();
         }
         &:hover {
