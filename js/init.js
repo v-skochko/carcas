@@ -39,9 +39,9 @@ $(window).load(function() {
         loop: true,
         paginationClickable: true,
         pagination: '.top_home_slider .swiper-pagination',
+             prevButton: '.top_home_slider .swiper-button-prev',
         nextButton: '.top_home_slider .swiper-button-next',
-        prevButton: '.top_home_slider .swiper-button-prev',
-        onInit: function(swiper) {
+           onInit: function(swiper) {
             $("#top_home_slider").addClass('loaded')
         }
     });
