@@ -41,6 +41,14 @@ $(window).load(function() {
         pagination: '.top_home_slider .swiper-pagination',
              prevButton: '.top_home_slider .swiper-button-prev',
         nextButton: '.top_home_slider .swiper-button-next',
+           breakpoints: {
+            960: {
+                slidesPerView: 10
+            },
+            480: {
+                slidesPerView: 10
+            }
+        }
            onInit: function(swiper) {
             $("#top_home_slider").addClass('loaded')
         }
