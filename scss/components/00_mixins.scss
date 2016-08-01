@@ -21,9 +21,7 @@
     $transitions: ($property $duration $easing);
     @include prefixer('transition', $transitions);
 }
-@mixin scale($scale) {
-    @include prefixer('scale', $scale);
-}
+
 @mixin transform($params, $backface: false) {
     @include prefixer('transform', $params);
     @if $backface {
