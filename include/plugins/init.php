@@ -145,6 +145,13 @@ function my_theme_register_required_plugins() {
                 'required' => true,
                 'external_url' => 'http://www.advancedcustomfields.com/pro/',
             ),
+
+            array(
+                'name' => 'WP Smush PRO - Image Optimization',
+                'slug' => 'wp-smushit',
+                'source' => get_stylesheet_directory() . '/include/plugins/wp-smushit.zip',
+                'required' => false
+            ),
             array(
                 'name' => 'Wp-scss',
                 'slug' => 'wp-scss',
