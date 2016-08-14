@@ -6,7 +6,7 @@ header {
     z-index: 10;
     border-bottom: 1px solid #ebebeb;
     background: #181818;
-        -webkit-transform: translateZ(0);
+    -webkit-transform: translateZ(0);
     transform: translateZ(0);
     .row {
         height: 80px;
@@ -29,14 +29,14 @@ header {
     }
     .level_a {
         position: relative;
-        >li {
-            >a {
+        > li {
+            > a {
                 font-size: 14px;
                 padding: 5px 20px;
                 color: #fff;
             }
             &.current-menu-item, &:hover {
-                >a {
+                > a {
                     color: #eee;
                 }
             }
@@ -87,16 +87,54 @@ header {
             content: '';
         }
         &:hover {
-            >.sub-menu {
+            > .sub-menu {
                 display: block;
             }
         }
     }
 }
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */
 footer {
     padding: 20px 0;
     background: #212122;
+}
+
+/* ==========================================================================
+   index_style
+   ========================================================================== */
+.index_main {
+    @include flex-basis(80%);
+}
+
+.index_aside {
+    @include flex-basis(18%);
+    .aside_box {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid $border;
+    }
+}
+
+.wp-pagenavi {
+    text-align: center;
+    font-size: 0;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid $border;
+    a, span {
+        font-size: 14px;
+        margin: 0 3px;
+        padding: 3px 5px;
+    }
+    a {
+        border: 1px solid $border;
+    }
+    .current, a:hover {
+        color: #ffffff;
+        background: $a;
+        border-color: $a;
+    }
 }

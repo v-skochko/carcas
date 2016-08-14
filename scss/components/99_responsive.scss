@@ -15,7 +15,6 @@
                 @include burger-to-cross;
             }
         }
-
     }
     .resp_container {
         border-top: 40px solid darken($menu, 10%);
@@ -95,7 +94,6 @@
             }
         }
     }
-
     /* resp_menu_active
    ========================================================================== */
     .resp_menu_active {
@@ -116,7 +114,6 @@
                 position: relative;
                 z-index: 101;
             }
-
         }
         footer {
             display: none;
@@ -126,7 +123,6 @@
             opacity: 1;
         }
     }
-
     .resp_search {
         position: relative;
         width: 100%;
@@ -155,7 +151,6 @@
         width: 100%;
         max-width: 94%;
     }
-
 }
 @media screen and (max-width: 960px) {
 }

@@ -8,6 +8,7 @@
 function style_js()
 {
     wp_deregister_style('contact-form-7');
+    wp_deregister_style('wp-pagenavi');
     if (!is_admin()) {
         wp_deregister_script('jquery');
         wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js');
@@ -18,9 +19,7 @@ function style_js()
     wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js', array('jquery'), '1.0', true);
     wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css');
 }
-
 add_action('wp_enqueue_scripts', 'style_js');
-
 /* Thumbnails theme support
    ========================================================================== */
 add_theme_support('post-thumbnails');
@@ -31,23 +30,22 @@ function set_permalink_postname()
     global $wp_rewrite;
     $wp_rewrite->set_permalink_structure('%postname%');
 }
-
 add_action('after_switch_theme', 'set_permalink_postname');
 /* Add wiget
    ========================================================================== */
-function arphabet_widgets_init()
-{
-    register_sidebar(array(
-        'name' => 'Wiget',
-        'id' => 'wiget',
-        'before_widget' => '<div>',
-        'after_widget' => '</div>',
-        'before_title' => '<h2 class="rounded">',
-        'after_title' => '</h2>',
-    ));
-}
+function aside_widget_init() {
 
-add_action('widgets_init', 'arphabet_widgets_init');
+    register_sidebar( array(
+        'name'          => 'Aside widget',
+        'id'            => 'aside_widget',
+//        'before_widget' => '<div>',
+//        'after_widget'  => '</div>',
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
+
+}
+add_action( 'widgets_init', 'aside_widget_init' );
 /* Update wp-scss setings
    ========================================================================== */
 if (class_exists('Wp_Scss_Settings')) {
@@ -87,10 +85,8 @@ remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles');
-
 function clean_up_wp_head()
 {
-
     // Remove the REST API lines from the HTML Header
     remove_action('wp_head', 'rest_output_link_wp_head', 10);
     remove_action('wp_head', 'wp_oembed_add_discovery_links', 10);
@@ -105,7 +101,6 @@ function clean_up_wp_head()
     // Remove oEmbed-specific JavaScript from the front-end and back-end.
     remove_action('wp_head', 'wp_oembed_add_host_js');
 }
-
 add_action('after_setup_theme', 'clean_up_wp_head');
 /* Remove wp version param from any enqueued scripts
    ========================================================================== */
@@ -116,7 +111,6 @@ function vc_remove_wp_ver_css_js($src)
     }
     return $src;
 }
-
 add_filter('style_loader_src', 'vc_remove_wp_ver_css_js', 9999);
 add_filter('script_loader_src', 'vc_remove_wp_ver_css_js', 9999);
 /* Remove dashboard wigets
@@ -130,7 +124,6 @@ function rem_dash_widgets()
     remove_meta_box('dashboard_secondary', 'dashboard', 'normal');
     remove_meta_box('dashboard_quick_press', 'dashboard', 'normal');
 }
-
 add_action('admin_init', 'rem_dash_widgets');
 /* Remove default wigets
    ========================================================================== */
@@ -150,7 +143,6 @@ function cwwp_unregister_default_widgets()
     unregister_widget('WP_Widget_Tag_Cloud');
     // unregister_widget( 'WP_Widget_Text' );
 }
-
 add_action('widgets_init', 'cwwp_unregister_default_widgets');
 /* Hide the Admin Bar
    ========================================================================== */
@@ -161,7 +153,6 @@ function require_name()
 {
     update_option('require_name_email', 0);
 }
-
 add_action('after_switch_theme', 'require_name');
 function rem_form_fields($fields)
 {
@@ -169,10 +160,7 @@ function rem_form_fields($fields)
     unset($fields['url']);
     return $fields;
 }
-
 add_filter('comment_form_default_fields', 'rem_form_fields');
-
-
 /* remove dafaul class for menu
    ========================================================================== */
 add_filter('nav_menu_css_class', 'wpa_discard_menu_classes', 10, 2);
@@ -187,8 +175,6 @@ function wpa_discard_menu_classes($classes, $item)
         (array)get_post_meta($item->ID, '_menu_item_classes', true)
     );
 }
-
-
 /* ==========================================================================
 /*
 /*
@@ -205,7 +191,6 @@ function namespace_login_style()
 {
     echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
 }
-
 /* Custom css in admin panel
    ========================================================================== */
 function c_css()
@@ -214,24 +199,19 @@ function c_css()
         .status-draft {
             background: #E6E6E6 !important;
         }
-
         .status-pending {
             background: #E2F0FF !important;
         }
-
         /* Change admin post/page color by status – draft, pending, future, private*/
         .status-future {
             background: #C6EBF5 !important;
         }
-
         .status-private {
             background: #F2D46F;
         }
-
         #toplevel_page_edit-post_type-acf-field-group {
             border-top: 1px solid #ccc !important;
         }
-
         .acf-repeater > .acf-table > .ui-sortable > .acf-row:nth-child(even) > .order {
             color: #fff !important;
             background-color: #777 !important;
@@ -239,7 +219,6 @@ function c_css()
     </style>
     <?php
 }
-
 add_action('admin_footer', 'c_css');
 /* acf custom style
    ========================================================================== */
@@ -266,7 +245,6 @@ function acf_repeater_even()
     }
     echo '<style>.acf-repeater>.acf-input-table > tbody > tr:nth-child(even)>.order {color: #fff !important;background-color: ' . $color . ' !important; text-shadow: none}</style>';
 }
-
 add_action('admin_footer', 'acf_repeater_even');
 /* Custom info to admin footer area
    ========================================================================== */
@@ -384,7 +362,6 @@ function wpa_body_classes($classes)
     }
     return $classes;
 }
-
 add_filter('body_class', 'wpa_body_classes');
 /* Custom WP Title
    ========================================================================== */
@@ -404,7 +381,6 @@ function custom_wp_title($title, $seperator)
     }
     return ltrim($title, ' ' . $seperator . ' ');
 }
-
 add_filter('wp_title', 'custom_wp_title', 10, 2);
 /* custom theme url
    ========================================================================== */
@@ -412,8 +388,6 @@ function theme()
 {
     return get_stylesheet_directory_uri();
 }
-
-
 /* ACF option page
    ========================================================================== */
 if (function_exists('acf_add_options_page')) {
@@ -441,7 +415,6 @@ function ob_html_compress($buf)
 {
     return preg_replace(array('/<!--(?>(?!\[).)(.*)(?>(?!\]).)-->/Uis', '/[[:blank:]]+/'), array('', ' '), str_replace(array("\n", "\r", "\t"), '', $buf));
 }
-
 /* Allow SVG through WordPress Media Uploader
    ========================================================================== */
 function wpa_mime_types($mimes)
@@ -449,20 +422,14 @@ function wpa_mime_types($mimes)
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
 }
-
 add_filter('upload_mimes', 'wpa_mime_types');
-
 function wpa_fix_svg_thumb()
 {
     echo '<style>td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {width: 100% !important;height: auto !important}</style>';
 }
-
 add_action('admin_head', 'wpa_fix_svg_thumb');
-
-
 /* Activate ACF
    ========================================================================== */
-
 function wpa__prelicense()
 {
     if (function_exists('acf_pro_is_license_active') && !acf_pro_is_license_active()) {
@@ -483,10 +450,7 @@ function wpa__prelicense()
         }
     }
 }
-
 add_action('after_setup_theme', 'wpa__prelicense');
-
-
 /* echo  image_src( get_field('top_background') , 'medium', true );
    ========================================================================== */
 function image_src($id, $size = 'full', $background_image = false, $height = false)
@@ -495,4 +459,3 @@ function image_src($id, $size = 'full', $background_image = false, $height = fal
         return $background_image ? 'background-image: url(' . $image[0] . ');' . ($height ? 'height:' . $image[2] . 'px' : '') : $image[0];
     }
 }
-

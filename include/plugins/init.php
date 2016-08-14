@@ -131,102 +131,109 @@ register_activation_hook(__FILE__, 'ctl_schedule_conversion');
  * the required plugins.
  */
 require_once 'TGM-Plugin.php';
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
-function my_theme_register_required_plugins() {
+add_action('tgmpa_register', 'my_theme_register_required_plugins');
+function my_theme_register_required_plugins()
+{
     /*
      * Array of plugin arrays. Required keys are name and slug.
      * If the source is NOT from the .org repo, then source is also required.
      */
-        $plugins = array(
-            array(
-                'name' => 'Advanced Custom Fields: PRO',
-                'slug' => 'advanced-custom-fields-pro',
-                'source' => get_stylesheet_directory() . '/include/plugins/advanced-custom-fields-pro.zip',
-                'required' => true,
-                'external_url' => 'http://www.advancedcustomfields.com/pro/',
-            ),
+    $plugins = array(
+        array(
+            'name' => 'Advanced Custom Fields: PRO',
+            'slug' => 'advanced-custom-fields-pro',
+            'source' => get_stylesheet_directory() . '/include/plugins/advanced-custom-fields-pro.zip',
+            'required' => true,
+            'external_url' => 'http://www.advancedcustomfields.com/pro/',
+        ),
 
-            array(
-                'name' => 'WP Smush PRO - Image Optimization',
-                'slug' => 'wp-smushit',
-                'source' => get_stylesheet_directory() . '/include/plugins/wp-smushit.zip',
-                'required' => false
-            ),
-            array(
-                'name' => 'Wp-scss',
-                'slug' => 'wp-scss',
-                'required' => true,
-            ),
-            array(
-                'name' => 'Contact Form 7',
-                'slug' => 'contact-form-7',
-                'required' => false,
-            ),
-            array(
-                'name' => 'WP Migrate DB',
-                'slug' => 'wp-migrate-db',
-                'required' => false,
-            ),
-            array(
-                'name' => 'AJAX Thumbnail Rebuild',
-                'slug' => 'ajax-thumbnail-rebuild',
-                'required' => false,
-            ),
-            array(
-                'name' => 'Better WordPress Minify',
-                'slug' => 'bwp-minify',
-                'required' => false,
-            ),
-            array(
-                'name' => 'EWWW Image Optimizer',
-                'slug' => 'ewww-image-optimizer',
-                'required' => false,
-            ),
-            array(
-                'name' => 'Quick Bulk Post & Page Creator',
-                'slug' => 'quick-bulk-post-page-creator',
-                'required' => false,
-            ),
-            array(
-                'name' => 'Duplicate post',
-                'slug' => 'duplicate-post',
-                'required' => false,
-            ),
-            array(
-                'name' => 'Resize Image After Upload',
-                'slug' => 'resize-image-after-upload',
-                'required' => false,
-            ),
-            array(
-                'name' => 'TinyMCE Advanced',
-                'slug' => 'tinymce-advanced',
-                'required' => false,
-            ),
-            array(
-                'name' => 'Optimize Database after Deleting Revisions',
-                'slug' => 'rvg-optimize-database',
-                'required' => false,
-            ),
+        array(
+            'name' => 'WP Smush PRO - Image Optimization',
+            'slug' => 'wp-smushit',
+            'source' => get_stylesheet_directory() . '/include/plugins/wp-smushit.zip',
+            'required' => false
+        ),
+        array(
+            'name' => 'Wp-scss',
+            'slug' => 'wp-scss',
+            'required' => true,
+        ),
+        array(
+            'name' => 'Contact Form 7',
+            'slug' => 'contact-form-7',
+            'required' => false,
+        ),
+        array(
+            'name' => 'WP Migrate DB',
+            'slug' => 'wp-migrate-db',
+            'required' => false,
+        ),
+        array(
+            'name' => 'AJAX Thumbnail Rebuild',
+            'slug' => 'ajax-thumbnail-rebuild',
+            'required' => false,
+        ),
+        array(
+            'name' => 'Better WordPress Minify',
+            'slug' => 'bwp-minify',
+            'required' => false,
+        ),
 
+        array(
+            'name' => 'Quick Bulk Post & Page Creator',
+            'slug' => 'quick-bulk-post-page-creator',
+            'required' => false,
+        ),
+        array(
+            'name' => 'Duplicate post',
+            'slug' => 'duplicate-post',
+            'required' => false,
+        ),
+
+        array(
+            'name' => 'TinyMCE Advanced',
+            'slug' => 'tinymce-advanced',
+            'required' => false,
+        ),
+        array(
+            'name' => 'WP-PageNavi',
+            'slug' => 'wp-pagenavi',
+            'required' => false,
+        ),
+        array(
+            'name' => 'Breadcrumb NavXT',
+            'slug' => 'breadcrumb-navxt',
+            'required' => false,
+        ),
+        array(
+            'name' => 'Yoast SEO',
+            'slug' => 'wordpress-seo',
+            'required' => false,
+        ),
+        array(
+            'name' => 'Redirection',
+            'slug' => 'redirection',
+            'required' => false,
+        )
     );
 
     /*
      * Array of configuration settings. Amend each line as needed.
      */
     $config = array(
-        'id'           => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
+        'id' => 'tgmpa',                 // Unique ID for hashing notices for multiple instances of TGMPA.
         'default_path' => '',                      // Default absolute path to bundled plugins.
-        'menu'         => 'tgmpa-install-plugins', // Menu slug.
-        'parent_slug'  => 'plugins.php',            // Parent menu slug.
-        'capability'   => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
-        'has_notices'  => true,                    // Show admin notices or not.
-        'dismissable'  => true,                    // If false, a user cannot dismiss the nag message.
-        'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
+        'menu' => 'tgmpa-install-plugins', // Menu slug.
+        'parent_slug' => 'plugins.php',            // Parent menu slug.
+        'capability' => 'edit_theme_options',    // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+        'has_notices' => true,                    // Show admin notices or not.
+        'dismissable' => true,                    // If false, a user cannot dismiss the nag message.
+        'dismiss_msg' => '',                      // If 'dismissable' is false, this message will be output at top of nag.
         'is_automatic' => true,                   // Automatically activate plugins after installation or not.
-        'message'      => '',                      // Message to output right before the plugins table.
+        'message' => '',                      // Message to output right before the plugins table.
 
 
     );
 
-    tgmpa( $plugins, $config );
+    tgmpa($plugins, $config);
 }

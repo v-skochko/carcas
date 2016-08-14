@@ -1,19 +1,15 @@
 <?php get_header();
 global $post; ?>
-<div id="content" class="row cfx">
-    <main>
-        <article>
+    <div id="content" class="row flex">
+        <main class="index_main">
             <h1><?php the_title(); ?></h1>
-
-        <?php echo get_the_post_thumbnail_url($post_id, 'large'); ?>
-
-
+            <?php echo get_the_post_thumbnail_url($post_id, 'large'); ?>
             <div class="wysiwyg">
                 <?php if (have_posts()) : while (have_posts()) : the_post();
                     the_content();
                 endwhile; endif; ?>
             </div>
-                 <div class="s_shr">
+            <div class="s_shr">
                 <a class="i-c-bk" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&t="
                    title="Share on Facebook" target="_blank"
                    onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"></a>
@@ -30,7 +26,8 @@ global $post; ?>
                    onclick="window.open('mailto:?subject=' + encodeURIComponent(document.title) + '&body=' +  encodeURIComponent(document.URL)); return false;"> </a>
             </div>
             <?php comments_template(); ?>
-        </article>
-    </main>
-</div>
+
+        </main>
+        <?php get_sidebar(); ?>
+    </div>
 <?php get_footer(); ?>
