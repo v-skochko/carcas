@@ -158,6 +158,11 @@ function my_theme_register_required_plugins()
             'slug' => 'wp-scss',
             'required' => true,
         ),
+          array(
+            'name' => 'WooCommerce',
+            'slug' => 'woocommerce',
+            'required' => false,
+        ),
         array(
             'name' => 'Contact Form 7',
             'slug' => 'contact-form-7',
