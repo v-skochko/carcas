@@ -18,6 +18,8 @@ function style_js()
     wp_enqueue_script('libs', get_template_directory_uri() . '/js/lib.js', array('jquery'), '1.0', true);
     wp_enqueue_script('init', get_template_directory_uri() . '/js/init.js', array('jquery'), '1.0', true);
     wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css');
+    //wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css?uid='.md5(uniqid(rand(),1)));
+
 }
 add_action('wp_enqueue_scripts', 'style_js');
 /* Thumbnails theme support
