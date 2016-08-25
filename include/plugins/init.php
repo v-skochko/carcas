@@ -178,6 +178,12 @@ function my_theme_register_required_plugins()
             'slug' => 'ajax-thumbnail-rebuild',
             'required' => false,
         ),
+          array(
+            'name' => 'Really Simple CAPTCHA',
+            'slug' => 'really-simple-captcha',
+            'required' => false,
+        ),
+        
         array(
             'name' => 'Better WordPress Minify',
             'slug' => 'bwp-minify',
