@@ -6,13 +6,7 @@
      .screen-reader-response {
             display: none;
         }
-    *{
-        @include placeholder{
-            font-size: 18px;
-            opacity: 1;
-            color: $text;
-        }
-    }
+ 
     .wpcf7-not-valid-tip{
         font: 500 14px/1 $regular;
         position: absolute;
