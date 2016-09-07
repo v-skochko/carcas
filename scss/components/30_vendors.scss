@@ -3,6 +3,9 @@
    ========================================================================== */
 .wpcf7{
     width: 100%;
+     .screen-reader-response {
+            display: none;
+        }
     *{
         @include placeholder{
             font-size: 18px;
