@@ -14,6 +14,9 @@
             .burger-icon {
                 @include burger-to-cross;
             }
+            .burger-icon::before, .burger-icon::after {
+                background: #ffffff;
+            }
         }
     }
     .resp_container {
