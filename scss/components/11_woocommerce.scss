@@ -1,33 +1,33 @@
-#customer_details{
+#customer_details {
     margin: 30px 0 0;
 }
 
-.col2-set{
-    &:after{
-        font: 400 0/0 $f5;
+.col2-set {
+    &:after {
+        font: 400 0/0 $regular;
         display: block;
         clear: both;
         content: '.';
     }
-    .col-1{
+    .col-1 {
         float: left;
     }
-    .col-2{
+    .col-2 {
         float: right;
     }
-    >div{
+    > div {
         width: 48%;
     }
 }
 
-.form-row{
-    label{
-        font: 400 16px $f5;
+.form-row {
+    label {
+        font: 400 16px $regular;
         display: block;
         padding: 0 0 10px;
     }
-    input[type='text'], input[type='email'], input[type='tel'], textarea{
-        font: 400 14px/40px $f5;
+    input[type='text'], input[type='email'], input[type='tel'], textarea {
+        font: 400 14px/40px $regular;
         display: block;
         width: 100%;
         height: 40px;
@@ -35,33 +35,33 @@
         color: #555;
         border: 1px solid #eee;
 
-        @include border-radius(5px);
-        &:focus{
+       border-radius: 5px;
+        &:focus {
             color: #4f91cd;
             border-color: #4f91cd;
         }
     }
-    textarea{
+    textarea {
         line-height: 20px;
         overflow: hidden;
         height: 130px;
         padding: 10px;
         resize: none;
     }
-    abbr{
+    abbr {
         font-size: 16px;
         color: #e74c3c;
         border: 0;
     }
-    input#billing_state+span{
+    input#billing_state + span {
         display: none;
     }
 }
 
-.woocommerce-error{
+.woocommerce-error {
     margin: 0;
-    li{
-        font: 400 14px/38px $f5 !important;
+    li {
+        font: 400 14px/38px $regular !important;
         display: block;
         margin: 20px 0 0;
         list-style: none !important;
@@ -70,24 +70,24 @@
         border: 1px solid #ef4036;
         background: #fff;
 
-        @include border-radius(5px);
+       border-radius: 5px;
     }
 }
 
-.shop_table{
+.shop_table {
     width: 100%;
-    tr{
-        th{
-            font: 700 24px $f5;
+    tr {
+        th {
+            font: 700 24px $regular;
             padding: 10px;
             text-transform: uppercase;
             color: #fff;
             border: 1px solid #3979b2;
             background: #4f91cd;
-            &.product-remove{
+            &.product-remove {
                 border-right: 0;
-                a.remove{
-                    font: 700 20px/21px $f5;
+                a.remove {
+                    font: 700 20px/21px $regular;
                     display: block;
                     width: 21px;
                     margin: 0 auto;
@@ -97,35 +97,35 @@
                     background: #ef4036;
                 }
             }
-            &.product-thumbnail{
+            &.product-thumbnail {
                 border-left: 0;
             }
         }
-        td{
+        td {
             padding: 10px;
             border: 1px solid #3979b2;
             background: #fff;
-            p{
+            p {
                 padding: 0;
             }
-            &.product-thumbnail{
+            &.product-thumbnail {
                 width: 90px;
                 padding: 0;
-                a, img{
+                a, img {
                     display: block;
                 }
             }
-            &.product-price{
+            &.product-price {
                 text-align: center;
             }
-            &.product-quantity{
+            &.product-quantity {
                 width: 120px;
                 text-align: center;
-                .quantity{
+                .quantity {
                     position: relative;
                     display: inline-block;
                     width: 100px;
-                    input[type='button']{
+                    input[type='button'] {
                         font-weight: 700;
                         line-height: 20px;
                         position: absolute;
@@ -137,13 +137,13 @@
                         color: #fff;
                         border: 0;
                         background: #77bd1f;
-                        &.minus{
+                        &.minus {
                             top: auto;
                             bottom: 0;
                         }
                     }
-                    input[type='number']{
-                        font: 400 14px/40px $f5;
+                    input[type='number'] {
+                        font: 400 14px/40px $regular;
                         display: block;
                         width: 100%;
                         height: 40px;
@@ -152,18 +152,18 @@
                         border: 1px solid #eee;
 
                         -moz-appearance: textfield;
-                        @include border-radius(5px);
-                        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
+                       border-radius: 5px;
+                        &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
                             -webkit-appearance: none;
                         }
-                        &:focus{
+                        &:focus {
                             color: #598e17;
                             border-color: #598e17;
                         }
                     }
                 }
             }
-            &.actions{
+            &.actions {
                 padding: 10px 0;
                 text-align: right;
                 border: 0;
@@ -172,19 +172,19 @@
     }
 }
 
-.cart-collaterals{
-    table{
+.cart-collaterals {
+    table {
         width: 540px;
         max-width: 100%;
         table-layout: fixed;
         text-align: left;
-        td{
+        td {
             font-size: 16px;
             padding: 10px;
         }
     }
-    .cart_totals{
-        &:after{
+    .cart_totals {
+        &:after {
             font: 400 0/0 'Arial';
             display: block;
             clear: both;
@@ -193,28 +193,28 @@
     }
 }
 
-.woocommerce-message{
+.woocommerce-message {
     display: block;
     margin: 0 0 20px;
     padding: 20px;
     vertical-align: middle;
     border: 1px solid #eee;
     border-radius: 5px;
-    .button{
+    .button {
         margin-right: 20px;
     }
 }
 
-#payment{
+#payment {
     margin-top: 30px;
-    .payment_methods{
+    .payment_methods {
         margin: 0 0 30px;
-        li{
+        li {
             list-style: none;
-            input{
+            input {
                 display: none;
-                &+label{
-                    font: 500 15px/40px $f5;
+                & + label {
+                    font: 500 15px/40px $regular;
                     display: inline-block;
                     width: 310px;
                     max-width: 100%;
@@ -226,18 +226,18 @@
                     letter-spacing: 1.666px;
                     color: #4f91cd;
                     background: #eee;
-                    &:hover{
+                    &:hover {
                         background: #3979b2;
                     }
-                    img{
+                    img {
                         position: relative;
                         top: 8px;
                         right: -10px;
                         float: right;
                     }
                 }
-                &:checked{
-                    &+label{
+                &:checked {
+                    & + label {
                         color: #fff;
                         background: #4f91cd;
                     }
