@@ -461,3 +461,16 @@ function image_src($id, $size = 'full', $background_image = false, $height = fal
         return $background_image ? 'background-image: url(' . $image[0] . ');' . ($height ? 'height:' . $image[2] . 'px' : '') : $image[0];
     }
 }
+
+//[button link="#"  align="alignleft"]Align left button[/button]
+function sButton( $atts, $content = null ) {
+	extract( shortcode_atts( array(
+		'link' => '#' ,
+		'align' => 'none' ,
+
+	), $atts ) );
+
+	return '<a class="btn ' . $align . '" href="' . $link . '">' . do_shortcode( $content ) . '</a>';
+}
+
+add_shortcode( 'button', 'sButton' );
