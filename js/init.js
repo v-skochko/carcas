@@ -41,6 +41,7 @@ $(window).load(function() {
         pagination: '.top_home_slider .swiper-pagination',
              prevButton: '.top_home_slider .swiper-button-prev',
         nextButton: '.top_home_slider .swiper-button-next',
+         //spaceBetween: 40,
            breakpoints: {
             960: {
                 slidesPerView: 10
