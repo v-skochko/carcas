@@ -13,7 +13,7 @@ require_once 'include/core.php';
 // require_once('include/custom-cpt.php');
 /*CUSTOM IMAGE SIZE
    ========================================================================== */
-// add_image_size( 'custom', '300', '300', true );
+// add_image_size( '300x300_cropped', '300', '300', true );
 
 //Default Thumbnail Sizes
 // update_option('thumbnail_size_w',160);
