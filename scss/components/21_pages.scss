@@ -4,10 +4,10 @@
 header {
     position: relative;
     z-index: 10;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
     border-bottom: 1px solid #ebebeb;
     background: #181818;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
     .row {
         height: 80px;
     }
@@ -29,14 +29,14 @@ header {
     }
     .level_a {
         position: relative;
-        > li {
-            > a {
+        >li {
+            >a {
                 font-size: 14px;
                 padding: 5px 20px;
                 color: #fff;
             }
             &.current-menu-item, &:hover {
-                > a {
+                >a {
                     color: #eee;
                 }
             }
@@ -87,13 +87,12 @@ header {
             content: '';
         }
         &:hover {
-            > .sub-menu {
+            >.sub-menu {
                 display: block;
             }
         }
     }
 }
-
 /* ==========================================================================
    FOOTER
    ========================================================================== */
@@ -101,14 +100,12 @@ footer {
     padding: 20px 0;
     background: #212122;
 }
-
 /* ==========================================================================
    index_style
    ========================================================================== */
 .index_main {
     @include flex-basis(80%);
 }
-
 .index_aside {
     @include flex-basis(18%);
     .aside_box {
@@ -117,12 +114,11 @@ footer {
         border: 1px solid $border;
     }
 }
-
 .wp-pagenavi {
-    text-align: center;
     font-size: 0;
-    padding-top: 20px;
     margin-top: 20px;
+    padding-top: 20px;
+    text-align: center;
     border-top: 1px solid $border;
     a, span {
         font-size: 14px;
@@ -133,8 +129,8 @@ footer {
         border: 1px solid $border;
     }
     .current, a:hover {
-        color: #ffffff;
-        background: $a;
+        color: #fff;
         border-color: $a;
+        background: $a;
     }
 }

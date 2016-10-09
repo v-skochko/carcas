@@ -1,4 +1,3 @@
-
 [data-icon]:before {
     font-family: 'i' !important;
     font-weight: normal !important;
@@ -7,12 +6,10 @@
     line-height: 1;
     content: attr(data-icon);
     text-transform: none !important;
-
     speak: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 [class^='i-']:before, [class*=' i-']:before {
     font-family: 'i' !important;
     font-weight: normal !important;
@@ -20,12 +17,10 @@
     font-variant: normal !important;
     line-height: 1;
     text-transform: none !important;
-
     speak: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
 .i-t-left:before {
     content: '\61';
 }

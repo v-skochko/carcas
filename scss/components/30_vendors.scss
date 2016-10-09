@@ -1,13 +1,12 @@
 /* ==========================================================================
    CONTACT FORM 7
    ========================================================================== */
-.wpcf7{
+.wpcf7 {
     width: 100%;
-     .screen-reader-response {
-            display: none;
-        }
- 
-    .wpcf7-not-valid-tip{
+    .screen-reader-response {
+        display: none;
+    }
+    .wpcf7-not-valid-tip {
         font: 500 14px/1 $regular;
         position: absolute;
         top: 0;
@@ -17,7 +16,7 @@
         color: #ff5f5f;
         background: #eee;
     }
-    .wpcf7-response-output{
+    .wpcf7-response-output {
         display: none;
         width: 100%;
         max-width: 300px;
@@ -28,7 +27,7 @@
         text-align: center;
         color: white;
         background: #ff5f5f;
-        &:before{
+        &:before {
             font-family: 'i' !important;
             font-size: 40px;
             font-style: normal !important;
@@ -39,21 +38,21 @@
             margin: 0 auto 10px;
             content: 'm';
         }
-        &.wpcf7-mail-sent-ng{
+        &.wpcf7-mail-sent-ng {
             background: #1091ae;
         }
-        &.wpcf7-mail-sent-ok{
+        &.wpcf7-mail-sent-ok {
             background: #16a085;
-            &:before{
+            &:before {
                 content: 'x';
             }
         }
     }
-    .wpcf7-form-control-wrap{
+    .wpcf7-form-control-wrap {
         position: relative;
         display: block !important;
     }
-    .ajax-loader{
+    .ajax-loader {
         display: none;
     }
 }
@@ -100,65 +99,64 @@
 //        }
 //    }
 //}
-
 /* ==========================================================================
    GRID
    ========================================================================== */
 //----- Extends
-%clearfix:after{
+%clearfix:after {
     display: block;
     clear: both;
     content: '';
 }
 //----- Grid System
 $grid-spacing: 3%;
-.grid{
+.grid {
     @extend %clearfix;
-    &+&{
+    &+& {
         margin-top: $grid-spacing;
     }
 }
-[class^='col-']{
+[class^='col-'] {
     float: left;
     margin-right: $grid-spacing;
-    &:last-child{
+    &:last-child {
         margin-right: 0;
     }
 }
 //----- Columns (Automatic)
-.col-1{
+.col-1 {
     width: (100% / 12) - ($grid-spacing * 11 / 12);
 }
-.col-2{
+.col-2 {
     width: (100% / 6) - ($grid-spacing * 10 / 12);
 }
-.col-3{
+.col-3 {
     width: (100% / 4) - ($grid-spacing * 9 / 12);
 }
-.col-4{
+.col-4 {
     width: (100% / 3) - ($grid-spacing * 8 / 12);
 }
-.col-5{
+.col-5 {
     width: (100% / 2.4) - ($grid-spacing * 7 / 12);
 }
-.col-6{
+.col-6 {
     width: (100% / 2) - ($grid-spacing * 6 / 12);
 }
-.col-7{
+.col-7 {
     width: (100% / 1.714285714285714) - ($grid-spacing * 5 / 12);
 }
-.col-8{
+.col-8 {
     width: (100% / 1.5) - ($grid-spacing * 4 / 12);
 }
-.col-9{
+.col-9 {
     width: (100% / 1.333333333333333) - ($grid-spacing * 3 / 12);
 }
-.col-10{
+.col-10 {
     width: (100% / 1.2) - ($grid-spacing * 2 / 12);
 }
-.col-11{
+.col-11 {
     width: (100% / 1.090909090909091) - ($grid-spacing * 1 / 12);
 }
-.col-12{
+.col-12 {
     width: 100%;
 }

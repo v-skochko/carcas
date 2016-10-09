@@ -148,17 +148,11 @@ function my_theme_register_required_plugins()
         ),
 
         array(
-            'name' => 'WP Smush PRO - Image Optimization',
-            'slug' => 'wp-smushit',
-            'source' => get_stylesheet_directory() . '/include/plugins/wp-smushit.zip',
-            'required' => false
-        ),
-        array(
             'name' => 'Wp-scss',
             'slug' => 'wp-scss',
             'required' => true,
         ),
-          array(
+        array(
             'name' => 'WooCommerce',
             'slug' => 'woocommerce',
             'required' => false,
@@ -178,18 +172,18 @@ function my_theme_register_required_plugins()
             'slug' => 'ajax-thumbnail-rebuild',
             'required' => false,
         ),
-          array(
+        array(
             'name' => 'Really Simple CAPTCHA',
             'slug' => 'really-simple-captcha',
             'required' => false,
         ),
-        
+
         array(
             'name' => 'Better WordPress Minify',
             'slug' => 'bwp-minify',
             'required' => false,
         ),
-  array(
+        array(
             'name' => 'Activity log',
             'slug' => 'aryo-activity-log',
             'required' => false,
