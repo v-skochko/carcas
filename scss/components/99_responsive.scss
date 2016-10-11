@@ -2,13 +2,13 @@
     .burger {
         position: absolute;
         z-index: 101;
-        top: 10px;
+        top: 13px;
         right: 10px;
         margin-right: 10px;
         text-align: left;
         .burger-icon {
             display: inline-block;
-            @include burger(18px, 2px, 4px, #fff);
+            @include burger(18px, 2px, 4px, $a);
         }
         &.is-active {
             .burger-icon {
@@ -34,6 +34,7 @@
         border-top: 40px solid darken($menu, 10%);
         border-bottom: 3px solid darken($menu, 10%);
         background: $menu;
+        will-change: transform, opacity;
         @include transform (translateX(110%));
         @include transition(all, .2s, ease-in-out);
         nav {
@@ -83,9 +84,9 @@
         }
     }
     .level_a {
-        >li {
+        > li {
             border-bottom: 1px solid lighten($menu, 5%);
-            >a {
+            > a {
                 font-size: 14px;
                 line-height: 30px;
                 height: 30px;
@@ -138,8 +139,8 @@
             border: 1px solid lighten($menu, 10%);
             background: #fff;
             -webkit-appearance: none;
-               -moz-appearance: none;
-                    appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
     }
     /* ==========================================================================

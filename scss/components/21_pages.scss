@@ -5,15 +5,14 @@ header {
     position: relative;
     z-index: 10;
     -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+    transform: translateZ(0);
     border-bottom: 1px solid #ebebeb;
-    background: #181818;
     .row {
         height: 80px;
     }
     #logo {
         opacity: 1;
-        color: #fff;
+        color: #181818;
         &:hover {
             opacity: .8;
         }
@@ -29,15 +28,15 @@ header {
     }
     .level_a {
         position: relative;
-        >li {
-            >a {
+        > li {
+            > a {
                 font-size: 14px;
                 padding: 5px 20px;
-                color: #fff;
+                color: #181818;
             }
             &.current-menu-item, &:hover {
-                >a {
-                    color: #eee;
+                > a {
+                    color: $a;
                 }
             }
         }
@@ -87,7 +86,7 @@ header {
             content: '';
         }
         &:hover {
-            >.sub-menu {
+            > .sub-menu {
                 display: block;
             }
         }
