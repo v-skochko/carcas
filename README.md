@@ -48,7 +48,7 @@
     * Remove the wordpress update notification
 ```
 
-## Add automated plugin installer
+## Automatic Plugin Installation
 
 ```
 - Contact Form 7
@@ -58,7 +58,7 @@
 - WP-SCSS
 - WP No Category Base
 - Better WordPress Minify
-- Advanced Custom Fields (PRO version, password protection)
+- Advanced Custom Fields PRO
 ```
 
 ## Shortcodes
