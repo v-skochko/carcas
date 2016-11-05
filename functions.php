@@ -36,3 +36,5 @@ function annointed_admin_bar_remove() {
  } 
  
 add_action('wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0);
+
+remove_action('welcome_panel', 'wp_welcome_panel');
