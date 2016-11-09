@@ -22,15 +22,15 @@ if ( is_home() ) {
 			<?php if ( have_posts() ) : while ( have_posts() ) :
 				the_post(); ?>
 				<div class="post_item cfx">
-					<?php if ( has_post_thumbnail() ) { ?>
-						<div class="alignleft">
-							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'medium' ); ?></a>
-						</div>
-					<?php } else { ?>
-						<div class="alignleft">
-							<a href="<?php the_permalink(); ?>"><img src="<?php echo theme(); ?>/img/holder.png" alt=""></a>
-						</div>
-					<?php } ?>
+						<a class="the_post_thumbnail bg_center" href="<?php the_permalink(); ?>"
+						   style="background-image:url(
+						   <?php if ( has_post_thumbnail() ) {
+							   the_post_thumbnail_url( 'medium' );
+						   } else {
+							   echo get_stylesheet_directory_uri();
+							   echo '/img/holder.png';
+						   } ?>); ">
+						</a>
 					<div class="info">
 						<a href="<?php the_permalink(); ?>" class="blogtitle"><?php the_title(); ?></a>
 						<div class="blogmeta cfx">
