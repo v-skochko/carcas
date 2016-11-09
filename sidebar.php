@@ -46,5 +46,32 @@
             );
             wp_get_archives($post_archive); ?>
         </ul>
+        	<div class="aside_box">
+		<h3>RECENT POSTS </h3>
+		<ul id="catnav">
+			<?php
+			global $post;
+			$category = get_the_category( $post->ID );
+			$category = $category[0]->cat_ID;
+			$myposts  = get_posts( array(
+				'numberposts'  => 3,
+				'offset'       => 0,
+				'category__in' => array( $category ),
+				'post_status'  => 'publish',
+				'order'        => 'DESC'
+			) );
+			foreach ( $myposts as $post ) :
+				setup_postdata( $post );
+				?>
+				<li>
+					<a href="<?php the_permalink(); ?>">
+						<?php the_title(); ?>
+						<time>Posted <?php echo get_the_date( 'j F, Y' ); ?></time>
+					</a>
+				</li>
+			<?php endforeach; ?>
+			<?php wp_reset_query(); ?>
+		</ul>
+	</div>
     </div>
 </aside>
