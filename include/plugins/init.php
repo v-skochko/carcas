@@ -220,6 +220,12 @@ function my_theme_register_required_plugins()
             'required' => false,
         ),
         array(
+            'name' => 'File renaming on upload',
+            'slug' => 'file-renaming-on-upload',
+            'required' => false,
+        ),
+        
+        array(
             'name' => 'Redirection',
             'slug' => 'redirection',
             'required' => false,
