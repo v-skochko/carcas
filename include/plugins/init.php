@@ -204,6 +204,11 @@ function my_theme_register_required_plugins()
             'slug' => 'tinymce-advanced',
             'required' => false,
         ),
+         array(
+            'name' => 'WP Smush - Image Optimization',
+            'slug' => 'wp-smushit',
+            'required' => false,
+        ),
         array(
             'name' => 'WP-PageNavi',
             'slug' => 'wp-pagenavi',
