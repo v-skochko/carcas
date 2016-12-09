@@ -61,12 +61,8 @@
 - Advanced Custom Fields PRO
 ```
 
-## Shortcodes
 
-```
-- Google map [googlemap id="somemapid" coordinates="0 ,0" zoom="17" height="500px" ]
-```
 
-License: WTFPL License URI: [http://sam.zoy.org/wtfpl/](http://sam.zoy.org/wtfpl/) Are You Serious? Yes.
+License: WTFPL License URI: [http://sam.zoy.org/wtfpl/](http://sam.zoy.org/wtfpl/)
 
 >  [Carcas starter theme](https://github.com/vskochko/carcas) <br />  [Skochko](https://www.facebook.com/skochko)  Львів 2016

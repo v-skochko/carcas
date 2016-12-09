@@ -1,4 +1,15 @@
+.desctop_hide {
+    display: none;
+}
 @media screen and (max-width: $row) {
+    .mobile_hide {
+        display: none;
+    }
+    .desctop_hide {
+        display: block;
+    }
+}
+@media screen and (max-width: $row+10px) {
     .burger {
         position: absolute;
         z-index: 101;
@@ -70,7 +81,7 @@
             a {
                 font-size: 13px;
                 padding: 10px 40px;
-                color: #ccc;
+                color: #fff;
                 &:hover {
                     background: lighten($menu, 10%);
                 }

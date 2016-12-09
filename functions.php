@@ -20,21 +20,13 @@ require_once 'include/core.php';
 // update_option('medium_size_h',320);
 // update_option('large_size_w',1920);
 // update_option('large_size_h',640);
+
 /* REGISTER MENUS
    ========================================================================== */
+
 register_nav_menus( array(
 	'main_menu'   => 'Main navigation',
 	'second_menu' => 'Second navigation',
 	'foot_menu'   => 'Footer navigation'
 ) );
 
-
-
-/* Remove WordPress logo & pages from Admin bar */
-function annointed_admin_bar_remove() {
-        global $wp_admin_bar;
-        $wp_admin_bar->remove_menu('wp-logo');
-}
-add_action('wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0);
-
-remove_action('welcome_panel', 'wp_welcome_panel');

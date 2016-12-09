@@ -1,4 +1,5 @@
 @import 'components/00_mixins';
+
 /* VARIABLES
    ========================================================================== */
 //web page width
@@ -16,9 +17,9 @@ $bold: 'font_bold', Helvetica, Arial, sans-serif;
 /* COLOR
    ========================================================================== */
 //main color
-$a: #262626;
+$a: #181818;
 //second color
-$b: #ff5252;
+$b: #3897f0;
 //mobile menu color
 $menu: $a;
 // color og link
@@ -27,7 +28,7 @@ $link: $a;
 $btn: $b;
 $border: #ccc;
 $text: #333;
-$menu: #3f51b5;
+$menu: #3897f0;
 /* LOAD ORDER
    ========================================================================== */
 // reset
