@@ -23,13 +23,9 @@
     overflow: hidden;
 }
 .cfx {
-    &:after {
+    &:after,  &:before {
         display: table;
         clear: both;
-        content: ' ';
-    }
-    &:before {
-        display: table;
         content: ' ';
     }
 }
