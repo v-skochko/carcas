@@ -39,6 +39,12 @@ $(window).load(function () {
         pagination: '.main_slider .swiper-pagination',
         prevButton: '.main_slider .swiper-button-prev',
         nextButton: '.main_slider .swiper-button-next',
+      
+        //fade: { crossFade: true },
+        //virtualTranslate: true,
+        //autoplay: 5000,
+       // speed: 1000,
+       // effect: 'fade',
         //spaceBetween: 40,
         // onInit: function (swiper) {
         //     $("#top_home_slider").addClass('loaded')
