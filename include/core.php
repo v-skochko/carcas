@@ -19,7 +19,6 @@ function style_js() {
 	wp_enqueue_style( 'style', get_template_directory_uri() . '/scss/main.css' );
 	//wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css?uid='.md5(uniqid(rand(),1)));
 }
-
 add_action( 'wp_enqueue_scripts', 'style_js' );
 /* Thumbnails theme support
    ========================================================================== */
@@ -30,7 +29,6 @@ function set_permalink_postname() {
 	global $wp_rewrite;
 	$wp_rewrite->set_permalink_structure( '%postname%' );
 }
-
 add_action( 'after_switch_theme', 'set_permalink_postname' );
 /* Add wiget
    ========================================================================== */
@@ -44,7 +42,6 @@ function aside_widget_init() {
 		'after_title'  => '</h3>',
 	) );
 }
-
 add_action( 'widgets_init', 'aside_widget_init' );
 /* Update wp-scss setings
    ========================================================================== */
@@ -101,7 +98,6 @@ function clean_up_wp_head() {
 	// Remove oEmbed-specific JavaScript from the front-end and back-end.
 	remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 }
-
 add_action( 'after_setup_theme', 'clean_up_wp_head' );
 /* Remove wp version param from any enqueued scripts
    ========================================================================== */
@@ -109,10 +105,8 @@ function vc_remove_wp_ver_css_js( $src ) {
 	if ( strpos( $src, 'ver=' ) ) {
 		$src = remove_query_arg( 'ver', $src );
 	}
-
 	return $src;
 }
-
 add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 /* Remove dashboard wigets
@@ -125,7 +119,6 @@ function rem_dash_widgets() {
 	remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'normal' );
 }
-
 add_action( 'admin_init', 'rem_dash_widgets' );
 /* Remove default wigets
    ========================================================================== */
@@ -144,7 +137,6 @@ function cwwp_unregister_default_widgets() {
 	unregister_widget( 'WP_Widget_Tag_Cloud' );
 	// unregister_widget( 'WP_Widget_Text' );
 }
-
 add_action( 'widgets_init', 'cwwp_unregister_default_widgets' );
 /* Hide the Admin Bar
    ========================================================================== */
@@ -154,15 +146,12 @@ add_filter( 'show_admin_bar', '__return_false' );
 function require_name() {
 	update_option( 'require_name_email', 0 );
 }
-
 add_action( 'after_switch_theme', 'require_name' );
 function rem_form_fields( $fields ) {
 	// unset($fields['email']);
 	unset( $fields['url'] );
-
 	return $fields;
 }
-
 add_filter( 'comment_form_default_fields', 'rem_form_fields' );
 /* remove dafaul class for menu
    ========================================================================== */
@@ -172,13 +161,11 @@ function wpa_discard_menu_classes( $classes, $item ) {
 	$classes = array_filter(
 		$classes, create_function( '$class', 'return in_array( $class, array( "current-menu-item", "current-menu-parent", "menu-item-has-children" ) );' )
 	);
-
 	return array_merge(
 		$classes,
 		(array) get_post_meta( $item->ID, '_menu_item_classes', true )
 	);
 }
-
 /* ==========================================================================
 /*
 /*
@@ -194,7 +181,6 @@ add_action( 'login_head', 'namespace_login_style' );
 function namespace_login_style() {
 	echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
 }
-
 /* Custom css in admin panel
    ========================================================================== */
 function c_css() { ?>
@@ -202,24 +188,19 @@ function c_css() { ?>
 		.status-draft {
 			background: #E6E6E6 !important;
 		}
-
 		.status-pending {
 			background: #E2F0FF !important;
 		}
-
 		/* Change admin post/page color by status – draft, pending, future, private*/
 		.status-future {
 			background: #C6EBF5 !important;
 		}
-
 		.status-private {
 			background: #F2D46F;
 		}
-
 		#toplevel_page_edit-post_type-acf-field-group {
 			border-top: 1px solid #ccc !important;
 		}
-
 		.acf-repeater > .acf-table > .ui-sortable > .acf-row:nth-child(even) > .order {
 			color: #fff !important;
 			background-color: #777 !important;
@@ -227,7 +208,6 @@ function c_css() { ?>
 	</style>
 	<?php
 }
-
 add_action( 'admin_footer', 'c_css' );
 /* acf custom style
    ========================================================================== */
@@ -253,7 +233,6 @@ function acf_repeater_even() {
 	}
 	echo '<style>.acf-repeater>.acf-input-table > tbody > tr:nth-child(even)>.order {color: #fff !important;background-color: ' . $color . ' !important; text-shadow: none}</style>';
 }
-
 add_action( 'admin_footer', 'acf_repeater_even' );
 /* Custom info to admin footer area
    ========================================================================== */
@@ -268,7 +247,6 @@ add_filter( 'get_user_option_admin_color', function ( $color_scheme ) {
 	if ( 'classic' == $color_scheme || 'fresh' == $color_scheme ) {
 		$color_scheme = 'midnight';
 	}
-
 	return $color_scheme;
 }, 5 );
 /* ==========================================================================
@@ -370,10 +348,8 @@ function wpa_body_classes( $classes ) {
 	if ( defined( 'QTX_VERSION' ) ) {
 		$classes[] = 'qtrans-' . qtranxf_getLanguage();
 	}
-
 	return $classes;
 }
-
 add_filter( 'body_class', 'wpa_body_classes' );
 /* Custom WP Title
    ========================================================================== */
@@ -390,17 +366,14 @@ function custom_wp_title( $title, $seperator ) {
 	if ( $paged >= 2 || $page >= 2 ) {
 		$title = "$title $seperator " . sprintf( __( 'Page %s' ), max( $paged, $page ) );
 	}
-
 	return ltrim( $title, ' ' . $seperator . ' ' );
 }
-
 add_filter( 'wp_title', 'custom_wp_title', 10, 2 );
 /* custom theme url
    ========================================================================== */
 function theme() {
 	return get_stylesheet_directory_uri();
 }
-
 /* ACF option page
    ========================================================================== */
 if ( function_exists( 'acf_add_options_page' ) ) {
@@ -421,15 +394,12 @@ if ( function_exists( 'acf_add_options_page' ) ) {
    ========================================================================== */
 function wpa_mime_types( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
-
 	return $mimes;
 }
-
 add_filter( 'upload_mimes', 'wpa_mime_types' );
 function wpa_fix_svg_thumb() {
 	echo '<style>td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {width: 100% !important;height: auto !important}</style>';
 }
-
 add_action( 'admin_head', 'wpa_fix_svg_thumb' );
 /* Activate ACF
    ========================================================================== */
@@ -452,7 +422,6 @@ function wpa__prelicense() {
 		}
 	}
 }
-
 add_action( 'after_setup_theme', 'wpa__prelicense' );
 /* echo  image_src( get_field('top_background') , 'medium', true );
    ========================================================================== */
@@ -461,17 +430,14 @@ function image_src( $id, $size = 'full', $background_image = false, $height = fa
 		return $background_image ? 'background-image: url(' . $image[0] . ');' . ( $height ? 'height:' . $image[2] . 'px' : '' ) : $image[0];
 	}
 }
-
 //[button link="#"  align="alignleft"]Align left button[/button]
 function sButton( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 		'link'  => '#',
 		'align' => 'none',
 	), $atts ) );
-
 	return '<a class="btn ' . $align . '" href="' . $link . '">' . do_shortcode( $content ) . '</a>';
 }
-
 add_shortcode( 'button', 'sButton' );
 function socail_link() { ?>
 	<a href="<?php if ( get_field( 'facebook', 'options' ) ) {
@@ -510,12 +476,10 @@ function socail_link() { ?>
 		echo 'https://www.youtube.com/';
 	} ?>" class="i-c-yb" title="Official Youtube channel" target="_blank"></a>
 <?php }
-
 /* Remove WordPress logo & pages from Admin bar */
 function annointed_admin_bar_remove() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu( 'wp-logo' );
 }
-
 add_action( 'wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0 );
 remove_action( 'welcome_panel', 'wp_welcome_panel' );

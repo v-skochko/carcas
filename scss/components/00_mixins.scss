@@ -5,10 +5,9 @@
         font-weight: $font-weight;
         font-style: $font-style;
         //src: url('../fonts/#{$font-filename}.eot');
-        src:
-        // url('../fonts/#{$font-filename}.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/#{$font-filename}.woff') format('woff'),
-        url('../fonts/#{$font-filename}.woff2') format('woff2');
+        src: // url('../fonts/#{$font-filename}.eot?#iefix') format('embedded-opentype'),
+                url('../fonts/#{$font-filename}.woff') format('woff'),
+                url('../fonts/#{$font-filename}.woff2') format('woff2');
     }
 }
 @mixin prefixer($property, $value) {
@@ -17,11 +16,29 @@
     -ms-#{$property}: #{$value};
     #{$property}: #{$value};
 }
+@mixin for-size($size) {
+    @if $size == xs {
+        @media (max-width: 480px) {
+            @content;
+        }
+    } @else if $size == sm {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $size == md {
+        @media (max-width: 960px) {
+            @content;
+        }
+    } @else if $size == row {
+        @media (max-width: $row) {
+            @content;
+        }
+    }
+}
 @mixin transition($property: all, $duration: .3s, $easing: ease) {
     $transitions: ($property $duration $easing);
     @include prefixer('transition', $transitions);
 }
-
 @mixin transform($params, $backface: false) {
     @include prefixer('transform', $params);
     @if $backface {
@@ -101,9 +118,9 @@
 // Vendor prefixes
 $b_vendor: true !default;
 // Burger
+$burger-height: 5px;
+$burger-gutter: 3px;
 @mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
-    $burger-height: $height;
-    $burger-gutter: $gutter;
     position: relative;
     margin-top: $height + $gutter;
     margin-bottom: $height + $gutter;

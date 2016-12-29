@@ -98,37 +98,4 @@ footer {
     padding: 20px 0;
     background: #212122;
 }
-/* ==========================================================================
-   index_style
-   ========================================================================== */
-.index_main {
-    @include flex-basis(80%);
-}
-.index_aside {
-    @include flex-basis(18%);
-    .aside_box {
-        margin-bottom: 20px;
-        padding: 20px;
-        border: 1px solid $border;
-    }
-}
-.wp-pagenavi {
-    font-size: 0;
-    margin-top: 20px;
-    padding-top: 20px;
-    text-align: center;
-    border-top: 1px solid $border;
-    a, span {
-        font-size: 14px;
-        margin: 0 3px;
-        padding: 3px 5px;
-    }
-    a {
-        border: 1px solid $border;
-    }
-    .current, a:hover {
-        color: #fff;
-        border-color: $a;
-        background: $a;
-    }
-}
+

@@ -4,7 +4,7 @@ $(document).ready(function () {
     $(".main_nav")
         .clone()
         .attr({class: ''})
-        .insertAfter(".resp_search")
+        .appendTo(".resp_container")
         .find('ul')
         .removeAttr('id')
         .find('.menu-item-has-children>a')
@@ -18,7 +18,7 @@ $(document).ready(function () {
     $(".menu-item-has-children i").click(function (event) {
         $(this).toggleClass('i-up').next().slideToggle("fast");
     });
-    //$("select").selbel();
+
     /*Contact form7 - close validation error on click*/
     $(this).on('click', '.wpcf7-not-valid-tip', function () {
         $(this).prev().trigger('focus');
@@ -39,16 +39,15 @@ $(window).load(function () {
         pagination: '.main_slider .swiper-pagination',
         prevButton: '.main_slider .swiper-button-prev',
         nextButton: '.main_slider .swiper-button-next',
-      
-        //fade: { crossFade: true },
-        //virtualTranslate: true,
-        //autoplay: 5000,
-       // speed: 1000,
-       // effect: 'fade',
-        //spaceBetween: 40,
+        // fade: {crossFade: true},
+        // virtualTranslate: true,
+        // autoplay: 5000,
+        // speed: 1000,
+        // effect: 'fade',
+        // spaceBetween: 40,
         // onInit: function (swiper) {
         //     $("#top_home_slider").addClass('loaded')
-        // }
+        // },
         breakpoints: {
             960: {
                 slidesPerView: 2

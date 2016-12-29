@@ -1,4 +1,4 @@
-<aside class="index_aside">
+<aside class="index_aside col-3 sm-12">
 	<?php if ( is_active_sidebar( 'aside_widget' ) ) : ?>
 		<div class="aside_box"
 		<?php dynamic_sidebar( 'aside_widget' ); ?>

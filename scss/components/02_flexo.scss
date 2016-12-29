@@ -1,0 +1,204 @@
+.flex {
+    @include flexbox;
+    @include flex-wrap(wrap);
+    @include align-items(flex-start);
+    @include justify-content(space-between);
+    &.s_around {
+        @include justify-content(space-around);
+    }
+    &.ai_all_center {
+        @include align-items(center);
+        @include justify-content(center);
+    }
+    &.ai_center {
+        @include align-items(center);
+    }
+    &.ai_stretch {
+        @include align-items(stretch);
+    }
+    &.ai_start {
+        @include align-items(flex-start);
+    }
+
+    //
+    //.grid-top      { align-items: flex-start; }
+    //.grid-middle   { align-items: center; }
+    //.grid-bottom   { align-items: flex-end; }
+    //.grid-stretch  { align-items: stretch; }
+    //.grid-baseline { align-items: baseline; }
+    //.grid-left     { justify-content: flex-start; }
+    //.grid-center   { justify-content: center; }
+    //.grid-right    { justify-content: flex-end; }
+    //.grid-between  { justify-content: space-between; }
+    //.grid-around   { justify-content: space-around; }
+    //
+    //
+    //
+}
+$grid-spacing: 3%;
+$margin-bottom: 20px;
+.col-1 {
+    @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
+}
+.col-2 {
+    @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
+}
+.col-3 {
+    @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
+}
+.col-4 {
+    @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
+}
+.col-5 {
+    @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
+}
+.col-6 {
+    @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
+}
+.col-7 {
+    @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
+}
+.col-8 {
+    @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
+}
+.col-9 {
+    @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
+}
+.col-10 {
+    @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
+}
+.col-11 {
+    @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
+}
+.col-12 {
+    @include flex-basis(100%);
+}
+[class*='col-'] {
+    width: 100%;
+}
+//md
+@include for-size(md) {
+    .md-1 {
+        @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
+    }
+    .md-2 {
+        @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
+    }
+    .md-3 {
+        @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
+    }
+    .md-4 {
+        @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
+    }
+    .md-5 {
+        @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
+    }
+    .md-6 {
+        @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
+    }
+    .md-7 {
+        @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
+    }
+    .md-8 {
+        @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
+    }
+    .md-9 {
+        @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
+    }
+    .md-10 {
+        @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
+    }
+    .md-11 {
+        @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
+    }
+    .md-12 {
+        @include flex-basis(100%);
+    }
+    .md-bottom {
+        margin-bottom: $margin-bottom;
+    }
+}
+//sm
+@include for-size(sm) {
+    .sm-1 {
+        @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
+    }
+    .sm-2 {
+        @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
+    }
+    .sm-3 {
+        @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
+    }
+    .sm-4 {
+        @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
+    }
+    .sm-5 {
+        @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
+    }
+    .sm-6 {
+        @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
+    }
+    .sm-7 {
+        @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
+    }
+    .sm-8 {
+        @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
+    }
+    .sm-9 {
+        @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
+    }
+    .sm-10 {
+        @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
+    }
+    .sm-11 {
+        @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
+    }
+    .sm-12 {
+        @include flex-basis(100%);
+    }
+    .sm-bottom {
+        margin-bottom: $margin-bottom;
+    }
+}
+//xs
+@include for-size(xs) {
+    .xs-1 {
+        @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
+    }
+    .xs-2 {
+        @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
+    }
+    .xs-3 {
+        @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
+    }
+    .xs-4 {
+        @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
+    }
+    .xs-5 {
+        @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
+    }
+    .xs-6 {
+        @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
+    }
+    .xs-7 {
+        @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
+    }
+    .xs-8 {
+        @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
+    }
+    .xs-9 {
+        @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
+    }
+    .xs-10 {
+        @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
+    }
+    .xs-11 {
+        @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
+    }
+    .xs-12 {
+        @include flex-basis(100%);
+    }
+    .xs-bottom {
+        margin-bottom: $margin-bottom;
+    }
+}
