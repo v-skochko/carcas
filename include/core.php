@@ -483,3 +483,20 @@ function annointed_admin_bar_remove() {
 }
 add_action( 'wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0 );
 remove_action( 'welcome_panel', 'wp_welcome_panel' );
+
+
+//Adding Page URL to the Pages Admin Table
+add_filter('manage_page_posts_columns', 'my_custom_column', 10);
+add_action('manage_page_posts_custom_column', 'add_my_custom_column', 10, 2);
+
+
+function my_custom_column($defaults) {
+  $defaults['url'] = 'URL';
+  return $defaults;
+}
+
+function add_my_custom_column($column_name, $post_id) {
+  if ($column_name == 'url') {
+    echo get_permalink( $post_id );
+  }
+}
