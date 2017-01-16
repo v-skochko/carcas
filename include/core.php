@@ -500,3 +500,7 @@ function add_my_custom_column($column_name, $post_id) {
     echo get_permalink( $post_id );
   }
 }
+//acf google map
+// add_filter('acf/settings/google_api_key', function () {
+//     return 'your-api-key';
+// });
