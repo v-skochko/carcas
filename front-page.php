@@ -1,5 +1,7 @@
 <?php get_header();
-global $post; ?>
+global $post;
+get_template_part( 'slider', 'main' );
+?>
 	<div id="content" class="row cfx">
 		<main>
 			<article>

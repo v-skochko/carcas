@@ -8,6 +8,7 @@ define( 'POSTS_PER_PAGE', get_option( 'posts_per_page' ) );
 require_once 'include/plugins/init.php';
 // Custom functionality
 require_once 'include/core.php';
+require_once 'include/acf/acf-settings.php';
 // Uncomit for add custom post type
 // require_once('include/custom-cpt.php');
 /*CUSTOM IMAGE SIZE
@@ -31,18 +32,14 @@ register_nav_menus( array(
 ) );
 
 
-
-add_filter('acf/settings/load_json', 'my_acf_json_load_point');
-
+//ACF Local JSON load point
+add_filter( 'acf/settings/load_json', 'my_acf_json_load_point' );
 function my_acf_json_load_point( $paths ) {
-
 	// remove original path (optional)
-	unset($paths[0]);
-
+	unset( $paths[0] );
 
 	// append path
 	$paths[] = get_stylesheet_directory() . '/include/acf';
-
 
 	// return
 	return $paths;

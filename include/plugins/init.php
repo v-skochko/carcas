@@ -138,7 +138,7 @@ function my_theme_register_required_plugins()
 		array(
 			'name'         => 'Advanced Custom Fields: PRO',
 			'slug'         => 'advanced-custom-fields-pro',
-			'source'       => get_stylesheet_directory() . '/include/plugins/advanced-custom-fields-pro.zip',
+			'source'       => get_stylesheet_directory() . '/include/acf/advanced-custom-fields-pro.zip',
 			'required'     => true,
 			'external_url' => 'http://www.advancedcustomfields.com/pro/',
 		),

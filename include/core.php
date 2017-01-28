@@ -209,31 +209,7 @@ function c_css() { ?>
 	<?php
 }
 add_action( 'admin_footer', 'c_css' );
-/* acf custom style
-   ========================================================================== */
-function acf_repeater_even() {
-	$scheme = get_user_option( 'admin_color' );
-	$color  = '';
-	if ( $scheme == 'fresh' ) {
-		$color = '#0073aa';
-	} else if ( $scheme == 'light' ) {
-		$color = '#d64e07';
-	} else if ( $scheme == 'blue' ) {
-		$color = '#52accc';
-	} else if ( $scheme == 'coffee' ) {
-		$color = '#59524c';
-	} else if ( $scheme == 'ectoplasm' ) {
-		$color = '#523f6d';
-	} else if ( $scheme == 'midnight' ) {
-		$color = '#e14d43';
-	} else if ( $scheme == 'ocean' ) {
-		$color = '#738e96';
-	} else if ( $scheme == 'sunrise' ) {
-		$color = '#dd823b';
-	}
-	echo '<style>.acf-repeater>.acf-input-table > tbody > tr:nth-child(even)>.order {color: #fff !important;background-color: ' . $color . ' !important; text-shadow: none}</style>';
-}
-add_action( 'admin_footer', 'acf_repeater_even' );
+
 /* Custom info to admin footer area
    ========================================================================== */
 // function remove_footer_admin () {
@@ -374,22 +350,7 @@ add_filter( 'wp_title', 'custom_wp_title', 10, 2 );
 function theme() {
 	return get_stylesheet_directory_uri();
 }
-/* ACF option page
-   ========================================================================== */
-if ( function_exists( 'acf_add_options_page' ) ) {
-	acf_add_options_page( array(
-		'page_title' => 'Theme General Settings',
-		'menu_title' => 'Theme Settings',
-		'menu_slug'  => 'theme-general-settings',
-		'capability' => 'edit_posts',
-		'redirect'   => false,
-	) );
-	// acf_add_options_sub_page(array(
-	//  'page_title' => 'Theme Header Settings',
-	//  'menu_title' => 'Header',
-	//  'parent_slug' => 'theme-general-settings',
-	// ));
-}
+
 /* Allow SVG through WordPress Media Uploader
    ========================================================================== */
 function wpa_mime_types( $mimes ) {
@@ -401,28 +362,9 @@ function wpa_fix_svg_thumb() {
 	echo '<style>td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {width: 100% !important;height: auto !important}</style>';
 }
 add_action( 'admin_head', 'wpa_fix_svg_thumb' );
-/* Activate ACF
-   ========================================================================== */
-function wpa__prelicense() {
-	if ( function_exists( 'acf_pro_is_license_active' ) && ! acf_pro_is_license_active() ) {
-		$args     = array(
-			'_nonce'      => wp_create_nonce( 'activate_pro_licence' ),
-			'acf_license' => base64_encode( 'order_id=37918|type=personal|date=2014-08-21 15:02:59' ),
-			'acf_version' => acf_get_setting( 'version' ),
-			'wp_name'     => get_bloginfo( 'name' ),
-			'wp_url'      => home_url(),
-			'wp_version'  => get_bloginfo( 'version' ),
-			'wp_language' => get_bloginfo( 'language' ),
-			'wp_timezone' => get_option( 'timezone_string' ),
-		);
-		$response = acf_pro_get_remote_response( 'activate-license', $args );
-		$response = json_decode( $response, true );
-		if ( $response['status'] == 1 ) {
-			acf_pro_update_license( $response['license'] );
-		}
-	}
-}
-add_action( 'after_setup_theme', 'wpa__prelicense' );
+
+
+
 /* echo  image_src( get_field('top_background') , 'medium', true );
    ========================================================================== */
 function image_src( $id, $size = 'full', $background_image = false, $height = false ) {
@@ -439,43 +381,7 @@ function sButton( $atts, $content = null ) {
 	return '<a class="btn ' . $align . '" href="' . $link . '">' . do_shortcode( $content ) . '</a>';
 }
 add_shortcode( 'button', 'sButton' );
-function socail_link() { ?>
-	<a href="<?php if ( get_field( 'facebook', 'options' ) ) {
-		the_field( 'facebook', 'options' );
-	} else {
-		echo 'https://www.facebook.com/';
-	} ?>" class="i-c-bk" title="Official Facebook page" target="_blank"></a>
-	<a href="<?php if ( get_field( 'instagram', 'options' ) ) {
-		the_field( 'instagram', 'options' );
-	} else {
-		echo 'https://www.instagram.com/';
-	} ?>" class="i-c-ism" title="Official Instagram accounts" target="_blank"></a>
-	<a href="<?php if ( get_field( 'twitter', 'options' ) ) {
-		the_field( 'twitter', 'options' );
-	} else {
-		echo 'https://twitter.com/';
-	} ?>" class="i-c-tr" title="Official Twitter accounts" target="_blank"></a>
-	<a href="<?php if ( get_field( 'linkedin', 'options' ) ) {
-		the_field( 'linkedin', 'options' );
-	} else {
-		echo 'https://www.linkedin.com/';
-	} ?>" class="i-c-ln" title="Official Linkedin profile" target="_blank"></a>
-	<a href="<?php if ( get_field( 'google', 'options' ) ) {
-		the_field( 'google', 'options' );
-	} else {
-		echo 'https://plus.google.com/';
-	} ?>" class="i-c-gp" title="Official Google+ page" target="_blank"></a>
-	<a href="<?php if ( get_field( 'pinterest', 'options' ) ) {
-		the_field( 'pinterest', 'options' );
-	} else {
-		echo 'https://pinterest.com/';
-	} ?>" class="i-c-pr" title="Official Pinterest accounts" target="_blank"></a>
-	<a href="<?php if ( get_field( 'youtube', 'options' ) ) {
-		the_field( 'youtube', 'options' );
-	} else {
-		echo 'https://www.youtube.com/';
-	} ?>" class="i-c-yb" title="Official Youtube channel" target="_blank"></a>
-<?php }
+
 /* Remove WordPress logo & pages from Admin bar */
 function annointed_admin_bar_remove() {
 	global $wp_admin_bar;
@@ -500,7 +406,5 @@ function add_my_custom_column($column_name, $post_id) {
     echo get_permalink( $post_id );
   }
 }
-//acf google map
-// add_filter('acf/settings/google_api_key', function () {
-//     return 'your-api-key';
-// });
+
+

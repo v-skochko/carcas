@@ -3,7 +3,7 @@
 	<div class="row flex  ai_center">
 		<span class="copyright"><?php echo date( 'Y' ); ?><?php bloginfo( 'name' ); ?></span>
 		<div class="s_link">
-			<?php echo socail_link(); ?>
+			<?php get_template_part( 'partials/social', 'icons' ); ?>
 		</div>
 	</div>
 </footer>
