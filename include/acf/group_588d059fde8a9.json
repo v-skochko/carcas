@@ -1,6 +1,6 @@
 {
     "key": "group_588d059fde8a9",
-    "title": "Global fieds",
+    "title": "Global fields",
     "fields": [
         {
             "return_format": "url",
@@ -17,7 +17,7 @@
             "label": "Logo",
             "name": "logo",
             "type": "image",
-            "instructions": "Select logo image",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -35,7 +35,7 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "",
+                            "default_value": "https:\/\/www.facebook.com\/",
                             "placeholder": "",
                             "key": "field_588d060605d82",
                             "label": "Url",
@@ -61,7 +61,7 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "",
+                            "default_value": "https:\/\/twitter.com\/",
                             "placeholder": "",
                             "key": "field_588d06fd48381",
                             "label": "Url",
@@ -87,7 +87,7 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "",
+                            "default_value": "https:\/\/www.instagram.com\/",
                             "placeholder": "",
                             "key": "field_588d0763d6e54",
                             "label": "Url",
@@ -113,7 +113,7 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "",
+                            "default_value": "https:\/\/www.linkedin.com\/",
                             "placeholder": "",
                             "key": "field_588d077cd6e56",
                             "label": "Url",
@@ -139,7 +139,7 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "",
+                            "default_value": "https:\/\/plus.google.com\/",
                             "placeholder": "",
                             "key": "field_588d0789d6e58",
                             "label": "Url",
@@ -165,7 +165,7 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "",
+                            "default_value": "https:\/\/www.youtube.com\/",
                             "placeholder": "",
                             "key": "field_588d07b3d6e5c",
                             "label": "Url",
@@ -191,9 +191,35 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "",
+                            "default_value": "https:\/\/pinterest.com\/",
                             "placeholder": "",
                             "key": "field_588d07a7d6e5a",
+                            "label": "Url",
+                            "name": "url",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            }
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "588db38b88772",
+                    "name": "vimeo",
+                    "label": "Vimeo",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "default_value": "https:\/\/vimeo.com\/",
+                            "placeholder": "",
+                            "key": "field_588db38b88773",
                             "label": "Url",
                             "name": "url",
                             "type": "url",
@@ -234,7 +260,7 @@
             "placeholder": "",
             "rows": 3,
             "key": "field_588d088b946f8",
-            "label": "Copyright test",
+            "label": "Copyright",
             "name": "copyright",
             "type": "textarea",
             "instructions": "",
@@ -264,5 +290,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1485638557
+    "modified": 1485705414
 }

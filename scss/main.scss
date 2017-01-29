@@ -29,23 +29,29 @@ $btn: $b;
 $border: #ccc;
 $text: #333;
 $menu: #3897f0;
-/* LOAD ORDER
+
+/* MAIN  FILES
    ========================================================================== */
 // reset
 @import 'components/01_reset';
 @import 'components/02_flexo';
 // wordpress
 @import 'components/10_wordpress';
-// woocommerce
-// @import 'components/11_woocommerce';
 // global elements (buttons, etc..)
 @import 'components/20_global';
 // style for custom page
 @import 'components/21_pages';
-// style for js plugins
-@import 'components/30_vendors';
-@import 'components/31_swiper';
+
 //icon fonts
 @import 'components/98_i';
+
+@import 'components/30_vendors';
+
 // responsive
 @import 'components/99_responsive';
+
+/* ==========================================================================
+   vendowrs
+   ========================================================================== */
+// @import 'components/11_woocommerce';
+@import 'vendors/swiper';

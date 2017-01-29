@@ -14,7 +14,7 @@
             "label": "Autoplay",
             "name": "autoplay",
             "type": "number",
-            "instructions": "Delay between transitions (in seconds). If this parameter is not specified, auto play will be disabled",
+            "instructions": "Delay between transitions (in ms). <br>\r\nIf this parameter is not specified, auto play will be disabled",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -119,9 +119,9 @@
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "post"
+                "value": "tpl--blank.php"
             }
         ]
     ],
@@ -133,6 +133,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1485640918,
-    "local": "php"
+    "modified": 1485705402
 }
