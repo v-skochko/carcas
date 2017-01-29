@@ -31,7 +31,7 @@ $(document).ready(function () {
     });
 });
 /* end ready*/
-$(window).load(function () {
+$(window).on('load', function() {
     //main_slider
     var main_slider = new Swiper('.main_slider', {
         loop: true,

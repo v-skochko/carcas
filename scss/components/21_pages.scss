@@ -4,7 +4,7 @@
 header {
     position: relative;
     z-index: 10;
-   will-change: transform, opacity;
+    will-change: transform, opacity;
     border-bottom: 1px solid #ebebeb;
     .row {
         height: 80px;
@@ -91,6 +91,7 @@ header {
         }
     }
 }
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */

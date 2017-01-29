@@ -1,7 +1,12 @@
 </div>
 <footer>
 	<div class="row flex  ai_center">
-		<span class="copyright"><?php echo date( 'Y' ); ?><?php bloginfo( 'name' ); ?></span>
+		<?php if ( get_field( 'copyright', 'options' ) ): ?>
+			<div class="copyright">
+				<?php the_field( 'copyright', 'options' ); ?>
+			</div>
+		<?php endif; ?>
+
 		<div class="s_link">
 			<?php get_template_part( 'partials/social', 'icons' ); ?>
 		</div>

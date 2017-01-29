@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<title><?php wp_title(); ?></title>
+	<title><?php wpa_title(); ?></title>
 	<meta name="viewport"
 	      content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui, minimum-scale=1.0, maximum-scale=1.0"/>
 	<?php /* favicon */ ?>
@@ -19,7 +19,13 @@
 <div id="wrap">
 	<header>
 		<div class="row  flex ai_center">
-			<a href="<?php echo site_url(); ?>/" id="logo"></a>
+			<a href="<?php echo site_url(); ?>/" id="logo">
+				<?php if( get_field('logo', 'options') ): ?>
+					<img src="<?php the_field('logo', 'options'); ?>" alt="">
+
+
+				<?php endif; ?>
+			</a>
 			<nav class="main_nav cfx mobile_hide">
 				<?php
 				$main_nav = array(

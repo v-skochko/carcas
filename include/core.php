@@ -10,7 +10,7 @@ function style_js() {
 	wp_deregister_style( 'wp-pagenavi' );
 	if ( ! is_admin() ) {
 		wp_deregister_script( 'jquery' );
-		wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js' );
+		wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js' );
 		wp_enqueue_script( 'jquery' );
 	};
 	// wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
@@ -51,7 +51,7 @@ if ( class_exists( 'Wp_Scss_Settings' ) ) {
 		update_option( 'wpscss_options', array(
 			'css_dir'           => '/scss/',
 			'scss_dir'          => '/scss/',
-			'compiling_options' => 'scss_formatter_compressed'
+			'compiling_options' => 'scss_formatter_expanded'
 		) );
 	}
 }
@@ -236,47 +236,44 @@ CUSTOM FUNCTION
 ========================================================================== */
 /* Body class
    ========================================================================== */
-//New Body Classe
-function wpa_body_classes( $classes ) {
-	if ( is_page() ) {
+function wpa_body_classes( $classes ){
+	if( is_page() ){
 		global $post;
 		$temp = get_page_template();
 		if ( $temp != null ) {
-			$path      = pathinfo( $temp );
-			$tmp       = $path['filename'] . "." . $path['extension'];
-			$tn        = str_replace( ".php", "", $tmp );
+			$path = pathinfo($temp);
+			$tmp = $path['filename'] . "." . $path['extension'];
+			$tn= str_replace(".php", "", $tmp);
 			$classes[] = $tn;
 		}
-		foreach ( $classes as $k => $v ) {
-			if (
+//        if (is_active_sidebar('sidebar')) {
+//            $classes[] = 'with_sidebar';
+//        }
+		foreach($classes as $k => $v) {
+			if(
 				$v == 'page-template' ||
-				$v == 'page-id-' . $post->ID ||
+				$v == 'page-id-'.$post->ID ||
 				$v == 'page-template-default' ||
 				$v == 'woocommerce-page' ||
-				( $temp != null ? ( $v == 'page-template-' . $tn . '-php' || $v == 'page-template-' . $tn ) : '' )
-			) {
-				unset( $classes[ $k ] );
-			}
+				($temp != null?($v == 'page-template-'.$tn.'-php' || $v == 'page-template-'.$tn):'')) unset($classes[$k]);
 		}
 	}
-	if ( is_single() ) {
+	if( is_single() ){
 		global $post;
 		$f = get_post_format( $post->ID );
-		foreach ( $classes as $k => $v ) {
-			if ( $v == 'postid-' . $post->ID || $v == 'single-format-' . ( ! $f ? 'standard' : $f ) ) {
-				unset( $classes[ $k ] );
-			}
+		foreach($classes as $k => $v) {
+			if($v == 'postid-'.$post->ID || $v == 'single-format-'.(!$f?'standard':$f)) unset($classes[$k]);
 		}
 	}
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
 	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
-	$browser = $_SERVER['HTTP_USER_AGENT'];
+	$browser = $_SERVER[ 'HTTP_USER_AGENT' ];
 	// Mac, PC ...or Linux
-	if ( preg_match( "/Mac/", $browser ) ) {
+	if ( preg_match( "/Mac/", $browser ) ){
 		$classes[] = 'macos';
-	} elseif ( preg_match( "/Windows/", $browser ) ) {
+	} elseif ( preg_match( "/Windows/", $browser ) ){
 		$classes[] = 'windows';
 	} elseif ( preg_match( "/Linux/", $browser ) ) {
 		$classes[] = 'linux';
@@ -288,63 +285,65 @@ function wpa_body_classes( $classes ) {
 		$classes[] = 'edge';
 	} elseif ( preg_match( "/Chrome/", $browser ) ) {
 		$classes[] = 'chrome';
-		preg_match( "/Chrome\/(\d.\d)/si", $browser, $matches );
+		preg_match( "/Chrome\/(\d.\d)/si", $browser, $matches);
 		@$classesh_version = 'ch' . str_replace( '.', '-', $matches[1] );
 		$classes[] = $classesh_version;
 	} elseif ( preg_match( "/Safari/", $browser ) ) {
 		$classes[] = 'safari';
-		preg_match( "/Version\/(\d.\d)/si", $browser, $matches );
+		@preg_match( "/Version\/(\d.\d)/si", $browser, $matches);
 		@$sf_version = 'sf' . str_replace( '.', '-', $matches[1] );
 		$classes[] = $sf_version;
 	} elseif ( preg_match( "/Opera/", $browser ) ) {
 		$classes[] = 'opera';
-		preg_match( "/Opera\/(\d.\d)/si", $browser, $matches );
+		preg_match( "/Opera\/(\d.\d)/si", $browser, $matches);
 		$op_version = 'op' . str_replace( '.', '-', $matches[1] );
-		$classes[]  = $op_version;
+		$classes[] = $op_version;
 	} elseif ( preg_match( "/MSIE/", $browser ) ) {
 		$classes[] = 'msie';
-		if ( preg_match( "/MSIE 6.0/", $browser ) ) {
+		if( preg_match( "/MSIE 6.0/", $browser ) ) {
 			$classes[] = 'ie6';
-		} elseif ( preg_match( "/MSIE 7.0/", $browser ) ) {
+		} elseif ( preg_match( "/MSIE 7.0/", $browser ) ){
 			$classes[] = 'ie7';
-		} elseif ( preg_match( "/MSIE 8.0/", $browser ) ) {
+		} elseif ( preg_match( "/MSIE 8.0/", $browser ) ){
 			$classes[] = 'ie8';
-		} elseif ( preg_match( "/MSIE 9.0/", $browser ) ) {
+		} elseif ( preg_match( "/MSIE 9.0/", $browser ) ){
 			$classes[] = 'ie9';
 		}
 	} elseif ( preg_match( "/Firefox/", $browser ) && preg_match( "/Gecko/", $browser ) ) {
 		$classes[] = 'firefox';
-		preg_match( "/Firefox\/(\d)/si", $browser, $matches );
+		preg_match( "/Firefox\/(\d)/si", $browser, $matches);
 		$ff_version = 'ff' . str_replace( '.', '-', $matches[1] );
-		$classes[]  = $ff_version;
+		$classes[] = $ff_version;
 	} else {
 		$classes[] = 'unknown-browser';
 	}
 	//qtranslate classes
-	if ( defined( 'QTX_VERSION' ) ) {
+	if(defined('QTX_VERSION')) {
 		$classes[] = 'qtrans-' . qtranxf_getLanguage();
 	}
 	return $classes;
 }
-add_filter( 'body_class', 'wpa_body_classes' );
+
 /* Custom WP Title
    ========================================================================== */
-function custom_wp_title( $title, $seperator ) {
-	global $paged, $page, $post;
-	if ( is_feed() ) {
-		return $title;
+function wpa_title(){
+	global $post;
+	if(!defined('WPSEO_VERSION')) {
+		if(is_404()) {
+			echo '404 Page not found - ';
+		} elseif((is_single() || is_page()) && $post->post_parent) {
+			$parent_title = get_the_title($post->post_parent);
+			echo wp_title('-', true, 'right') . $parent_title.' - ';
+		} elseif(class_exists('Woocommerce') && is_shop()) {
+			echo get_the_title(SHOP_ID) . ' - ';
+		} else {
+			wp_title('-', true, 'right');
+		}
+		bloginfo('name');
+	} else {
+		wp_title();
 	}
-	$title       = get_the_title( $post->post_parent ) . ' ' . $seperator . ' ' . get_bloginfo( 'name' );
-	$description = get_bloginfo( 'description', 'display' );
-	if ( $description && ( is_front_page() ) ) {
-		$title = "$title $seperator $description";
-	}
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title = "$title $seperator " . sprintf( __( 'Page %s' ), max( $paged, $page ) );
-	}
-	return ltrim( $title, ' ' . $seperator . ' ' );
 }
-add_filter( 'wp_title', 'custom_wp_title', 10, 2 );
 /* custom theme url
    ========================================================================== */
 function theme() {

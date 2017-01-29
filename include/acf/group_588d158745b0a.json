@@ -169,7 +169,7 @@
                             }
                         },
                         {
-                            "default_value": "#fff",
+                            "default_value": 0,
                             "key": "field_588db176f5427",
                             "label": "Backgrond color",
                             "name": "backgrond_color",
