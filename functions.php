@@ -9,18 +9,17 @@ require_once 'include/plugins/init.php';
 // Custom functionality
 require_once 'include/core.php';
 require_once 'include/acf/acf-settings.php';
-// Uncomit for add custom post type
 // require_once('include/custom-cpt.php');
 /*CUSTOM IMAGE SIZE
    ========================================================================== */
-// add_image_size( '300x300_cropped', '300', '300', true );
+// add_image_size( '2048x2048_cropped', '2048', '2048', true );
 //Default Thumbnail Sizes
 // update_option('thumbnail_size_w',160);
 // update_option('thumbnail_size_h',80);
-// update_option('medium_size_w',640);
-// update_option('medium_size_h',320);
-// update_option('large_size_w',1920);
-// update_option('large_size_h',640);
+// update_option('medium_size_w',600);
+// update_option('medium_size_h',600);
+ update_option('large_size_w',2048);
+ update_option('large_size_h',2048);
 
 /* REGISTER MENUS
    ========================================================================== */
@@ -32,17 +31,5 @@ register_nav_menus( array(
 ) );
 
 
-//ACF Local JSON load point
-add_filter( 'acf/settings/load_json', 'my_acf_json_load_point' );
-function my_acf_json_load_point( $paths ) {
-	// remove original path (optional)
-	unset( $paths[0] );
 
-	// append path
-	$paths[] = get_stylesheet_directory() . '/include/acf';
-
-	// return
-	return $paths;
-
-}
 
