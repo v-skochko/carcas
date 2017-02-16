@@ -55,3 +55,27 @@ $menu: #3897f0;
    ========================================================================== */
 // @import 'components/11_woocommerce';
 @import 'vendors/swiper';
+
+
+
+
+
+/* @mixin for-size($size) {
+    @if $size == xs {
+        @media (max-width: 480px) {
+            @content;
+        }
+    } @else if $size == sm {
+        @media (max-width: 768px) {
+            @content;
+        }
+    } @else if $size == md {
+        @media (max-width: 960px) {
+            @content;
+        }
+    } @else if $size == row {
+        @media (max-width: $row) {
+            @content;
+        }
+    }
+} */
