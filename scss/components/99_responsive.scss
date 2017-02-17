@@ -1,15 +1,14 @@
 .desctop_hide {
     display: none;
 }
-@media screen and (max-width: $row) {
+
+@media screen and (max-width: $media_row+10px) {
     .mobile_hide {
         display: none;
     }
     .desctop_hide {
         display: block;
     }
-}
-@media screen and (max-width: $row+10px) {
     .burger {
         position: absolute;
         z-index: 101;
@@ -115,7 +114,12 @@
         overflow: hidden;
         &:before {
             z-index: 100;
-            @include before(0, auto, auto, 0, rgba(0, 0, 0, .7), 100%, 100vh, false);
+            content: "";
+            position: absolute;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, .7);
+            width: 100%;
+            height: 100vh;
             @include transition(all, .2s, ease-in-out);
         }
         #wrap {
@@ -168,16 +172,17 @@
     }
 }
 
-//md
-@media screen and (max-width: 960px) {
+@media screen and (max-width: $media_md) {
 }
-//sm
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: $media_sm) {
 }
+
 @media screen and (max-width: 640px) {
 }
-//xs
-@media screen and (max-width: 480px) {
+
+@media screen and (max-width: $media_xs) {
 }
+
 @media screen and (max-width: 320px) {
 }

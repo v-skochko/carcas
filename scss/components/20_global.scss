@@ -3,21 +3,18 @@
    ========================================================================== */
 .row {
     position: relative;
-    width: $row;
+    width: $media_row;
     max-width: 100%;
     margin: 0 auto;
 }
-
 #content {
     padding: 30px 0 40px 0;
 }
-
 #wrap {
     position: relative;
     width: 100%;
     min-height: 100%;
 }
-
 .c {
     font-size: 0;
     line-height: 0;
@@ -25,7 +22,6 @@
     clear: both;
     overflow: hidden;
 }
-
 .cfx {
     &:after, &:before {
         display: table;
@@ -33,30 +29,26 @@
         content: ' ';
     }
 }
-
 .bg_center {
     background-position: center center;
     -webkit-background-size: cover;
     background-size: cover;
 }
-
 .btn, input[type='submit'] {
-    font: 400 15px/1 $regular;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: normal;
     position: relative;
     display: inline-block;
     padding: 10px 20px;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
     text-align: center;
-    text-decoration: none;
+    text-decoration: none !important;
     text-transform: uppercase;
     color: #fff;
     border: none;
     outline: 0;
     background: $btn;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
     @include transition(all, .2s, ease);
     &:hover {
         background: darken($btn, 5%);
@@ -66,13 +58,11 @@
         background: darken($btn, 8%);
     }
 }
-
 .no_select {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
 }
-
 .underline {
     position: relative;
     display: inline-block;
@@ -90,7 +80,6 @@
         background: $link;
     }
 }
-
 /* ==========================================================================
    WYSIWYG
    ========================================================================== */
@@ -110,7 +99,106 @@
         padding-bottom: 20px;
     }
 }
-
+/* ==========================================================================
+   CONTACT FORM 7
+   ========================================================================== */
+.wpcf7 {
+    width: 100%;
+    .screen-reader-response {
+        display: none;
+    }
+    .wpcf7-not-valid-tip {
+        font: 500 14px/1 $regular;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        text-align: center;
+        color: #ff5f5f;
+        background: #eee;
+    }
+    .wpcf7-response-output {
+        display: none;
+        width: 100%;
+        max-width: 300px;
+        margin: 20px auto;
+        padding: 15px 20px;
+        cursor: pointer;
+        text-align: center;
+        color: white;
+        background: #ff5f5f;
+        &:before {
+            font-family: 'i' !important;
+            font-size: 40px;
+            font-style: normal !important;
+            line-height: 1;
+            position: relative;
+            top: 0;
+            display: block;
+            margin: 0 auto 10px;
+            content: 'm';
+        }
+        &.wpcf7-mail-sent-ng {
+            background: #1091ae;
+        }
+        &.wpcf7-mail-sent-ok {
+            background: #16a085;
+            &:before {
+                content: 'x';
+            }
+        }
+    }
+    .wpcf7-form-control-wrap {
+        position: relative;
+        display: block !important;
+    }
+    .ajax-loader {
+        display: none;
+    }
+}
+//[checkbox checkbox-999 use_label_element exclusive "1" "2" "3"]
+//.wpcf7-list-item{
+//    display: block;
+//    margin: 8px 0;
+//    color: #484848;
+//    label{
+//        display: inline-block;
+//        span{
+//            position: relative;
+//            display: inline-block;
+//            padding-left: 30px;
+//            cursor: pointer;
+//            vertical-align: top;
+//            &:before{
+//                position: absolute;
+//                top: 0;
+//                left: 0;
+//                width: 14px;
+//                height: 14px;
+//                content: '';
+//                border: 1px solid #ccc;;
+//            }
+//            &:after{
+//                font-size: 21px;
+//                font-weight: 700;
+//                position: absolute;
+//                top: -10px;
+//                left: 2px;
+//                content: '\2713';
+//                opacity: 0;
+//                color: #ccc;
+//            }
+//        }
+//        input{
+//            display: none;
+//            &:checked+span{
+//                &:after{
+//                    opacity: 1;
+//                }
+//            }
+//        }
+//    }
+//}
 /* ==========================================================================
    SOCIAL LINK
    ========================================================================== */
@@ -143,42 +231,41 @@
         }
         &.i-c-bk {
             &:hover {
-                background: #3b5993;
-            }
-        }
-        &.i-c-ism {
-            &:hover {
-                background: #181818;
+                background: $facebook;
             }
         }
         &.i-c-tr {
             &:hover {
-                background: #55acee;
+                background: $twitter;
+            }
+        }
+        &.i-c-ism {
+            &:hover {
+                background: $instagram;
             }
         }
         &.i-c-ln {
             &:hover {
-                background: #0177b5;
+                background: $linkedin;
             }
         }
         &.i-c-gp {
             &:hover {
-                background: #d94733;
+                background: $google_plus;
             }
         }
         &.i-c-pr {
             &:hover {
-                background: #bd1e23;
+                background: $pinterest;
             }
         }
         &.i-c-yb {
             &:hover {
-                background: #f80000;
+                background: $youtube;
             }
         }
     }
 }
-
 /* ==========================================================================
    index_style
    ========================================================================== */
@@ -204,7 +291,6 @@
         }
     }
 }
-
 .wp-pagenavi {
     font-size: 0;
     margin-top: 20px;

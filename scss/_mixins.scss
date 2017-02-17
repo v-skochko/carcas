@@ -10,35 +10,39 @@
                 url('../fonts/#{$font-filename}.woff2') format('woff2');
     }
 }
+
 @mixin prefixer($property, $value) {
     -webkit-#{$property}: #{$value};
     -moz-#{$property}: #{$value};
     -ms-#{$property}: #{$value};
     #{$property}: #{$value};
 }
+
 @mixin for-size($size) {
     @if $size == xs {
-        @media (max-width: 480px) {
+        @media (max-width: $media_xs) {
             @content;
         }
     } @else if $size == sm {
-        @media (max-width: 768px) {
+        @media (max-width: $media_sm) {
             @content;
         }
     } @else if $size == md {
-        @media (max-width: 960px) {
+        @media (max-width: $media_md) {
             @content;
         }
     } @else if $size == row {
-        @media (max-width: $row) {
+        @media (max-width: $media_row) {
             @content;
         }
     }
 }
+
 @mixin transition($property: all, $duration: .3s, $easing: ease) {
     $transitions: ($property $duration $easing);
     @include prefixer('transition', $transitions);
 }
+
 @mixin transform($params, $backface: false) {
     @include prefixer('transform', $params);
     @if $backface {
@@ -46,6 +50,7 @@
         backface-visibility: hidden;
     }
 }
+
 /* @include center(true, false); */
 @mixin center($horizontal: true, $vertical: true) {
     position: absolute;
@@ -61,21 +66,7 @@
         @include transform (translate(0, 50%));
     }
 }
-// @include before(1px, auto, auto,  0, #0054a6,  8px, 8px, false )
-@mixin before($top, $right, $bottom,  $left, $background,  $width, $height, $radius: false ) {
-    top: $top;
-    right: $right;
-    bottom: $bottom;
-    left: $left;
-    background: $background;
-    width: $width;
-    height: $height;
-    position: absolute;
-    content: '';
-    @if $radius {
-        border-radius: $radius;
-    }
-}
+
 /*  https://github.com/pfist/quantum-shadows
     @include shadow(2);
    ========================================================================== */
@@ -96,10 +87,10 @@
         box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
     }
 }
-// .selector {
-//   @include placeholder {
-//   }
-// }
+
+/* ==========================================================================
+   placeholder
+   ========================================================================== */
 @mixin placeholder {
     &::-webkit-input-placeholder {
         @content;
@@ -112,6 +103,7 @@
         @content;
     }
 }
+
 /* ==========================================================================
    HAMBURGER
    ========================================================================== */
@@ -162,27 +154,32 @@ $burger-gutter: 3px;
         top: $height + $gutter;
     }
 }
+
 // Select parts of the burger
 @mixin burger-parts {
     &, &::before, &::after {
         @content;
     }
 }
+
 @mixin burger-top {
     &::before {
         @content;
     }
 }
+
 @mixin burger-middle {
     & {
         @content;
     }
 }
+
 @mixin burger-bottom {
     &::after {
         @content;
     }
 }
+
 // Burger animations
 @mixin burger-to-cross {
     & {
@@ -203,6 +200,7 @@ $burger-gutter: 3px;
         transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
     }
 }
+
 /* ===================================== https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos ===================================== */
 // Flexbox Containers
 //
@@ -220,6 +218,7 @@ $burger-gutter: 3px;
     display: -ms-flexbox;
     display: flex;
 }
+
 //%flexbox { @include flexbox; }
 @mixin inline-flex {
     display: -webkit-inline-box;
@@ -228,6 +227,7 @@ $burger-gutter: 3px;
     display: -ms-inline-flexbox;
     display: inline-flex;
 }
+
 //%inline-flex { @include inline-flex; }
 // Flexbox Direction
 //
@@ -256,6 +256,7 @@ $burger-gutter: 3px;
         -webkit-box-orient: horizontal;
     }
 }
+
 // Flexbox Wrap
 //
 // The 'flex-wrap' property controls whether the flex container is single-line
@@ -275,6 +276,7 @@ $burger-gutter: 3px;
         -ms-flex-wrap: $value;
     }
 }
+
 // Flexbox Flow (shorthand)
 //
 // The 'flex-flow' property is a shorthand for setting the 'flex-direction'
@@ -290,6 +292,7 @@ $burger-gutter: 3px;
     -ms-flex-flow: $values;
     flex-flow: $values;
 }
+
 //----------------------------------------------------------------------
 // Flexbox Order
 //
@@ -304,6 +307,7 @@ $burger-gutter: 3px;
     -ms-flex-order: $int;
     order: $int;
 }
+
 // Flexbox Grow
 //
 // The 'flex-grow' property sets the flex grow factor. Negative numbers
@@ -317,6 +321,7 @@ $burger-gutter: 3px;
     -ms-flex-positive: $int;
     flex-grow: $int;
 }
+
 // Flexbox Shrink
 //
 // The 'flex-shrink' property sets the flex shrink factor. Negative numbers
@@ -331,6 +336,7 @@ $burger-gutter: 3px;
     -ms-flex-negative: $int;
     flex-shrink: $int;
 }
+
 // Flexbox Basis
 //
 // The 'flex-basis' property sets the flex basis. Negative lengths are invalid.
@@ -340,6 +346,7 @@ $burger-gutter: 3px;
 @mixin flex-basis($value: auto) {
     @include prefixer('flex-basis', $value);
 }
+
 // Flexbox "Flex" (shorthand)
 //
 // The 'flex' property specifies the components of a flexible length: the
@@ -362,6 +369,7 @@ $burger-gutter: 3px;
     -ms-flex: $fg $fs $fb;
     flex: $fg $fs $fb;
 }
+
 // Flexbox Justify Content
 //
 // The 'justify-content' property aligns flex items along the main axis
@@ -395,6 +403,7 @@ $burger-gutter: 3px;
     -moz-justify-content: $value;
     justify-content: $value;
 }
+
 // Flexbox Align Items
 // Flex items can be aligned in the cross axis of the current line of the
 // flex container, similar to 'justify-content' but in the perpendicular
@@ -420,6 +429,7 @@ $burger-gutter: 3px;
     -moz-align-items: $value;
     align-items: $value;
 }
+
 // Flexbox Align Self
 // Values: auto | flex-start | flex-end | center | baseline | stretch
 // Default: auto
@@ -436,6 +446,7 @@ $burger-gutter: 3px;
     }
     align-self: $value;
 }
+
 // Flexbox Align Content
 //
 // The 'align-content' property aligns a flex container's lines within the
@@ -458,6 +469,7 @@ $burger-gutter: 3px;
     }
     align-content: $value;
 }
+
 /*
     Flexbox grid @mixin
     EXAMPLE

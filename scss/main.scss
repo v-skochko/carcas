@@ -1,9 +1,6 @@
-@import 'components/00_mixins';
+@import '_variables';
+@import '_mixins';
 
-/* VARIABLES
-   ========================================================================== */
-//web page width
-$row: 1140px;
 // Defaul fonts
 $regular: 'font_regular', Helvetica, Arial, sans-serif;
 //default italic font
@@ -14,68 +11,24 @@ $bold: 'font_bold', Helvetica, Arial, sans-serif;
    ========================================================================== */
 //custom icon fonts
 @include declare-font('i', 'i', 400);
-/* COLOR
-   ========================================================================== */
-//main color
-$a: #181818;
-//second color
-$b: #3897f0;
-//mobile menu color
-$menu: $a;
-// color og link
-$link: $a;
-// buttons color
-$btn: $b;
-$border: #ccc;
-$text: #333;
-$menu: #3897f0;
 
 /* MAIN  FILES
    ========================================================================== */
-// reset
-@import 'components/01_reset';
+
+//flexbox
+@import 'components/01_normalize';
 @import 'components/02_flexo';
+//icon fonts
+@import 'components/03_font_icons';
 // wordpress
 @import 'components/10_wordpress';
+
 // global elements (buttons, etc..)
 @import 'components/20_global';
 // style for custom page
 @import 'components/21_pages';
 
-//icon fonts
-@import 'components/98_i';
-
-@import 'components/30_vendors';
-
 // responsive
 @import 'components/99_responsive';
 
-/* ==========================================================================
-   vendowrs
-   ========================================================================== */
-// @import 'components/11_woocommerce';
-@import 'vendors/swiper';
 
-
-
-
-
-/* @mixin for-size($size) {
-    @if $size == xs {
-        @media (max-width: 480px) {
-            @content;
-        }
-    } @else if $size == sm {
-        @media (max-width: 768px) {
-            @content;
-        }
-    } @else if $size == md {
-        @media (max-width: 960px) {
-            @content;
-        }
-    } @else if $size == row {
-        @media (max-width: $row) {
-            @content;
-        }
-    }
-} */

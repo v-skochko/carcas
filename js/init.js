@@ -11,7 +11,7 @@ $(document).ready(function () {
         .after('<i class="i-down sub-anchor"></i>');
     // ressponsive nav
     $('.burger').click(function () {
-        $(this).toggleClass('is-active');
+        // $(this).toggleClass('is-active');
         $("body").toggleClass('resp_menu_active');
         return false;
     });
@@ -31,7 +31,7 @@ $(document).ready(function () {
     });
 });
 /* end ready*/
-$(window).on('load', function() {
+$(window).on('load', function () {
     //main_slider
     var main_slider = new Swiper('.main_slider', {
         loop: true,
