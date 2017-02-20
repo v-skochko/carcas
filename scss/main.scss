@@ -1,6 +1,5 @@
 @import '_variables';
 @import '_mixins';
-
 // Defaul fonts
 $regular: 'font_regular', Helvetica, Arial, sans-serif;
 //default italic font
@@ -11,24 +10,18 @@ $bold: 'font_bold', Helvetica, Arial, sans-serif;
    ========================================================================== */
 //custom icon fonts
 @include declare-font('i', 'i', 400);
-
 /* MAIN  FILES
    ========================================================================== */
-
-//flexbox
 @import 'components/01_normalize';
+//flexbox
 @import 'components/02_flexo';
 //icon fonts
 @import 'components/03_font_icons';
 // wordpress
 @import 'components/10_wordpress';
-
 // global elements (buttons, etc..)
 @import 'components/20_global';
 // style for custom page
 @import 'components/21_pages';
-
 // responsive
 @import 'components/99_responsive';
-
-

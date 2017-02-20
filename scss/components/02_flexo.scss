@@ -19,21 +19,6 @@
     &.ai_start {
         @include align-items(flex-start);
     }
-
-    //
-    //.grid-top      { align-items: flex-start; }
-    //.grid-middle   { align-items: center; }
-    //.grid-bottom   { align-items: flex-end; }
-    //.grid-stretch  { align-items: stretch; }
-    //.grid-baseline { align-items: baseline; }
-    //.grid-left     { justify-content: flex-start; }
-    //.grid-center   { justify-content: center; }
-    //.grid-right    { justify-content: flex-end; }
-    //.grid-between  { justify-content: space-between; }
-    //.grid-around   { justify-content: space-around; }
-    //
-    //
-    //
 }
 $grid-spacing: 3%;
 $margin-bottom: 20px;
@@ -76,7 +61,6 @@ $margin-bottom: 20px;
 [class*='col-'] {
     width: 100%;
 }
-//md
 @include for-size(md) {
     .md-1 {
         @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
@@ -118,7 +102,6 @@ $margin-bottom: 20px;
         margin-bottom: $margin-bottom;
     }
 }
-//sm
 @include for-size(sm) {
     .sm-1 {
         @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
@@ -160,7 +143,6 @@ $margin-bottom: 20px;
         margin-bottom: $margin-bottom;
     }
 }
-//xs
 @include for-size(xs) {
     .xs-1 {
         @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));

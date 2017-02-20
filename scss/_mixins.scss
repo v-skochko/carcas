@@ -68,7 +68,6 @@
 }
 
 /*  https://github.com/pfist/quantum-shadows
-    @include shadow(2);
    ========================================================================== */
 @mixin shadow($depth) {
     @if $depth == 1 {

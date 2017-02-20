@@ -94,20 +94,13 @@ function my_acf_json_load_point( $paths ) {
 	// return
 	return $paths;
 }
-
-
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
-
 /*
 /* ACF Local JSON save point
    ========================================================================== */
 function my_acf_json_save_point( $path ) {
-
 	// update path
 	$path = get_stylesheet_directory() . '/include/acf/json';
-
-
 	// return
 	return $path;
-
 }

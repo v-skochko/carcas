@@ -39,8 +39,8 @@ function aside_widget_init() {
 	register_sidebar( array(
 		'name'         => 'Aside widget',
 		'id'           => 'aside_widget',
-//        'before_widget' => '<div>',
-//        'after_widget'  => '</div>',
+		'before_widget' => '<div class="widget_item">',
+		'after_widget'  => '</div>',
 		'before_title' => '<h3>',
 		'after_title'  => '</h3>',
 	) );
