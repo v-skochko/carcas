@@ -12,7 +12,7 @@ $bold: 'font_bold', Helvetica, Arial, sans-serif;
 @include declare-font('i', 'i', 400);
 /* MAIN  FILES
    ========================================================================== */
-@import 'components/01_normalize';
+@import 'components/01_reset';
 //flexbox
 @import 'components/02_flexo';
 //icon fonts
