@@ -51,7 +51,6 @@
     }
 }
 
-/* @include center(true, false); */
 @mixin center($horizontal: true, $vertical: true) {
     position: absolute;
     @if ($horizontal and $vertical) {
@@ -200,15 +199,6 @@ $burger-gutter: 3px;
     }
 }
 
-/* ===================================== https://demos.scotch.io/visual-guide-to-css3-flexbox-flexbox-playground/demos ===================================== */
-// Flexbox Containers
-//
-// The 'flex' value causes an element to generate a block-level flex
-// container box.
-//
-// The 'inline-flex' value causes an element to generate a inline-level
-// flex container box.
-//
 // display: flex | inline-flex
 @mixin flexbox {
     display: -webkit-box;
@@ -218,7 +208,6 @@ $burger-gutter: 3px;
     display: flex;
 }
 
-//%flexbox { @include flexbox; }
 @mixin inline-flex {
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
@@ -229,11 +218,6 @@ $burger-gutter: 3px;
 
 //%inline-flex { @include inline-flex; }
 // Flexbox Direction
-//
-// The 'flex-direction' property specifies how flex items are placed in
-// the flex container, by setting the direction of the flex container's
-// main axis. This determines the direction that flex items are laid out in.
-//
 // Values: row | row-reverse | column | column-reverse
 // Default: row
 @mixin flex-direction($value: row) {
@@ -257,11 +241,6 @@ $burger-gutter: 3px;
 }
 
 // Flexbox Wrap
-//
-// The 'flex-wrap' property controls whether the flex container is single-line
-// or multi-line, and the direction of the cross-axis, which determines
-// the direction new lines are stacked in.
-//
 // Values: nowrap | wrap | wrap-reverse
 // Default: nowrap
 @mixin flex-wrap($value: nowrap) {
@@ -277,11 +256,6 @@ $burger-gutter: 3px;
 }
 
 // Flexbox Flow (shorthand)
-//
-// The 'flex-flow' property is a shorthand for setting the 'flex-direction'
-// and 'flex-wrap' properties, which together define the flex container's
-// main and cross axes.
-//
 // Values: <flex-direction> | <flex-wrap>
 // Default: row nowrap
 @mixin flex-flow($values: (row nowrap)) {
@@ -294,10 +268,6 @@ $burger-gutter: 3px;
 
 //----------------------------------------------------------------------
 // Flexbox Order
-//
-// The 'order' property controls the order in which flex items appear within
-// their flex container, by assigning them to ordinal groups.
-//
 // Default: 0
 @mixin order($int: 0) {
     -webkit-box-ordinal-group: $int + 1;
@@ -308,10 +278,6 @@ $burger-gutter: 3px;
 }
 
 // Flexbox Grow
-//
-// The 'flex-grow' property sets the flex grow factor. Negative numbers
-// are invalid.
-//
 // Default: 0
 @mixin flex-grow($int: 0) {
     -webkit-box-flex: $int;
@@ -322,10 +288,6 @@ $burger-gutter: 3px;
 }
 
 // Flexbox Shrink
-//
-// The 'flex-shrink' property sets the flex shrink factor. Negative numbers
-// are invalid.
-//
 // Default: 1
 //
 // http://w3.org/tr/css3-flexbox/#flex-shrink-property
@@ -337,9 +299,6 @@ $burger-gutter: 3px;
 }
 
 // Flexbox Basis
-//
-// The 'flex-basis' property sets the flex basis. Negative lengths are invalid.
-//
 // Values: Like "width"
 // Default: auto
 @mixin flex-basis($value: auto) {
@@ -347,13 +306,6 @@ $burger-gutter: 3px;
 }
 
 // Flexbox "Flex" (shorthand)
-//
-// The 'flex' property specifies the components of a flexible length: the
-// flex grow factor and flex shrink factor, and the flex basis. When an
-// element is a flex item, 'flex' is consulted instead of the main size
-// property to determine the main size of the element. If an element is
-// not a flex item, 'flex' has no effect.
-//
 // Values: none | <flex-grow> <flex-shrink> || <flex-basis>
 // Default: See individual properties (1 1 0).
 @mixin flex($fg: 1, $fs: null, $fb: null) {
@@ -370,14 +322,7 @@ $burger-gutter: 3px;
 }
 
 // Flexbox Justify Content
-//
-// The 'justify-content' property aligns flex items along the main axis
-// of the current line of the flex container. This is done after any flexible
-// lengths and any auto margins have been resolved. Typically it helps distribute
-// extra free space leftover when either all the flex items on a line are
-// inflexible, or are flexible but have reached their maximum size. It also
-// exerts some control over the alignment of items when they overflow the line.
-//
+
 // Note: 'space-*' values not supported in older syntaxes.
 //
 // Values: flex-start | flex-end | center | space-between | space-around
@@ -404,13 +349,6 @@ $burger-gutter: 3px;
 }
 
 // Flexbox Align Items
-// Flex items can be aligned in the cross axis of the current line of the
-// flex container, similar to 'justify-content' but in the perpendicular
-// direction. 'align-items' sets the default alignment for all of the flex
-// container's items, including anonymous flex items. 'align-self' allows
-// this default alignment to be overridden for individual flex items. (For
-// anonymous flex items, 'align-self' always matches the value of 'align-items'
-// on their associated flex container.)
 // Values: flex-start | flex-end | center | baseline | stretch
 // Default: stretch
 @mixin align-items($value: stretch) {
@@ -447,12 +385,6 @@ $burger-gutter: 3px;
 }
 
 // Flexbox Align Content
-//
-// The 'align-content' property aligns a flex container's lines within the
-// flex container when there is extra space in the cross-axis, similar to
-// how 'justify-content' aligns individual items within the main-axis. Note,
-// this property has no effect when the flexbox has only a single line.
-//
 // Values: flex-start | flex-end | center | space-between | space-around | stretch
 // Default: stretch
 //
@@ -467,33 +399,4 @@ $burger-gutter: 3px;
         -ms-flex-line-pack: $value;
     }
     align-content: $value;
-}
-
-/*
-    Flexbox grid @mixin
-    EXAMPLE
-    .flexbox {
-        @include boxGrid(5, 4%);
-        > div {
-            margin-bottom: .4em;
-            background: #333;
-            padding: .8em;
-            color: #fff;
-        }
-    }
-*/
-@mixin boxGrid($columnNumber, $spacingPercent) {
-    $contentPercent: 100%;
-    $sideMargin: ($spacingPercent/2);
-    $marginInt: strip-units($sideMargin);
-    @include justify-content(flex-start);
-    @include flex-flow(wrap);
-    @include transition();
-    @include flexbox();
-    margin: 0 -$sideMargin;
-    width: $contentPercent + $spacingPercent;
-    > * {
-        width: ($contentPercent/$columnNumber) - $spacingPercent;
-        margin: 0 #{$sideMargin} ($marginInt + ($marginInt / $columnNumber) * 1em)
-    }
 }
