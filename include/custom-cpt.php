@@ -50,7 +50,7 @@ function register_cpt() {
 			'public'            => true,
 			'show_ui'           => true,
 			'show_in_menu'      => true,
-			'supports'          => array( 'title', 'editor', 'thumbnail' ),
+			'supports'          => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
 			'menu_icon'         => 'dashicons-flag',
 			'rewrite'           => array( 'slug' => 'cpt' ),
 			'has_archive'       => true,
