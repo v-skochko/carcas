@@ -226,6 +226,11 @@ function my_theme_register_required_plugins()
 			'name'     => 'Redirection',
 			'slug'     => 'redirection',
 			'required' => false,
+		),
+		array(
+			'name'     => 'Simple Sitemap',
+			'slug'     => 'simple-sitemap',
+			'required' => false,
 		)
 	);
 	/*
