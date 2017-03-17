@@ -1,7 +1,6 @@
 <?php
-/* THEME SETINGS
-- Registered jQuery,  css and js file
-- Thumbnails theme support
+/* ==========================================================================
+    THEME TWEAKS
    ========================================================================== */
 /* Registered jQuery,  css and js file
    ========================================================================== */
@@ -17,32 +16,42 @@ function style_js() {
 	wp_enqueue_script( 'libs', get_template_directory_uri() . '/js/lib.js', array( 'jquery' ), '1.0', true );
 	wp_enqueue_script( 'init', get_template_directory_uri() . '/js/init.js', array( 'jquery' ), '1.0', true );
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/scss/main.css' );
-	wp_enqueue_style( 'vendors', get_template_directory_uri() . '/scss/vendors.css' );
+	wp_enqueue_style( 'plugins', get_template_directory_uri() . '/scss/plugins/lib.css' );
 	//wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css?uid='.md5(uniqid(rand(),1)));
 }
 
 add_action( 'wp_enqueue_scripts', 'style_js' );
-/* Thumbnails theme support
+
+/* After_switch_theme
    ========================================================================== */
-add_theme_support( 'post-thumbnails' );
-/* Set permalink settings
-   ========================================================================== */
-function set_permalink_postname() {
+add_action( 'after_switch_theme', 'my_theme_activation' );
+function my_theme_activation() {
+	//update image  size
+	update_option( 'thumbnail_size_w', 300 );
+	update_option( 'thumbnail_size_h', 300 );
+	update_option( 'medium_size_w', 600 );
+	update_option( 'medium_size_h', 600 );
+	update_option( 'large_size_w', 2048 );
+	update_option( 'large_size_h', 2048 );
+	//Set permalink settings
 	global $wp_rewrite;
 	$wp_rewrite->set_permalink_structure( '%postname%' );
 }
 
-add_action( 'after_switch_theme', 'set_permalink_postname' );
+/* Thumbnails theme support
+   ========================================================================== */
+add_theme_support( 'post-thumbnails' );
+
 /* Add wiget
    ========================================================================== */
 function aside_widget_init() {
 	register_sidebar( array(
-		'name'         => 'Aside widget',
-		'id'           => 'aside_widget',
+		'name'          => 'Aside widget',
+		'id'            => 'aside_widget',
 		'before_widget' => '<div class="widget_item">',
 		'after_widget'  => '</div>',
-		'before_title' => '<h3>',
-		'after_title'  => '</h3>',
+		'before_title'  => '<h3>',
+		'after_title'   => '</h3>',
 	) );
 }
 
@@ -150,21 +159,8 @@ add_action( 'widgets_init', 'cwwp_unregister_default_widgets' );
 /* Hide the Admin Bar
    ========================================================================== */
 add_filter( 'show_admin_bar', '__return_false' );
-/* For coments: remove Email & Url fields
-   ========================================================================== */
-function require_name() {
-	update_option( 'require_name_email', 0 );
-}
 
-add_action( 'after_switch_theme', 'require_name' );
-function rem_form_fields( $fields ) {
-	// unset($fields['email']);
-	unset( $fields['url'] );
 
-	return $fields;
-}
-
-add_filter( 'comment_form_default_fields', 'rem_form_fields' );
 /* remove dafaul class for menu
    ========================================================================== */
 add_filter( 'nav_menu_css_class', 'wpa_discard_menu_classes', 10, 2 );
@@ -258,93 +254,98 @@ CUSTOM FUNCTION
 /* Body class
    ========================================================================== */
 
-function wpa_body_classes($classes)
-{
-	if (is_page()) {
+function wpa_body_classes( $classes ) {
+	if ( is_page() ) {
 		global $post;
 		$temp = get_page_template();
-		if ($temp != null) {
-			$path = pathinfo($temp);
-			$tmp = $path['filename'] . "." . $path['extension'];
-			$tn = str_replace(".php", "", $tmp);
+		if ( $temp != null ) {
+			$path      = pathinfo( $temp );
+			$tmp       = $path['filename'] . "." . $path['extension'];
+			$tn        = str_replace( ".php", "", $tmp );
 			$classes[] = $tn;
 		}
-		foreach ($classes as $k => $v) {
+		foreach ( $classes as $k => $v ) {
 			if (
 				$v == 'page-template' ||
 				$v == 'page-id-' . $post->ID ||
 				$v == 'page-template-default' ||
 				$v == 'woocommerce-page' ||
-				($temp != null ? ($v == 'page-template-' . $tn . '-php' || $v == 'page-template-' . $tn) : '')
-			) unset($classes[$k]);
+				( $temp != null ? ( $v == 'page-template-' . $tn . '-php' || $v == 'page-template-' . $tn ) : '' )
+			) {
+				unset( $classes[ $k ] );
+			}
 		}
 	}
-	if (is_single()) {
+	if ( is_single() ) {
 		global $post;
-		$f = get_post_format($post->ID);
-		foreach ($classes as $k => $v) {
-			if ($v == 'postid-' . $post->ID || $v == 'single-format-' . (!$f ? 'standard' : $f)) unset($classes[$k]);
+		$f = get_post_format( $post->ID );
+		foreach ( $classes as $k => $v ) {
+			if ( $v == 'postid-' . $post->ID || $v == 'single-format-' . ( ! $f ? 'standard' : $f ) ) {
+				unset( $classes[ $k ] );
+			}
 		}
 	}
-	if (is_multi_author()) {
+	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
 	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
 	$browser = $_SERVER['HTTP_USER_AGENT'];
 	// Mac, PC ...or Linux
-	if (preg_match("/Mac/", $browser)) {
+	if ( preg_match( "/Mac/", $browser ) ) {
 		$classes[] = 'macos';
-	} elseif (preg_match("/Windows/", $browser)) {
+	} elseif ( preg_match( "/Windows/", $browser ) ) {
 		$classes[] = 'windows';
-	} elseif (preg_match("/Linux/", $browser)) {
+	} elseif ( preg_match( "/Linux/", $browser ) ) {
 		$classes[] = 'linux';
 	} else {
 		$classes[] = 'unknown-os';
 	}
 	// Checks browsers in this order: Chrome, Safari, Opera, MSIE, FF
-	if (preg_match("/Edge/", $browser)) {
+	if ( preg_match( "/Edge/", $browser ) ) {
 		$classes[] = 'edge';
-	} elseif (preg_match("/Chrome/", $browser)) {
+	} elseif ( preg_match( "/Chrome/", $browser ) ) {
 		$classes[] = 'chrome';
-		preg_match("/Chrome\/(\d.\d)/si", $browser, $matches);
-		@$classesh_version = 'ch' . str_replace('.', '-', $matches[1]);
+		preg_match( "/Chrome\/(\d.\d)/si", $browser, $matches );
+		@$classesh_version = 'ch' . str_replace( '.', '-', $matches[1] );
 		$classes[] = $classesh_version;
-	} elseif (preg_match("/Safari/", $browser)) {
+	} elseif ( preg_match( "/Safari/", $browser ) ) {
 		$classes[] = 'safari';
-		preg_match("/Version\/(\d.\d)/si", $browser, $matches);
-		@$sf_version = 'sf' . str_replace('.', '-', $matches[1]);
+		preg_match( "/Version\/(\d.\d)/si", $browser, $matches );
+		@$sf_version = 'sf' . str_replace( '.', '-', $matches[1] );
 		$classes[] = $sf_version;
-	} elseif (preg_match("/Opera/", $browser)) {
+	} elseif ( preg_match( "/Opera/", $browser ) ) {
 		$classes[] = 'opera';
-		preg_match("/Opera\/(\d.\d)/si", $browser, $matches);
-		$op_version = 'op' . str_replace('.', '-', $matches[1]);
-		$classes[] = $op_version;
-	} elseif (preg_match("/MSIE/", $browser)) {
+		preg_match( "/Opera\/(\d.\d)/si", $browser, $matches );
+		$op_version = 'op' . str_replace( '.', '-', $matches[1] );
+		$classes[]  = $op_version;
+	} elseif ( preg_match( "/MSIE/", $browser ) ) {
 		$classes[] = 'msie';
-		if (preg_match("/MSIE 6.0/", $browser)) {
+		if ( preg_match( "/MSIE 6.0/", $browser ) ) {
 			$classes[] = 'ie6';
-		} elseif (preg_match("/MSIE 7.0/", $browser)) {
+		} elseif ( preg_match( "/MSIE 7.0/", $browser ) ) {
 			$classes[] = 'ie7';
-		} elseif (preg_match("/MSIE 8.0/", $browser)) {
+		} elseif ( preg_match( "/MSIE 8.0/", $browser ) ) {
 			$classes[] = 'ie8';
-		} elseif (preg_match("/MSIE 9.0/", $browser)) {
+		} elseif ( preg_match( "/MSIE 9.0/", $browser ) ) {
 			$classes[] = 'ie9';
 		}
-	} elseif (preg_match("/Firefox/", $browser) && preg_match("/Gecko/", $browser)) {
+	} elseif ( preg_match( "/Firefox/", $browser ) && preg_match( "/Gecko/", $browser ) ) {
 		$classes[] = 'firefox';
-		preg_match("/Firefox\/(\d)/si", $browser, $matches);
-		$ff_version = 'ff' . str_replace('.', '-', $matches[1]);
-		$classes[] = $ff_version;
+		preg_match( "/Firefox\/(\d)/si", $browser, $matches );
+		$ff_version = 'ff' . str_replace( '.', '-', $matches[1] );
+		$classes[]  = $ff_version;
 	} else {
 		$classes[] = 'unknown-browser';
 	}
 	//qtranslate classes
-	if (defined('QTX_VERSION')) {
+	if ( defined( 'QTX_VERSION' ) ) {
 		$classes[] = 'qtrans-' . qtranxf_getLanguage();
 	}
+
 	return $classes;
 }
-add_filter('body_class', 'wpa_body_classes');
+
+add_filter( 'body_class', 'wpa_body_classes' );
 /* Custom WP Title
    ========================================================================== */
 function wpa_title() {
@@ -427,3 +428,6 @@ function add_my_custom_column( $column_name, $post_id ) {
 		echo get_permalink( $post_id );
 	}
 }
+/* ==========================================================================
+    CUSTOM FUNCTIONS
+   ========================================================================== */

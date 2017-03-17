@@ -1,15 +1,8 @@
 $ = jQuery;
 $(document).ready(function () {
     "use strict";
-    $(".main_nav")
-        .clone()
-        .attr({class: ''})
-        .appendTo(".resp_container")
-        .find('ul')
-        .removeAttr('id')
-        .find('.menu-item-has-children>a')
-        .after('<i class="i-down sub-anchor"></i>');
-    // ressponsive nav
+    $(".mobile_nav").find('.menu-item-has-children>a').after('<i class="i-down sub-anchor"></i>');
+
     $('.burger').click(function () {
         // $(this).toggleClass('is-active');
         $("body").toggleClass('resp_menu_active');
@@ -32,29 +25,28 @@ $(document).ready(function () {
 });
 /* end ready*/
 $(window).on('load', function () {
-    //main_slider
-    var main_slider = new Swiper('.main_slider', {
-        loop: true,
-        paginationClickable: true,
-        pagination: '.main_slider .swiper-pagination',
-        prevButton: '.main_slider .swiper-button-prev',
-        nextButton: '.main_slider .swiper-button-next',
-        // fade: {crossFade: true},
-        // virtualTranslate: true,
-        // autoplay: 5000,
-        // speed: 1000,
-        // effect: 'fade',
-        // spaceBetween: 40,
-        // onInit: function (swiper) {
-        //     $("#top_home_slider").addClass('loaded')
-        // },
-        breakpoints: {
-            960: {
-                slidesPerView: 2
-            },
-            480: {
-                slidesPerView: 1
-            }
-        }
-    });
+    // var main_slider = new Swiper('.main_slider', {
+    //     loop: true,
+    //     paginationClickable: true,
+    //     pagination: '.main_slider .swiper-pagination',
+    //     prevButton: '.main_slider .swiper-button-prev',
+    //     nextButton: '.main_slider .swiper-button-next',
+    //     fade: {crossFade: true},
+    //     virtualTranslate: true,
+    //     autoplay: 5000,
+    //     speed: 1000,
+    //     effect: 'fade',
+    //     spaceBetween: 40,
+    //     onInit: function (swiper) {
+    //         $("#top_home_slider").addClass('loaded')
+    //     },
+    //     breakpoints: {
+    //         960: {
+    //             slidesPerView: 2
+    //         },
+    //         480: {
+    //             slidesPerView: 1
+    //         }
+    //     }
+    // });
 });
