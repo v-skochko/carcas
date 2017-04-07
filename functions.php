@@ -9,10 +9,17 @@ require_once 'include/plugins/init.php';
 // Custom functionality
 require_once 'include/core.php';
 require_once 'include/acf/acf-settings.php';
-// require_once('include/custom-cpt.php');
+// require_once('include/cpt.php');
 
+//update image  size
 // add_image_size( '2048x2048_cropped', '2048', '2048', true );
 
+update_option( 'thumbnail_size_w', 300 );
+update_option( 'thumbnail_size_h', 300 );
+update_option( 'medium_size_w', 600 );
+update_option( 'medium_size_h', 600 );
+update_option( 'large_size_w', 2048 );
+update_option( 'large_size_h', 2048 );
 
 
 

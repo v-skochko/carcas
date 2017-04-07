@@ -26,13 +26,7 @@ add_action( 'wp_enqueue_scripts', 'style_js' );
    ========================================================================== */
 add_action( 'after_switch_theme', 'my_theme_activation' );
 function my_theme_activation() {
-	//update image  size
-	update_option( 'thumbnail_size_w', 300 );
-	update_option( 'thumbnail_size_h', 300 );
-	update_option( 'medium_size_w', 600 );
-	update_option( 'medium_size_h', 600 );
-	update_option( 'large_size_w', 2048 );
-	update_option( 'large_size_h', 2048 );
+
 	//Set permalink settings
 	global $wp_rewrite;
 	$wp_rewrite->set_permalink_structure( '%postname%' );

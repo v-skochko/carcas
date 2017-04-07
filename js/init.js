@@ -19,9 +19,18 @@ $(document).ready(function () {
             $(this).remove();
         });
     });
+
+
     $(".wpcf7-response-output").click(function (event) {
         $(this).slideUp(400);
     });
+
+
+    // $('select').selectric({
+    //     disableOnMobile: false
+    // });
+
+
 });
 /* end ready*/
 $(window).on('load', function () {
