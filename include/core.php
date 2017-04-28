@@ -150,10 +150,6 @@ function cwwp_unregister_default_widgets() {
 }
 
 add_action( 'widgets_init', 'cwwp_unregister_default_widgets' );
-/* Hide the Admin Bar
-   ========================================================================== */
-add_filter( 'show_admin_bar', '__return_false' );
-
 
 /* remove dafaul class for menu
    ========================================================================== */
