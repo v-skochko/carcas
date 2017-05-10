@@ -3,6 +3,11 @@ global $post; ?>
     <div id="content" class="row flex">
         <main class="index_main">
             <h1><?php the_title(); ?></h1>
+		 <div class="author">
+                    By
+					<?php $a_id = $post->post_author;
+					the_author_meta( 'user_nicename', $a_id ); ?>
+                </div>
 			<?php if ( has_post_thumbnail() ) { ?>
                 <img src="  <?php echo get_the_post_thumbnail_url( get_the_ID(), 'large' ); ?>" alt="">
 			<?php } ?>
