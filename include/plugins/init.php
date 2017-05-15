@@ -231,7 +231,13 @@ function my_theme_register_required_plugins()
 			'name'     => 'Simple Sitemap',
 			'slug'     => 'simple-sitemap',
 			'required' => false,
+		),
+		array(
+			'name'     => 'Wp optimize',
+			'slug'     => 'wp-optimize',
+			'required' => false,
 		)
+			
 	);
 	/*
 	 * Array of configuration settings. Amend each line as needed.
