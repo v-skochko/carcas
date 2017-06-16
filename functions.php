@@ -22,7 +22,6 @@ update_option( 'large_size_w', 2048 );
 update_option( 'large_size_h', 2048 );
 
 
-
 /* REGISTER MENUS
    ========================================================================== */
 register_nav_menus( array(

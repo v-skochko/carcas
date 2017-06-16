@@ -22,8 +22,6 @@
             <a href="<?php echo site_url(); ?>/" id="logo">
 				<?php if ( get_field( 'logo', 'options' ) ): ?>
                     <img src="<?php the_field( 'logo', 'options' ); ?>" alt="">
-
-
 				<?php endif; ?>
             </a>
             <nav class="main_nav cfx mobile_hide">

@@ -1,7 +1,6 @@
 .desctop_hide {
     display: none;
 }
-
 @media screen and (max-width: $media_row+10px) {
     .mobile_hide {
         display: none;
@@ -142,22 +141,6 @@
             @include transform (translateX(0));
         }
     }
-    .resp_search {
-        position: relative;
-        width: 100%;
-        text-align: center;
-        input {
-            width: 100%;
-            max-width: 300px;
-            height: 40px;
-            margin: 0 auto 10px;
-            border: 1px solid lighten($menu, 10%);
-            background: #fff;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-    }
     /* ==========================================================================
        global style
        ========================================================================== */
@@ -171,18 +154,13 @@
         max-width: 94%;
     }
 }
-
 @media screen and (max-width: $media_md) {
 }
-
 @media screen and (max-width: $media_sm) {
 }
-
 @media screen and (max-width: 640px) {
 }
-
 @media screen and (max-width: $media_xs) {
 }
-
 @media screen and (max-width: 320px) {
 }
