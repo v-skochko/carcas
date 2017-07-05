@@ -15,6 +15,7 @@
     #{$property}: #{$value};
 }
 
+// @include for-size(md) {}
 @mixin for-size($size) {
     @if $size == xs {
         @media (max-width: $media_xs) {
@@ -63,8 +64,6 @@
     }
 }
 
-/*  https://github.com/pfist/quantum-shadows
-   ========================================================================== */
 @mixin shadow($depth) {
     @if $depth == 1 {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -83,9 +82,6 @@
     }
 }
 
-/* ==========================================================================
-   placeholder
-   ========================================================================== */
 @mixin placeholder {
     &::-webkit-input-placeholder {
         @content;
@@ -96,103 +92,6 @@
     }
     &:-ms-input-placeholder {
         @content;
-    }
-}
-
-/* ==========================================================================
-   HAMBURGER
-   ========================================================================== */
-// Vendor prefixes
-$b_vendor: true !default;
-// Burger
-$burger-height: 5px;
-$burger-gutter: 3px;
-@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
-    position: relative;
-    margin-top: $height + $gutter;
-    margin-bottom: $height + $gutter;
-    @if $b_vendor {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-    }
-    user-select: none;
-    &, &::before, &::after {
-        display: block;
-        width: $width;
-        height: $height;
-        background-color: $color;
-        @if $border-radius != 0 {
-            border-radius: $border-radius;
-        }
-        & {
-            display: inline-block;
-        }
-        @if $b_vendor {
-            -webkit-transition-property: background-color, -webkit-transform;
-            -moz-transition-property: background-color, -moz-transform;
-        }
-        transition-property: background-color, transform;
-        @if $b_vendor {
-            -webkit-transition-duration: $transition-duration;
-            -moz-transition-duration: $transition-duration;
-        }
-        transition-duration: $transition-duration;
-    }
-    &::before, &::after {
-        position: absolute;
-        content: "";
-    }
-    &::before {
-        top: -($height + $gutter);
-    }
-    &::after {
-        top: $height + $gutter;
-    }
-}
-
-// Select parts of the burger
-@mixin burger-parts {
-    &, &::before, &::after {
-        @content;
-    }
-}
-
-@mixin burger-top {
-    &::before {
-        @content;
-    }
-}
-
-@mixin burger-middle {
-    & {
-        @content;
-    }
-}
-
-@mixin burger-bottom {
-    &::after {
-        @content;
-    }
-}
-
-// Burger animations
-@mixin burger-to-cross {
-    & {
-        background-color: transparent;
-    }
-    &::before {
-        @if $b_vendor {
-            -webkit-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-            -moz-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-        }
-        transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-    }
-    &::after {
-        @if $b_vendor {
-            -webkit-transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
-            -moz-transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
-        }
-        transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
     }
 }
 
@@ -214,7 +113,6 @@ $burger-gutter: 3px;
 }
 
 //%inline-flex { @include inline-flex; }
-// Flexbox Direction
 // Values: row | row-reverse | column | column-reverse
 // Default: row
 @mixin flex-direction($value: row) {
@@ -237,7 +135,6 @@ $burger-gutter: 3px;
     }
 }
 
-// Flexbox Wrap
 // Values: nowrap | wrap | wrap-reverse
 // Default: nowrap
 @mixin flex-wrap($value: nowrap) {
@@ -252,7 +149,6 @@ $burger-gutter: 3px;
     }
 }
 
-// Flexbox Flow (shorthand)
 // Values: <flex-direction> | <flex-wrap>
 // Default: row nowrap
 @mixin flex-flow($values: (row nowrap)) {
@@ -263,8 +159,6 @@ $burger-gutter: 3px;
     flex-flow: $values;
 }
 
-//----------------------------------------------------------------------
-// Flexbox Order
 // Default: 0
 @mixin order($int: 0) {
     -webkit-box-ordinal-group: $int + 1;
@@ -274,7 +168,6 @@ $burger-gutter: 3px;
     order: $int;
 }
 
-// Flexbox Grow
 // Default: 0
 @mixin flex-grow($int: 0) {
     -webkit-box-flex: $int;
@@ -284,9 +177,7 @@ $burger-gutter: 3px;
     flex-grow: $int;
 }
 
-// Flexbox Shrink
 // Default: 1
-//
 // http://w3.org/tr/css3-flexbox/#flex-shrink-property
 @mixin flex-shrink($int: 1) {
     -webkit-flex-shrink: $int;
@@ -295,14 +186,11 @@ $burger-gutter: 3px;
     flex-shrink: $int;
 }
 
-// Flexbox Basis
-// Values: Like "width"
 // Default: auto
 @mixin flex-basis($value: auto) {
     @include prefixer('flex-basis', $value);
 }
 
-// Flexbox "Flex" (shorthand)
 // Values: none | <flex-grow> <flex-shrink> || <flex-basis>
 // Default: See individual properties (1 1 0).
 @mixin flex($fg: 1, $fs: null, $fb: null) {
@@ -318,10 +206,6 @@ $burger-gutter: 3px;
     flex: $fg $fs $fb;
 }
 
-// Flexbox Justify Content
-
-// Note: 'space-*' values not supported in older syntaxes.
-//
 // Values: flex-start | flex-end | center | space-between | space-around
 // Default: flex-start
 @mixin justify-content($value: flex-start) {
@@ -345,7 +229,6 @@ $burger-gutter: 3px;
     justify-content: $value;
 }
 
-// Flexbox Align Items
 // Values: flex-start | flex-end | center | baseline | stretch
 // Default: stretch
 @mixin align-items($value: stretch) {
@@ -364,7 +247,6 @@ $burger-gutter: 3px;
     align-items: $value;
 }
 
-// Flexbox Align Self
 // Values: auto | flex-start | flex-end | center | baseline | stretch
 // Default: auto
 @mixin align-self($value: auto) {
@@ -381,10 +263,8 @@ $burger-gutter: 3px;
     align-self: $value;
 }
 
-// Flexbox Align Content
 // Values: flex-start | flex-end | center | space-between | space-around | stretch
 // Default: stretch
-//
 @mixin align-content($value: stretch) {
     -webkit-align-content: $value;
     -moz-align-content: $value;
