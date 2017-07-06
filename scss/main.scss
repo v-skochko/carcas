@@ -1,11 +1,9 @@
 @import '_mixins';
-
 //web page width
 $media_row: 1140px;
 $media_md: 960px;
 $media_sm: 768px;
 $media_xs: 480px;
-
 //main color
 $a: #0c2d80;
 //second color
@@ -25,8 +23,6 @@ $linkedin: #0177b5;
 $google_plus: #d94733;
 $pinterest: #bd1e23;
 $youtube: #f80000;
-
-
 // Defaul fonts
 $regular: 'font_regular', Helvetica, Arial, sans-serif;
 //default italic font
@@ -44,8 +40,6 @@ $bold: 'font_bold', Helvetica, Arial, sans-serif;
 @import 'components/02_flexo';
 //icon fonts
 @import 'components/03_font_icons';
-// wordpress
-@import 'components/10_wordpress';
 //woocommerce basic style
 //@import 'components/11_woocommerce';
 // global elements (buttons, etc..)

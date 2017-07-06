@@ -4,7 +4,7 @@ $(document).ready(function () {
     $(".mobile_nav").find('.menu-item-has-children>a').after('<i class="i-down sub-anchor"></i>');
 
     $('.burger').click(function () {
-        // $(this).toggleClass('is-active');
+        $(this).toggleClass('is-active');
         $("body").toggleClass('resp_menu_active');
         return false;
     });

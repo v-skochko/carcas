@@ -1,4 +1,3 @@
-//Using @include declare-font('FontName', 'font-filename', 400);
 @mixin declare-font($font-family, $font-filename, $font-weight: normal, $font-style: normal) {
     @font-face {
         font-family: '#{$font-family}';
@@ -278,47 +277,25 @@
     align-content: $value;
 }
 
-
-
-
 /* ==========================================================================
   HAMBURGER
   ========================================================================== */
-// Vendor prefixes
-$b_vendor: true !default;
-
-$burger-height: 5px;
-$burger-gutter: 3px;
-@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $border-radius: 0, $transition-duration: .3s) {
+// Burger
+@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $transition-duration: .3s) {
+    $burger-height: $height !global;
+    $burger-gutter: $gutter !global;
     position: relative;
     margin-top: $height + $gutter;
     margin-bottom: $height + $gutter;
-    @if $b_vendor {
-        -webkit-user-select: none;
-        -moz-user-select: none;
-    }
     user-select: none;
     &, &::before, &::after {
         display: block;
         width: $width;
         height: $height;
         background-color: $color;
-        @if $border-radius != 0 {
-            border-radius: $border-radius;
-        }
-        & {
-            display: inline-block;
-        }
-        @if $b_vendor {
-            -webkit-transition-property: background-color, -webkit-transform;
-            -moz-transition-property: background-color, -moz-transform;
-        }
+        outline: 1px solid transparent; // 1
         transition-property: background-color, transform;
-        @if $b_vendor {
-            -webkit-transition-duration: $transition-duration;
-            -moz-transition-duration: $transition-duration;
-        }
-        transition-duration: $transition-duration;
+        transition-duration: .4s;
     }
     &::before, &::after {
         position: absolute;
@@ -332,49 +309,20 @@ $burger-gutter: 3px;
     }
 }
 
-// Select parts of the burger
-@mixin burger-parts {
-    &, &::before, &::after {
-        @content;
-    }
-}
-
-@mixin burger-top {
-    &::before {
-        @content;
-    }
-}
-
-
-@mixin burger-middle {
-    & {
-        @content;
-    }
-}
-
-@mixin burger-bottom {
-    &::after {
-        @content;
-    }
-}
-
-@mixin burger-to-cross {
+// Burger animations
+@mixin burger-to-cross($color: auto) {
     & {
         background-color: transparent;
     }
-    &::before {
-        @if $b_vendor {
-            -webkit-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-            -moz-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+    @if ($color != auto) {
+        &::before, &::after {
+            background-color: $color;
         }
+    }
+    &::before {
         transform: translateY($burger-gutter + $burger-height) rotate(45deg);
     }
     &::after {
-        @if $b_vendor {
-            -webkit-transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
-            -moz-transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
-        }
         transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
     }
 }
-
