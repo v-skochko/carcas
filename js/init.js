@@ -8,6 +8,14 @@ $(document).ready(function () {
         $("body").toggleClass('resp_menu_active');
         return false;
     });
+    
+    
+       $('.burger, #menuOpen').clickOff(function () {
+        $("#menuOpen").removeClass("opened");
+
+    });
+    
+    
     $(".menu-item-has-children i").click(function (event) {
         $(this).toggleClass('i-up').next().slideToggle("fast");
     });
