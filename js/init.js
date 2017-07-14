@@ -57,6 +57,10 @@ $(window).on('load', function () {
     //     onInit: function (swiper) {
     //         $("#top_home_slider").addClass('loaded')
     //     },
+     paginationBulletRender: function (index, className) {
+            var slide = $('.benefits-slider .swiper-container').find('.swiper-slide')[index];
+            return '<span class="' + className + '">' + $(slide).attr('data-desc') + '</span>';
+        }
     //     breakpoints: {
     //         960: {
     //             slidesPerView: 2
@@ -66,4 +70,6 @@ $(window).on('load', function () {
     //         }
     //     }
     // });
+    
+    
 });
