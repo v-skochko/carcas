@@ -3,13 +3,14 @@
    ========================================================================== */
 .row {
     position: relative;
-    width: $media_row;
+    width: $row;
     max-width: 100%;
     margin: 0 auto;
+
 }
 
 #content {
-    padding: 30px 0 40px 0;
+    padding: 40px 0;
 }
 
 #wrap {
@@ -40,31 +41,6 @@
     background-size: cover;
 }
 
-.btn, input[type='submit'] {
-    font-size: 15px;
-    line-height: 1;
-    font-weight: normal;
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none !important;
-    text-transform: uppercase;
-    color: #fff;
-    border: none;
-    outline: 0;
-    background: $btn;
-    @include transition(all, .2s, ease);
-    &:hover {
-        background: darken($btn, 5%);
-        @include shadow(2);
-    }
-    &:active {
-        background: darken($btn, 8%);
-    }
-}
-
 .no_select {
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -89,6 +65,48 @@
     }
 }
 
+.desctop_hide {
+    display: none;
+    @include for-size(row) {
+        display: block;
+    }
+}
+
+.mobile_hide {
+    @include for-size(row) {
+        display: none;
+    }
+}
+
+.btn, input[type='submit'] {
+    font-size: 15px;
+    line-height: 1;
+    font-weight: normal;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    outline: 0;
+    background: $btn;
+    @include transition(all, .2s, ease);
+    &:hover {
+        background: darken($btn, 5%);
+        @include shadow(2);
+    }
+    &:active {
+        background: darken($btn, 8%);
+    }
+    @include for-size(sm) {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
 /* ==========================================================================
    WYSIWYG
    ========================================================================== */
@@ -102,11 +120,16 @@
     }
     p {
         padding-bottom: 20px;
+        font-size: 15px;
         word-break: break-word;
+        line-height: 1.4;
     }
     ul {
         margin-left: 30px;
         padding-bottom: 20px;
+        li {
+            line-height: 1.4;
+        }
     }
 }
 
@@ -198,6 +221,45 @@
 //    }
 //}
 /* ==========================================================================
+   WORDPRESS DEFAULT CLASSES
+   ========================================================================== */
+.aligncenter {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.alignleft {
+    float: left;
+}
+
+.alignright {
+    float: right;
+}
+
+.wp-caption {
+    margin: 10px;
+    padding-top: 4px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background-color: #f3f3f3;
+}
+
+.wp-caption img {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+
+.wp-caption p.wp-caption-text {
+    font-size: 11px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0 4px 5px;
+}
+
+/* ==========================================================================
    SOCIAL LINK
    ========================================================================== */
 .s_link {
@@ -266,173 +328,48 @@
 }
 
 /* ==========================================================================
-   WORDPRESS DEFAULT CLASSES
+   index_style
    ========================================================================== */
-.aligncenter {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.alignleft {
-    float: left;
-}
-
-.alignright {
-    float: right;
-}
-
-.wp-caption {
-    margin: 10px;
-    padding-top: 4px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    background-color: #f3f3f3;
-}
-
-.wp-caption img {
-    margin: 0;
-    padding: 0;
-    border: 0 none;
-}
-
-.wp-caption p.wp-caption-text {
-    font-size: 11px;
-    line-height: 17px;
-    margin: 0;
-    padding: 0 4px 5px;
-}
-
-/* ==========================================================================
-   404 page
-   ========================================================================== */
-.error404 {
-    main {
-        margin: 0 0 40px;
-        text-align: center;
+.index_style {
+    .post_item {
+        margin-bottom: 20px;
     }
-    h1 {
+    .post_title {
         font-size: 18px;
-        margin: 30px 0 20px;
-        i {
-            font-size: 50px;
-            display: block;
-            margin-bottom: 20px;
+        padding-bottom: 15px;
+        display: block;
+        &:hover {
+            color: $b;
         }
     }
-    .search404 {
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
-        text-align: center;
-        span {
-            position: relative;
-            display: block;
-        }
-        .i-search {
-            margin: 20px 0;
-            &:before {
-                font-size: 18px;
-                position: absolute;
-                top: 5px;
-                right: 10px;
-            }
-        }
-        input[type='search'] {
-            width: 100%;
-            height: 30px;
-            border: 1px solid $border;
-            border-radius: 3px;
-        }
-    }
-    .cog_top {
-        top: 0;
-        left: 50px;
-        animation: simple_rotate 10s infinite linear;
-        &:before {
-            font-size: 150px;
-            color: #999;
-        }
-    }
-    .cog_left {
-        top: 114px;
-        left: 35px;
-        -webkit-transform: rotate(48deg);
-        -ms-transform: rotate(48deg);
-        transform: rotate(48deg);
-        animation: rotate_left 10s .1s infinite reverse linear;
-        color: #666;
-        &:before {
-            font-size: 110px;
-        }
-    }
-    .cog_right {
-        top: 175px;
-        left: 118px;
-        transform: rotate(0deg);
-        animation: rotate_right 10.4s .4s infinite linear;
-        &:before {
-            font-size: 75px;
-            color: #444;
-        }
-    }
-    .cog_container {
-        position: relative;
-        width: 280px;
-        height: 260px;
-        margin: 0 auto;
-        .cog_overlay {
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 150px;
-            height: 150px;
-            margin: auto;
-            border-radius: 100%;
-            background: transparent;
-            box-shadow: 0 0 0 100px rgba(255, 255, 255, .9), 0 0 8px 0 rgba(0, 0, 0, .36) inset;
-        }
-        .cog_icon {
-            position: absolute;
-            z-index: -2;
+    .post_thumbnail {
+        will-change: opacity;
+        @include shadow(1);
+        min-height: 160px;
+        &:hover {
+            opacity: .9;
+            @include shadow(2);
         }
     }
 }
 
-/* Animations */
-@keyframes simple_rotate {
-    from {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
+.wp-pagenavi {
+    font-size: 0;
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: center;
+    border-top: 1px solid $border;
+    a, span {
+        font-size: 14px;
+        margin: 0 3px;
+        padding: 3px 5px;
     }
-    to {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
+    a {
+        border: 1px solid $border;
     }
-}
-
-@keyframes rotate_left {
-    from {
-        -webkit-transform: rotate(16deg);
-        transform: rotate(16deg);
-    }
-    to {
-        -webkit-transform: rotate(376deg);
-        transform: rotate(376deg);
-    }
-}
-
-@keyframes rotate_right {
-    from {
-        -webkit-transform: rotate(4deg);
-        transform: rotate(4deg);
-    }
-    to {
-        -webkit-transform: rotate(364deg);
-        transform: rotate(364deg);
+    .current, a:hover {
+        color: #fff;
+        border-color: $a;
+        background: $a;
     }
 }

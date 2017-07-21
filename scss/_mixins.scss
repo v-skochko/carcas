@@ -17,19 +17,19 @@
 // @include for-size(md) {}
 @mixin for-size($size) {
     @if $size == xs {
-        @media (max-width: $media_xs) {
+        @media (max-width: $xs) {
             @content;
         }
     } @else if $size == sm {
-        @media (max-width: $media_sm) {
+        @media (max-width: $sm) {
             @content;
         }
     } @else if $size == md {
-        @media (max-width: $media_md) {
+        @media (max-width: $md) {
             @content;
         }
     } @else if $size == row {
-        @media (max-width: $media_row) {
+        @media (max-width: $row) {
             @content;
         }
     }
@@ -111,7 +111,6 @@
     display: inline-flex;
 }
 
-
 // Values: row | row-reverse | column | column-reverse
 @mixin flex-direction($value: row) {
     flex-direction: $value;
@@ -163,7 +162,6 @@
     order: $int;
 }
 
-
 @mixin flex-grow($int: 0) {
     -webkit-box-flex: $int;
     -webkit-flex-grow: $int;
@@ -171,7 +169,6 @@
     -ms-flex-positive: $int;
     flex-grow: $int;
 }
-
 
 @mixin flex-shrink($int: 1) {
     -webkit-flex-shrink: $int;

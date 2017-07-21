@@ -1,13 +1,4 @@
-.desctop_hide {
-    display: none;
-}
-@media screen and (max-width: $media_row+10px) {
-    .mobile_hide {
-        display: none;
-    }
-    .desctop_hide {
-        display: block;
-    }
+@media screen and (max-width: $row+10px) {
     .burger {
         position: absolute;
         z-index: 101;
@@ -144,23 +135,24 @@
     /* ==========================================================================
        global style
        ========================================================================== */
-    header {
-        .row {
-            height: 40px;
-        }
-    }
+
     .row {
         width: 100%;
         max-width: 94%;
     }
 }
-@media screen and (max-width: $media_md) {
+
+@media screen and (max-width: $md) {
 }
-@media screen and (max-width: $media_sm) {
+
+@media screen and (max-width: $sm) {
 }
+
 @media screen and (max-width: 640px) {
 }
-@media screen and (max-width: $media_xs) {
+
+@media screen and (max-width: $xs) {
 }
+
 @media screen and (max-width: 320px) {
 }
