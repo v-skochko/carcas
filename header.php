@@ -1,5 +1,8 @@
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> <?php if ( is_user_logged_in() ) {
+	echo 'style="margin-top: 0!important; margin-bottom: 32px!important;"';
+} ?>
+>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <title><?php wpa_title(); ?></title>
