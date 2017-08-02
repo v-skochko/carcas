@@ -85,39 +85,37 @@ html body.logged-in {
         display: none;
     }
 }
-
-.btn, input[type='submit'] {
-   //https://www.grabient.com/
-   background-color: #92140e;
-background-image: linear-gradient(19deg, #92140e 0%, #ef0f0f 100%);
-
-   
-    font-size: 15px;
-    line-height: 1;
-    font-weight: normal;
-    position: relative;
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none !important;
-    text-transform: uppercase;
-    color: #fff;
-    border: none;
-    outline: 0;
-    background: $btn;
-    @include transition(all, .2s, ease);
-    &:hover {
-        background: darken($btn, 5%);
-        @include shadow(2);
-    }
-    &:active {
-        background: darken($btn, 8%);
-    }
-    @include for-size(sm) {
-        font-size: 14px;
-        padding: 8px 15px;
-    }
+//https://www.grabient.com/
+.btn {
+  font-size: 15px;
+  line-height: 1;
+  font-weight: normal;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  color: #ffffff;
+  border: none;
+  outline: 0;
+  background: $btn;
+  background-image: linear-gradient(19deg, $btn 0%, darken($btn, 4%) 100%);
+  @include transition(all, .4s, ease);
+  &:hover {
+    background: darken($btn, 8%);
+    background-image: linear-gradient(19deg, $btn 0%, darken($btn, 8%) 100%);
+    @include shadow(2);
+  }
+  &:active {
+    background: darken($btn, 15%);
+    background-image: linear-gradient(19deg, $btn 0%, darken($btn, 15%) 100%);
+  }
+  @include for-size(sm) {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
 }
 
 /* ==========================================================================
