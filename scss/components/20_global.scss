@@ -1,6 +1,27 @@
 /* ==========================================================================
    HELPERS
    ========================================================================== */
+
+.logged-in {
+  #wpadminbar {
+    top: auto !important;
+    bottom: 0;
+  }
+  #wpadminbar .quicklinks .menupop ul {
+    bottom: 28px;
+  }
+}
+body.logged-in {
+  margin-top: -28px;
+  padding-bottom: 28px;
+}
+body.logged-in.admin-bar #wphead {
+  padding-top: 0;
+}
+body.logged-in.admin-bar #footer {
+  padding-bottom: 28px;
+}
+
 .row {
     position: relative;
     width: $row;
