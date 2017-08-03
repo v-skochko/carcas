@@ -5,4 +5,3 @@
 //clickOff
 $.fn.clickOff = function (callback, selfDestroy) { var clicked = false; var parent = this; var destroy = selfDestroy || true; parent.click(function () { clicked = true; }); $(document).click(function (event) { if (!clicked) { callback(parent, event); } if (destroy) { } clicked = false; }); };
 /*Contact form7 - close validation error on click*/
-$(".wpcf7-not-valid-tip").click(function (event) { $(this).prev().trigger('focus'); $(this).fadeOut(500, function () { $(this).remove(); }); }); $(".wpcf7-response-output").click(function (event) { $(this).slideUp(400); });
