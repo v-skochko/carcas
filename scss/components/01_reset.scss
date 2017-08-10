@@ -56,8 +56,10 @@ input[type='text'], input[type='number'], input[type='email'], input[type='passw
     padding: 0 5px 0 10px;
     color: #222;
     border: 1px solid #e1e1e1;
+        font-family: $regular;
     @include placeholder {
         font-size: 16px;
+         font-family: $regular;
         opacity: 1;
         color: #4c4c4c;
     }
