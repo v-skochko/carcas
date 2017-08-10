@@ -28,6 +28,7 @@ $(document).ready(function () {
     // $('select').selectric({
     //     disableOnMobile: false
     // });
+    //$('.datepicker').pickadate()
 });
 /* end ready*/
 $(window).on('load', function () {
