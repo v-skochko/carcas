@@ -38,19 +38,19 @@ $(window).on('load', function () {
     //     pagination: '.main_slider .swiper-pagination',
     //     prevButton: '.main_slider .swiper-button-prev',
     //     nextButton: '.main_slider .swiper-button-next',
+        //     effect: 'fade',
     //     fade: {crossFade: true},
     //     virtualTranslate: true,
     //     autoplay: 5000,
     //     speed: 1000,
-    //     effect: 'fade',
+
     //     spaceBetween: 40,
     //     onInit: function (swiper) {
     //         $("body").addClass('main_slider_loaded')
     //     },
-    //     paginationBulletRender: function (index, className) {
-    //         var slide = $('.swiper-container').find('.swiper-slide')[index];
-    //         return '<span class="' + className + '">' + $(slide).attr('data-description') + '</span>';
-    //     },
+    //    paginationBulletRender: function (swiper, index, className, swiperprocessstep) {
+     //       return '<span class="' + className + ' "> ' + swiper.slides.eq(index).attr('data-name') + '</span>';
+    //    },
     //     breakpoints: {
     //         480: {
     //             slidesPerView: 1
