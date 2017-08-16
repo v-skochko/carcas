@@ -39,7 +39,7 @@
 				'format'          => 'html',
 				'before'          => '',
 				'after'           => '',
-				'show_post_count' => 'true',
+				'show_post_count' => 'false',
 				'echo'            => 1,
 				'order'           => 'DESC',
 				'post_type'       => 'post'
@@ -48,14 +48,14 @@
         </ul>
     </div>
     <div class="aside_box">
-        <h3>RECENT POSTS </h3>
+        <h3>Recent Post </h3>
         <ul id="catnav">
 			<?php
 			global $post;
 			$category = get_the_category( $post->ID );
 			$category = $category[0]->cat_ID;
 			$myposts  = get_posts( array(
-				'numberposts'  => 3,
+				'numberposts'  => 4,
 				'offset'       => 0,
 				'category__in' => array( $category ),
 				'post_status'  => 'publish',
