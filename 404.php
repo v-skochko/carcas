@@ -28,31 +28,6 @@
             display: block;
             margin-bottom: 20px;
         }
-        .error404 .search404 {
-            width: 100%;
-            max-width: 280px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .error404 .search404 span {
-            position: relative;
-            display: block;
-        }
-        .error404 .search404 .i-search {
-            margin: 20px 0;
-        }
-        .error404 .search404 .i-search:before {
-            font-size: 18px;
-            position: absolute;
-            top: 5px;
-            right: 10px;
-        }
-        .error404 .search404 input[type='search'] {
-            width: 100%;
-            height: 30px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
         .error404 .cog_top {
             top: 0;
             left: 50px;
