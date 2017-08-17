@@ -2,32 +2,31 @@
    HELPERS
    ========================================================================== */
 
-html body.logged-in {
-  #wpadminbar {
-    top: auto !important;
-    bottom: 0 !important;
-  }
+html body.logged-in{
+    #wpadminbar{
+        top: auto !important;
+        bottom: 0 !important;
+    }
 }
 
-.row {
+.row{
     position: relative;
     width: $row;
     max-width: 100%;
     margin: 0 auto;
-
 }
 
-#content {
+#content{
     padding: 40px 0;
 }
 
-#wrap {
+#wrap{
     position: relative;
     width: 100%;
     min-height: 100%;
 }
 
-.c {
+.c{
     font-size: 0;
     line-height: 0;
     display: block;
@@ -35,30 +34,30 @@ html body.logged-in {
     overflow: hidden;
 }
 
-.cfx {
-    &:after, &:before {
+.cfx{
+    &:after, &:before{
         display: table;
         clear: both;
         content: ' ';
     }
 }
 
-.bg_center {
+.bg_center{
     background-position: center center;
     -webkit-background-size: cover;
-    background-size: cover;
+            background-size: cover;
 }
 
-.no_select {
+.no_select{
     -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
+       -moz-user-select: none;
+            user-select: none;
 }
 
-.underline {
+.underline{
     position: relative;
     display: inline-block;
-    &:after {
+    &:after{
         display: block;
         width: 0;
         height: 1px;
@@ -67,79 +66,82 @@ html body.logged-in {
         transition: width .5s ease, background-color .5s ease;
         background: transparent;
     }
-    &:hover:after {
+    &:hover:after{
         width: 100%;
         background: $link;
     }
 }
 
-.desctop_hide {
+.desctop_hide{
     display: none;
-    @include for-size(row) {
+
+    @include for-size(row){
         display: block;
     }
 }
 
-.mobile_hide {
-    @include for-size(row) {
+.mobile_hide{
+    @include for-size(row){
         display: none;
     }
 }
 //https://www.grabient.com/
-.btn {
-  font-size: 15px;
+.btn{
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    color: #fff;
+    border: none;
+    outline: 0;
+    background: $btn;
+    background-image: linear-gradient(19deg, $btn 0%, darken($btn, 4%) 100%);
+
     appearance: none;
-  line-height: 1;
-  font-weight: normal;
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none !important;
-  text-transform: uppercase;
-  color: #ffffff;
-  border: none;
-  outline: 0;
-  background: $btn;
-  background-image: linear-gradient(19deg, $btn 0%, darken($btn, 4%) 100%);
-  @include transition(all, .4s, ease);
-  &:hover {
-    background: darken($btn, 8%);
-    background-image: linear-gradient(19deg, $btn 0%, darken($btn, 8%) 100%);
-    @include shadow(2);
-  }
-  &:active {
-    background: darken($btn, 15%);
-    background-image: linear-gradient(19deg, $btn 0%, darken($btn, 15%) 100%);
-  }
-  @include for-size(sm) {
-    font-size: 14px;
-    padding: 8px 15px;
-  }
+    @include transition(all, .4s, ease);
+    @include for-size(sm){
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+    &:hover{
+        background: darken($btn, 8%);
+        background-image: linear-gradient(19deg, $btn 0%, darken($btn, 8%) 100%);
+
+        @include shadow(2);
+    }
+    &:active{
+        background: darken($btn, 15%);
+        background-image: linear-gradient(19deg, $btn 0%, darken($btn, 15%) 100%);
+    }
 }
 
 /* ==========================================================================
    WYSIWYG
    ========================================================================== */
-.wysiwyg {
-    h1 {
+.wysiwyg{
+    h1{
         font-size: 20px;
         line-height: 1;
         margin-bottom: 10px;
         padding-bottom: 5px;
         text-transform: uppercase;
     }
-    p {
-        padding-bottom: 20px;
+    p{
         font-size: 15px;
-        word-break: break-word;
         line-height: 1.4;
+        padding-bottom: 20px;
+        word-break: break-word;
     }
-    ul {
+    ul{
         margin-left: 30px;
         padding-bottom: 20px;
-        li {
+        li{
             line-height: 1.4;
         }
     }
@@ -148,12 +150,12 @@ html body.logged-in {
 /* ==========================================================================
    CONTACT FORM 7
    ========================================================================== */
-.wpcf7 {
+.wpcf7{
     width: 100%;
-    .screen-reader-response {
+    .screen-reader-response{
         display: none;
     }
-    .wpcf7-not-valid-tip {
+    .wpcf7-not-valid-tip{
         font: 500 14px/1 $regular;
         position: absolute;
         top: 0;
@@ -163,7 +165,7 @@ html body.logged-in {
         color: #ff5f5f;
         background: #eee;
     }
-    .wpcf7-response-output {
+    .wpcf7-response-output{
         display: none;
         width: 100%;
         max-width: 300px;
@@ -173,18 +175,18 @@ html body.logged-in {
         text-align: center;
         color: white;
         background: #ff5f5f;
-        &.wpcf7-mail-sent-ng {
+        &.wpcf7-mail-sent-ng{
             background: #1091ae;
         }
-        &.wpcf7-mail-sent-ok {
+        &.wpcf7-mail-sent-ok{
             background: #16a085;
         }
     }
-    .wpcf7-form-control-wrap {
+    .wpcf7-form-control-wrap{
         position: relative;
         display: block !important;
     }
-    .ajax-loader {
+    .ajax-loader{
         display: none;
     }
 }
@@ -235,21 +237,21 @@ html body.logged-in {
 /* ==========================================================================
    WORDPRESS DEFAULT CLASSES
    ========================================================================== */
-.aligncenter {
+.aligncenter{
     display: block;
     margin-right: auto;
     margin-left: auto;
 }
 
-.alignleft {
+.alignleft{
     float: left;
 }
 
-.alignright {
+.alignright{
     float: right;
 }
 
-.wp-caption {
+.wp-caption{
     margin: 10px;
     padding-top: 4px;
     text-align: center;
@@ -258,13 +260,13 @@ html body.logged-in {
     background-color: #f3f3f3;
 }
 
-.wp-caption img {
+.wp-caption img{
     margin: 0;
     padding: 0;
     border: 0 none;
 }
 
-.wp-caption p.wp-caption-text {
+.wp-caption p.wp-caption-text{
     font-size: 11px;
     line-height: 17px;
     margin: 0;
@@ -274,13 +276,13 @@ html body.logged-in {
 /* ==========================================================================
    SOCIAL LINK
    ========================================================================== */
-.s_link {
+.s_link{
     font-size: 0;
     display: inline-block;
     width: auto;
     cursor: pointer;
     text-align: center;
-    a {
+    a{
         position: relative;
         display: inline-block;
         width: 40px;
@@ -288,51 +290,53 @@ html body.logged-in {
         margin: 0 2px;
         color: #fff;
         border-radius: 50%;
+
         @include transform (translate3d(0, 0, 0));
         @include transition(all, .5s, cubic-bezier(.165, .84, .44, 1));
         @include shadow(1);
         -webkit-backface-visibility: hidden;
-        -moz-backface-visibility: hidden;
-        &:before {
+           -moz-backface-visibility: hidden;
+        &:before{
             font-size: 20px;
             color: #fff;
+
             @include center();
         }
-        &:hover {
+        &:hover{
             @include shadow(3);
         }
-        &.i-c-bk {
-            &:hover {
+        &.i-c-bk{
+            &:hover{
                 background: $facebook;
             }
         }
-        &.i-c-tr {
-            &:hover {
+        &.i-c-tr{
+            &:hover{
                 background: $twitter;
             }
         }
-        &.i-c-ism {
-            &:hover {
+        &.i-c-ism{
+            &:hover{
                 background: $instagram;
             }
         }
-        &.i-c-ln {
-            &:hover {
+        &.i-c-ln{
+            &:hover{
                 background: $linkedin;
             }
         }
-        &.i-c-gp {
-            &:hover {
+        &.i-c-gp{
+            &:hover{
                 background: $google_plus;
             }
         }
-        &.i-c-pr {
-            &:hover {
+        &.i-c-pr{
+            &:hover{
                 background: $pinterest;
             }
         }
-        &.i-c-yb {
-            &:hover {
+        &.i-c-yb{
+            &:hover{
                 background: $youtube;
             }
         }
@@ -342,44 +346,46 @@ html body.logged-in {
 /* ==========================================================================
    index_style
    ========================================================================== */
-.index_style {
-    .post_item {
+.index_style{
+    .post_item{
         margin-bottom: 20px;
     }
-    .post_title {
+    .post_title{
         font-size: 18px;
-        padding-bottom: 15px;
         display: block;
-        &:hover {
+        padding-bottom: 15px;
+        &:hover{
             color: $b;
         }
     }
-    .post_thumbnail {
+    .post_thumbnail{
+        min-height: 160px;
+
         will-change: opacity;
         @include shadow(1);
-        min-height: 160px;
-        &:hover {
+        &:hover{
             opacity: .9;
+
             @include shadow(2);
         }
     }
 }
 
-.wp-pagenavi {
+.wp-pagenavi{
     font-size: 0;
     margin-top: 20px;
     padding-top: 20px;
     text-align: center;
     border-top: 1px solid $border;
-    a, span {
+    a, span{
         font-size: 14px;
         margin: 0 3px;
         padding: 3px 5px;
     }
-    a {
+    a{
         border: 1px solid $border;
     }
-    .current, a:hover {
+    .current, a:hover{
         color: #fff;
         border-color: $a;
         background: $a;

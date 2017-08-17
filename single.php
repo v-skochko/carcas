@@ -2,7 +2,7 @@
 global $post; ?>
 <div id="content" class="row flex">
     <main class="index_main">
-        <h1><?php the_title(); ?></h1>
+        <h1 class="post_title"><?php the_title(); ?></h1>
         <div class="author">
             By <?php $a_id = $post->post_author;
 			the_author_meta( 'display_name', $a_id ); ?>

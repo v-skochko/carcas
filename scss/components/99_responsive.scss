@@ -1,25 +1,26 @@
-@media screen and (max-width: $row+10px) {
-    .burger {
+@media screen and (max-width: $row+10px){
+    .burger{
         position: absolute;
         z-index: 101;
         top: 13px;
         right: 10px;
         margin-right: 10px;
         text-align: left;
-        .burger-icon {
+        .burger-icon{
             display: inline-block;
+
             @include burger(18px, 2px, 4px, $a);
         }
-        &.is-active {
-            .burger-icon {
+        &.is-active{
+            .burger-icon{
                 @include burger-to-cross;
             }
-            .burger-icon::before, .burger-icon::after {
+            .burger-icon::before, .burger-icon::after{
                 background: #fff;
             }
         }
     }
-    .resp_container {
+    .resp_container{
         font-size: 0;
         position: fixed;
         z-index: 100;
@@ -34,20 +35,21 @@
         border-top: 40px solid darken($menu, 10%);
         border-bottom: 3px solid darken($menu, 10%);
         background: $menu;
+
         will-change: transform, opacity;
         @include transform (translateX(110%));
         @include transition(all, .2s, ease-in-out);
-        nav {
+        nav{
             margin-bottom: 40px;
         }
-        li {
+        li{
             position: relative;
         }
-        a {
+        a{
             z-index: 10;
             display: block;
         }
-        .sub-anchor {
+        .sub-anchor{
             position: absolute;
             z-index: 20;
             top: 0;
@@ -56,43 +58,44 @@
             height: 30px;
             cursor: pointer;
             background: lighten($menu, 5%);
-            &:hover {
+            &:hover{
                 background: darken($menu, 5%);
             }
-            &:before {
+            &:before{
                 font-size: 20px;
                 color: #fff;
+
                 @include center();
             }
         }
-        .sub-menu {
+        .sub-menu{
             display: none;
-            a {
+            a{
                 font-size: 13px;
                 padding: 10px 40px;
                 color: #fff;
-                &:hover {
+                &:hover{
                     background: lighten($menu, 10%);
                 }
             }
-            .sub-anchor {
+            .sub-anchor{
                 display: none !important;
             }
-            .sub-menu {
+            .sub-menu{
                 display: none !important;
             }
         }
     }
-    .level_a {
-        > li {
+    .level_a{
+        >li{
             border-bottom: 1px solid lighten($menu, 5%);
-            > a {
+            >a{
                 font-size: 14px;
                 line-height: 30px;
                 height: 30px;
                 padding-left: 20px;
                 color: #fff;
-                &:hover {
+                &:hover{
                     background: lighten($menu, 5%);
                 }
             }
@@ -100,35 +103,37 @@
     }
     /* resp_menu_active
    ========================================================================== */
-    .resp_menu_active {
+    .resp_menu_active{
         overflow: hidden;
-        &:before {
-            z-index: 100;
-            content: "";
+        &:before{
             position: absolute;
-            margin: 0 auto;
-            background: rgba(0, 0, 0, .7);
+            z-index: 100;
             width: 100%;
             height: 100vh;
+            margin: 0 auto;
+            content: '';
+            background: rgba(0, 0, 0, .7);
+
             @include transition(all, .2s, ease-in-out);
         }
-        #wrap {
+        #wrap{
             position: fixed;
             top: 0;
             opacity: .6;
         }
-        .burger {
+        .burger{
             position: fixed;
-            span {
+            span{
                 position: relative;
                 z-index: 101;
             }
         }
-        footer {
+        footer{
             display: none;
         }
-        .resp_container {
+        .resp_container{
             opacity: 1;
+
             @include transform (translateX(0));
         }
     }
@@ -136,23 +141,23 @@
        global style
        ========================================================================== */
 
-    .row {
+    .row{
         width: 100%;
         max-width: 94%;
     }
 }
 
-@media screen and (max-width: $md) {
+@media screen and (max-width: $md){
 }
 
-@media screen and (max-width: $sm) {
+@media screen and (max-width: $sm){
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 640px){
 }
 
-@media screen and (max-width: $xs) {
+@media screen and (max-width: $xs){
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 320px){
 }

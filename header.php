@@ -20,8 +20,8 @@
 </head>
 <body <?php body_class(); ?> >
 <div id="wrap">
-    <header>
-        <div class="row  flex  align_center">
+    <header class="header">
+        <div class="row">
             <a href="<?php echo site_url(); ?>/" id="logo">
 				<?php if ( get_field( 'logo', 'options' ) ): ?>
                     <img src="<?php the_field( 'logo', 'options' ); ?>" alt="">

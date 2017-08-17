@@ -1,6 +1,6 @@
 <?php get_header();
 global $post; ?>
-    <div class="row">
+    <div id="content" class="row cfx">
 		<?php $taxonomies = get_terms( 'cpt_cat', array( 'order' => 'DESC' ) );
 		foreach ( $taxonomies as $taxonomy ) { ?>
             <div class="cpt_cat_item <?php echo $taxonomy->slug ?>">

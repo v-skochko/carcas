@@ -1,8 +1,8 @@
 <?php
-//custom CPT
+
 add_action( 'init', 'register_cpt' );
 function register_cpt() {
-//custom taxonomy attached to jobs CPT
+//custom taxonomy attached to  CPT
 	$taxlabels = array(
 		'name'                       => 'taxcpt',
 		'singular_name'              => 'taxcpt',

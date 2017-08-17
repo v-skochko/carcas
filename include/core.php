@@ -21,12 +21,10 @@ function style_js() {
 }
 
 add_action( 'wp_enqueue_scripts', 'style_js' );
-
 /* After_switch_theme
    ========================================================================== */
 add_action( 'after_switch_theme', 'my_theme_activation' );
 function my_theme_activation() {
-
 	//Set permalink settings
 	global $wp_rewrite;
 	$wp_rewrite->set_permalink_structure( '%postname%' );
@@ -35,7 +33,6 @@ function my_theme_activation() {
 /* Thumbnails theme support
    ========================================================================== */
 add_theme_support( 'post-thumbnails' );
-
 /* Add wiget
    ========================================================================== */
 function aside_widget_init() {
@@ -150,7 +147,6 @@ function cwwp_unregister_default_widgets() {
 }
 
 add_action( 'widgets_init', 'cwwp_unregister_default_widgets' );
-
 /* remove dafaul class for menu
    ========================================================================== */
 add_filter( 'nav_menu_css_class', 'wpa_discard_menu_classes', 10, 2 );
@@ -167,8 +163,6 @@ function wpa_discard_menu_classes( $classes, $item ) {
 }
 
 /* ==========================================================================
-/*
-/*
 CUSTOM STYLE
 - Custom logo on login page
 - Custom css in admin panel
@@ -182,31 +176,25 @@ function namespace_login_style() {
 	echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
 }
 
-/* Custom css in admin panel
+/* Change admin post/page color by status – draft, pending, future, private
    ========================================================================== */
 function c_css() { ?>
     <style>
         .status-draft {
             background: #E6E6E6 !important;
         }
-
         .status-pending {
             background: #E2F0FF !important;
         }
-
-        /* Change admin post/page color by status – draft, pending, future, private*/
         .status-future {
             background: #C6EBF5 !important;
         }
-
         .status-private {
             background: #F2D46F;
         }
-
         #toplevel_page_edit-post_type-acf-field-group {
             border-top: 1px solid #ccc !important;
         }
-
         .acf-repeater > .acf-table > .ui-sortable > .acf-row:nth-child(even) > .order {
             color: #fff !important;
             background-color: #777 !important;
@@ -216,12 +204,7 @@ function c_css() { ?>
 }
 
 add_action( 'admin_footer', 'c_css' );
-/* Custom info to admin footer area
-   ========================================================================== */
-// function remove_footer_admin () {
-//     echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress </a>  | Theme Developer <a href="https://www.facebook.com/skochko" target="_blank">@skochko</a>';
-// }
-// add_filter('admin_footer_text', 'remove_footer_admin');
+
 /* Color scheme "Midnight" set as default
    ========================================================================== */
 add_filter( 'get_user_option_admin_color', function ( $color_scheme ) {
@@ -233,8 +216,6 @@ add_filter( 'get_user_option_admin_color', function ( $color_scheme ) {
 	return $color_scheme;
 }, 5 );
 /* ==========================================================================
-/*
-/*
 CUSTOM FUNCTION
 - Body class
 - Custom WP Title
@@ -243,7 +224,6 @@ CUSTOM FUNCTION
 ========================================================================== */
 /* Body class
    ========================================================================== */
-
 function wpa_body_classes( $classes ) {
 	if ( is_page() ) {
 		global $post;
@@ -385,7 +365,8 @@ function image_src( $id, $size = 'full', $background_image = false, $height = fa
 	}
 }
 
-//[button link="#"  align="alignleft"]Align left button[/button]
+/* [button link="#"  align="alignleft"]Align left button[/button]
+   ========================================================================== */
 function sButton( $atts, $content = null ) {
 	extract( shortcode_atts( array(
 		'link'  => '#',
@@ -396,7 +377,8 @@ function sButton( $atts, $content = null ) {
 }
 
 add_shortcode( 'button', 'sButton' );
-/* Remove WordPress logo & pages from Admin bar */
+/* Remove WordPress logo & pages from Admin bar
+   ========================================================================== */
 function annointed_admin_bar_remove() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu( 'wp-logo' );
@@ -404,7 +386,8 @@ function annointed_admin_bar_remove() {
 
 add_action( 'wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0 );
 remove_action( 'welcome_panel', 'wp_welcome_panel' );
-//Adding Page URL to the Pages Admin Table
+/* Adding Page URL to the Pages Admin Table
+   ========================================================================== */
 add_filter( 'manage_page_posts_columns', 'my_custom_column', 10 );
 add_action( 'manage_page_posts_custom_column', 'add_my_custom_column', 10, 2 );
 function my_custom_column( $defaults ) {
@@ -418,6 +401,3 @@ function add_my_custom_column( $column_name, $post_id ) {
 		echo get_permalink( $post_id );
 	}
 }
-/* ==========================================================================
-    CUSTOM FUNCTIONS
-   ========================================================================== */

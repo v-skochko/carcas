@@ -1,6 +1,6 @@
 </div>
-<footer>
-    <div class="row flex  ai_center">
+<footer class="footer">
+    <div class="row">
 		<?php if ( get_field( 'copyright', 'options' ) ): ?>
             <div class="copyright">
 				<?php the_field( 'copyright', 'options' ); ?>
