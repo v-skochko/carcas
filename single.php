@@ -15,6 +15,9 @@ global $post; ?>
 				the_content();
 			endwhile; endif; ?>
         </div>
+	    <?php
+echo get_the_tag_list('<p>Tags: ',', ','</p>');
+?>
         <div class="shr_link">
             <a class="i-c-bk" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>&t="
                title="Share on Facebook" target="_blank"
