@@ -400,4 +400,10 @@ function add_my_custom_column( $column_name, $post_id ) {
 	if ( $column_name == 'url' ) {
 		echo get_permalink( $post_id );
 	}
+	
+function user_content_replace( $content ) {
+	return str_replace( '<p>&nbsp;</p>', '<p class="empty_paragraph">&nbsp;</p>', $content );
 }
+
+add_filter( 'the_content', 'user_content_replace', 99 );	
+	
