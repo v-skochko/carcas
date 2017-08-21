@@ -7,7 +7,7 @@
             </div>
 		<?php endif; ?>
         <div class="s_link">
-			<?php get_template_part( 'template-parts/social', 'icons' ); ?>
+			<?php get_template_part( 'components/social', 'icons' ); ?>
         </div>
     </div>
 </footer>

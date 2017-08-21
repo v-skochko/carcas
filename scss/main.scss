@@ -12,8 +12,8 @@ $b: #f1b820;
 $link: $a;
 // buttons color
 $btn: #0c2d80;
-$border: #ccc;
-$text: #333;
+$border: #cccccc;
+$text: #333333;
 $menu: #0c2d80;
 //social media color
 $facebook: #3b5993;
@@ -33,7 +33,6 @@ $bold: 'font_bold', Helvetica, Arial, sans-serif;
    ========================================================================== */
 //custom icon fonts
 @include declare-font('i', 'i', 400);
-
 /* MAIN  FILES
    ========================================================================== */
 @import 'components/01_reset';
