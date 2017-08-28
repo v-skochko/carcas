@@ -30,3 +30,9 @@ register_nav_menus( array(
 	'foot_menu'   => 'Footer navigation'
 ) );
 
+function admin_pagination(){
+        global $wp_query;
+        $per_page = 60;
+        $wp_query->query('showposts='. $per_page);
+}
+add_action('admin_head', 'admin_pagination');
