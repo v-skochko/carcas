@@ -52,7 +52,7 @@ function register_cpt() {
 			'show_in_menu'      => true,
 			'supports'          => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
 			'menu_icon'         => 'dashicons-flag',
-			'rewrite'           => array( 'slug' => 'cpt' ),
+			'rewrite'           => array( 'slug' => 'cpt' /* , 'with_front' => false */ ),
 			'has_archive'       => true,
 			'hierarchical'      => true,
 			'show_in_nav_menus' => true,
