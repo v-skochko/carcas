@@ -12,7 +12,7 @@
     </div>
 </footer>
 <a href="#" class="burger desctop_hide"><span class="burger-icon "></span></a>
-<div class="resp_container desctop_hide cfx">
+<div class="mobile_menu_container desctop_hide cfx">
     <nav class="mobile_nav">
 		<?php
 		$mobile_nav = array(
@@ -28,3 +28,4 @@
 <?php wp_footer(); ?>
 </body>
 </html>
+

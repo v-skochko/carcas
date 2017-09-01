@@ -11,34 +11,22 @@
     Malihu custom scrollbar
     https://raw.githubusercontent.com/malihu/malihu-custom-scrollbar-plugin/master/js/minified/jquery.mCustomScrollbar.min.js
   ========================================================================== */
-//clickOff
-$.fn.clickOff = function (callback, selfDestroy) {
-    var clicked = false;
-    var parent = this;
-    var destroy = selfDestroy || true;
-    parent.click(function () {
-        clicked = true;
-    });
-    $(document).click(function (event) {
-        if (!clicked) {
-            callback(parent, event);
-        }
-        if (destroy) {
-        }
-        clicked = false;
-    });
-};
+
+// @formatter:off
+/*clickOff*/$.fn.clickOff = function (callback, selfDestroy) {var clicked = false;var parent = this;var destroy = selfDestroy || true;parent.click(function () {clicked = true;});$(document).click(function (event) {if (!clicked) {callback(parent, event);}if (destroy) {}clicked = false;});};
+// @formatter:on
+
 $(document).ready(function () {
     "use strict";
     $(".mobile_nav").find('.menu-item-has-children>a').after('<i class="i-down sub-anchor"></i>');
     $('.burger').click(function () {
         $(this).toggleClass('is-active');
-        $("body").toggleClass('resp_menu_active');
+        $("body").toggleClass('mobile_menu_active');
         return false;
     });
-    $('.resp_container').clickOff(function () {
+    $('.mobile_menu_container').clickOff(function () {
         $('.burger').removeClass('is-active');
-        $("body").removeClass('resp_menu_active');
+        $("body").removeClass('mobile_menu_active');
         return false;
     });
     $(".menu-item-has-children i").click(function (event) {

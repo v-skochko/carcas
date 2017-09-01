@@ -27,7 +27,7 @@
                     <img src="<?php the_field( 'logo', 'options' ); ?>" alt="">
 				<?php endif; ?>
             </a>
-            <nav class="main_nav cfx mobile_hide">
+            <nav class="main_nav  mobile_hide">
 				<?php
 				$main_nav = array(
 					'theme_location' => 'main_menu',

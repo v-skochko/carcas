@@ -72,19 +72,7 @@ html body.logged-in{
     }
 }
 
-.desctop_hide{
-    display: none;
 
-    @include for-size(row){
-        display: block;
-    }
-}
-
-.mobile_hide{
-    @include for-size(row){
-        display: none;
-    }
-}
 //https://www.grabient.com/
 .btn{
     font-size: 15px;
