@@ -11,19 +11,23 @@ add_action( 'acf/init', 'my_acf_init' );
 /*
 /* ACF option page
    ========================================================================== */
-if ( function_exists( 'acf_add_options_page' ) ) {
-	acf_add_options_page( array(
-		'page_title' => 'Theme General Settings',
-		'menu_title' => 'Theme Settings',
-		'menu_slug'  => 'theme-general-settings',
-		'capability' => 'edit_posts',
-		'redirect'   => false,
-	) );
-	// acf_add_options_sub_page(array(
-	//  'page_title' => 'Theme Header Settings',
-	//  'menu_title' => 'Header',
-	//  'parent_slug' => 'theme-general-settings',
-	// ));
+if( function_exists('acf_add_options_page') ) {
+
+	// add parent
+	$parent = acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title' 	=> 'Theme Settings',
+		'redirect' 		=> false
+	));
+
+
+	// add sub page
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Global components',
+		'menu_title' 	=> 'Components',
+		'parent_slug' 	=> $parent['menu_slug'],
+	));
+
 }
 /*
 /* License activation
