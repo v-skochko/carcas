@@ -30,4 +30,17 @@ register_nav_menus( array(
 	'foot_menu'   => 'Footer navigation'
 ) );
 
-
+// Contact form 7 remove AUTOTOP
+if(defined('WPCF7_VERSION')) {
+	function maybe_reset_autop( $form ) {
+		$form_instance = WPCF7_ContactForm::get_current();
+		$manager = WPCF7_FormTagsManager::get_instance();
+		$form_meta = get_post_meta( $form_instance->id(), '_form', true );
+		$form = $manager->replace_all( $form_meta );
+		$form_instance->set_properties( array(
+			'form' => $form
+		));
+		return $form;
+	}
+	add_filter( 'wpcf7_form_elements', 'maybe_reset_autop' );
+}
