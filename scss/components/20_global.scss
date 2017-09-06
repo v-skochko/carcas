@@ -47,7 +47,9 @@ html body.logged-in{
     -webkit-background-size: cover;
             background-size: cover;
 }
-
+.text_center {
+  text-align: center;
+}
 .no_select{
     -webkit-user-select: none;
        -moz-user-select: none;
