@@ -68,8 +68,9 @@ input[type='text'], input[type='number'], input[type='email'], input[type='passw
         color: #4c4c4c;
     }
     &:focus{
-        border-color: $a !important;
-        box-shadow: 0 0 3px $a !important;
+       border-color: transparent !important;
+    box-shadow: 0 0 3px $a !important;
+    outline-color: $a !important;
     }
 }
 
