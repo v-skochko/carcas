@@ -10,6 +10,8 @@
     https://raw.githubusercontent.com/amsul/pickadate.js/master/lib/compressed/picker.date.js
     Malihu custom scrollbar
     https://raw.githubusercontent.com/malihu/malihu-custom-scrollbar-plugin/master/js/minified/jquery.mCustomScrollbar.min.js
+    css3animate-it
+    https://raw.githubusercontent.com/Tusko/WP-Anatomy/master/js/libs/css3animate-it.js
   ========================================================================== */
 
 // @formatter:off
