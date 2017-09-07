@@ -16,8 +16,8 @@ require_once 'include/acf/acf-settings.php';
 
 update_option( 'thumbnail_size_w', 300 );
 update_option( 'thumbnail_size_h', 300 );
-update_option( 'medium_size_w', 600 );
-update_option( 'medium_size_h', 600 );
+update_option( 'medium_size_w', 800 );
+update_option( 'medium_size_h', 800 );
 update_option( 'large_size_w', 2048 );
 update_option( 'large_size_h', 2048 );
 
