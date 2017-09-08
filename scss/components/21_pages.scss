@@ -75,6 +75,7 @@ header{
             padding: 3px 15px;
             color: #fff;
             &:hover{
+               text-decoration: none;
                 background: lighten($menu, 20%);
             }
         }
