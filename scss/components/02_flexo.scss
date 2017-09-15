@@ -68,7 +68,9 @@ $margin-bottom: 30px;
     @include flex-basis(100%);
 }
 
-
+.col-50 {
+  @include flex-basis(50%);
+}
 
 @include for-size(sm) {
     .sm-1 {
