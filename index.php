@@ -40,7 +40,7 @@ if ( is_home() ) {
 							<?php comments_number( 'No comments', 'One comment', '% comments' ); ?>
                         </div>
                         <time><?php echo get_the_date( 'j F, Y' ); ?></time>
-						<?php echo wp_trim_words( strip_shortcodes( get_the_content() ), 20, "..." ); ); ?>
+						<?php echo wp_trim_words( strip_shortcodes( get_the_content() ), 20, "..." );  ?>
                     </div>
                 </div>
 			<?php endwhile;
