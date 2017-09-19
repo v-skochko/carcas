@@ -29,23 +29,27 @@
 
 // @include for-size(md) {}
 @mixin for-size($size) {
-    @if $size == xs {
-        @media (max-width: $xs) {
-            @content;
-        }
-    } @else if $size == sm {
-        @media (max-width: $sm) {
-            @content;
-        }
-    } @else if $size == md {
-        @media (max-width: $md) {
-            @content;
-        }
-    } @else if $size == row {
-        @media (max-width: $row) {
-            @content;
-        }
+  @if $size == xs {
+    @media (max-width: $xs) {
+      @content;
     }
+  } @else if $size == sm {
+    @media (max-width: $sm) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (max-width: $md) {
+      @content;
+    }
+  } @else if $size == row {
+    @media (max-width: $row) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $size) {
+      @content;
+    }
+  }
 }
 
 @mixin transition($property: all, $duration: .3s, $easing: ease) {
