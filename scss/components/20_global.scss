@@ -1,14 +1,6 @@
 /* ==========================================================================
    HELPERS
    ========================================================================== */
-
-html body.logged-in{
-    #wpadminbar{
-        top: auto !important;
-        bottom: 0 !important;
-    }
-}
-
 .row{
     position: relative;
     width: $row;
