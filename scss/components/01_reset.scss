@@ -18,6 +18,8 @@ html{
 
 body{
     font-family: $regular;
+      font-weight: 400;
+  color: $text;
     position: relative;
     height: auto;
     min-height: 100vh;
