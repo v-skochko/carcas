@@ -16,6 +16,31 @@
 
 // @formatter:off
 /*clickOff*/$.fn.clickOff = function (callback, selfDestroy) {var clicked = false;var parent = this;var destroy = selfDestroy || true;parent.click(function () {clicked = true;});$(document).click(function (event) {if (!clicked) {callback(parent, event);}if (destroy) {}clicked = false;});};
+function setCookie (name, value, exdays, path, domain, secure) {
+    var d = new Date();
+    expires = d.toUTCString(d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)));
+    document.cookie = name + "=" + escape(value) +
+    ((expires) ? "; expires=" + expires : "") +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    ((secure) ? "; secure" : "");
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return unescape(c.substring(name.length, c.length));
+        }
+    }
+    return "";
+}
+
 // @formatter:on
 
 $(document).ready(function () {
