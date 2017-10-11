@@ -1,7 +1,7 @@
 .desctop_hide {
   display: none;
 }
-@media screen and (max-width: $row+10px) {
+@media screen and (max-width: $row) {
   .mobile_hide {
     display: none;
   }
