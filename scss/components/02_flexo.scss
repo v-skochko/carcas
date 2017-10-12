@@ -1,157 +1,141 @@
 .flex {
-    @include flexbox;
-    @include flex-wrap(wrap);
-    @include align-items(stretch);
-    @include justify-content(space-between);
-    &.justify_around {
-        @include justify-content(space-around);
-    }
-    &.justify_center {
-        @include justify-content(space-around);
-    }
-    &.align_center {
-        @include align-items(center);
-    }
+  @include flexbox;
+  @include flex-wrap(wrap);
+  @include align-items(stretch);
+  @include justify-content(space-between);
+  &.justify_around {
+    @include justify-content(space-around);
+  }
+  &.justify_center {
+    @include justify-content(space-around);
+  }
+  &.align_center {
+    @include align-items(center);
+  }
 }
-
 $grid-spacing: 3%;
 $margin-bottom: 30px;
 [class*='col-'] {
-    width: 100%;
+  width: 100%;
 }
-
 .col-1 {
-    @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
+  @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
 }
-
 .col-2 {
-    @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
+  @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
 }
-
 .col-3 {
-    @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
+  @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
 }
-
 .col-4 {
-    @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
+  @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
 }
-
 .col-5 {
-    @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
+  @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
 }
-
 .col-6 {
-    @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
+  @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
 }
-
 .col-7 {
-    @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
+  @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
 }
-
 .col-8 {
-    @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
+  @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
 }
-
 .col-9 {
-    @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
+  @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
 }
-
 .col-10 {
-    @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
+  @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
 }
-
 .col-11 {
-    @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
+  @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
 }
-
 .col-12 {
-    @include flex-basis(100%);
+  @include flex-basis(100%);
 }
-
 .col-50 {
   @include flex-basis(50%);
 }
-
 @include for-size(sm) {
-    .sm-1 {
-        @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
-    }
-    .sm-2 {
-        @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
-    }
-    .sm-3 {
-        @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
-    }
-    .sm-4 {
-        @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
-    }
-    .sm-5 {
-        @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
-    }
-    .sm-6 {
-        @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
-    }
-    .sm-7 {
-        @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
-    }
-    .sm-8 {
-        @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
-    }
-    .sm-9 {
-        @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
-    }
-    .sm-10 {
-        @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
-    }
-    .sm-11 {
-        @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
-    }
-    .sm-12 {
-        @include flex-basis(100%);
-    }
-    .sm-bottom {
-        margin-bottom: $margin-bottom;
-    }
+  .sm-1 {
+    @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
+  }
+  .sm-2 {
+    @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
+  }
+  .sm-3 {
+    @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
+  }
+  .sm-4 {
+    @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
+  }
+  .sm-5 {
+    @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
+  }
+  .sm-6 {
+    @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
+  }
+  .sm-7 {
+    @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
+  }
+  .sm-8 {
+    @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
+  }
+  .sm-9 {
+    @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
+  }
+  .sm-10 {
+    @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
+  }
+  .sm-11 {
+    @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
+  }
+  .sm-12 {
+    @include flex-basis(100%);
+  }
+  .sm-bottom {
+    margin-bottom: $margin-bottom;
+  }
 }
-
 @include for-size(xs) {
-    .xs-1 {
-        @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
-    }
-    .xs-2 {
-        @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
-    }
-    .xs-3 {
-        @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
-    }
-    .xs-4 {
-        @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
-    }
-    .xs-5 {
-        @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
-    }
-    .xs-6 {
-        @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
-    }
-    .xs-7 {
-        @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
-    }
-    .xs-8 {
-        @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
-    }
-    .xs-9 {
-        @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
-    }
-    .xs-10 {
-        @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
-    }
-    .xs-11 {
-        @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
-    }
-    .xs-12 {
-        @include flex-basis(100%);
-    }
-    .xs-bottom {
-        margin-bottom: $margin-bottom / 2;
-    }
+  .xs-1 {
+    @include flex-basis((100% / 12) - ($grid-spacing * 11 / 12));
+  }
+  .xs-2 {
+    @include flex-basis((100% / 6) - ($grid-spacing * 10 / 12));
+  }
+  .xs-3 {
+    @include flex-basis((100% / 4) - ($grid-spacing * 9 / 12));
+  }
+  .xs-4 {
+    @include flex-basis((100% / 3) - ($grid-spacing * 8 / 12));
+  }
+  .xs-5 {
+    @include flex-basis((100% / 2.4) - ($grid-spacing * 7 / 12));
+  }
+  .xs-6 {
+    @include flex-basis((100% / 2) - ($grid-spacing * 6 / 12));
+  }
+  .xs-7 {
+    @include flex-basis((100% / 1.714285714285714) - ($grid-spacing * 5 / 12));
+  }
+  .xs-8 {
+    @include flex-basis((100% / 1.5) - ($grid-spacing * 4 / 12));
+  }
+  .xs-9 {
+    @include flex-basis((100% / 1.333333333333333) - ($grid-spacing * 3 / 12));
+  }
+  .xs-10 {
+    @include flex-basis((100% / 1.2) - ($grid-spacing * 2 / 12));
+  }
+  .xs-11 {
+    @include flex-basis((100% / 1.090909090909091) - ($grid-spacing * 1 / 12));
+  }
+  .xs-12 {
+    @include flex-basis(100%);
+  }
+  .xs-bottom {
+    margin-bottom: $margin-bottom / 2;
+  }
 }

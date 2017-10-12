@@ -1,107 +1,110 @@
 /* ==========================================================================
    HEADER
    ========================================================================== */
-header{
+header {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid #ebebeb;
+  will-change: transform, opacity;
+  .row {
+    height: 120px;
+    @include for-size(row) {
+      height: 40px;
+    }
+  }
+  #logo {
+    opacity: 1;
+    color: #181818;
+    &:hover {
+      opacity: .8;
+    }
+  }
+}
+/* ==========================================================================
+   Main Navigation
+   ========================================================================== */
+.main_nav {
+  font-size: 0;
+  * {
+    line-height: 1;
+  }
+  a {
+    display: block;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .level_a {
     position: relative;
-    z-index: 10;
-    border-bottom: 1px solid #ebebeb;
-
-    will-change: transform, opacity;
-    .row{
-        height: 80px;
-
-        @include for-size(row){
-            height: 40px;
-        }
+    li {
+      position: relative;
+      z-index: 0;
+      display: inline-block;
     }
-    #logo{
-        opacity: 1;
+    > li {
+      > a {
+        font-size: 14px;
+        padding: 5px 20px;
         color: #181818;
-        &:hover{
-            opacity: .8;
+      }
+      &.current-menu-item,
+      &:hover {
+        > a {
+          color: $a;
         }
-    }
-    .main_nav{
-        font-size: 0;
-        *{
-            line-height: 1;
+      }
+      &.menu-item-has-children {
+        &:before {
+          position: absolute;
+          z-index: -1;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 52px;
+          content: '';
         }
-        a{
+        &:hover {
+          > .sub-menu {
             display: block;
+          }
         }
-    }
-    .level_a{
-        position: relative;
-        >li{
-            >a{
-                font-size: 14px;
-                padding: 5px 20px;
-                color: #181818;
-            }
-            &.current-menu-item, &:hover{
-                >a{
-                    color: $a;
-                }
-            }
-        }
-        li{
-            position: relative;
-            z-index: 0;
-            display: inline-block;
-        }
-    }
-    .sub-menu{
+      }
+      > .sub-menu {
         position: absolute;
         z-index: 100;
         display: none;
-        width: 100%;
-        min-width: 140px;
-        max-width: 200px;
+        width: 220px;
         margin-top: 27px;
         padding: 10px 0;
         border-top: 3px solid lighten($menu, 10%);
         border-bottom: 3px solid lighten($menu, 10%);
         background: $menu;
-        .sub-menu{
-            display: none !important;
+        .sub-menu {
+          display: block;
+          padding-left: 10px;
         }
-        li{
-            display: block;
-            list-style-type: none;
+        li {
+          display: block;
+          list-style-type: none;
         }
-        a{
-            font-size: 13px;
-            line-height: 1.3;
-            padding: 3px 15px;
-            color: #fff;
-            &:hover{
-               text-decoration: none;
-                background: lighten($menu, 20%);
-            }
+        a {
+          font-size: 13px;
+          line-height: 1.3;
+          padding: 3px 15px;
+          color: #ffffff;
+          &:hover {
+            text-decoration: none;
+            background: lighten($menu, 20%);
+          }
         }
+      }
     }
-    .menu-item-has-children{
-        &:before{
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 52px;
-            content: '';
-        }
-        &:hover{
-            >.sub-menu{
-                display: block;
-            }
-        }
-    }
+  }
 }
-
 /* ==========================================================================
    FOOTER
    ========================================================================== */
-footer{
-    padding: 20px 0;
-    background: #212122;
+footer {
+  padding: 20px 0;
+  background: #212122;
 }

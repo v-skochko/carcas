@@ -70,6 +70,7 @@ Remove default wordpress function
 - Remove default wigets
 - Hide the Admin Bar
 - For coments: remove Email & Url fields
+- Contact form 7 remove AUTOTOP
 ========================================================================== */
 /* clean_up_wp_head()
 ========================================================================== */
@@ -162,9 +163,26 @@ function wpa_discard_menu_classes( $classes, $item ) {
 	);
 }
 
+// Contact form 7 remove AUTOTOP
+if ( defined( 'WPCF7_VERSION' ) ) {
+	function maybe_reset_autop( $form ) {
+		$form_instance = WPCF7_ContactForm::get_current();
+		$manager       = WPCF7_FormTagsManager::get_instance();
+		$form_meta     = get_post_meta( $form_instance->id(), '_form', true );
+		$form          = $manager->replace_all( $form_meta );
+		$form_instance->set_properties( array(
+			'form' => $form
+		) );
+
+		return $form;
+	}
+
+	add_filter( 'wpcf7_form_elements', 'maybe_reset_autop' );
+}
 /* ==========================================================================
 CUSTOM STYLE
 - Custom logo on login page
+- Redirect to homepage from login logo
 - Custom css in admin panel
 - Custom info to admin footer area
 - Color scheme "Midnight" set as default
@@ -174,6 +192,13 @@ CUSTOM STYLE
 add_action( 'login_head', 'namespace_login_style' );
 function namespace_login_style() {
 	echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
+}
+
+/* Redirect to homepage from login logo
+   ========================================================================== */
+add_filter( 'login_headerurl', 'custom_loginlogo_url' );
+function custom_loginlogo_url() {
+	return site_url();
 }
 
 /* Change admin post/page color by status – draft, pending, future, private
@@ -204,7 +229,6 @@ function c_css() { ?>
 }
 
 add_action( 'admin_footer', 'c_css' );
-
 /* Color scheme "Midnight" set as default
    ========================================================================== */
 add_filter( 'get_user_option_admin_color', function ( $color_scheme ) {
@@ -388,7 +412,6 @@ add_action( 'wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0 );
 remove_action( 'welcome_panel', 'wp_welcome_panel' );
 /* Adding Page URL to the Pages Admin Table
    ========================================================================== */
-
 function my_custom_column( $defaults ) {
 	$defaults['url'] = 'URL';
 
@@ -410,4 +433,3 @@ function user_content_replace( $content ) {
 }
 
 add_filter( 'the_content', 'user_content_replace', 99 );
-	

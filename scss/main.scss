@@ -1,20 +1,21 @@
 @import '_mixins';
 //web page width
+$notebook: 1400px;
 $row: 1140px;
 $md: 960px;
 $sm: 768px;
 $xs: 480px;
 //main color
-$a: #0c2d80;
+$a: #3b5993;
 //second color
 $b: #f1b820;
 //link color
 $link: $a;
 // buttons color
-$btn: #0c2d80;
+$btn: #3b5993;
 $border: #cccccc;
 $text: #333333;
-$menu: #0c2d80;
+$menu: $a;
 //social media color
 $facebook: #3b5993;
 $twitter: #55acee;

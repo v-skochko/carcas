@@ -18,7 +18,7 @@
 <body <?php body_class(); ?> >
 <div id="wrap">
     <header class="header">
-        <div class="row">
+        <div class="row flex align_center ">
             <a href="<?php echo site_url(); ?>/" id="logo">
 				<?php if ( get_field( 'logo', 'options' ) ): ?>
                     <img src="<?php the_field( 'logo', 'options' ); ?>" alt="">

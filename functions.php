@@ -9,6 +9,7 @@ require_once 'include/plugins/init.php';
 // Custom functionality
 require_once 'include/core.php';
 require_once 'include/acf/acf-settings.php';
+//require_once 'include/woocommerce.php';
 // require_once('include/cpt.php');
 
 //update image  size
@@ -30,31 +31,3 @@ register_nav_menus( array(
 	'foot_menu'   => 'Footer navigation'
 ) );
 
-// Contact form 7 remove AUTOTOP
-if(defined('WPCF7_VERSION')) {
-	function maybe_reset_autop( $form ) {
-		$form_instance = WPCF7_ContactForm::get_current();
-		$manager = WPCF7_FormTagsManager::get_instance();
-		$form_meta = get_post_meta( $form_instance->id(), '_form', true );
-		$form = $manager->replace_all( $form_meta );
-		$form_instance->set_properties( array(
-			'form' => $form
-		));
-		return $form;
-	}
-	add_filter( 'wpcf7_form_elements', 'maybe_reset_autop' );
-}
-
-
-add_action( 'wp_enqueue_scripts', 'mgt_dequeue_stylesandscripts', 100 );
-
-function mgt_dequeue_stylesandscripts() {
-	if ( class_exists( 'woocommerce' ) ) {
-		wp_dequeue_style( 'select2' );
-		wp_deregister_style( 'select2' );
-
-		wp_dequeue_script( 'select2' );
-		wp_deregister_script( 'select2' );
-
-	}
-} 

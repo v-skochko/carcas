@@ -1,20 +1,17 @@
 @mixin declare-font($font-family, $font-filename, $font-weight: normal, $font-style: normal) {
-    @font-face {
-        font-family: '#{$font-family}';
-        font-weight: $font-weight;
-        font-style: $font-style;
-        src: url('../fonts/#{$font-filename}.woff') format('woff'), url('../fonts/#{$font-filename}.woff2') format('woff2');
-    }
+  @font-face {
+    font-family: '#{$font-family}';
+    font-weight: $font-weight;
+    font-style: $font-style;
+    src: url('../fonts/#{$font-filename}.woff') format('woff'), url('../fonts/#{$font-filename}.woff2') format('woff2');
+  }
 }
-
 @mixin prefixer($property, $value) {
-    -webkit-#{$property}: #{$value};
-    -moz-#{$property}: #{$value};
-    -ms-#{$property}: #{$value};
-    #{$property}: #{$value};
+  -webkit-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  #{$property}: #{$value};
 }
-
-
 //@include linearGradient(#e1e1e1, #d2d2d2);
 @mixin linearGradient($top, $bottom) {
   background: $top; /* Old browsers */
@@ -26,7 +23,6 @@
   background: linear-gradient(to bottom, $top 0%, $bottom 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#000000', GradientType=0); /* IE6-9 */
 }
-
 // @include for-size(md) {}
 @mixin for-size($size) {
   @if $size == xs {
@@ -45,285 +41,268 @@
     @media (max-width: $row) {
       @content;
     }
+  } @else if $size == notebook {
+    @media (max-width: $notebook) {
+      @content;
+    }
   } @else {
     @media (max-width: $size) {
       @content;
     }
   }
 }
-
 @mixin transition($property: all, $duration: .3s, $easing: ease) {
-    $transitions: ($property $duration $easing);
-    @include prefixer('transition', $transitions);
+  $transitions: ($property $duration $easing);
+  @include prefixer('transition', $transitions);
 }
-
 @mixin transform($params, $backface: false) {
-    @include prefixer('transform', $params);
-    @if $backface {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
+  @include prefixer('transform', $params);
+  @if $backface {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
 }
-
 @mixin center($horizontal: true, $vertical: true) {
-    position: absolute;
-    @if ($horizontal and $vertical) {
-        top: 50%;
-        left: 50%;
-        @include transform (translate(-50%, -50%));
-    } @else if ($horizontal) {
-        left: 50%;
-        @include transform (translate(-50%, 0));
-    } @else if ($vertical) {
-        top: 50%;
-        @include transform (translate(0, 50%));
-    }
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    @include transform (translate(-50%, -50%));
+  } @else if ($horizontal) {
+    left: 50%;
+    @include transform (translate(-50%, 0));
+  } @else if ($vertical) {
+    top: 50%;
+    @include transform (translate(0, 50%));
+  }
 }
-
 @mixin shadow($depth) {
-    @if $depth == 1 {
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    }
-    @if $depth == 2 {
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    }
-    @if $depth == 3 {
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-    }
-    @if $depth == 4 {
-        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    }
-    @if $depth == 5 {
-        box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
-    }
+  @if $depth == 1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  }
+  @if $depth == 2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  @if $depth == 3 {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+  @if $depth == 4 {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+  @if $depth == 5 {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  }
 }
-
 @mixin placeholder {
-    &::-webkit-input-placeholder {
-        @content;
-    }
-    &::-moz-placeholder {
-        opacity: 1;
-        @content;
-    }
-    &:-ms-input-placeholder {
-        @content;
-    }
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    opacity: 1;
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
 }
-
 // display: flex | inline-flex
 @mixin flexbox {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
-
 @mixin inline-flex {
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -moz-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
 }
-
 // Values: row | row-reverse | column | column-reverse
 @mixin flex-direction($value: row) {
-    flex-direction: $value;
-    -webkit-flex-direction: $value;
-    -moz-flex-direction: $value;
-    -ms-flex-direction: $value;
-    @if $value == row-reverse {
-        -webkit-box-direction: reverse;
-        -webkit-box-orient: horizontal;
-    } @else if $value == column {
-        -webkit-box-direction: normal;
-        -webkit-box-orient: vertical;
-    } @else if $value == column-reverse {
-        -webkit-box-direction: reverse;
-        -webkit-box-orient: vertical;
-    } @else {
-        -webkit-box-direction: normal;
-        -webkit-box-orient: horizontal;
-    }
+  flex-direction: $value;
+  -webkit-flex-direction: $value;
+  -moz-flex-direction: $value;
+  -ms-flex-direction: $value;
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+  }
 }
-
 // Values: nowrap | wrap | wrap-reverse
 @mixin flex-wrap($value: nowrap) {
-    // No Webkit Box fallback.
-    -webkit-flex-wrap: $value;
-    -moz-flex-wrap: $value;
-    flex-wrap: $value;
-    @if $value == nowrap {
-        -ms-flex-wrap: none;
-    } @else {
-        -ms-flex-wrap: $value;
-    }
+  // No Webkit Box fallback.
+  -webkit-flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  flex-wrap: $value;
+  @if $value == nowrap {
+    -ms-flex-wrap: none;
+  } @else {
+    -ms-flex-wrap: $value;
+  }
 }
-
 // Values: <flex-direction> | <flex-wrap>
 @mixin flex-flow($values: (row nowrap)) {
-    // No Webkit Box fallback.
-    -webkit-flex-flow: $values;
-    -moz-flex-flow: $values;
-    -ms-flex-flow: $values;
-    flex-flow: $values;
+  // No Webkit Box fallback.
+  -webkit-flex-flow: $values;
+  -moz-flex-flow: $values;
+  -ms-flex-flow: $values;
+  flex-flow: $values;
 }
-
 @mixin order($int: 0) {
-    -webkit-box-ordinal-group: $int + 1;
-    -webkit-order: $int;
-    -moz-order: $int;
-    -ms-flex-order: $int;
-    order: $int;
+  -webkit-box-ordinal-group: $int + 1;
+  -webkit-order: $int;
+  -moz-order: $int;
+  -ms-flex-order: $int;
+  order: $int;
 }
-
 @mixin flex-grow($int: 0) {
-    -webkit-box-flex: $int;
-    -webkit-flex-grow: $int;
-    -moz-flex-grow: $int;
-    -ms-flex-positive: $int;
-    flex-grow: $int;
+  -webkit-box-flex: $int;
+  -webkit-flex-grow: $int;
+  -moz-flex-grow: $int;
+  -ms-flex-positive: $int;
+  flex-grow: $int;
 }
-
 @mixin flex-shrink($int: 1) {
-    -webkit-flex-shrink: $int;
-    -moz-flex-shrink: $int;
-    -ms-flex-negative: $int;
-    flex-shrink: $int;
+  -webkit-flex-shrink: $int;
+  -moz-flex-shrink: $int;
+  -ms-flex-negative: $int;
+  flex-shrink: $int;
 }
-
 // Default: auto
 @mixin flex-basis($value: auto) {
-    @include prefixer('flex-basis', $value);
+  @include prefixer('flex-basis', $value);
 }
-
 // Values: none | <flex-grow> <flex-shrink> || <flex-basis>
 @mixin flex($fg: 1, $fs: null, $fb: null) {
-    $fg-boxflex: $fg;
-    @if type-of($fg) == 'list' {
-        $fg-boxflex: nth($fg, 1);
-    }
-    -webkit-box-flex: $fg-boxflex;
-    -webkit-flex: $fg $fs $fb;
-    -moz-box-flex: $fg-boxflex;
-    -moz-flex: $fg $fs $fb;
-    -ms-flex: $fg $fs $fb;
-    flex: $fg $fs $fb;
+  $fg-boxflex: $fg;
+  @if type-of($fg) == 'list' {
+    $fg-boxflex: nth($fg, 1);
+  }
+  -webkit-box-flex: $fg-boxflex;
+  -webkit-flex: $fg $fs $fb;
+  -moz-box-flex: $fg-boxflex;
+  -moz-flex: $fg $fs $fb;
+  -ms-flex: $fg $fs $fb;
+  flex: $fg $fs $fb;
 }
-
 // Values: flex-start | flex-end | center | space-between | space-around
 @mixin justify-content($value: flex-start) {
-    @if $value == flex-start {
-        -webkit-box-pack: start;
-        -ms-flex-pack: start;
-    } @else if $value == flex-end {
-        -webkit-box-pack: end;
-        -ms-flex-pack: end;
-    } @else if $value == space-between {
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-    } @else if $value == space-around {
-        -ms-flex-pack: distribute;
-    } @else {
-        -webkit-box-pack: $value;
-        -ms-flex-pack: $value;
-    }
-    -webkit-justify-content: $value;
-    -moz-justify-content: $value;
-    justify-content: $value;
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
 }
-
 // Values: flex-start | flex-end | center | baseline | stretch
 @mixin align-items($value: stretch) {
-    @if $value == flex-start {
-        -webkit-box-align: start;
-        -ms-flex-align: start;
-    } @else if $value == flex-end {
-        -webkit-box-align: end;
-        -ms-flex-align: end;
-    } @else {
-        -webkit-box-align: $value;
-        -ms-flex-align: $value;
-    }
-    -webkit-align-items: $value;
-    -moz-align-items: $value;
-    align-items: $value;
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
 }
-
 // Values: auto | flex-start | flex-end | center | baseline | stretch
 // Default: auto
 @mixin align-self($value: auto) {
-    // No Webkit Box Fallback.
-    -webkit-align-self: $value;
-    -moz-align-self: $value;
-    @if $value == flex-start {
-        -ms-flex-item-align: start;
-    } @else if $value == flex-end {
-        -ms-flex-item-align: end;
-    } @else {
-        -ms-flex-item-align: $value;
-    }
-    align-self: $value;
+  // No Webkit Box Fallback.
+  -webkit-align-self: $value;
+  -moz-align-self: $value;
+  @if $value == flex-start {
+    -ms-flex-item-align: start;
+  } @else if $value == flex-end {
+    -ms-flex-item-align: end;
+  } @else {
+    -ms-flex-item-align: $value;
+  }
+  align-self: $value;
 }
-
 // Values: flex-start | flex-end | center | space-between | space-around | stretch
 @mixin align-content($value: stretch) {
-    -webkit-align-content: $value;
-    -moz-align-content: $value;
-    @if $value == flex-start {
-        -ms-flex-line-pack: start;
-    } @else if $value == flex-end {
-        -ms-flex-line-pack: end;
-    } @else {
-        -ms-flex-line-pack: $value;
-    }
-    align-content: $value;
+  -webkit-align-content: $value;
+  -moz-align-content: $value;
+  @if $value == flex-start {
+    -ms-flex-line-pack: start;
+  } @else if $value == flex-end {
+    -ms-flex-line-pack: end;
+  } @else {
+    -ms-flex-line-pack: $value;
+  }
+  align-content: $value;
 }
-
 // Burger
-@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000, $transition-duration: .3s) {
-    $burger-height: $height !global;
-    $burger-gutter: $gutter !global;
-    position: relative;
-    margin-top: $height + $gutter;
-    margin-bottom: $height + $gutter;
-    user-select: none;
-    &, &::before, &::after {
-        display: block;
-        width: $width;
-        height: $height;
-        background-color: $color;
-        outline: 1px solid transparent; // 1
-        transition-property: background-color, transform;
-        transition-duration: .4s;
-    }
-    &::before, &::after {
-        position: absolute;
-        content: "";
-    }
-    &::before {
-        top: -($height + $gutter);
-    }
-    &::after {
-        top: $height + $gutter;
-    }
+@mixin burger($width: 30px, $height: 5px, $gutter: 3px, $color: #000000, $transition-duration: .3s) {
+  $burger-height: $height !global;
+  $burger-gutter: $gutter !global;
+  position: relative;
+  margin-top: $height + $gutter;
+  margin-bottom: $height + $gutter;
+  user-select: none;
+  &, &::before, &::after {
+    display: block;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    outline: 1px solid transparent; // 1
+    transition-property: background-color, transform;
+    transition-duration: .4s;
+  }
+  &::before, &::after {
+    position: absolute;
+    content: "";
+  }
+  &::before {
+    top: -($height + $gutter);
+  }
+  &::after {
+    top: $height + $gutter;
+  }
 }
-
 @mixin burger-to-cross($color: auto) {
-    & {
-        background-color: transparent;
+  & {
+    background-color: transparent;
+  }
+  @if ($color != auto) {
+    &::before, &::after {
+      background-color: $color;
     }
-    @if ($color != auto) {
-        &::before, &::after {
-            background-color: $color;
-        }
-    }
-    &::before {
-        transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-    }
-    &::after {
-        transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
-    }
+  }
+  &::before {
+    transform: translateY($burger-gutter + $burger-height) rotate(45deg);
+  }
+  &::after {
+    transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
+  }
 }

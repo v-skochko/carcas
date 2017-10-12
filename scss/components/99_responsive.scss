@@ -1,7 +1,7 @@
 .desctop_hide {
   display: none;
 }
-@media screen and (max-width: $row) {
+@include for-size(row) {
   .mobile_hide {
     display: none;
   }
@@ -23,7 +23,8 @@
       .burger-icon {
         @include burger-to-cross;
       }
-      .burger-icon::before, .burger-icon::after {
+      .burger-icon::before,
+      .burger-icon::after {
         background: #ffffff;
       }
     }
@@ -46,6 +47,10 @@
     will-change: transform, opacity;
     @include transform (translateX(110%));
     @include transition(all, .2s, ease-in-out);
+    @include for-size(sm) {
+      width: 100%;
+      max-width: 100%;
+    }
     nav {
       margin-bottom: 40px;
     }
@@ -55,6 +60,9 @@
     a {
       z-index: 10;
       display: block;
+      &:hover {
+        text-decoration: none;
+      }
     }
     .sub-anchor {
       position: absolute;
@@ -78,7 +86,7 @@
       display: none;
       a {
         font-size: 13px;
-        padding: 10px 40px;
+        padding: 10px 30px;
         color: #ffffff;
         &:hover {
           background: lighten($menu, 10%);
@@ -88,7 +96,8 @@
         display: none !important;
       }
       .sub-menu {
-        display: none !important;
+        display: block;
+        padding-left: 10px;
       }
     }
     .level_a {
@@ -107,10 +116,9 @@
       }
     }
   }
-
   /* resp_menu_active
- ========================================================================== */
-  .mobile_menu_active{
+========================================================================== */
+  .mobile_menu_active {
     overflow: hidden;
     &:before {
       position: absolute;
@@ -122,7 +130,6 @@
       background: rgba(0, 0, 0, .7);
       @include transition(all, .2s, ease-in-out);
     }
-
     .burger {
       position: fixed;
       span {
@@ -130,27 +137,9 @@
         z-index: 101;
       }
     }
-
     .mobile_menu_container {
       opacity: 1;
       @include transform (translateX(0));
     }
   }
-  /* ==========================================================================
-     global style
-     ========================================================================== */
-  .row {
-    width: 100%;
-    max-width: 94%;
-  }
-}
-@media screen and (max-width: $md) {
-}
-@media screen and (max-width: $sm) {
-}
-@media screen and (max-width: 640px) {
-}
-@media screen and (max-width: $xs) {
-}
-@media screen and (max-width: 320px) {
 }
