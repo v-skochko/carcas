@@ -341,27 +341,6 @@ function wpa_body_classes( $classes ) {
 }
 
 add_filter( 'body_class', 'wpa_body_classes' );
-/* Custom WP Title
-   ========================================================================== */
-function wpa_title() {
-	global $post;
-	if ( ! defined( 'WPSEO_VERSION' ) ) {
-		if ( is_404() ) {
-			echo '404 Page not found - ';
-		} elseif ( ( is_single() || is_page() ) && $post->post_parent ) {
-			$parent_title = get_the_title( $post->post_parent );
-			echo wp_title( '-', true, 'right' ) . $parent_title . ' - ';
-		} elseif ( class_exists( 'Woocommerce' ) && is_shop() ) {
-			echo get_the_title( SHOP_ID ) . ' - ';
-		} else {
-			wp_title( '-', true, 'right' );
-		}
-		bloginfo( 'name' );
-	} else {
-		wp_title();
-	}
-}
-
 /* custom theme url
    ========================================================================== */
 function theme() {
