@@ -231,14 +231,15 @@ function c_css() { ?>
 add_action( 'admin_footer', 'c_css' );
 /* Color scheme "Midnight" set as default
    ========================================================================== */
-add_filter( 'get_user_option_admin_color', function ( $color_scheme ) {
-	global $_wp_admin_css_colors;
-	if ( 'classic' == $color_scheme || 'fresh' == $color_scheme ) {
-		$color_scheme = 'midnight';
-	}
+function midnight_theme( $color_scheme ) {
+ global $_wp_admin_css_colors;
+ if ( 'classic' == $color_scheme || 'fresh' == $color_scheme ) {
+  $color_scheme = 'midnight';
+ }
 
-	return $color_scheme;
-}, 5 );
+ return $color_scheme;
+}
+add_filter( 'get_user_option_admin_color', 'midnight_theme', 5 );
 /* ==========================================================================
 CUSTOM FUNCTION
 - Body class
