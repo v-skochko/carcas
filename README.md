@@ -1,4 +1,4 @@
-# Blank wordpress template for writing themes
+# Blank wordpress template
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vskochko/carcas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
 
 ## Speed & security boost
