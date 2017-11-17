@@ -95,6 +95,13 @@ function my_theme_register_required_plugins() {
 			'slug'     => 'simple-sitemap',
 			'required' => false,
 		),
+			array(
+			'name'     => 'Simple custom-post-order',
+			'slug'     => 'simple-custom-post-order',
+			'required' => false,
+		),
+		
+		
 		array(
 			'name'     => 'Wp optimize',
 			'slug'     => 'wp-optimize',
