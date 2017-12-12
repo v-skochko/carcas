@@ -1,5 +1,5 @@
 <?php get_header(); /* Template Name: Developer template */
-// $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full_size' ); $url = $thumb['0'];
+// $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large' ); $url = $thumb['0'];
 global $post; ?>
     <div id="content">
         <main>
