@@ -1,6 +1,6 @@
 /* ==========================================================================
     swiper source
-    https://raw.githubusercontent.com/nolimits4web/Swiper/master/dist/js/swiper.jquery.min.js
+    https://raw.githubusercontent.com/nolimits4web/Swiper/master/dist/js/swiper.min.js
     Fancybox source
     https://raw.githubusercontent.com/fancyapps/fancybox/master/dist/jquery.fancybox.min.js
     Selectric source
