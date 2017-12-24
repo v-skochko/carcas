@@ -8,7 +8,7 @@ if ( have_rows( 'social_icons', 'options' ) ):
             <a href="<?php the_sub_field( 'url' ); ?>" class="i-c-tr" title="Official Twitter accounts"
                target="_blank"></a>
 		<?php elseif ( get_row_layout() == 'instagram' ): ?>
-            <a href="<?php the_sub_field( 'instagram' ); ?>" class="i-c-ism" title="Official Instagram accounts" target="_blank"></a>
+            <a href="<?php the_sub_field( 'url' ); ?>" class="i-c-ism" title="Official Instagram accounts" target="_blank"></a>
 		<?php elseif ( get_row_layout() == 'linkedin' ): ?>
             <a href="<?php the_sub_field( 'url' ); ?>" class="i-c-ln" title="Official Linkedin profile"
                target="_blank"></a>
