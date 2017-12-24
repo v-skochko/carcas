@@ -19,7 +19,7 @@ if ( have_rows( 'social_icons', 'options' ) ):
             <a href="<?php the_sub_field( 'url' ); ?>" class="i-c-yb" title="Official Youtube channel"
                target="_blank"></a>
 		<?php elseif ( get_row_layout() == 'vimeo' ): ?>
-            <a href="<?php the_sub_field( 'url' ); ?>" class="i-c-yb" title="Official vimeo channel"
+            <a href="<?php the_sub_field( 'url' ); ?>" class="i-c-vm" title="Official vimeo channel"
                target="_blank"></a>
 		<?php elseif ( get_row_layout() == 'pinterest' ): ?>
             <a href="<?php the_sub_field( 'url' ); ?>" class="i-c-pr" title="Official Pinterest accounts"
