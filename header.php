@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?> >
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
-   <title><?php wp_title(); ?></title>
+  <title><?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui, minimum-scale=1.0, maximum-scale=1.0"/>
 	<?php /* favicon */ ?>
     <link rel="apple-touch-icon" sizes="60x60" href="<?php echo theme(); ?>/img/favicon/apple-touch-icon.png">
