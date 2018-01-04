@@ -12,7 +12,7 @@ if ( is_home() ) {
 } else {
 	$queryname = 'Archive of ' . get_the_archive_title();
 } ?>
-    <div id="content"  class="row index_style flex">
+    <div id="content" class="row index_style flex">
         <main class="index_main col-9 sm-12 sm-bottom">
 			<?php if ( is_search() ) { ?>
                 <h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
@@ -40,7 +40,7 @@ if ( is_home() ) {
 							<?php comments_number( 'No comments', 'One comment', '% comments' ); ?>
                         </div>
                         <time><?php echo get_the_date( 'j F, Y' ); ?></time>
-						<?php echo wp_trim_words( strip_shortcodes( get_the_content() ), 20, "..." );  ?>
+						<?php echo wp_trim_words( strip_shortcodes( get_the_content() ), 20, "..." ); ?>
                     </div>
                 </div>
 			<?php endwhile;

@@ -232,13 +232,14 @@ add_action( 'admin_footer', 'c_css' );
 /* Color scheme "Midnight" set as default
    ========================================================================== */
 function midnight_theme( $color_scheme ) {
- global $_wp_admin_css_colors;
- if ( 'classic' == $color_scheme || 'fresh' == $color_scheme ) {
-  $color_scheme = 'midnight';
- }
+	global $_wp_admin_css_colors;
+	if ( 'classic' == $color_scheme || 'fresh' == $color_scheme ) {
+		$color_scheme = 'midnight';
+	}
 
- return $color_scheme;
+	return $color_scheme;
 }
+
 add_filter( 'get_user_option_admin_color', 'midnight_theme', 5 );
 /* ==========================================================================
 CUSTOM FUNCTION
@@ -259,14 +260,16 @@ function wpa_body_classes( $classes ) {
 			$tn        = str_replace( ".php", "", $tmp );
 			$classes[] = $tn;
 		}
+//        if (is_active_sidebar('sidebar')) {
+//            $classes[] = 'with_sidebar';
+//        }
 		foreach ( $classes as $k => $v ) {
 			if (
 				$v == 'page-template' ||
 				$v == 'page-id-' . $post->ID ||
 				$v == 'page-template-default' ||
 				$v == 'woocommerce-page' ||
-				( $temp != null ? ( $v == 'page-template-' . $tn . '-php' || $v == 'page-template-' . $tn ) : '' )
-			) {
+				( $temp != null ? ( $v == 'page-template-' . $tn . '-php' || $v == 'page-template-' . $tn ) : '' ) ) {
 				unset( $classes[ $k ] );
 			}
 		}
@@ -305,7 +308,7 @@ function wpa_body_classes( $classes ) {
 		$classes[] = $classesh_version;
 	} elseif ( preg_match( "/Safari/", $browser ) ) {
 		$classes[] = 'safari';
-		preg_match( "/Version\/(\d.\d)/si", $browser, $matches );
+		@preg_match( "/Version\/(\d.\d)/si", $browser, $matches );
 		@$sf_version = 'sf' . str_replace( '.', '-', $matches[1] );
 		$classes[] = $sf_version;
 	} elseif ( preg_match( "/Opera/", $browser ) ) {
@@ -341,6 +344,27 @@ function wpa_body_classes( $classes ) {
 }
 
 add_filter( 'body_class', 'wpa_body_classes' );
+/* Custom WP Title
+   ========================================================================== */
+function wpa_title() {
+	global $post;
+	if ( ! defined( 'WPSEO_VERSION' ) ) {
+		if ( is_404() ) {
+			echo '404 Page not found - ';
+		} elseif ( ( is_single() || is_page() ) && $post->post_parent ) {
+			$parent_title = get_the_title( $post->post_parent );
+			echo wp_title( '-', true, 'right' ) . $parent_title . ' - ';
+		} elseif ( class_exists( 'Woocommerce' ) && is_shop() ) {
+			echo get_the_title( SHOP_ID ) . ' - ';
+		} else {
+			wp_title( '-', true, 'right' );
+		}
+		bloginfo( 'name' );
+	} else {
+		wp_title();
+	}
+}
+
 /* custom theme url
    ========================================================================== */
 function theme() {

@@ -1,7 +1,6 @@
 $ = jQuery;
 $(document).ready(function () {
     "use strict";
-
     // $('select').selectric({
     //     disableOnMobile: false
     // });
@@ -9,9 +8,8 @@ $(document).ready(function () {
 });
 /* end ready*/
 $(window).on('load', function () {
-   
-    //new
-        var testimonials_slider = new Swiper('.testimonials_slider', {
+    //swiper_example
+    var swiper_example = new Swiper('.swiper_example', {
         loop: true,
         speed: 1000,
         autoplay: {
@@ -23,12 +21,12 @@ $(window).on('load', function () {
             clickable: true
         },
         navigation: {
-            nextEl: '.swiper-next',
-            prevEl: '.swiper-prev'
+            prevEl: '.swiper-prev',
+            nextEl: '.swiper-next'
         },
-              on: {
+        on: {
             init: function () {
-                $('.work_bottom_slider').addClass('slider_loaded');
+                $('.swiper_example').addClass('slider_loaded');
             }
         }
     });
