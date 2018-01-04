@@ -19,7 +19,6 @@ function style_js() {
 	wp_enqueue_style( 'plugins', get_template_directory_uri() . '/scss/components/100_lib.css' );
 	//wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css?uid='.md5(uniqid(rand(),1)));
 }
-
 add_action( 'wp_enqueue_scripts', 'style_js' );
 /* After_switch_theme
    ========================================================================== */
@@ -29,7 +28,6 @@ function my_theme_activation() {
 	global $wp_rewrite;
 	$wp_rewrite->set_permalink_structure( '%postname%' );
 }
-
 /* Thumbnails theme support
    ========================================================================== */
 add_theme_support( 'post-thumbnails' );
@@ -45,7 +43,6 @@ function aside_widget_init() {
 		'after_title'   => '</h3>',
 	) );
 }
-
 add_action( 'widgets_init', 'aside_widget_init' );
 /* Update wp-scss setings
    ========================================================================== */
@@ -103,7 +100,6 @@ function clean_up_wp_head() {
 	// Remove oEmbed-specific JavaScript from the front-end and back-end.
 	remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 }
-
 add_action( 'after_setup_theme', 'clean_up_wp_head' );
 /* Remove wp version param from any enqueued scripts
    ========================================================================== */
@@ -111,10 +107,8 @@ function vc_remove_wp_ver_css_js( $src ) {
 	if ( strpos( $src, 'ver=' ) ) {
 		$src = remove_query_arg( 'ver', $src );
 	}
-
 	return $src;
 }
-
 add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 /* Remove dashboard wigets
@@ -127,7 +121,6 @@ function rem_dash_widgets() {
 	remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'normal' );
 }
-
 add_action( 'admin_init', 'rem_dash_widgets' );
 /* Remove default wigets
    ========================================================================== */
@@ -146,9 +139,8 @@ function cwwp_unregister_default_widgets() {
 	unregister_widget( 'WP_Widget_Tag_Cloud' );
 	// unregister_widget( 'WP_Widget_Text' );
 }
-
 add_action( 'widgets_init', 'cwwp_unregister_default_widgets' );
-/* remove dafaul class for menu
+/* Remove dafaul class for menu
    ========================================================================== */
 add_filter( 'nav_menu_css_class', 'wpa_discard_menu_classes', 10, 2 );
 add_filter( 'nav_menu_item_id', '__return_false', 10 );
@@ -156,14 +148,13 @@ function wpa_discard_menu_classes( $classes, $item ) {
 	$classes = array_filter(
 		$classes, create_function( '$class', 'return in_array( $class, array( "current-menu-item", "current-menu-parent", "menu-item-has-children" ) );' )
 	);
-
 	return array_merge(
 		$classes,
 		(array) get_post_meta( $item->ID, '_menu_item_classes', true )
 	);
 }
-
-// Contact form 7 remove AUTOTOP
+/* Contact form 7 remove AUTOTOP
+   ========================================================================== */
 if ( defined( 'WPCF7_VERSION' ) ) {
 	function maybe_reset_autop( $form ) {
 		$form_instance = WPCF7_ContactForm::get_current();
@@ -173,10 +164,8 @@ if ( defined( 'WPCF7_VERSION' ) ) {
 		$form_instance->set_properties( array(
 			'form' => $form
 		) );
-
 		return $form;
 	}
-
 	add_filter( 'wpcf7_form_elements', 'maybe_reset_autop' );
 }
 /* ==========================================================================
@@ -193,14 +182,12 @@ add_action( 'login_head', 'namespace_login_style' );
 function namespace_login_style() {
 	echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
 }
-
 /* Redirect to homepage from login logo
    ========================================================================== */
 add_filter( 'login_headerurl', 'custom_loginlogo_url' );
 function custom_loginlogo_url() {
 	return site_url();
 }
-
 /* Change admin post/page color by status – draft, pending, future, private
    ========================================================================== */
 function c_css() { ?>
@@ -227,7 +214,6 @@ function c_css() { ?>
     </style>
 	<?php
 }
-
 add_action( 'admin_footer', 'c_css' );
 /* Color scheme "Midnight" set as default
    ========================================================================== */
@@ -236,10 +222,8 @@ function midnight_theme( $color_scheme ) {
 	if ( 'classic' == $color_scheme || 'fresh' == $color_scheme ) {
 		$color_scheme = 'midnight';
 	}
-
 	return $color_scheme;
 }
-
 add_filter( 'get_user_option_admin_color', 'midnight_theme', 5 );
 /* ==========================================================================
 CUSTOM FUNCTION
@@ -339,10 +323,8 @@ function wpa_body_classes( $classes ) {
 	if ( defined( 'QTX_VERSION' ) ) {
 		$classes[] = 'qtrans-' . qtranxf_getLanguage();
 	}
-
 	return $classes;
 }
-
 add_filter( 'body_class', 'wpa_body_classes' );
 /* Custom WP Title
    ========================================================================== */
@@ -364,35 +346,29 @@ function wpa_title() {
 		wp_title();
 	}
 }
-
-/* custom theme url
+/* Custom theme url
    ========================================================================== */
 function theme() {
 	return get_stylesheet_directory_uri();
 }
-
 /* Allow SVG through WordPress Media Uploader
    ========================================================================== */
 function wpa_mime_types( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
-
 	return $mimes;
 }
-
 add_filter( 'upload_mimes', 'wpa_mime_types' );
 function wpa_fix_svg_thumb() {
 	echo '<style>td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {width: 100% !important;height: auto !important}</style>';
 }
-
 add_action( 'admin_head', 'wpa_fix_svg_thumb' );
-/* echo  image_src( get_field('top_background') , 'medium', true );
+/* Get Image Size -  echo  image_src( get_field('top_background') , 'medium', true );
    ========================================================================== */
 function image_src( $id, $size = 'full', $background_image = false, $height = false ) {
 	if ( $image = wp_get_attachment_image_src( $id, $size, true ) ) {
-		return $background_image ? 'background-image: url(' . $image[0] . ');' . ( $height ? 'height:' . $image[2] . 'px' : '' ) : $image[0];
+		return $background_image ? 'background-image: url(\'' . $image[0] . '\');' . ( $height ? 'height:' . $image[2] . 'px' : '' ) : $image[0];
 	}
 }
-
 /* [button link="#"  align="alignleft"]Align left button[/button]
    ========================================================================== */
 function sButton( $atts, $content = null ) {
@@ -400,10 +376,8 @@ function sButton( $atts, $content = null ) {
 		'link'  => '#',
 		'align' => 'none',
 	), $atts ) );
-
 	return '<a class="btn ' . $align . '" href="' . $link . '">' . do_shortcode( $content ) . '</a>';
 }
-
 add_shortcode( 'button', 'sButton' );
 /* Remove WordPress logo & pages from Admin bar
    ========================================================================== */
@@ -411,23 +385,19 @@ function annointed_admin_bar_remove() {
 	global $wp_admin_bar;
 	$wp_admin_bar->remove_menu( 'wp-logo' );
 }
-
 add_action( 'wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0 );
 remove_action( 'welcome_panel', 'wp_welcome_panel' );
 /* Adding Page URL to the Pages Admin Table
    ========================================================================== */
 function my_custom_column( $defaults ) {
 	$defaults['url'] = 'URL';
-
 	return $defaults;
 }
-
 function add_my_custom_column( $column_name, $post_id ) {
 	if ( $column_name == 'url' ) {
 		echo get_permalink( $post_id );
 	}
 }
-
 add_filter( 'manage_page_posts_columns', 'my_custom_column', 10 );
 add_action( 'manage_page_posts_custom_column', 'add_my_custom_column', 10, 2 );
 /* Add class to empty paragraph
@@ -435,5 +405,4 @@ add_action( 'manage_page_posts_custom_column', 'add_my_custom_column', 10, 2 );
 function user_content_replace( $content ) {
 	return str_replace( '<p>&nbsp;</p>', '<p class="empty_paragraph">&nbsp;</p>', $content );
 }
-
 add_filter( 'the_content', 'user_content_replace', 99 );
