@@ -64,7 +64,6 @@
     background: $link;
   }
 }
-//https://www.grabient.com/
 .btn {
   font-size: 15px;
   font-weight: normal;
@@ -80,22 +79,53 @@
   border: none;
   outline: 0;
   background: $btn;
-  background-image: linear-gradient(19deg, $btn 0%, darken($btn, 4%) 100%);
   appearance: none;
   @include transition(all, .4s, ease);
   @include for-size(sm) {
     font-size: 14px;
-    padding: 8px 15px;
+    padding: 10px 15px;
   }
   &:hover {
     background: darken($btn, 8%);
-    background-image: linear-gradient(19deg, $btn 0%, darken($btn, 8%) 100%);
     @include shadow(2);
   }
   &:active {
     background: darken($btn, 15%);
-    background-image: linear-gradient(19deg, $btn 0%, darken($btn, 15%) 100%);
   }
+}
+/* ==========================================================================
+   WORDPRESS DEFAULT CLASSES
+   ========================================================================== */
+.aligncenter {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;
+}
+.wp-caption {
+  margin: 10px;
+  padding-top: 4px;
+  text-align: center;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  background-color: #f3f3f3;
+}
+.wp-caption img {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+}
+.wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
 }
 /* ==========================================================================
    WYSIWYG
@@ -131,7 +161,7 @@
     display: none;
   }
   .wpcf7-not-valid-tip {
-    font: 500 14px/1 $regular;
+    font: 500 14px/1 $font;
     position: absolute;
     top: 0;
     right: 0;
@@ -163,8 +193,6 @@
   }
 
 }
-
-
 div.wpcf7 .ajax-loader {
   visibility: hidden;
   display: inline-block;
@@ -182,8 +210,6 @@ div.wpcf7 .ajax-loader {
 div.wpcf7 .ajax-loader.is-active {
   visibility: visible;
 }
-
-
 //[checkbox checkbox-999 use_label_element exclusive "1" "2" "3"]
 //.wpcf7-list-item{
 //    display: block;
@@ -227,40 +253,7 @@ div.wpcf7 .ajax-loader.is-active {
 //        }
 //    }
 //}
-/* ==========================================================================
-   WORDPRESS DEFAULT CLASSES
-   ========================================================================== */
-.aligncenter {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-}
-.alignleft {
-  float: left;
-}
-.alignright {
-  float: right;
-}
-.wp-caption {
-  margin: 10px;
-  padding-top: 4px;
-  text-align: center;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  background-color: #f3f3f3;
-}
-.wp-caption img {
-  margin: 0;
-  padding: 0;
-  border: 0 none;
-}
-.wp-caption p.wp-caption-text {
-  font-size: 11px;
-  line-height: 17px;
-  margin: 0;
-  padding: 0 4px 5px;
-}
+
 /* ==========================================================================
    SOCIAL LINK
    ========================================================================== */

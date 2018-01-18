@@ -14,7 +14,7 @@ html {
   -ms-text-size-adjust: 100%;
 }
 body {
-  font-family: $regular;
+  font-family: $font;
   font-weight: 400;
   position: relative;
   height: auto;
@@ -54,7 +54,7 @@ input[type='password'],
 input[type='search'],
 input[type='tel'],
 textarea {
-  font-family: $regular;
+  font-family: $font;
   font-size: 16px;
   width: 100%;
   height: 40px;
@@ -62,7 +62,7 @@ textarea {
   color: #222222;
   border: 1px solid #e1e1e1;
   @include placeholder {
-    font-family: $regular;
+    font-family: $font;
     font-size: 16px;
     opacity: 1;
     color: #4c4c4c;
