@@ -3,7 +3,7 @@
     <div class="row">
 		<?php if ( get_field( 'copyright', 'options' ) ): ?>
             <div class="copyright">
-				<?php the_field( 'copyright', 'options' ); ?>
+				Copyright &copy; <?php echo date("Y"); ?> <?php the_field( 'copyright', 'options' ); ?>
             </div>
 		<?php endif; ?>
         <div class="s_link">
