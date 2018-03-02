@@ -32,7 +32,7 @@ if ( is_home() ) {
 					   } ?>); ">
                     </a>
                     <div class="post_content col-9 sm-12">
-                        <a class="post_title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        <a title="Read more" class="post_title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                         <div class="author">
 							<?php the_author() ?>
                         </div>
