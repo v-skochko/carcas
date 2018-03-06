@@ -39,7 +39,7 @@
 				'format'          => 'html',
 				'before'          => '',
 				'after'           => '',
-				'show_post_count' => 'false',
+				'show_post_count' => false,
 				'echo'            => 1,
 				'order'           => 'DESC',
 				'post_type'       => 'post'
