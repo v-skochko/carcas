@@ -7,7 +7,7 @@
     @include justify-content(space-around);
   }
   &.justify_center {
-    @include justify-content(space-around);
+    @include justify-content(center);
   }
   &.align_center {
     @include align-items(center);
