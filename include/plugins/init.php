@@ -35,8 +35,8 @@ function my_theme_register_required_plugins() {
 			'required' => false,
 		),
 		array(
-			'name'     => 'AJAX Thumbnail Rebuild',
-			'slug'     => 'ajax-thumbnail-rebuild',
+			'name'     => 'Kwayy html sitemap',
+			'slug'     => 'kwayy-html-sitemap',
 			'required' => false,
 		),
 		array(
@@ -90,21 +90,10 @@ function my_theme_register_required_plugins() {
 			'slug'     => 'redirection',
 			'required' => false,
 		),
-		array(
-			'name'     => 'Simple Sitemap',
-			'slug'     => 'simple-sitemap',
-			'required' => false,
-		),
+		
 			array(
 			'name'     => 'Simple custom-post-order',
 			'slug'     => 'simple-custom-post-order',
-			'required' => false,
-		),
-		
-		
-		array(
-			'name'     => 'Wp optimize',
-			'slug'     => 'wp-optimize',
 			'required' => false,
 		)
 	);
