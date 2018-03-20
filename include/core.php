@@ -33,17 +33,25 @@ function my_theme_activation() {
 add_theme_support( 'post-thumbnails' );
 /* Add wiget
    ========================================================================== */
-function aside_widget_init() {
-	register_sidebar( array(
-		'name'          => 'Aside widget',
-		'id'            => 'aside_widget',
-		'before_widget' => '<div class="widget_item">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h3>',
-		'after_title'   => '</h3>',
-	) );
+
+$reg_sidebars = array (
+    'page_sidebar'     => 'Page Sidebar',
+    'blog_sidebar'     => 'Blog Sidebar',
+    'footer_sidebar'   => 'Footer Area',
+);
+foreach ( $reg_sidebars as $id => $name ) {
+    register_sidebar(
+        array (
+            'name'          => __( $name ),
+            'id'            => $id,
+            'before_widget' => '<div class="widget cfx %2$s">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<mark class="widget-title">',
+            'after_title'   => '</mark>',
+        )
+    );
 }
-add_action( 'widgets_init', 'aside_widget_init' );
+
 /* Update wp-scss setings
    ========================================================================== */
 if ( class_exists( 'Wp_Scss_Settings' ) ) {
