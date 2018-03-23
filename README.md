@@ -1,68 +1,38 @@
 # Blank wordpress template
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vskochko/carcas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
-
-## Speed & security boost
-
-```
- - Clean up wp_head()
- - Remove wp version param from any enqueued scripts
-```
-
-## Theme setings
-
+#### THEME TWEAKS
 ```
 - Custom post type supports
-- Registered jQuery,  css and js file
-- Some options update after theme activation
-    * Permalink settings set to %postname% !!!!
-    * Uploads organize into month- and year-based folders
-    * Image default link type set to "none"
-    * For coments remove Email & Url fields
-- Add wiget area
-- In menu list removed ID
-- Classes for First & Last menu items
-- Add ie conditional html5 shim to header (only for old IE)
-- To BODY add "browser versions" class
-- Custom SEO title
-- Register Heder & Footer menus
-- Thumbnails theme support
-- Custom theme url
-- Kses Disabled
-- For Contact Form 7 deregister default css
-- For ACF activated option page
+- Code to register jQuery,  css and js file
+- Register multiple widgets
+- Add SVG in Media Uploader
+- Redirect to homepage from login logo
+- Set permalink structure to %postname% !!!!!!!!!
+- Add class to empty paragraph
+- Adding Page URL to the Pages in Admin Table
+- Update wp-scss setings
 ```
-
-## Wordpress admin panel setings
-
+#### Remove Unnecessary parts from Wordpress core
 ```
-- On dashboard remove some widgets
-- To add custom login logo put "login-logo.png" in img folder
-- Changing the logo link from wordpress.org to your site
-- Changing the alt text on the logo to show your site name
-- Add author info to admin footer area
-- Admin post/page color changed by status – draft, pending, future, private
-- For admin only:
-    * Color scheme "Midnight" set as default
-    * Add link to all settings menu
-- For users except sysadmin:
-    * Remove the wordpress update notification
+- Unnecessary Code from wp_head
+- Dashboard wigets
+- Default wigets
+- WordPress logo & pages from Admin bar
+- <p> and <br /> from Contact Form 7
 ```
-
-## Automatic Plugin Installation
-
+#### CUSTOM STYLE IN ADMIN PANEL
 ```
-- Contact Form 7
-- WP Migrate DB
-- BackWPup Free
-- AJAX Thumbnail Rebuild
-- WP-SCSS
-- WP No Category Base
-- Better WordPress Minify
-- Advanced Custom Fields PRO
+- Custom logo on login page
+- Change admin post/page color by status
+- Color scheme "Midnight" set as default
 ```
-
-
-
+#### CUSTOM FUNCTIONS
+```
+- Body class
+- WP Title
+- Short theme url
+- Get Image Size by ID
+- Button Shortcode
+```
 License: WTFPL License URI: [http://sam.zoy.org/wtfpl/](http://sam.zoy.org/wtfpl/)
-
 >  [Carcas starter theme](https://github.com/vskochko/carcas) <br />  [Skochko](https://www.facebook.com/skochko)  Львів 2018

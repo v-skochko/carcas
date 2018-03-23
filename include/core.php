@@ -1,10 +1,18 @@
 <?php
 /* ==========================================================================
-    THEME TWEAKS
-   ========================================================================== */
-/* Registered jQuery,  css and js file
-   ========================================================================== */
-function style_js() {
+THEME TWEAKS
+- Code to register jQuery,  css and js file
+- Register multiple widgets
+- Add SVG in Media Uploader
+- Redirect to homepage from login logo
+- Set permalink structure to %postname% !!!!!!!!!
+- Add class to empty paragraph
+- Adding Page URL to the Pages in Admin Table
+- Update wp-scss setings
+========================================================================== */
+/* Code to register jQuery,  css and js file
+========================================================================== */
+function carc_style_js() {
 	wp_deregister_style( 'contact-form-7' );
 	wp_deregister_style( 'wp-pagenavi' );
 	if ( ! is_admin() ) {
@@ -12,45 +20,90 @@ function style_js() {
 		wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js' );
 		wp_enqueue_script( 'jquery' );
 	};
-	// wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
+// wp_enqueue_script('googlemaps', '//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false', array(), '', FALSE);
 	wp_enqueue_script( 'libs', get_template_directory_uri() . '/js/lib.js', array( 'jquery' ), '1.0', true );
 	wp_enqueue_script( 'init', get_template_directory_uri() . '/js/init.js', array( 'jquery' ), '1.0', true );
 	wp_enqueue_style( 'main', get_template_directory_uri() . '/scss/main.css' );
 	wp_enqueue_style( 'plugins', get_template_directory_uri() . '/scss/components/100_lib.css' );
-	//wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css?uid='.md5(uniqid(rand(),1)));
+//wp_enqueue_style('style', get_template_directory_uri() . '/scss/main.css?uid='.md5(uniqid(rand(),1)));
 }
-add_action( 'wp_enqueue_scripts', 'style_js' );
-/* After_switch_theme
+
+add_action( 'wp_enqueue_scripts', 'carc_style_js' );
+
+/* Register multiple widgets
    ========================================================================== */
-add_action( 'after_switch_theme', 'my_theme_activation' );
-function my_theme_activation() {
+$reg_sidebars = array(
+	'page_sidebar'   => 'Page Sidebar',
+	'blog_sidebar'   => 'Blog Sidebar',
+	'footer_sidebar' => 'Footer Area',
+);
+foreach ( $reg_sidebars as $id => $name ) {
+	register_sidebar(
+		array(
+			'name'          => __( $name ),
+			'id'            => $id,
+			'before_widget' => '<div class="widget cfx %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<mark class="widget-title">',
+			'after_title'   => '</mark>',
+		)
+	);
+}
+
+/* Add SVG in Media Uploader
+   ========================================================================== */
+function wpa_mime_types( $mimes ) {
+	$mimes['svg'] = 'image/svg+xml';
+
+	return $mimes;
+}
+
+add_filter( 'upload_mimes', 'wpa_mime_types' );
+function wpa_fix_svg_thumb() {
+	echo '<style>td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {width: 100% !important;height: auto !important}</style>';
+}
+
+add_action( 'admin_head', 'wpa_fix_svg_thumb' );
+
+/* Redirect to homepage from login logo
+   ========================================================================== */
+add_filter( 'login_headerurl', 'custom_loginlogo_url' );
+function custom_loginlogo_url() {
+	return site_url();
+}
+
+/* Set permalink structure to %postname%
+   ========================================================================== */
+function carc_permalink_structure() {
 	//Set permalink settings
 	global $wp_rewrite;
 	$wp_rewrite->set_permalink_structure( '%postname%' );
 }
-/* Thumbnails theme support
-   ========================================================================== */
-add_theme_support( 'post-thumbnails' );
-/* Add wiget
-   ========================================================================== */
 
-$reg_sidebars = array (
-    'page_sidebar'     => 'Page Sidebar',
-    'blog_sidebar'     => 'Blog Sidebar',
-    'footer_sidebar'   => 'Footer Area',
-);
-foreach ( $reg_sidebars as $id => $name ) {
-    register_sidebar(
-        array (
-            'name'          => __( $name ),
-            'id'            => $id,
-            'before_widget' => '<div class="widget cfx %2$s">',
-            'after_widget'  => '</div>',
-            'before_title'  => '<mark class="widget-title">',
-            'after_title'   => '</mark>',
-        )
-    );
+add_action( 'after_switch_theme', 'carc_permalink_structure' );
+/* Add class to empty paragraph
+   ========================================================================== */
+function carc_empty_p( $content ) {
+	return str_replace( '<p>&nbsp;</p>', '<p class="empty_paragraph">&nbsp;</p>', $content );
 }
+
+add_filter( 'the_content', 'carc_empty_p', 99 );
+/* Adding Page URL to the Pages in Admin Table
+   ========================================================================== */
+function carc_url_column( $defaults ) {
+	$defaults['url'] = 'URL';
+
+	return $defaults;
+}
+
+function carc_add_url_column( $column_name, $post_id ) {
+	if ( $column_name == 'url' ) {
+		echo get_permalink( $post_id );
+	}
+}
+
+add_filter( 'manage_page_posts_columns', 'carc_url_column', 10 );
+add_action( 'manage_page_posts_custom_column', 'carc_add_url_column', 10, 2 );
 
 /* Update wp-scss setings
    ========================================================================== */
@@ -58,42 +111,35 @@ if ( class_exists( 'Wp_Scss_Settings' ) ) {
 	$wpscss = get_option( 'wpscss_options' );
 	if ( empty( $wpscss['css_dir'] ) && empty( $wpscss['scss_dir'] ) ) {
 		update_option( 'wpscss_options', array(
-			'css_dir'           => '/scss/',
-			'scss_dir'          => '/scss/',
-			'compiling_options' => 'scss_formatter_expanded'
+			'css_dir'  => '/scss/',
+			'scss_dir' => '/scss/',
+//			'compiling_options' => 'Leafo\ScssPhp\Formatter\Expanded'
 		) );
 	}
 }
 /* ==========================================================================
-/*
-/*
-Remove default wordpress function
-- Clean up wp_head()
-- Remove WP Generator Meta Tag
+Remove Unnecessary parts from Wordpress core
+- Unnecessary Code from wp_head
 - Remove wp version param from any enqueued scripts
-- Remove dashboard wigets
-- Remove default wigets
-- Hide the Admin Bar
-- For coments: remove Email & Url fields
-- Contact form 7 remove AUTOTOP
+- Dashboard wigets
+- Default wigets
+- WordPress logo & pages from Admin bar
+- <p> and <br /> from Contact Form 7
 ========================================================================== */
-/* clean_up_wp_head()
-========================================================================== */
-remove_action( 'wp_head', 'feed_links_extra', 3 );
-remove_action( 'wp_head', 'rsd_link' );
-remove_action( 'wp_head', 'wlwmanifest_link' );
+/* Remove Unnecessary Code from wp_head
+   ========================================================================== */
+remove_action( 'wp_head', 'rsd_link' ); // Really Simple Discovery
+remove_action( 'wp_head', 'wlwmanifest_link' ); // Windows Live Writer
+remove_action( 'wp_head', 'wp_generator' ); // WordPress Generator
+remove_action( 'wp_head', 'rel_canonical' ); // canonical tag meta
+// Post Relational Links
+remove_action( 'wp_head', 'start_post_rel_link' );
 remove_action( 'wp_head', 'index_rel_link' );
-remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
-remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
-remove_action( 'wp_head', 'wp_shortlink_wp_head' );
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head' );
-remove_action( 'wp_head', 'wp_generator' );
-remove_action( 'wp_head', 'rel_canonical' );
+remove_action( 'wp_head', 'adjacent_posts_rel_link' );
+// Emoji
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
-remove_action( 'admin_print_styles', 'print_emoji_styles' );
-function clean_up_wp_head() {
+function remove_json_api() {
 	// Remove the REST API lines from the HTML Header
 	remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
 	remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
@@ -107,32 +153,40 @@ function clean_up_wp_head() {
 	remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
 	// Remove oEmbed-specific JavaScript from the front-end and back-end.
 	remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+	// Remove all embeds rewrite rules.
+	// remove HTML meta tag
+	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
+	// remove HTTP header
+	remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
 }
-add_action( 'after_setup_theme', 'clean_up_wp_head' );
+
+add_action( 'after_setup_theme', 'remove_json_api' );
 /* Remove wp version param from any enqueued scripts
    ========================================================================== */
 function vc_remove_wp_ver_css_js( $src ) {
 	if ( strpos( $src, 'ver=' ) ) {
 		$src = remove_query_arg( 'ver', $src );
 	}
+
 	return $src;
 }
+
 add_filter( 'style_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'vc_remove_wp_ver_css_js', 9999 );
 /* Remove dashboard wigets
    ========================================================================== */
-remove_action( 'welcome_panel', 'wp_welcome_panel' );
-function rem_dash_widgets() {
+function remove_dash_widgets() {
 	remove_meta_box( 'dashboard_incoming_links', 'dashboard', 'normal' );
 	remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
 	remove_meta_box( 'dashboard_primary', 'dashboard', 'normal' );
 	remove_meta_box( 'dashboard_secondary', 'dashboard', 'normal' );
 	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'normal' );
 }
-add_action( 'admin_init', 'rem_dash_widgets' );
+
+add_action( 'admin_init', 'remove_dash_widgets' );
 /* Remove default wigets
    ========================================================================== */
-function cwwp_unregister_default_widgets() {
+function remove_default_widgets() {
 	unregister_widget( 'WP_Widget_Archives' );
 	unregister_widget( 'WP_Widget_Calendar' );
 	// unregister_widget( 'WP_Widget_Categories' );
@@ -147,21 +201,18 @@ function cwwp_unregister_default_widgets() {
 	unregister_widget( 'WP_Widget_Tag_Cloud' );
 	// unregister_widget( 'WP_Widget_Text' );
 }
-add_action( 'widgets_init', 'cwwp_unregister_default_widgets' );
-/* Remove dafaul class for menu
+
+add_action( 'widgets_init', 'remove_default_widgets' );
+/* Remove WordPress logo & pages from Admin bar
    ========================================================================== */
-add_filter( 'nav_menu_css_class', 'wpa_discard_menu_classes', 10, 2 );
-add_filter( 'nav_menu_item_id', '__return_false', 10 );
-function wpa_discard_menu_classes( $classes, $item ) {
-	$classes = array_filter(
-		$classes, create_function( '$class', 'return in_array( $class, array( "current-menu-item", "current-menu-parent", "menu-item-has-children" ) );' )
-	);
-	return array_merge(
-		$classes,
-		(array) get_post_meta( $item->ID, '_menu_item_classes', true )
-	);
+function annointed_admin_bar_remove() {
+	global $wp_admin_bar;
+	$wp_admin_bar->remove_menu( 'wp-logo' );
 }
-/* Contact form 7 remove AUTOTOP
+
+add_action( 'wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0 );
+remove_action( 'welcome_panel', 'wp_welcome_panel' );
+/*   Remove <p> and <br /> from Contact Form 7
    ========================================================================== */
 if ( defined( 'WPCF7_VERSION' ) ) {
 	function maybe_reset_autop( $form ) {
@@ -172,16 +223,16 @@ if ( defined( 'WPCF7_VERSION' ) ) {
 		$form_instance->set_properties( array(
 			'form' => $form
 		) );
+
 		return $form;
 	}
+
 	add_filter( 'wpcf7_form_elements', 'maybe_reset_autop' );
 }
 /* ==========================================================================
-CUSTOM STYLE
+CUSTOM STYLE IN ADMIN PANEL
 - Custom logo on login page
-- Redirect to homepage from login logo
-- Custom css in admin panel
-- Custom info to admin footer area
+- Change admin post/page color by status
 - Color scheme "Midnight" set as default
 ========================================================================== */
 /* Custom logo on login page
@@ -190,12 +241,8 @@ add_action( 'login_head', 'namespace_login_style' );
 function namespace_login_style() {
 	echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
 }
-/* Redirect to homepage from login logo
-   ========================================================================== */
-add_filter( 'login_headerurl', 'custom_loginlogo_url' );
-function custom_loginlogo_url() {
-	return site_url();
-}
+
+
 /* Change admin post/page color by status – draft, pending, future, private
    ========================================================================== */
 function c_css() { ?>
@@ -222,6 +269,7 @@ function c_css() { ?>
     </style>
 	<?php
 }
+
 add_action( 'admin_footer', 'c_css' );
 /* Color scheme "Midnight" set as default
    ========================================================================== */
@@ -230,15 +278,18 @@ function midnight_theme( $color_scheme ) {
 	if ( 'classic' == $color_scheme || 'fresh' == $color_scheme ) {
 		$color_scheme = 'midnight';
 	}
+
 	return $color_scheme;
 }
+
 add_filter( 'get_user_option_admin_color', 'midnight_theme', 5 );
 /* ==========================================================================
-CUSTOM FUNCTION
+CUSTOM FUNCTIONS
 - Body class
-- Custom WP Title
-- Custom theme url
-- ACF option page
+- WP Title
+- Short theme url
+- Get Image Size by ID
+- Button Shortcode
 ========================================================================== */
 /* Body class
    ========================================================================== */
@@ -252,9 +303,6 @@ function wpa_body_classes( $classes ) {
 			$tn        = str_replace( ".php", "", $tmp );
 			$classes[] = $tn;
 		}
-//        if (is_active_sidebar('sidebar')) {
-//            $classes[] = 'with_sidebar';
-//        }
 		foreach ( $classes as $k => $v ) {
 			if (
 				$v == 'page-template' ||
@@ -331,10 +379,12 @@ function wpa_body_classes( $classes ) {
 	if ( defined( 'QTX_VERSION' ) ) {
 		$classes[] = 'qtrans-' . qtranxf_getLanguage();
 	}
+
 	return $classes;
 }
+
 add_filter( 'body_class', 'wpa_body_classes' );
-/* Custom WP Title
+/*  WP Title
    ========================================================================== */
 function wpa_title() {
 	global $post;
@@ -354,30 +404,22 @@ function wpa_title() {
 		wp_title();
 	}
 }
-/* Custom theme url
+
+/* Short theme url
    ========================================================================== */
 function theme() {
 	return get_stylesheet_directory_uri();
 }
-/* Allow SVG through WordPress Media Uploader
-   ========================================================================== */
-function wpa_mime_types( $mimes ) {
-	$mimes['svg'] = 'image/svg+xml';
-	return $mimes;
-}
-add_filter( 'upload_mimes', 'wpa_mime_types' );
-function wpa_fix_svg_thumb() {
-	echo '<style>td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail {width: 100% !important;height: auto !important}</style>';
-}
-add_action( 'admin_head', 'wpa_fix_svg_thumb' );
-/* Get Image Size -  echo  image_src( get_field('top_background') , 'medium', true );
+
+/* Get Image Size by ID -  echo  image_src( get_field('top_background') , 'medium', true );
    ========================================================================== */
 function image_src( $id, $size = 'full', $background_image = false, $height = false ) {
 	if ( $image = wp_get_attachment_image_src( $id, $size, true ) ) {
 		return $background_image ? 'background-image: url(\'' . $image[0] . '\');' . ( $height ? 'height:' . $image[2] . 'px' : '' ) : $image[0];
 	}
 }
-/* [button link="#"  class="alignleft"]Align left button[/button]
+
+/* Button Shortcode  [button link="#"  class="alignleft"]Align left button[/button]
    ========================================================================== */
 function sButton( $atts, $content = null ) {
 	extract( shortcode_atts( array(
@@ -387,31 +429,5 @@ function sButton( $atts, $content = null ) {
 
 	return '<a class="btn ' . $class . '" href="' . $link . '">' . do_shortcode( $content ) . '</a>';
 }
+
 add_shortcode( 'button', 'sButton' );
-/* Remove WordPress logo & pages from Admin bar
-   ========================================================================== */
-function annointed_admin_bar_remove() {
-	global $wp_admin_bar;
-	$wp_admin_bar->remove_menu( 'wp-logo' );
-}
-add_action( 'wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0 );
-remove_action( 'welcome_panel', 'wp_welcome_panel' );
-/* Adding Page URL to the Pages Admin Table
-   ========================================================================== */
-function my_custom_column( $defaults ) {
-	$defaults['url'] = 'URL';
-	return $defaults;
-}
-function add_my_custom_column( $column_name, $post_id ) {
-	if ( $column_name == 'url' ) {
-		echo get_permalink( $post_id );
-	}
-}
-add_filter( 'manage_page_posts_columns', 'my_custom_column', 10 );
-add_action( 'manage_page_posts_custom_column', 'add_my_custom_column', 10, 2 );
-/* Add class to empty paragraph
-   ========================================================================== */
-function user_content_replace( $content ) {
-	return str_replace( '<p>&nbsp;</p>', '<p class="empty_paragraph">&nbsp;</p>', $content );
-}
-add_filter( 'the_content', 'user_content_replace', 99 );

@@ -15,8 +15,8 @@ require_once 'include/acf/acf-settings.php';
 //update image  size
 // add_image_size( '2048x2048_cropped', '2048', '2048', true );
 
-update_option( 'thumbnail_size_w', 350 );
-update_option( 'thumbnail_size_h', 350 );
+update_option( 'thumbnail_size_w', 400 );
+update_option( 'thumbnail_size_h', 400 );
 update_option( 'medium_size_w', 800 );
 update_option( 'medium_size_h', 800 );
 update_option( 'large_size_w', 2048 );
