@@ -1,6 +1,6 @@
 # Blank wordpress template
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/vskochko/carcas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge)
-#### THEME TWEAKS
+#### Theme Tweaks
 ```
 - Custom post type supports
 - Code to register jQuery,  css and js file
@@ -20,13 +20,13 @@
 - WordPress logo & pages from Admin bar
 - <p> and <br /> from Contact Form 7
 ```
-#### CUSTOM STYLE IN ADMIN PANEL
+#### Custom style in admin panel
 ```
 - Custom logo on login page
 - Change admin post/page color by status
 - Color scheme "Midnight" set as default
 ```
-#### CUSTOM FUNCTIONS
+#### Custom functions
 ```
 - Body class
 - WP Title
