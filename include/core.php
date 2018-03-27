@@ -1,7 +1,7 @@
 <?php
 /* ==========================================================================
 THEME TWEAKS
-- Code to register jQuery,  css and js file
+- Code to register jQuery,  css and js files
 - Register multiple widgets
 - Add SVG in Media Uploader
 - Redirect to homepage from login logo
@@ -10,7 +10,7 @@ THEME TWEAKS
 - Adding Page URL to the Pages in Admin Table
 - Update wp-scss setings
 ========================================================================== */
-/* Code to register jQuery,  css and js file
+/* Code to register jQuery,  css and js files
 ========================================================================== */
 function carc_style_js() {
 	wp_deregister_style( 'contact-form-7' );
