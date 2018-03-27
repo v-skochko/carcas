@@ -3,7 +3,7 @@
 #### Theme Tweaks
 ```
 - Custom post type supports
-- Code to register jQuery,  css and js file
+- Code to register jQuery,  css and js files
 - Register multiple widgets
 - Add SVG in Media Uploader
 - Redirect to homepage from login logo
