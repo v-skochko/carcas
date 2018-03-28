@@ -42,7 +42,8 @@ function getCookie(cname) {
 }
 
 
-    $('a[href*="#"]')
+ if(!$('body').hasClass('single-product')) {
+   $('a[href*="#"]')
     // Remove links that don't actually link to anything
         .not('[href="#"]')
         .not('[href="#0"]')
@@ -77,6 +78,7 @@ function getCookie(cname) {
                 }
             }
         });
+}
 
 
 // @formatter:on
