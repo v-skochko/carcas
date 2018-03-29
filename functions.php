@@ -15,12 +15,15 @@ require_once 'include/acf/acf-settings.php';
 //update image  size
 // add_image_size( '2048x2048_cropped', '2048', '2048', true );
 
-update_option( 'thumbnail_size_w', 400 );
-update_option( 'thumbnail_size_h', 400 );
-update_option( 'medium_size_w', 800 );
-update_option( 'medium_size_h', 800 );
-update_option( 'large_size_w', 2048 );
-update_option( 'large_size_h', 2048 );
+function set_default_image_sizes() {
+	update_option( 'thumbnail_size_w', 400 );
+	update_option( 'thumbnail_size_h', 400 );
+	update_option( 'medium_size_w', 800 );
+	update_option( 'medium_size_h', 800 );
+	update_option( 'large_size_w', 2048 );
+	update_option( 'large_size_h', 2048 );
+}
+add_action( 'after_switch_theme', 'set_default_image_sizes' );
 
 
 /* REGISTER MENUS
