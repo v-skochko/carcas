@@ -5,6 +5,7 @@
 - Custom post type supports
 - Code to register jQuery,  css and js files
 - Register multiple widgets
+- Add support for post thumbnails
 - Add SVG in Media Uploader
 - Redirect to homepage from login logo
 - Set permalink structure to %postname% !!!!!!!!!

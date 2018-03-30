@@ -13,7 +13,6 @@
     css3animate-it
     https://raw.githubusercontent.com/Tusko/WP-Anatomy/master/js/libs/css3animate-it.js
   ========================================================================== */
-
 // @formatter:off
 /*clickOff*/$.fn.clickOff = function (callback, selfDestroy) {var clicked = false;var parent = this;var destroy = selfDestroy || true;parent.click(function () {clicked = true;});$(document).click(function (event) {if (!clicked) {callback(parent, event);}if (destroy) {}clicked = false;});};
 function setCookie (name, value, exdays, path, domain, secure) {
@@ -25,7 +24,6 @@ function setCookie (name, value, exdays, path, domain, secure) {
     ((domain) ? "; domain=" + domain : "") +
     ((secure) ? "; secure" : "");
 }
-
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -40,8 +38,6 @@ function getCookie(cname) {
     }
     return "";
 }
-
-
  if(!$('body').hasClass('single-product')) {
    $('a[href*="#"]')
     // Remove links that don't actually link to anything
@@ -79,10 +75,7 @@ function getCookie(cname) {
             }
         });
 }
-
-
 // @formatter:on
-
 $(document).ready(function () {
     "use strict";
     $(".mobile_nav").find('.menu-item-has-children>a').after('<i class="i-down sub-anchor"></i>');

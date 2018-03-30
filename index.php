@@ -24,12 +24,7 @@ if ( is_home() ) {
                 <div class="post_item flex ai_stretch">
                     <a class="post_thumbnail bg_center col-3 sm-12 sm-bottom" href="<?php the_permalink(); ?>"
                        style="background-image:url(
-					   <?php if ( has_post_thumbnail() ) {
-						   the_post_thumbnail_url( 'large' );
-					   } else {
-						   echo get_stylesheet_directory_uri();
-						   echo '/img/holder.png';
-					   } ?>); ">
+					   <?php echo post_img( 'thumbnail' ); ?>); ">
                     </a>
                     <div class="post_content col-9 sm-12">
                         <a title="Read more" class="post_title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>

@@ -23,6 +23,7 @@ function set_default_image_sizes() {
 	update_option( 'large_size_w', 2048 );
 	update_option( 'large_size_h', 2048 );
 }
+
 add_action( 'after_switch_theme', 'set_default_image_sizes' );
 
 
