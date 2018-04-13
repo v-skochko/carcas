@@ -26,8 +26,6 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 	) );
 }
 
-
-add_action( 'admin_init', 'wpa__prelicense', 99 );
 /*
 /* ACF Repeater Styles
    ========================================================================== */
