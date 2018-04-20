@@ -151,9 +151,9 @@ i {
     background-color: #eaeaea;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: $a;
+    background: darken($a, 5%);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: darken($a, 5%);
+    background: darken($a, 10%);
   }
 }
