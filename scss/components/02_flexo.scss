@@ -6,10 +6,14 @@
   &.justify_around {
     @include justify-content(space-around);
   }
-  &.justify_center {
+  &.justify_center, .v_center {
     @include justify-content(center);
   }
-  &.align_center {
+  &.align_center, .h_center {
+    @include align-items(center);
+  }
+  .vh_center {
+    @include justify-content(center);
     @include align-items(center);
   }
 }
