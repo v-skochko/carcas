@@ -93,7 +93,7 @@ $(document).ready(function () {
         $(this).toggleClass('i-up').next().slideToggle("fast");
     });
     /*Contact form7 - close validation error on click*/
-    $(this).on('hover', '.wpcf7-not-valid-tip', function () {
+    $(this).on('mouseenter', '.wpcf7-not-valid-tip', function () {
        // $(this).prev().trigger('focus');
         $(this).fadeOut(500, function () {
             $(this).remove();
