@@ -10,7 +10,8 @@ $(document).ready(function () {
 //         duration: 350,
 //         easing: 'ease-in-out-quart',
 //         delay: 0,
-//         disable: 'mobile'
+//         disable: 'mobile',
+    // anchor: 'top-bottom'
 //     });
     
 });
