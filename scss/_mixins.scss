@@ -306,3 +306,23 @@
     transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
   }
 }
+
+
+@function strip-units($value) {
+  @return ($value / ($value * 0 + 1));
+}
+@mixin boxGrid($columnNumber, $spacingPercent) {
+  $contentPercent: 100%;
+  $sideMargin: ($spacingPercent/2);
+  $marginInt: strip-units($sideMargin);
+  @include justify-content(flex-start);
+  @include flex-flow(wrap);
+  @include transition();
+  @include flexbox();
+  margin: #{0} -#{$sideMargin};
+  width: $contentPercent + $spacingPercent;
+  > * {
+    width: ($contentPercent/$columnNumber) - $spacingPercent;
+    margin: 0 #{$sideMargin} ($marginInt + ($marginInt / $columnNumber) * 1em)
+  }
+}
