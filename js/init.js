@@ -4,7 +4,15 @@ $(document).ready(function () {
     // $('select').selectric({
     //     disableOnMobile: false
     // });
-    //$('.datepicker').pickadate()
+    //$('.datepicker').pickadate();
+//      AOS.init({
+//         offset: 0,
+//         duration: 350,
+//         easing: 'ease-in-out-quart',
+//         delay: 0,
+//         disable: 'mobile'
+//     });
+    
 });
 /* end ready*/
 $(window).on('load', function () {
