@@ -1,12 +1,4 @@
 <?php get_header();
-$s = 0;
-if ( get_query_var( 'paged' ) ) {
-	$paged = get_query_var( 'paged' );
-} elseif ( get_query_var( 'page' ) ) {
-	$paged = get_query_var( 'page' );
-} else {
-	$paged = 1;
-}
 if ( is_home() ) {
 	$queryname = get_the_title( BLOG_ID );
 } else {
