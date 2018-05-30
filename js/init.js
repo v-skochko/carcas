@@ -1,9 +1,9 @@
 $ = jQuery;
 $(document).ready(function () {
     "use strict";
-    // $('select').selectric({
-    //     disableOnMobile: false
-    // });
+   $('body:not( .woocommerce )select').selectric({
+        disableOnMobile: false
+    });
     //$('.datepicker').pickadate();
 //      AOS.init({
 //         offset: 0,
