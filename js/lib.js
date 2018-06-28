@@ -10,8 +10,8 @@
     https://raw.githubusercontent.com/amsul/pickadate.js/master/lib/compressed/picker.date.js
     Malihu custom scrollbar
     https://raw.githubusercontent.com/malihu/malihu-custom-scrollbar-plugin/master/js/minified/jquery.mCustomScrollbar.min.js
-    css3animate-it
-    https://raw.githubusercontent.com/Tusko/WP-Anatomy/master/js/libs/css3animate-it.js
+    AOS
+   https://raw.githubusercontent.com/michalsnik/aos/master/dist/aos.js
   ========================================================================== */
 // @formatter:off
 /*clickOff*/$.fn.clickOff = function (callback, selfDestroy) {var clicked = false;var parent = this;var destroy = selfDestroy || true;parent.click(function () {clicked = true;});$(document).click(function (event) {if (!clicked) {callback(parent, event);}if (destroy) {}clicked = false;});};
