@@ -41,8 +41,8 @@
     @media (max-width: $row) {
       @content;
     }
-  } @else if $size == notebook {
-    @media (max-width: $notebook) {
+  } @else if $size == mobile {
+    @media (max-width: $mobile) {
       @content;
     }
   } @else {
