@@ -1,7 +1,7 @@
 .desctop_hide {
   display: none;
 }
-@include for-size($mobile) {
+@include for-size(mobile) {
   .mobile_hide {
     display: none;
   }
