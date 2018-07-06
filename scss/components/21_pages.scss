@@ -42,6 +42,12 @@ header {
       display: inline-block;
     }
     > li {
+          &:last-child {
+        > .sub-menu {
+          right: 0;
+        }
+      }
+       
       > a {
         font-size: 14px;
         padding: 5px 20px;
