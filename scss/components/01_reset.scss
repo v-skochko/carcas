@@ -142,7 +142,7 @@ b {
 i {
   font-style: normal;
 }
-@media screen and (min-width: $row) {
+@media screen and (min-width: $mobile) {
   ::-webkit-scrollbar {
     width: 13px;
   }
