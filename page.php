@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div id="content" class="row page_id_<?php the_ID() ?>">
+<div id="content" class="row">
     <main>
         <h1 class="page-title"><?php the_title(); ?></h1>
         <div class="wysiwyg">

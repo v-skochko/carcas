@@ -4,6 +4,7 @@ THEME TWEAKS
 - Code to register jQuery,  css and js files
 - Register multiple widgets
 - Add support for post thumbnails
+- Set default image sizes
 - Add SVG in Media Uploader
 - Redirect to homepage from login logo
 - Set permalink structure to %postname% !!!!!!!!!
@@ -55,6 +56,19 @@ foreach ( $reg_sidebars as $id => $name ) {
    ========================================================================== */
 
 add_theme_support( 'post-thumbnails' );
+
+/* Set default image sizes
+   ========================================================================== */
+function set_default_image_sizes() {
+	update_option( 'thumbnail_size_w', 400 );
+	update_option( 'thumbnail_size_h', 400 );
+	update_option( 'medium_size_w', 800 );
+	update_option( 'medium_size_h', 800 );
+	update_option( 'large_size_w', 2048 );
+	update_option( 'large_size_h', 2048 );
+}
+
+add_action( 'after_switch_theme', 'set_default_image_sizes' );
 
 
 /* Add SVG in Media Uploader

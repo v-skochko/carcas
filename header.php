@@ -14,7 +14,7 @@
 	<?php /* end favicon */ ?>
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?> >
+<body <?php body_class(); ?> id="page_id_<?php the_ID() ?>">
 <div id="wrap">
     <header class="header">
         <div class="row flex align_center ">

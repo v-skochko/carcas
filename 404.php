@@ -1,4 +1,19 @@
 <?php get_header(); ?>
+<div id="content" class="row cfx ">
+    <main>
+        <article>
+            <div class="cog_container">
+                <div class="cog_overlay">
+                </div>
+                <span class="i-cog cog_icon cog_top"></span>
+                <span class="i-cog cog_icon cog_left"></span>
+                <span class="i-cog cog_icon cog_right"></span>
+            </div>
+            <h1><i>404</i> Page Not Found</h1>
+            <p>The article you were looking for was not found, but maybe try looking again!</p>
+        </article>
+    </main>
+</div>
 <style>
     .error404 main {
         margin: 0 0 40px;
@@ -99,22 +114,4 @@
         }
     }
 </style>
-
-
-<div id="content" class="row cfx ">
-    <main>
-        <article>
-            <div class="cog_container">
-                <div class="cog_overlay">
-                </div>
-                <span class="i-cog cog_icon cog_top"></span>
-                <span class="i-cog cog_icon cog_left"></span>
-                <span class="i-cog cog_icon cog_right"></span>
-            </div>
-            <h1><i>404</i> Page Not Found</h1>
-            <p>The article you were looking for was not found, but maybe try looking again!</p>
-        </article>
-    </main>
-</div>
-
 <?php get_footer(); ?>

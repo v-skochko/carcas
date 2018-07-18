@@ -6,12 +6,12 @@
     Selectric source
     https://raw.githubusercontent.com/lcdsantos/jQuery-Selectric/master/public/jquery.selectric.min.js
     Date Picker
-    https://github.com/amsul/pickadate.js/edit/master/lib/compressed/picker.js
+    https://raw.githubusercontent.com/amsul/pickadate.js/master/lib/compressed/picker.js
     https://raw.githubusercontent.com/amsul/pickadate.js/master/lib/compressed/picker.date.js
     Malihu custom scrollbar
     https://raw.githubusercontent.com/malihu/malihu-custom-scrollbar-plugin/master/js/minified/jquery.mCustomScrollbar.min.js
     AOS
-   https://raw.githubusercontent.com/michalsnik/aos/master/dist/aos.js
+    https://raw.githubusercontent.com/michalsnik/aos/master/dist/aos.js
   ========================================================================== */
 // @formatter:off
 /*clickOff*/$.fn.clickOff = function (callback, selfDestroy) {var clicked = false;var parent = this;var destroy = selfDestroy || true;parent.click(function () {clicked = true;});$(document).click(function (event) {if (!clicked) {callback(parent, event);}if (destroy) {}clicked = false;});};
@@ -94,7 +94,7 @@ $(document).ready(function () {
     });
     /*Contact form7 - close validation error on click*/
     $(this).on('mouseenter', '.wpcf7-not-valid-tip', function () {
-       // $(this).prev().trigger('focus');
+        // $(this).prev().trigger('focus');
         $(this).fadeOut(500, function () {
             $(this).remove();
         });

@@ -3,16 +3,22 @@
     "title": "Global: Options",
     "fields": [
         {
-            "return_format": "url",
-            "preview_size": "medium",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
+            "key": "field_5b4f2aa356475",
+            "label": "Header",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
             "key": "field_588d0872946f7",
             "label": "Logo",
             "name": "logo",
@@ -24,9 +30,47 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "return_format": "url",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
+            "key": "field_5b4f2aab56476",
+            "label": "Footer",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_588d05b705d81",
+            "label": "Social icons",
+            "name": "social_icons",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
             "layouts": [
                 {
                     "key": "588d05c76222f",
@@ -35,8 +79,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "https:\/\/www.facebook.com\/",
-                            "placeholder": "",
                             "key": "field_588d060605d82",
                             "label": "Url",
                             "name": "url",
@@ -48,7 +90,9 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            }
+                            },
+                            "default_value": "https:\/\/www.facebook.com\/",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -61,8 +105,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "https:\/\/twitter.com\/",
-                            "placeholder": "",
                             "key": "field_588d06fd48381",
                             "label": "Url",
                             "name": "url",
@@ -74,7 +116,9 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            }
+                            },
+                            "default_value": "https:\/\/twitter.com\/",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -87,8 +131,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "https:\/\/www.instagram.com\/",
-                            "placeholder": "",
                             "key": "field_588d0763d6e54",
                             "label": "Url",
                             "name": "url",
@@ -100,7 +142,9 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            }
+                            },
+                            "default_value": "https:\/\/www.instagram.com\/",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -113,8 +157,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "https:\/\/www.linkedin.com\/",
-                            "placeholder": "",
                             "key": "field_588d077cd6e56",
                             "label": "Url",
                             "name": "url",
@@ -126,7 +168,9 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            }
+                            },
+                            "default_value": "https:\/\/www.linkedin.com\/",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -139,8 +183,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "https:\/\/plus.google.com\/",
-                            "placeholder": "",
                             "key": "field_588d0789d6e58",
                             "label": "Url",
                             "name": "url",
@@ -152,7 +194,9 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            }
+                            },
+                            "default_value": "https:\/\/plus.google.com\/",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -165,8 +209,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "https:\/\/www.youtube.com\/",
-                            "placeholder": "",
                             "key": "field_588d07b3d6e5c",
                             "label": "Url",
                             "name": "url",
@@ -178,7 +220,9 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            }
+                            },
+                            "default_value": "https:\/\/www.youtube.com\/",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -191,8 +235,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "https:\/\/pinterest.com\/",
-                            "placeholder": "",
                             "key": "field_588d07a7d6e5a",
                             "label": "Url",
                             "name": "url",
@@ -204,7 +246,9 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            }
+                            },
+                            "default_value": "https:\/\/pinterest.com\/",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -217,8 +261,6 @@
                     "display": "block",
                     "sub_fields": [
                         {
-                            "default_value": "https:\/\/vimeo.com\/",
-                            "placeholder": "",
                             "key": "field_588db38b88773",
                             "label": "Url",
                             "name": "url",
@@ -230,7 +272,9 @@
                                 "width": "",
                                 "class": "",
                                 "id": ""
-                            }
+                            },
+                            "default_value": "https:\/\/vimeo.com\/",
+                            "placeholder": ""
                         }
                     ],
                     "min": "",
@@ -239,26 +283,9 @@
             ],
             "min": "",
             "max": "",
-            "button_label": "Add social link",
-            "key": "field_588d05b705d81",
-            "label": "Social icons",
-            "name": "social_icons",
-            "type": "flexible_content",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            }
+            "button_label": "Add social link"
         },
         {
-            "default_value": "",
-            "new_lines": "br",
-            "maxlength": "",
-            "placeholder": "",
-            "rows": 3,
             "key": "field_588d088b946f8",
             "label": "Copyright",
             "name": "copyright",
@@ -270,7 +297,12 @@
                 "width": "",
                 "class": "",
                 "id": ""
-            }
+            },
+            "default_value": "",
+            "new_lines": "br",
+            "maxlength": "",
+            "placeholder": "",
+            "rows": 3
         }
     ],
     "location": [
@@ -278,7 +310,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "theme-general-settings"
+                "value": "acf-options-theme-settings"
             }
         ]
     ],
@@ -290,5 +322,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1485705414
+    "modified": 1531914971
 }
