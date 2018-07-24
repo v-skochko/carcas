@@ -12,7 +12,7 @@ global $post; ?>
 				if ( have_posts() ) : while ( have_posts() ) : the_post();
 					the_content();
 				endwhile; endif;
-				get_template_part( 'components/flexible', 'global' );
+				 get_template_part( 'components/global', 'flexible' );
 				?>
             </div>
         </div>
