@@ -6,6 +6,7 @@ global $post; ?>
             <div class="cpt_cat_item <?php echo $taxonomy->slug ?>">
                 <h1 class="title"><?php echo $taxonomy->name ?></h1>
 				<?php $args = array(
+			//'post_type' => 'persons',
 					'tax_query' => array(
 						array(
 							'taxonomy' => $taxonomy->taxonomy,
