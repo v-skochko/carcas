@@ -14,16 +14,34 @@
     https://raw.githubusercontent.com/michalsnik/aos/master/dist/aos.js
   ========================================================================== */
 // @formatter:off
-/*clickOff*/$.fn.clickOff = function (callback, selfDestroy) {var clicked = false;var parent = this;var destroy = selfDestroy || true;parent.click(function () {clicked = true;});$(document).click(function (event) {if (!clicked) {callback(parent, event);}if (destroy) {}clicked = false;});};
-function setCookie (name, value, exdays, path, domain, secure) {
+/*clickOff*/
+$.fn.clickOff = function (callback, selfDestroy) {
+    var clicked = false;
+    var parent = this;
+    var destroy = selfDestroy || true;
+    parent.click(function () {
+        clicked = true;
+    });
+    $(document).click(function (event) {
+        if (!clicked) {
+            callback(parent, event);
+        }
+        if (destroy) {
+        }
+        clicked = false;
+    });
+};
+
+function setCookie(name, value, exdays, path, domain, secure) {
     var d = new Date();
     expires = d.toUTCString(d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)));
     document.cookie = name + "=" + escape(value) +
-    ((expires) ? "; expires=" + expires : "") +
-    ((path) ? "; path=" + path : "") +
-    ((domain) ? "; domain=" + domain : "") +
-    ((secure) ? "; secure" : "");
+        ((expires) ? "; expires=" + expires : "") +
+        ((path) ? "; path=" + path : "") +
+        ((domain) ? "; domain=" + domain : "") +
+        ((secure) ? "; secure" : "");
 }
+
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -38,12 +56,13 @@ function getCookie(cname) {
     }
     return "";
 }
- if(!$('body').hasClass('single-product')) {
-   $('a[href*="#"]')
+
+if (!$('body').hasClass('single-product')) {
+    $('a[href*="#"]')
     // Remove links that don't actually link to anything
         .not('[href="#"]')
         .not('[href="#0"]')
-        .click(function(event) {
+        .click(function (event) {
             // On-page links
             if (
                 location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
@@ -59,7 +78,7 @@ function getCookie(cname) {
                     event.preventDefault();
                     $('html, body').animate({
                         scrollTop: target.offset().top
-                    }, 500, function() {
+                    }, 500, function () {
                         // Callback after animation
                         // Must change focus!
                         var $target = $(target);
@@ -67,9 +86,10 @@ function getCookie(cname) {
                         if ($target.is(":focus")) { // Checking if the target was focused
                             return false;
                         } else {
-                            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+                            $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
                             $target.focus(); // Set focus again
-                        };
+                        }
+                        ;
                     });
                 }
             }

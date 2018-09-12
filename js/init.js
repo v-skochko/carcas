@@ -1,19 +1,21 @@
 $ = jQuery;
 $(document).ready(function () {
     "use strict";
-   $('body:not( .woocommerce )select').selectric({
-        disableOnMobile: false
-    });
-    //$('.datepicker').pickadate();
-//      AOS.init({
-//         offset: 0,
-//         duration: 350,
-//         easing: 'ease-in-out-quart',
-//         delay: 0,
-//         disable: 'mobile',
-    // anchor: 'top-bottom'
-//     });
-    
+
+
+    // $('body:not( .woocommerce )select').selectric({
+    //     disableOnMobile: false
+    // });
+    // $('.datepicker').pickadate();
+    // AOS.init({
+    //     offset: 0,
+    //     duration: 350,
+    //     easing: 'ease-in-out-quart',
+    //     delay: 0,
+    //     disable: 'mobile',
+    //     anchor: 'top-bottom'
+    // });
+
 });
 /* end ready*/
 $(window).on('load', function () {
