@@ -73,7 +73,7 @@
     @include transform (translate(-50%, 0));
   } @else if ($vertical){
     top:50%;
-    @include transform (translate(0, 50%));
+    @include transform (translate(0, -50%));
   }
 }
 @mixin shadow($depth){
