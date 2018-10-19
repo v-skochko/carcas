@@ -12,6 +12,7 @@ $(document).ready(function () {
     //     duration: 350,
     //     easing: 'ease-in-out-quart',
     //     delay: 0,
+    //     once: true,
     //     disable: 'mobile',
     //     anchor: 'top-bottom'
     // });
