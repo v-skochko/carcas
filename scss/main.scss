@@ -1,32 +1,32 @@
 @import '_mixins';
 //web page width
 
-$row: 1240px;
-$mobile: 1100px;
-$md: 960px;
-$sm: 768px;
-$xs: 480px;
+$row:1240px;
+$mobile:1100px;
+$md:960px;
+$sm:768px;
+$xs:480px;
 //main color
-$a: #3b5993;
+$a:#3b5993;
 //second color
-$b: #f1b820;
+$b:#f1b820;
 //link color
-$link: $a;
+$link:$a;
 // buttons color
-$btn: #3b5993;
-$border: #cccccc;
-$text: #333333;
-$menu: $a;
+$btn:#3b5993;
+$border:#cccccc;
+$text:#333333;
+$menu:$a;
 //social media color
-$facebook: #3b5993;
-$twitter: #55acee;
-$instagram: #181818;
-$linkedin: #0177b5;
-$google_plus: #d94733;
-$pinterest: #bd1e23;
-$youtube: #f80000;
+$facebook:#3b5993;
+$twitter:#55acee;
+$instagram:#181818;
+$linkedin:#0177b5;
+$google_plus:#d94733;
+$pinterest:#bd1e23;
+$youtube:#f80000;
 // Defaul fonts
-$font: 'font_regular', Helvetica, Arial, sans-serif;
+$font:'font_regular', Helvetica, Arial, sans-serif;
 //default italic font
 /* FONTS
    ========================================================================== */

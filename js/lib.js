@@ -31,7 +31,6 @@ $.fn.clickOff = function (callback, selfDestroy) {
         clicked = false;
     });
 };
-
 function setCookie(name, value, exdays, path, domain, secure) {
     var d = new Date();
     expires = d.toUTCString(d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)));
@@ -41,7 +40,6 @@ function setCookie(name, value, exdays, path, domain, secure) {
         ((domain) ? "; domain=" + domain : "") +
         ((secure) ? "; secure" : "");
 }
-
 function getCookie(cname) {
     var name = cname + "=";
     var ca = document.cookie.split(';');
@@ -56,7 +54,6 @@ function getCookie(cname) {
     }
     return "";
 }
-
 if (!$('body').hasClass('single-product')) {
     $('a[href*="#"]')
     // Remove links that don't actually link to anything
@@ -96,6 +93,20 @@ if (!$('body').hasClass('single-product')) {
         });
 }
 // @formatter:on
+var accordionHeader = $('.accordionHeader'),
+    accordionContent = $('.accordionContent');
+$(accordionHeader).click(function () {
+    if ($(this).hasClass('is-active')) {
+        $(this).next(accordionContent).slideUp('fast');
+        $(this).removeClass('is-active');
+    }
+    else {
+        $(accordionHeader).not(this).next(accordionContent).slideUp('fast');
+        $(accordionHeader).not(this).removeClass('is-active');
+        $(this).next(accordionContent).slideDown('fast');
+        $(this).addClass('is-active');
+    }
+});
 $(document).ready(function () {
     "use strict";
     $(".mobile_nav").find('.menu-item-has-children>a').after('<i class="i-down sub-anchor"></i>');

@@ -11,9 +11,10 @@
     Malihu custom scrollbar
     https://raw.githubusercontent.com/malihu/malihu-custom-scrollbar-plugin/master/jquery.mCustomScrollbar.min.css
     AOS
-    https://raw.githubusercontent.com/michalsnik/aos/master/dist/aos.js
+    https://raw.githubusercontent.com/michalsnik/aos/next/src/sass/_animations.scss
+    https://raw.githubusercontent.com/michalsnik/aos/next/src/sass/_core.scss
+    https://raw.githubusercontent.com/michalsnik/aos/next/src/sass/_easing.scss
   ========================================================================== */
-
 [data-icon]:before{
 	font-family:'i' !important;
 	font-weight:normal !important;

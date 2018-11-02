@@ -26,6 +26,7 @@
             // return
             return map;
         }
+
         function add_marker($marker, map) {
             // var
             var latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
@@ -50,6 +51,7 @@
                 });
             }
         }
+
         function center_map(map) {
             // vars
             var bounds = new google.maps.LatLngBounds();
@@ -69,6 +71,7 @@
                 map.fitBounds(bounds);
             }
         }
+
         var map = null;
         $(document).ready(function () {
             $('.acf-map').each(function () {
