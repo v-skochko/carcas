@@ -13,7 +13,7 @@ require_once 'include/acf/acf-settings.php';
 // require_once('include/cpt.php');
 
 //update image  size
-//add_image_size('size_580_700', 580, 700, array('center', 'top'));
+//add_image_size('size_580x700', 580, 700, array('center', 'top'));
 
 /* REGISTER MENUS
    ========================================================================== */
