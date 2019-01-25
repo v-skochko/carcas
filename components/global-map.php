@@ -65,8 +65,7 @@
                 // set center of map
                 map.setCenter(bounds.getCenter());
                 map.setZoom(16);
-            }
-            else {
+            } else {
                 // fit to bounds
                 map.fitBounds(bounds);
             }

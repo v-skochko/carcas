@@ -1,33 +1,24 @@
 @import '_mixins';
-//web page width
-
-$row:1240px;
-$mobile:1100px;
-$md:960px;
-$sm:768px;
-$xs:480px;
+//breakpoints
+$row: 1240px;
+$mobile: 1100px;
+$md: 960px;
+$sm: 768px;
+$xs: 480px;
 //main color
-$a:#3b5993;
-//second color
-$b:#f1b820;
-//link color
-$link:$a;
-// buttons color
-$btn:#3b5993;
-$border:#cccccc;
-$text:#333333;
-$menu:$a;
+$a: #3b5993;
+$b: #f1b820;
+$btn: #3b5993;
 //social media color
-$facebook:#3b5993;
-$twitter:#55acee;
-$instagram:#181818;
-$linkedin:#0177b5;
-$google_plus:#d94733;
-$pinterest:#bd1e23;
-$youtube:#f80000;
+$facebook: #3b5993;
+$twitter: #55acee;
+$instagram: #181818;
+$linkedin: #0177b5;
+$google_plus: #d94733;
+$pinterest: #bd1e23;
+$youtube: #f80000;
 // Defaul fonts
-$font:'font_regular', Helvetica, Arial, sans-serif;
-//default italic font
+$font: 'font_regular', Helvetica, Arial, sans-serif;
 /* FONTS
    ========================================================================== */
 //custom icon fonts
@@ -41,5 +32,3 @@ $font:'font_regular', Helvetica, Arial, sans-serif;
 @import 'components/20_global';
 // style for custom page
 @import 'components/21_pages';
-// responsive
-@import 'components/99_responsive';
