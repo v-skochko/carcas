@@ -1,4 +1,4 @@
-@import '_mixins';
+@import '0_mixins';
 //breakpoints
 $row: 1240px;
 $mobile: 1100px;
@@ -23,10 +23,10 @@ $font: 'font_regular', Helvetica, Arial, sans-serif;
 @include declare-font('i', 'i', 400);
 /* MAIN  FILES
    ========================================================================== */
-@import '_reboot';
+@import '1_reboot';
 //flexbox
-@import '_grid';
+@import '2_grid';
 // global elements (buttons, etc..)
-@import '_global';
+@import '3_global';
 // style for custom page
-@import '_pages';
+@import '4_pages';
