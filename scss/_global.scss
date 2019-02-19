@@ -25,24 +25,24 @@
   min-height: 100%;
 }
 
-
 .btn {
   font-size: 15px;
   font-weight: normal;
   line-height: 1;
   position: relative;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   display: inline-block;
   padding: 10px 20px;
   cursor: pointer;
   text-align: center;
   text-decoration: none !important;
   text-transform: uppercase;
-  color: #ffffff;
+  color: #fff;
   border: none;
+  border-radius: 0;
   outline: 0;
-  background: $btn;
+  background: $b;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   @include transition(all, .4s, ease);
   @include for-size(sm) {
@@ -51,15 +51,14 @@
   }
 
   &:hover {
-    background: darken($btn, 8%);
+    background: darken($b, 8%);
     @include shadow(2);
   }
 
   &:active {
-    background: darken($btn, 15%);
+    background: darken($b, 15%);
   }
 }
-
 
 .c {
   font-size: 0;
@@ -103,7 +102,6 @@
   }
 }
 
-
 /* ==========================================================================
    WORDPRESS DEFAULT CLASSES
    ========================================================================== */
@@ -126,7 +124,7 @@
   margin: 10px;
   padding-top: 4px;
   text-align: center;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 3px;
   background-color: #f3f3f3;
 }
@@ -191,7 +189,7 @@
     left: 0;
     text-align: center;
     color: #ff5f5f;
-    background: #eeeeee;
+    background: #eee;
   }
 
   .wpcf7-response-output {
@@ -221,18 +219,18 @@
 }
 
 div.wpcf7 .ajax-loader {
-  visibility: hidden;
   display: inline-block;
-  background-image: url(../img/ajax-loader.gif);
+  visibility: hidden;
   width: 16px;
   height: 16px;
-  border: none;
   margin: 0 0 0 4px;
-  vertical-align: middle;
-  background-color: #ffffff;
-  padding: 5px;
-  border-radius: 50%;
   margin-left: 10px;
+  padding: 5px;
+  vertical-align: middle;
+  border: none;
+  border-radius: 50%;
+  background-color: #fff;
+  background-image: url(../img/ajax-loader.gif);
 }
 
 div.wpcf7 .ajax-loader.is-active {
@@ -298,7 +296,7 @@ div.wpcf7 .ajax-loader.is-active {
     width: 40px;
     height: 40px;
     margin: 0 2px;
-    color: #ffffff;
+    color: #fff;
     border-radius: 50%;
     @include transform (translate3d(0, 0, 0));
     @include transition(all, .5s, cubic-bezier(.165, .84, .44, 1));
@@ -308,7 +306,7 @@ div.wpcf7 .ajax-loader.is-active {
 
     &:before {
       font-size: 20px;
-      color: #ffffff;
+      color: #fff;
       @include center();
     }
 
@@ -340,11 +338,6 @@ div.wpcf7 .ajax-loader.is-active {
       }
     }
 
-    &.i-c-gp {
-      &:hover {
-        background: $google_plus;
-      }
-    }
 
     &.i-c-pr {
       &:hover {
@@ -410,7 +403,7 @@ div.wpcf7 .ajax-loader.is-active {
 
   .current,
   a:hover {
-    color: #ffffff;
+    color: #fff;
     border-color: $a;
     background: $a;
   }

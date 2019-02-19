@@ -8,13 +8,11 @@ $xs: 480px;
 //main color
 $a: #3b5993;
 $b: #f1b820;
-$btn: #3b5993;
 //social media color
 $facebook: #3b5993;
 $twitter: #55acee;
 $instagram: #181818;
 $linkedin: #0177b5;
-$google_plus: #d94733;
 $pinterest: #bd1e23;
 $youtube: #f80000;
 // Defaul fonts
@@ -25,10 +23,10 @@ $font: 'font_regular', Helvetica, Arial, sans-serif;
 @include declare-font('i', 'i', 400);
 /* MAIN  FILES
    ========================================================================== */
-@import 'components/01_reset';
+@import '_reboot';
 //flexbox
-@import 'components/02_flexo';
+@import '_grid';
 // global elements (buttons, etc..)
-@import 'components/20_global';
+@import '_global';
 // style for custom page
-@import 'components/21_pages';
+@import '_pages';

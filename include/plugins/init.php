@@ -19,6 +19,10 @@ function my_theme_register_required_plugins()
             'name' => 'Wp-scss',
             'slug' => 'wp-scss',
             'required' => true,
+        ), array(
+            'name' => 'Classic editor',
+            'slug' => 'classic-editors',
+            'required' => false,
         ),
         array(
             'name' => 'WooCommerce',
