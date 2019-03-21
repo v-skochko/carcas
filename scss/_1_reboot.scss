@@ -1,6 +1,5 @@
 * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
@@ -24,7 +23,7 @@ body {
   color: #000;
   @include flexbox();
   @include flex-direction (column);
-
+  box-sizing: border-box;
   ::-moz-selection {
     color: #fff;
     background: $a;
