@@ -13,10 +13,8 @@
 }
 
 #content {
-  padding: 40px 0;
-  @include for-size(row) {
-    padding: 20px 0;
-  }
+  padding: 4rem 0;
+
 }
 
 #wrap {
@@ -26,12 +24,12 @@
 }
 
 .btn {
-  font-size: 15px;
+  font-size: 1.5rem;
   font-weight: normal;
   line-height: 1;
   position: relative;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
   text-decoration: none !important;
@@ -41,14 +39,8 @@
   border-radius: 0;
   outline: 0;
   background: $b;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   @include transition(all, .4s, ease);
-  @include for-size(sm) {
-    font-size: 14px;
-    padding: 10px 15px;
-  }
 
   &:hover {
     background: darken($b, 8%);
@@ -57,6 +49,18 @@
 
   &:active {
     background: darken($b, 15%);
+  }
+
+  &--red {
+    background: #c00;
+
+    &:hover {
+      background: darken(#c00, 8%);
+    }
+
+    &:active {
+      background: darken(#c00, 15%);
+    }
   }
 }
 
@@ -90,15 +94,15 @@
 }
 
 .desctop_hide {
-  display: none;
+  display: none !important;
 }
 
 @include for-size(mobile) {
   .mobile_hide {
-    display: none;
+    display: none !important;
   }
   .desctop_hide {
-    display: block;
+    display: block !important;
   }
 }
 
@@ -147,23 +151,43 @@
    ========================================================================== */
 .wysiwyg {
   h1 {
-    font-size: 20px;
+    font-size: 4rem;
     line-height: 1;
     margin-bottom: 10px;
     padding-bottom: 5px;
     text-transform: uppercase;
   }
 
+  h2 {
+    font-size: 3.5rem;
+  }
+
+  h3 {
+    font-size: 2.8rem;
+  }
+
+  h4 {
+    font-size: 2.4rem;
+  }
+
+  h5 {
+    font-size: 2.2rem;
+  }
+
+  h6 {
+    font-size: 2rem;
+  }
+
   p {
-    font-size: 15px;
+    font-size: 1.6rem;
     line-height: 1.4;
-    padding-bottom: 20px;
+    padding-bottom: 2rem;
     word-break: break-word;
   }
 
   ul {
-    margin-left: 30px;
-    padding-bottom: 20px;
+    margin-left: 3rem;
+    padding-bottom: 2rem;
 
     li {
       line-height: 1.4;
@@ -350,61 +374,5 @@ div.wpcf7 .ajax-loader.is-active {
         background: $youtube;
       }
     }
-  }
-}
-
-/* ==========================================================================
-   index_style
-   ========================================================================== */
-.index_style {
-  .post_item {
-    margin-bottom: 20px;
-  }
-
-  .post_title {
-    font-size: 18px;
-    display: block;
-    padding-bottom: 15px;
-
-    &:hover {
-      color: $b;
-    }
-  }
-
-  .post_thumbnail {
-    min-height: 160px;
-    will-change: opacity;
-    @include shadow(1);
-
-    &:hover {
-      opacity: .9;
-      @include shadow(2);
-    }
-  }
-}
-
-.wp-pagenavi {
-  font-size: 0;
-  margin-top: 20px;
-  padding-top: 20px;
-  text-align: center;
-  border-top: 1px solid #000;
-
-  a,
-  span {
-    font-size: 14px;
-    margin: 0 3px;
-    padding: 3px 5px;
-  }
-
-  a {
-    border: 1px solid #000;
-  }
-
-  .current,
-  a:hover {
-    color: #fff;
-    border-color: $a;
-    background: $a;
   }
 }

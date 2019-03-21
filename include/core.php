@@ -276,7 +276,7 @@ CUSTOM STYLE IN ADMIN PANEL
 add_action('login_head', 'namespace_login_style');
 function namespace_login_style()
 {
-    echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/login-logo.png ) !important;height: 135px!important; }</style>';
+    echo '<style>.login h1 a { background-image: url( ' . get_template_directory_uri() . '/img/favicon/android-chrome-48x48.png ) !important;height: 84px!important; background-size: auto!important;background-position: center!important; }</style>';
 }
 
 

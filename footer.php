@@ -1,5 +1,5 @@
 </div>
-<footer>
+<footer class="footer">
     <div class="row">
         <?php if (get_field('copyright', 'options')): ?>
             <div class="copyright">
