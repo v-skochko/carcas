@@ -99,8 +99,7 @@ $(accordionHeader).click(function () {
     if ($(this).hasClass('is-active')) {
         $(this).next(accordionContent).slideUp('fast');
         $(this).removeClass('is-active');
-    }
-    else {
+    } else {
         $(accordionHeader).not(this).next(accordionContent).slideUp('fast');
         $(accordionHeader).not(this).removeClass('is-active');
         $(this).next(accordionContent).slideDown('fast');

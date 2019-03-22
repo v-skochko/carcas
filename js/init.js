@@ -3,26 +3,6 @@ $(document).ready(function () {
     "use strict";
 
 
-    
-//        $('[data-fancybox]').fancybox({
-//         transitionEffect: "tube",
-//         thumbs: {
-//             autoStart: true, // Display thumbnails on opening
-//             hideOnClose: false, // Hide thumbnail grid when closing animation starts
-//             parentEl: ".fancybox-container", // Container is injected into this element
-//             axis: "y" // Vertical (y) or horizontal (x) scrolling
-//         },
-//         buttons: [
-//             "zoom",
-//             "share",
-//             "slideShow",
-//             "fullScreen",
-//             "download",
-//             "thumbs",
-//             "close"
-//         ],
-//     });
-    
     // $('body:not( .woocommerce )select').selectric({
     //     disableOnMobile: false
     // });
@@ -40,7 +20,7 @@ $(document).ready(function () {
 });
 /* end ready*/
 $(window).on('load', function () {
-    //swiper_example
+    // swiper_example
     // var swiper_example = new Swiper('.swiper_example', {
     //     loop: true,
     //     speed: 1000,
@@ -59,6 +39,12 @@ $(window).on('load', function () {
     //     on: {
     //         init: function () {
     //             $('.swiper_example').addClass('slider_loaded');
+    //         }
+    //     },
+    //     breakpoints: {
+    //         640: {
+    //             slidesPerView: 2,
+    //             spaceBetween: 20
     //         }
     //     }
     // });
