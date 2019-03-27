@@ -1,0 +1,148 @@
+(function () {
+    tinymce.PluginManager.add('mybutton', function (editor, url) {
+        editor.addButton('mybutton', {
+            text: tinyMCE_object.button_name,
+            icon: false,
+            onclick: function () {
+                editor.windowManager.open({
+                    title: tinyMCE_object.button_title,
+                    body: [
+                        {
+                            type: 'textbox',
+                            name: 'button_link',
+                            label: 'URL',
+                            tooltip: '',
+                            value: '#'
+                        },
+                        {
+                            type: 'textbox',
+                            name: 'button_text',
+                            label: 'Texn on button',
+                            tooltip: '',
+                            value: 'Apply'
+                        },
+                        {
+                            type: 'listbox',
+                            name: 'button_target',
+                            label: 'Target',
+                            values: [
+                                {text: 'Open in same window', value: '_self'},
+                                {text: 'Open in new window', value: '_blank'},
+                            ],
+                            value: '_self' // Sets the default
+                        },
+                        {
+                            type: 'listbox',
+                            name: 'button_align',
+                            label: 'Button align',
+                            values: [
+                                {text: 'Left', value: 'alignleft'},
+                                {text: 'Center', value: 'aligncenter'},
+                                {text: 'Right', value: 'alignright'}
+                            ],
+                            value: 'btn_left' // Sets the default
+                        },
+
+                        {
+                            type: 'textbox',
+                            name: 'button_class',
+                            label: 'Add custom clases to button',
+                            tooltip: '',
+                            value: ''
+                        },
+                    ],
+                    onsubmit: function (e) {
+                        editor.insertContent('[button_new  class="' + e.data.button_align + " " + e.data.button_class + ' " target="' + e.data.button_target + '"  text="' + e.data.button_text + '"  link="' + e.data.button_link + '"  ]');
+                    }
+                });
+            },
+        });
+    });
+})();
+
+
+
+
+/* Button Shortcode  [button link="#"  class="alignleft"]Align left button[/button]
+   ========================================================================== */
+function sButton_new($atts, $content = null)
+{
+    extract(shortcode_atts(array(
+        'link' => '#',
+        'text' => 'button text',
+        'target' => '_self',
+        'align' => 'aligncenter',
+        'class' => 'none',
+    ), $atts));
+    return '
+    <div style="width: 100%; display:block;" class="cfx"><a target="' . $target . '" class="' . $class . ' btn ' . $class . '" href="' . $link . '">' . $text . '</a></div> 
+    ';
+}
+
+add_shortcode('button_new', 'sButton_new');
+
+
+
+
+
+
+add_action('after_setup_theme', 'mytheme_theme_setup');
+
+if (!function_exists('mytheme_theme_setup')) {
+    function mytheme_theme_setup()
+    {
+
+        add_action('init', 'mytheme_buttons');
+
+    }
+}
+
+/********* TinyMCE Buttons ***********/
+if (!function_exists('mytheme_buttons')) {
+    function mytheme_buttons()
+    {
+        if (!current_user_can('edit_posts') && !current_user_can('edit_pages')) {
+            return;
+        }
+
+        if (get_user_option('rich_editing') !== 'true') {
+            return;
+        }
+
+        add_filter('mce_external_plugins', 'mytheme_add_buttons');
+        add_filter('mce_buttons', 'mytheme_register_buttons');
+    }
+}
+
+if (!function_exists('mytheme_add_buttons')) {
+    function mytheme_add_buttons($plugin_array)
+    {
+        $plugin_array['mybutton'] = get_template_directory_uri() . '/js/tinymce_buttons.js';
+        return $plugin_array;
+    }
+}
+
+if (!function_exists('mytheme_register_buttons')) {
+    function mytheme_register_buttons($buttons)
+    {
+        array_push($buttons, 'mybutton');
+        return $buttons;
+    }
+}
+
+add_action('after_wp_tiny_mce', 'mytheme_tinymce_extra_vars');
+
+if (!function_exists('mytheme_tinymce_extra_vars')) {
+    function mytheme_tinymce_extra_vars()
+    { ?>
+        <script type="text/javascript">
+            var tinyMCE_object = <?php echo json_encode(
+                    array(
+                        'button_name' => esc_html__('My button name', 'mythemeslug'),
+                        'button_title' => esc_html__('The title of the pop up box', 'mythemeslug'),
+                    )
+                );
+                ?>;
+        </script><?php
+    }
+}
