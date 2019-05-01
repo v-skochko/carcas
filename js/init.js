@@ -3,7 +3,7 @@ $(document).ready(function () {
     "use strict";
 
 
-    // $('body:not( .woocommerce )select').selectric({
+    // $('body:not( .woocommerce ) select').selectric({
     //     disableOnMobile: false
     // });
     // $('.datepicker').pickadate();
