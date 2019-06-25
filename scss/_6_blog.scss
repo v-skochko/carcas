@@ -5,39 +5,47 @@
   .post_item {
     margin-bottom: 20px;
   }
+
   .post_title {
     font-size: 18px;
     display: block;
     padding-bottom: 15px;
+
     &:hover {
       color: $b;
     }
   }
+
   .post_thumbnail {
     min-height: 160px;
     will-change: opacity;
     @include shadow(1);
+
     &:hover {
       opacity: .9;
       @include shadow(2);
     }
   }
 }
+
 .wp-pagenavi {
   font-size: 0;
   margin-top: 20px;
   padding-top: 20px;
   text-align: center;
   border-top: 1px solid #000;
+
   a,
   span {
     font-size: 14px;
     margin: 0 3px;
     padding: 3px 5px;
   }
+
   a {
     border: 1px solid #000;
   }
+
   .current,
   a:hover {
     color: #fff;

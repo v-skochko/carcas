@@ -486,9 +486,11 @@ function post_img($size)
         echo get_stylesheet_directory_uri() . '/img/holder.png';
     }
 }
+
 /*ajax_url
    ========================================================================== */
 add_action('wp_head', 'ajax_url');
-function ajax_url() {
+function ajax_url()
+{
     echo '<script type="text/javascript">var ajax_url="' . admin_url('admin-ajax.php') . '";</script>';
 }

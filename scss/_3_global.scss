@@ -24,12 +24,12 @@
 }
 
 .btn {
-  font-size: 1.5rem;
+  font-size: 16px;
   font-weight: normal;
   line-height: 1;
   position: relative;
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 10px 20px;
   cursor: pointer;
   text-align: center;
   text-decoration: none !important;
@@ -151,23 +151,22 @@
    ========================================================================== */
 .wysiwyg {
   h1 {
-    font-size: 4rem;
-    line-height: 1;
+    font-size: 48px;
+    line-height: 1.2;
     margin-bottom: 10px;
-    padding-bottom: 5px;
-    text-transform: uppercase;
+
   }
 
   h2 {
-    font-size: 3.5rem;
+    font-size: 36px;
   }
 
   h3 {
-    font-size: 2.8rem;
+    font-size: 28px;
   }
 
   h4 {
-    font-size: 2.4rem;
+    font-size: 24px;
   }
 
   h5 {
@@ -179,9 +178,9 @@
   }
 
   p {
-    font-size: 1.6rem;
+    font-size: 1.6px;
     line-height: 1.4;
-    padding-bottom: 2rem;
+    padding-bottom: 20px;
     word-break: break-word;
   }
 
@@ -254,7 +253,7 @@ div.wpcf7 .ajax-loader {
   border: none;
   border-radius: 50%;
   background-color: #fff;
-  background-image: url(../img/ajax-loader.gif);
+  background-image: url(../../img/ajax-loader.gif);
 }
 
 div.wpcf7 .ajax-loader.is-active {
@@ -310,9 +309,6 @@ div.wpcf7 .ajax-loader.is-active {
 .s_link {
   font-size: 0;
   display: inline-block;
-  width: auto;
-  cursor: pointer;
-  text-align: center;
 
   a {
     position: relative;
