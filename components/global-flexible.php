@@ -12,7 +12,8 @@
                     <?php the_sub_field('simple_wysiwyg_content'); ?>
                 </div>
 
-            <?php /* other_group */
+            <?php/* **** other_group
+               ========================================================================== */
             elseif (get_row_layout() == 'other_group'): ?>
                 <?php the_sub_field('other_group_content'); ?>
             <?php endif;
