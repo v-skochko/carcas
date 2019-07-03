@@ -30,6 +30,7 @@ function register_cpt()
         'args' => array('orderby' => 'term_order'),
         'query_var' => true,
         'show_ui' => true,
+        'show_admin_column' => true,
         'rewrite' => true,
     );
     register_taxonomy('taxcpt', 'cpt', $taxarr);
