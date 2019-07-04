@@ -1,4 +1,4 @@
-<div class="flex wysiwyg">
+<div class="flexible">
     <?php
     if (is_post_type_archive()) {
         $isPostType = is_post_type_archive(get_queried_object()->rewrite['slug']) ? 'cpt_' . get_queried_object()->rewrite['slug'] : false;
