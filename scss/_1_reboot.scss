@@ -125,6 +125,12 @@ input[type='number'] {
   -moz-appearance: textfield;
 }
 
+input[type='submit'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
